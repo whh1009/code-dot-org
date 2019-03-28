@@ -51,6 +51,7 @@ mysql_defaults: &mysql_defaults
     username: <%= writer.user || 'root' %>
     password: <%= writer.password || '' %>
     host: <%= writer.host || 'localhost' %>
+    port: <%= writer.port || 3306 %>
     database: <%= writer.path.sub(%r{^/},"") || "dashboard_#{Rails.env}" %>
   <% if reader && reader.host != writer.host %>
     # When there is a separate read-only database configured, do NOT
@@ -63,6 +64,7 @@ mysql_defaults: &mysql_defaults
    - username: <%= reader.user %>
      password: <%= reader.password %>
      host: <%= reader.host %>
+     port: <%= reader.port || 3306 %>
      database: <%= reader.path.sub(%r{^/},"") %>
   <% end %>
 
@@ -89,6 +91,7 @@ test:
   username: <%= writer.user || 'root' %>
   password: <%= writer.password || '' %>
   host: <%= writer.host || 'localhost' %>
+  port: <%= writer.port || 3306 %>
   pool: <%= ENV['CI'] ? 20 : 5 %>
   database: dashboard_test<%= ENV['TEST_ENV_NUMBER'] %>
   connect_timeout: 2

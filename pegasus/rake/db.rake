@@ -21,6 +21,7 @@ def execute_db_statement(db, statement)
     'mysql',
     "--user=#{db.user}",
     "--host=#{db.host}",
+    "--port=#{db.port}",
   ]
   command << "--execute=\"#{statement}\""
   command << "--password=#{db.password}" unless db.password.nil?
