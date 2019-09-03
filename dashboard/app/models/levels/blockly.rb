@@ -8,7 +8,7 @@
 #  created_at            :datetime
 #  updated_at            :datetime
 #  level_num             :string(255)
-#  ideal_level_source_id :integer
+#  ideal_level_source_id :integer          unsigned
 #  user_id               :integer
 #  properties            :text(65535)
 #  type                  :string(255)
@@ -539,8 +539,8 @@ class Blockly < Level
   end
 
   # Clear 'is_project_level' from cloned levels
-  def clone_with_name(name)
-    level = super(name)
+  def clone_with_name(name, editor_experiment: nil)
+    level = super(name, editor_experiment: editor_experiment)
     level.update!(is_project_level: false)
     level
   end

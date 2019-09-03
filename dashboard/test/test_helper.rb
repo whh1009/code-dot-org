@@ -9,11 +9,11 @@ Minitest.load_plugins
 Minitest.extensions.delete('rails')
 Minitest.extensions.unshift('rails')
 
-if ENV['COVERAGE'] || ENV['CIRCLECI'] # set this environment variable when running tests if you want to see test coverage
+if ENV['COVERAGE'] || ENV['CIRCLECI'] || ENV['DRONE'] # set this environment variable when running tests if you want to see test coverage
   require 'simplecov'
   SimpleCov.start :rails
   SimpleCov.root(File.expand_path(File.join(File.dirname(__FILE__), '../../')))
-  if ENV['CIRCLECI']
+  if ENV['CIRCLECI'] || ENV['DRONE']
     require 'codecov'
     SimpleCov.formatter = SimpleCov::Formatter::Codecov
   end
@@ -617,21 +617,6 @@ end
 
 def json_response
   JSON.parse @response.body
-end
-
-# Increase the 2-second hardcoded start timeout for FakeSQS::TestIntegration to 30 seconds.
-# With the original timeout we were getting periodic "FakeSQS didn't start in time" errors.
-# See https://github.com/iain/fake_sqs/blob/master/lib/fake_sqs/test_integration.rb#L89
-module FakeSQS
-  module TestIntegrationExtensions
-    def wait_until_up(deadline = Time.now + 30)
-      super(deadline)
-    end
-  end
-
-  class TestIntegration
-    prepend TestIntegrationExtensions
-  end
 end
 
 # helper method for mailers to test whether urls in an email are partial paths

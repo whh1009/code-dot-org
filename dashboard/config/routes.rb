@@ -17,7 +17,6 @@ Dashboard::Application.routes.draw do
 
   get '/terms-and-privacy', to: 'home#terms_and_privacy'
   get '/dashboardapi/terms-and-privacy', to: "home#terms_and_privacy"
-  get '/dashboardapi/teacher-announcements', to: "home#teacher_announcements"
   get '/dashboardapi/hoc-courses-teacher-guides', to: "home#hoc_courses_teacher_guides"
   get '/dashboardapi/hoc-courses-challenge', to: "home#hoc_courses_challenge"
 
@@ -232,6 +231,14 @@ Dashboard::Application.routes.draw do
 
   post 'level_assets/upload', to: 'level_assets#upload'
 
+  resources :level_starter_assets, only: [:show], param: 'level_name' do
+    member do
+      get '/:filename', to: 'level_starter_assets#file'
+      post '', to: 'level_starter_assets#upload'
+      delete '/:filename', to: 'level_starter_assets#destroy'
+    end
+  end
+
   resources :scripts, path: '/s/' do
     # /s/xxx/reset
     get 'reset', to: 'script_levels#reset'
@@ -412,6 +419,7 @@ Dashboard::Application.routes.draw do
       get 'workshop_organizer_survey_report_for_course/:course', action: :index, controller: 'workshop_organizer_survey_report'
       delete 'enrollments/:enrollment_code', action: 'cancel', controller: 'workshop_enrollments'
       post 'enrollment/:enrollment_id/scholarship_info', action: 'update_scholarship_info', controller: 'workshop_enrollments'
+      post 'enrollments/move', action: 'move', controller: 'workshop_enrollments'
 
       get :teacher_applications, to: 'teacher_applications#index'
       post :teacher_applications, to: 'teacher_applications#create'
@@ -506,10 +514,6 @@ Dashboard::Application.routes.draw do
     get 'workshop_enrollment/:code', action: 'show', controller: 'workshop_enrollment'
     get 'workshop_enrollment/:code/thanks', action: 'thanks', controller: 'workshop_enrollment'
     get 'workshop_enrollment/:code/cancel', action: 'cancel', controller: 'workshop_enrollment'
-
-    get 'workshop_materials/:enrollment_code', action: 'new', controller: 'workshop_material_orders'
-    post 'workshop_materials/:enrollment_code', action: 'create', controller: 'workshop_material_orders'
-    get 'workshop_materials', action: 'admin_index', controller: 'workshop_material_orders'
 
     get 'pre_workshop_survey/:enrollment_code', action: 'new', controller: 'pre_workshop_survey', as: 'new_pre_workshop_survey'
     get 'teachercon_survey/:enrollment_code', action: 'new', controller: 'teachercon_survey', as: 'new_teachercon_survey'

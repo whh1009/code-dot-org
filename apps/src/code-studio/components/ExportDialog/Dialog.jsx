@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import BaseDialog from '../../../templates/BaseDialog';
 import AbuseError from '../AbuseError';
 import color from '../../../util/color';
+import {PLATFORM_ANDROID, DEFAULT_PLATFORM} from '../../../util/exporter';
 import {hideExportDialog} from '../exportDialogRedux';
 import i18n from '@cdo/locale';
 import {SignInState} from '../../progressRedux';
@@ -12,8 +13,9 @@ import project from '../../initApp/project';
 import commonStyles from './styles';
 import IntroPage from './IntroPage';
 import PlatformPage from './PlatformPage';
-// import IconPage from './IconPage';
-import PublishPage from './PublishPage';
+import IconPage from './IconPage';
+import PublishAndroidPage from './PublishAndroidPage';
+import PublishIOSPage from './PublishIOSPage';
 import GeneratingPage from './GeneratingPage';
 
 const APK_BUILD_STATUS_CHECK_PERIOD = 60000;
@@ -124,7 +126,8 @@ class ExportDialog extends React.Component {
   };
 
   state = {
-    screen: 'intro'
+    screen: 'intro',
+    platform: DEFAULT_PLATFORM
   };
 
   componentDidUpdate(prevProps) {
@@ -214,8 +217,10 @@ class ExportDialog extends React.Component {
       exportError: null,
       expoUri: undefined,
       expoSnackId: undefined,
+      iconFileUrl: undefined,
       iconUri: undefined,
       md5PublishSavedSources: undefined,
+      platform: DEFAULT_PLATFORM,
       splashImageUri: undefined,
       apkUri: undefined,
       generatingApk: false,
@@ -228,22 +233,26 @@ class ExportDialog extends React.Component {
     this.props.onClose();
   };
 
-  onInstallExpoIOS = () => {
-    window.open(
-      'https://itunes.apple.com/app/apple-store/id982107779',
-      '_blank'
-    );
+  onIconSelected = iconFileUrl => {
+    this.setState({
+      iconFileUrl
+    });
   };
 
-  onInstallExpoAndroid = () => {
-    window.open(
-      'https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www',
-      '_blank'
-    );
+  onPlatformChanged = platform => {
+    this.setState({
+      platform
+    });
   };
 
   async publishExpoExport() {
-    const {expoUri, expoSnackId, iconUri, splashImageUri} = this.state;
+    const {
+      expoUri,
+      expoSnackId,
+      iconFileUrl,
+      iconUri,
+      splashImageUri
+    } = this.state;
     if (expoUri) {
       // We have already have exported to Expo
       return {
@@ -260,7 +269,8 @@ class ExportDialog extends React.Component {
     });
     try {
       const exportResult = await exportApp({
-        mode: 'expoPublish'
+        mode: 'expoPublish',
+        iconFileUrl
       });
       const {exporting} = this.state;
       if (!exporting) {
@@ -335,6 +345,16 @@ class ExportDialog extends React.Component {
         apkBuildId: null
       });
     }
+  }
+
+  visitExpoSite() {
+    const {expoSnackId} = this.state;
+    if (!expoSnackId) {
+      return;
+    }
+    // TODO: use new URL format once snack-web has been updated for this flow
+    // TODO: pass iconUri and splashImageUri to expo.io
+    window.open(`https://snack.expo.io/${expoSnackId}`, '_blank');
   }
 
   checkForApkBuild(apkBuildId, expoSnackId) {
@@ -436,25 +456,33 @@ class ExportDialog extends React.Component {
   }
 
   onActionButton = () => {
-    const {screen} = this.state;
+    const {screen, platform} = this.state;
 
     switch (screen) {
       case 'intro':
         this.setState({screen: 'platform'});
         break;
       case 'platform':
-        this.setState({screen: 'publish'});
+        this.setState({screen: 'icon'});
         break;
-      // this.setState({screen: 'icon'});
-      // break;
-      // case 'icon':
-      //   this.setState({screen: 'publish'});
-      //   break;
-      case 'publish':
+      case 'icon':
+        this.setState({
+          screen:
+            platform === PLATFORM_ANDROID ? 'publishAndroid' : 'publishIOS'
+        });
+        break;
+      case 'publishAndroid':
         this.generateApkAsNeeded();
         this.setState({screen: 'generating'});
         break;
+      case 'publishIOS':
+        this.publishExpoExport();
+        this.setState({screen: 'generating'});
+        break;
       case 'generating':
+        if (this.isPublishingForIOSWithoutError()) {
+          this.visitExpoSite();
+        }
         this.close();
         break;
       default:
@@ -463,7 +491,7 @@ class ExportDialog extends React.Component {
   };
 
   onBackButton = () => {
-    const {screen} = this.state;
+    const {platform, screen} = this.state;
 
     switch (screen) {
       case 'intro':
@@ -471,12 +499,18 @@ class ExportDialog extends React.Component {
       case 'platform':
         this.setState({screen: 'intro'});
         break;
-      // case 'icon':
-      case 'publish':
+      case 'icon':
         this.setState({screen: 'platform'});
         break;
+      case 'publishAndroid':
+      case 'publishIOS':
+        this.setState({screen: 'icon'});
+        break;
       case 'generating':
-        this.setState({screen: 'publish'});
+        this.setState({
+          screen:
+            platform === PLATFORM_ANDROID ? 'publishAndroid' : 'publishIOS'
+        });
         break;
       default:
         throw new Error(`ExportDialog: Unexpected screen: ${screen}`);
@@ -495,25 +529,36 @@ class ExportDialog extends React.Component {
   };
 
   renderMainContent() {
-    const {screen} = this.state;
+    const {screen, iconFileUrl, platform} = this.state;
 
     switch (screen) {
       case 'intro':
         return <IntroPage />;
       case 'platform':
-        return <PlatformPage />;
-      // case 'icon':
-      //   return (
-      //     <IconPage />
-      //   );
-      case 'publish':
-        return <PublishPage />;
+        return (
+          <PlatformPage
+            platform={platform}
+            onPlatformChanged={this.onPlatformChanged}
+          />
+        );
+      case 'icon':
+        return (
+          <IconPage
+            iconFileUrl={iconFileUrl}
+            onIconSelected={this.onIconSelected}
+          />
+        );
+      case 'publishAndroid':
+        return <PublishAndroidPage />;
+      case 'publishIOS':
+        return <PublishIOSPage />;
       case 'generating': {
         const {appType} = this.props;
         const {exportError, apkError, apkUri} = this.state;
         return (
           <GeneratingPage
             appType={appType}
+            platform={platform}
             isGenerating={this.isGenerating()}
             exportError={exportError}
             apkError={apkError}
@@ -531,18 +576,25 @@ class ExportDialog extends React.Component {
     return screen === 'generating' && !!(exporting || generatingApk);
   }
 
+  isPublishingForIOSWithoutError() {
+    const {platform, exportError} = this.state;
+    return platform === 'ios' && !exportError;
+  }
+
   getActionButtonInfo() {
-    const {screen, exporting, generatingApk} = this.state;
+    const {screen} = this.state;
     const info = {
       text: 'Next',
       enabled: true
     };
     switch (screen) {
       case 'generating':
-        info.text = 'Finish';
-        info.enabled = !exporting && !generatingApk;
+        info.text = this.isPublishingForIOSWithoutError()
+          ? 'Continue with Expo.io'
+          : 'Finish';
+        info.enabled = !this.isGenerating();
         break;
-      case 'publish':
+      case 'publishAndroid':
         info.text = 'Create';
         break;
     }

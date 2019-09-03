@@ -199,9 +199,12 @@ fa:
     header:
       finished_hoc: "من ساعتی با کد خود را به پایان رسانده ام"
       sign_in_to_save: 'وارد گردید تا پیشرفتتان ذخیره شود'
-      course_catalog: "کاتالوگ دوره‌ها"
+      my_dashboard: "دَشبورد من"
+      course_catalog: "سرفصل دوره‌ها"
       project_gallery: "پروژه ها"
       educate_hoc: "ساعت کد نویسی"
+      about_us: "درباره ما"
+      about: "درباره"
     user:
       classroom: 'صفحه اصلی معلم'
       district_dashboard: 'محدوده ی داشبورد'
@@ -315,11 +318,6 @@ fa:
     no_primary_course: "یک کلاس را در کد استدیو امتحان کنید"
     choose_next_course: "یک دوره ی استودیو ی کد را با انتخاب آن در پایین امتحان کنید"
     print_certificate: "چاپ گواهینامه"
-    announcement_title: "اطلاعیه‌ها"
-    announcement_learn_more_button: "بیشتر بیاموزید"
-    announcement_try_now_button: "هم اکنون شروع کنید"
-    announcement_watch_video_button: "ویدیو را تماشا کنید"
-    announcement_petition_button: "نام خود را اضافه کنید"
   move_students:
     section_code_cant_be_current_section: "بخش جاری نمیتواند همانند بخش جدید باشد."
     student_ids_not_entered: "لطفا student_ids را ارائه کنید."

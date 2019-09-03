@@ -16,6 +16,9 @@ it-IT:
       4-5 Bee Conditionals 2:
         4_5_Bee_Conditionals_2_1: Ricorda di controllare OGNI nuvola per vedere se
           ha un FIORE. Invece non devi proprio cercare favi.
+      AppLab Intro 7 - Change Screen Color:
+        applab_hoc_finish: Lo schermo è diventato verde? Se sì, clicca 'Fine'. Sennò,
+          clicca 'Resetta', modifica il tuo codice, e clicca di nuovo 'Esegui'.
       AppLab Intro 7 - thisOrThatAddButton:
         AppLabHoCFinal11: Ora sei in Modalità Interfaccia.
       CSD U3 Variables Predict Where X:
@@ -694,9 +697,6 @@ it-IT:
       courseD_playLab_condFP_2018:
         courseD_playLab_condFP_1: Abbiamo organizzato i blocchi in categorie per darti
           più istruzioni con cui giocare! Clicca qui per vedere dove sono finite.
-      courseD_scrat_predict1:
-        courseD_maze_ramp6_1: Qualiasi codice inserisci qui sarà ripetuto quante volte
-          gli dici di farlo, poi continua ad eseguire il resto del programma.
       courseD_scrat_ramp1:
         grade2_CaringForNewPet_0_1: Dopo aver attaccato tutti i blocchi tra loro,
           premi "Esegui" per far partire il programma.
@@ -710,15 +710,11 @@ it-IT:
         courseC_maze_programming4_1: Questo numero indica la massima quantità di blocchi
           di questo tipo che puoi usare.
       courseD_scrat_ramp6:
-        courseE_artist_ramp8_1: Puoi cambiare questo numero.
-        courseE_artist_ramp8_2: Clicca qui per inserire il numero di volte da ripetere
-          il tuo codice.
         courseD_maze_ramp6_1: Qualiasi codice inserisci qui sarà ripetuto quante volte
           gli dici di farlo, poi continua ad eseguire il resto del programma.
-      courseD_scrat_ramp8:
-        courseE_artist_ramp8_1: Puoi cambiare questo numero.
-        courseE_artist_ramp8_2: Clicca qui per inserire il numero di volte da ripetere
-          il tuo codice.
+      courseD_scrat_ramp7:
+        courseD_maze_ramp6_1: Qualiasi codice inserisci qui sarà ripetuto quante volte
+          gli dici di farlo, poi continua ad eseguire il resto del programma.
       courseE_artist_functions1:
         courseD_artist_functions1_1: Cominciamo usando questo blocco per creare il
           primo quadrato.
@@ -777,6 +773,10 @@ it-IT:
         courseE_artist_ramp8_1: Puoi cambiare questo numero.
         courseE_artist_ramp8_2: Clicca qui per inserire il numero di volte da ripetere
           il tuo codice.
+      courseE_artist_ramp8_2:
+        courseE_artist_ramp8_1: Puoi cambiare questo numero.
+        courseE_artist_ramp8_2: Clicca qui per inserire il numero di volte da ripetere
+          il tuo codice.
       courseE_farmer_functions1:
         courseE_farmer_functions1_2: Qui la cassetta degli attrezzi è organizzata
           in modo leggermente diverso. Clicca sulle varie categorie per vedere che
@@ -828,6 +828,15 @@ it-IT:
       courseF_artist_for1_2019:
         courseF_artist_for1_1: La cassetta degli attrezzi è organizzata in categorie,
           in modo da lasciare più spazio per il codice.  I cicli li trovi qui.
+      courseF_artist_variables3:
+        courseF_artist_variables3_a: Usa questo blocco per impostare il valore della
+          variabile `length` (_lunghezza_)
+      courseF_artist_variables3_2018:
+        courseF_artist_variables3_a: Usa questo blocco per impostare il valore della
+          variabile `length` (_lunghezza_)
+      courseF_artist_variables3_2019:
+        courseF_artist_variables3_a: Usa questo blocco per impostare il valore della
+          variabile `length` (_lunghezza_)
       courseF_bee_conditionals2:
         courseF_bee_conditionals2_2: La sezione degli strumenti è ora in modalità
           categorie. Tutti i blocchi di cui hai bisogno sono al di sotto di queste

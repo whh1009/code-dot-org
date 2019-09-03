@@ -58,7 +58,7 @@ class Api::V1::Pd::WorkshopsController < ::ApplicationController
           limit: limit,
           total_count: workshops.length,
           filters: filter_params,
-          workshops: limited_workshops.map {|w| Api::V1::Pd::WorkshopSerializer.new(w).attributes}
+          workshops: limited_workshops.map {|w| Api::V1::Pd::WorkshopSerializer.new(w, scope: {current_user: current_user}).attributes}
         }
       end
       format.csv do
@@ -114,11 +114,9 @@ class Api::V1::Pd::WorkshopsController < ::ApplicationController
       on_map: true
     }
 
-    # Later in 2019 we will not set 'Intro' as a condition, so that the default
-    # will be to show workshops from all subjects when deep-dive isn't specified.
-    # But until then, when deep-dive isn't specified, we only show 'Intro'
-    # workshops.
-    conditions[:subject] = params['deep_dive_only'] ? 'Deep Dive' : 'Intro'
+    if params['deep_dive_only']
+      conditions[:subject] = Pd::Workshop::SUBJECT_CSF_201
+    end
 
     @workshops = Pd::Workshop.scheduled_start_on_or_after(Date.today.beginning_of_day).
       where(conditions).where.not(processed_location: nil)
@@ -180,7 +178,6 @@ class Api::V1::Pd::WorkshopsController < ::ApplicationController
   # POST /api/v1/pd/workshops/1/end
   def end
     @workshop.end!
-    Pd::AsyncWorkshopHandler.process_ended_workshop @workshop.id
     head :no_content
   end
 
@@ -265,10 +262,12 @@ class Api::V1::Pd::WorkshopsController < ::ApplicationController
       :subject,
       :notes,
       :regional_partner_id,
+      :organizer_id,
       sessions_attributes: [:id, :start, :end, :_destroy],
     ]
 
     allowed_params.delete :regional_partner_id unless can_update_regional_partner
+    allowed_params.delete :organizer_id unless current_user.permission?(UserPermission::WORKSHOP_ADMIN)
 
     params.require(:pd_workshop).permit(*allowed_params)
   end

@@ -40,9 +40,6 @@ class DeleteAccountsHelperTest < ActionView::TestCase
     # Skip real Firebase operations
     FirebaseHelper.stubs(:delete_channel)
 
-    # Skip Geocoder check in WorkshopMaterialOrder
-    Pd::WorkshopMaterialOrder.any_instance.stubs(:valid_address?)
-
     # Global log used to check expected log output
     @log = StringIO.new
   end
@@ -1061,160 +1058,6 @@ class DeleteAccountsHelperTest < ActionView::TestCase
   end
 
   #
-  # Table: dashboard.pd_workshop_material_orders
-  # Associated directly and/or via enrollment
-  #
-
-  test "clears school_or_company from pd_workshop_material_orders by user_id" do
-    order = create :pd_workshop_material_order,
-      school_or_company: 'non-nil value'
-    refute_nil order.school_or_company
-
-    purge_user order.user
-
-    order.reload
-    assert_nil order.school_or_company
-  end
-
-  test "clears street from pd_workshop_material_orders by user_id" do
-    order = create :pd_workshop_material_order
-    refute_empty order.street
-
-    purge_user order.user
-
-    order.reload
-    assert_empty order.street
-  end
-
-  test "clears apartment_or_suite from pd_workshop_material_orders by user_id" do
-    order = create :pd_workshop_material_order
-    refute_nil order.apartment_or_suite
-
-    purge_user order.user
-
-    order.reload
-    assert_nil order.apartment_or_suite
-  end
-
-  test "clears city from pd_workshop_material_orders by user_id" do
-    order = create :pd_workshop_material_order
-    refute_empty order.city
-
-    purge_user order.user
-
-    order.reload
-    assert_empty order.city
-  end
-
-  test "clears state from pd_workshop_material_orders by user_id" do
-    order = create :pd_workshop_material_order
-    refute_empty order.state
-
-    purge_user order.user
-
-    order.reload
-    assert_empty order.state
-  end
-
-  test "clears zip_code from pd_workshop_material_orders by user_id" do
-    order = create :pd_workshop_material_order
-    refute_empty order.zip_code
-
-    purge_user order.user
-
-    order.reload
-    assert_empty order.zip_code
-  end
-
-  test "clears phone_number from pd_workshop_material_orders by user_id" do
-    order = create :pd_workshop_material_order
-    refute_empty order.phone_number
-
-    purge_user order.user
-
-    order.reload
-    assert_empty order.phone_number
-  end
-
-  test "clears school_or_company from pd_workshop_material_orders by pd_enrollment_id" do
-    enrollment = create :pd_enrollment, :from_user
-    order = create :pd_workshop_material_order, enrollment: enrollment,
-      school_or_company: 'non-nil value'
-    refute_nil order.school_or_company
-
-    purge_user order.enrollment.user
-
-    order.reload
-    assert_nil order.school_or_company
-  end
-
-  test "clears street from pd_workshop_material_orders by pd_enrollment_id" do
-    enrollment = create :pd_enrollment, :from_user
-    order = create :pd_workshop_material_order, enrollment: enrollment
-    refute_empty order.street
-
-    purge_user order.enrollment.user
-
-    order.reload
-    assert_empty order.street
-  end
-
-  test "clears apartment_or_suite from pd_workshop_material_orders by pd_enrollment_id" do
-    enrollment = create :pd_enrollment, :from_user
-    order = create :pd_workshop_material_order, enrollment: enrollment
-    refute_nil order.apartment_or_suite
-
-    purge_user order.enrollment.user
-
-    order.reload
-    assert_nil order.apartment_or_suite
-  end
-
-  test "clears city from pd_workshop_material_orders by pd_enrollment_id" do
-    enrollment = create :pd_enrollment, :from_user
-    order = create :pd_workshop_material_order, enrollment: enrollment
-    refute_empty order.city
-
-    purge_user order.enrollment.user
-
-    order.reload
-    assert_empty order.city
-  end
-
-  test "clears state from pd_workshop_material_orders by pd_enrollment_id" do
-    enrollment = create :pd_enrollment, :from_user
-    order = create :pd_workshop_material_order, enrollment: enrollment
-    refute_empty order.state
-
-    purge_user order.enrollment.user
-
-    order.reload
-    assert_empty order.state
-  end
-
-  test "clears zip_code from pd_workshop_material_orders by pd_enrollment_id" do
-    enrollment = create :pd_enrollment, :from_user
-    order = create :pd_workshop_material_order, enrollment: enrollment
-    refute_empty order.zip_code
-
-    purge_user order.enrollment.user
-
-    order.reload
-    assert_empty order.zip_code
-  end
-
-  test "clears phone_number from pd_workshop_material_orders by pd_enrollment_id" do
-    enrollment = create :pd_enrollment, :from_user
-    order = create :pd_workshop_material_order, enrollment: enrollment
-    refute_empty order.phone_number
-
-    purge_user order.enrollment.user
-
-    order.reload
-    assert_empty order.phone_number
-  end
-
-  #
   # Table: dashboard.pd_workshop_surveys
   # Associated via enrollment
   #
@@ -2094,33 +1937,6 @@ class DeleteAccountsHelperTest < ActionView::TestCase
     unsafe_purge_user program_manager
 
     refute_nil program_manager.purged_at
-  end
-
-  test 'refuses to delete a RegionalPartner.contact account in normal conditions' do
-    regional_partner = create :regional_partner
-    contact = regional_partner.contact
-
-    err = assert_raises DeleteAccountsHelper::SafetyConstraintViolation do
-      purge_user contact
-    end
-
-    assert_equal <<~MESSAGE, err.message
-      Automated purging of an account listed as the contact for a regional partner is not supported at this time.
-      If you are a developer attempting to manually purge this account, run
-
-        DeleteAccountsHelper.new(bypass_safety_constraints: true).purge_user(user)
-
-      to bypass this constraint and purge the user from our system.
-    MESSAGE
-  end
-
-  test 'can delete a RegionalPartner.contact account if bypassing safety constraints' do
-    regional_partner = create :regional_partner
-    contact = regional_partner.contact
-
-    unsafe_purge_user contact
-
-    refute_nil contact.purged_at
   end
 
   test 'refuses to delete a RegionalPartner.program_managers account in normal conditions' do

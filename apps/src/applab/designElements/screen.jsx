@@ -12,7 +12,7 @@ import elementLibrary from './library';
 import * as applabConstants from '../constants';
 import * as elementUtils from './elementUtils';
 import themeValues from '../themeValues';
-import experiments from '../../util/experiments';
+import {getStore} from '../../redux';
 
 class ScreenProperties extends React.Component {
   static propTypes = {
@@ -53,12 +53,10 @@ class ScreenProperties extends React.Component {
           handleChange={this.props.handleChange.bind(this, 'id')}
           isIdRow={true}
         />
-        {experiments.isEnabled('applabThemes') && (
-          <ThemePropertyRow
-            initialValue={element.getAttribute('data-theme')}
-            handleChange={this.props.handleChange.bind(this, 'theme')}
-          />
-        )}
+        <ThemePropertyRow
+          initialValue={element.getAttribute('data-theme')}
+          handleChange={this.props.handleChange.bind(this, 'theme')}
+        />
         <ColorPickerPropertyRow
           desc={'background color'}
           initialValue={elementUtils.rgb2hex(element.style.backgroundColor)}
@@ -156,13 +154,18 @@ export default {
   themeValues: themeValues.screen,
 
   create: function() {
+    let pageConstants = getStore().getState().pageConstants;
+    let width =
+      pageConstants && pageConstants.widgetMode
+        ? applabConstants.WIDGET_WIDTH
+        : applabConstants.APP_WIDTH;
     const element = document.createElement('div');
     element.setAttribute('class', 'screen');
     element.setAttribute('tabIndex', '1');
     element.style.display = 'block';
     element.style.height =
       applabConstants.APP_HEIGHT - applabConstants.FOOTER_HEIGHT + 'px';
-    element.style.width = applabConstants.APP_WIDTH + 'px';
+    element.style.width = width + 'px';
     element.style.left = '0px';
     element.style.top = '0px';
     // We want our screen to be behind canvases. By setting any z-index on the

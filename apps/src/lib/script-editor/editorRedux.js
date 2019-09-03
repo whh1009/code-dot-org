@@ -5,9 +5,9 @@ const ADD_GROUP = 'scriptEditor/ADD_GROUP';
 const ADD_STAGE = 'scriptEditor/ADD_STAGE';
 const TOGGLE_EXPAND = 'scriptEditor/TOGGLE_EXPAND';
 const REMOVE_LEVEL = 'scriptEditor/REMOVE_LEVEL';
-const CHOOSE_LEVEL_TYPE = 'scriptEditor/CHOOSE_LEVEL_TYPE';
 const CHOOSE_LEVEL = 'scriptEditor/CHOOSE_LEVEL';
 const ADD_VARIANT = 'scriptEditor/ADD_VARIANT';
+const REMOVE_VARIANT = 'scriptEditor/REMOVE_VARIANT';
 const SET_ACTIVE_VARIANT = 'scriptEditor/SET_ACTIVE_VARIANT';
 const SET_FIELD = 'scriptEditor/SET_FIELD';
 const REORDER_LEVEL = 'scriptEditor/REORDER_LEVEL';
@@ -48,13 +48,6 @@ export const removeLevel = (stage, level) => ({
   level
 });
 
-export const chooseLevelType = (stage, level, value) => ({
-  type: CHOOSE_LEVEL_TYPE,
-  stage,
-  level,
-  value
-});
-
 export const chooseLevel = (stage, level, variant, value) => ({
   type: CHOOSE_LEVEL,
   stage,
@@ -67,6 +60,13 @@ export const addVariant = (stage, level) => ({
   type: ADD_VARIANT,
   stage,
   level
+});
+
+export const removeVariant = (stage, level, levelId) => ({
+  type: REMOVE_VARIANT,
+  stage,
+  level,
+  levelId
 });
 
 export const setActiveVariant = (stage, level, id) => ({
@@ -180,6 +180,12 @@ function stages(state = [], action) {
       );
       break;
     }
+    case REMOVE_VARIANT: {
+      const levelIds = newState[action.stage - 1].levels[action.level - 1].ids;
+      const i = levelIds.indexOf(action.levelId);
+      levelIds.splice(i, 1);
+      break;
+    }
     case SET_ACTIVE_VARIANT: {
       newState[action.stage - 1].levels[action.level - 1].activeId = action.id;
       break;
@@ -213,10 +219,6 @@ function stages(state = [], action) {
         level.activeId = action.value;
       }
       level.ids[action.variant] = action.value;
-      break;
-    }
-    case CHOOSE_LEVEL_TYPE: {
-      newState[action.stage - 1].levels[action.level - 1].kind = action.value;
       break;
     }
     case TOGGLE_EXPAND: {
@@ -272,7 +274,27 @@ function levelKeyList(state = {}, action) {
   return state;
 }
 
+function levelNameToIdMap(state = {}, action) {
+  switch (action.type) {
+    case INIT: {
+      if (!action.levelKeyList) {
+        // This can be falsy if the new editor experiment is not enabled
+        return state;
+      }
+
+      const levelNameToIdMap = {};
+      Object.keys(action.levelKeyList).forEach(levelId => {
+        const levelKey = action.levelKeyList[levelId];
+        levelNameToIdMap[levelKey] = +levelId;
+      });
+      return levelNameToIdMap;
+    }
+  }
+  return state;
+}
+
 export default {
   stages,
-  levelKeyList
+  levelKeyList,
+  levelNameToIdMap
 };

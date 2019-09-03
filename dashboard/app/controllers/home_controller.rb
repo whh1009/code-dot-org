@@ -83,11 +83,6 @@ class HomeController < ApplicationController
     render partial: 'home/tos_and_privacy'
   end
 
-  # This static page contains the teacher announcements for US and non-US visitors.
-  def teacher_announcements
-    render template: 'api/teacher_announcement', layout: false
-  end
-
   private
 
   def should_redirect_to_script_overview?
@@ -117,7 +112,9 @@ class HomeController < ApplicationController
       # regular lists of recent scripts.
       exclude_primary_script = true
       @recent_courses = current_user.recent_courses_and_scripts(exclude_primary_script)
-
+      @has_feedback = current_user.student? && TeacherFeedback.where(
+        student_id: current_user.id
+      ).count > 0
       script = current_user.primary_script
       if script
         script_level = current_user.next_unpassed_progression_level(script)

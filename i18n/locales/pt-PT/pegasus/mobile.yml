@@ -715,19 +715,6 @@
   course2_name: "Curso 2"
   course3_name: "Curso 3"
   course4_name: "Curso 4"
-  cspunit2_name: "Unidade 2: A Internet"
-  cspunit3_name: "Unidade 3: Programação"
-  cspunit4_name: "Unidade 4: Dados"
-  csp1-2017_name: 'Unidade 1: A Internet'
-  csp2-2017_name: 'Unidade 1: Informação Digital'
-  csp1-2018_name: 'Unidade 1: A Internet'
-  csp2-2018_name: 'Unidade 1: Informação Digital'
-  csp1_name: 'Unidade 1: A Internet'
-  csp2_name: 'Unidade 1: Informação Digital'
-  cspassessment_name: "Teste Completo - 50 questões"
-  cspexam1-mWU7ilDYM9_name: Teste Parte 1 - 25 perguntas
-  cspexam2-AKwgAh1ac5_name: Teste Parte 2 - 25 perguntas
-  cspunit3_gradelevel: "Classificação 9-12"
   accelerated_name: "Curso acelerado"
   20-hour_name: Curso acelerado
   algebra_name: "CS em Álgebra"
@@ -738,8 +725,6 @@
   iceage_name: "Idade do gelo"
   minecraft_name: "Minecraft"
   starwarsblocks_name: "Guerra das Estrelas (Blocos)"
-  math_category_name: "Matemática"
-  hoc_category_name: "Hora de Código"
   applab_name: "Laboratório de aplicações"
   applab_gradelevel: "Maiores de 13 anos"
   codeorg_gradelevel: "Dos 4 aos 104 anos"
@@ -1098,6 +1083,7 @@
   alice_beyond_longdescription: "Usando um inovador ambiente de programação com suporte para a criação de animações em 3D, o projeto Alice fornece ferramentas e materiais para ensinar e aprender pensamento computacional, resolução de problemas e programação para várias idades e níveis escolares."
   sphero_beyond_longdescription: "Quer seja professor ou pai, as aulas do SPRK proporcionam às crianças um curso divertido acerca da programação de robôs, e, ao mesmo tempo, aperfeiçoam as competências dos alunos em Matemática e Ciências."
   compatibility_unsupported_browser: "O seu navegador não é suportado. Por favor atualize o seu navegador para <a href='%{supported_browsers_url}', target='_blank'> um dos nossos navegadores suportados</a>. Você pode tentar visualizar a página, mas algumas funcionalidade podem não estar disponíveis."
+  compatibility_unsupported_browser_markdown: "O seu navegador não é suportado. Por favor atualize o seu navegador para <a href='%{supported_browsers_url}', target='_blank'> um dos nossos navegadores suportados</a>. Você pode tentar visualizar a página, mas algumas funcionalidade podem não estar disponíveis."
   flappy_shortcode: "bater as assas"
   header_home: "Início"
   header_courses: "Cursos"
