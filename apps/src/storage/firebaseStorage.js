@@ -459,38 +459,29 @@ FirebaseStorage.resetForTesting = function() {
  * Adds an entry for the table in Firebase under counters/tables, making the table
  * show up in the data browser and also count toward the table count limit.
  * @param {string} tableName
- * @param {function()} onSuccess
- * @param {function(string)} onError
+ * @returns {Promise} a promise that resolves when the table is created, or
+ *   rejects if there's an error.
  */
-FirebaseStorage.createTable = function(tableName, onSuccess, onError) {
-  return validateTableName(tableName)
-    .then(incrementRateLimitCounters)
-    .then(loadConfig)
-    .then(config => {
-      return enforceTableCount(config, tableName);
-    })
-    .then(() => {
-      const countersRef = getProjectDatabase().child(
-        `counters/tables/${tableName}`
-      );
-      countersRef
-        .transaction(countersData => {
-          if (countersData === null) {
-            return {lastId: 0, rowCount: 0};
-          }
-          return countersData;
-        })
-        .then(transactionData => {
-          const {committed} = transactionData;
-          if (!committed) {
-            return Promise.reject(
-              `Unexpected error creating table "${tableName}"`
-            );
-          }
-          return Promise.resolve();
-        });
-    })
-    .then(onSuccess, onError);
+FirebaseStorage.createTable = async function(tableName) {
+  await validateTableName(tableName);
+  await incrementRateLimitCounters;
+  const config = await loadConfig();
+  await enforceTableCount(config, tableName);
+
+  const countersRef = getProjectDatabase().child(
+    `counters/tables/${tableName}`
+  );
+
+  const {committed} = await countersRef.transaction(countersData => {
+    if (countersData === null) {
+      return {lastId: 0, rowCount: 0};
+    }
+    return countersData;
+  });
+
+  if (!committed) {
+    throw new Error(`Unexpected error creating table "${tableName}"`);
+  }
 };
 
 /**
