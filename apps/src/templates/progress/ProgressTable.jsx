@@ -6,6 +6,7 @@ import SummaryProgressTable from './SummaryProgressTable';
 import DetailProgressTable from './DetailProgressTable';
 import ProgressGroup from './ProgressGroup';
 import {levelType, lessonType} from './progressTypes';
+import {isStageHiddenForSection} from '@cdo/apps/code-studio/hiddenStageRedux';
 
 export const styles = {
   hidden: {
@@ -41,10 +42,18 @@ class ProgressTable extends React.Component {
     });
   }
 
-  render() {
-    const {isSummaryView, isPlc, categorizedLessons} = this.props;
+  // checkVisibility = (lessons, hiddenStageState, sectionId) =>
+  //   var hidden = true;
+  //   lessons.forEach((lesson) => {
+  //     console.log("lesson.id", lesson.id)
+  //     if (!isStageHiddenForSection(hiddenStageState, sectionId, lesson.id)) {
+  //       hidden = false;
+  //     }
+  //     return hidden
+  //   });
 
-    console.log("categorizedLessons", categorizedLessons)
+  render() {
+    const {isSummaryView, isPlc, categorizedLessons, hiddenStageState, sectionId} = this.props;
 
     if (categorizedLessons.length === 1) {
       // Render both tables, and toggle hidden state via CSS as this has better
@@ -76,6 +85,7 @@ class ProgressTable extends React.Component {
               isSummaryView={isSummaryView}
               lessons={category.lessons}
               levelsByLesson={category.levels}
+              hidden={this.checkVisibility(lessons, hiddenStageState, sectionId)}
             />
           ))}
         </div>
@@ -88,5 +98,7 @@ export const UnconnectedProgressTable = ProgressTable;
 export default connect(state => ({
   isPlc: state.progress.professionalLearningCourse,
   isSummaryView: state.progress.isSummaryView,
-  categorizedLessons: categorizedLessons(state.progress)
+  categorizedLessons: categorizedLessons(state.progress),
+  hiddenStageState: state.hiddenStage,
+  scriptId: state.progress.scriptId,
 }))(ProgressTable);

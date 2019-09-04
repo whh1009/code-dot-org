@@ -260,6 +260,7 @@ export function initializeHiddenScripts(data) {
  * section is given, we assume this is a student and use STUDENT_SECTION_ID
  */
 export function isStageHiddenForSection(state, sectionId, stageId) {
+  console.log("inside isStageHiddenForSection")
   return isHiddenForSection(state, sectionId, stageId, 'stagesBySection');
 }
 
@@ -284,5 +285,6 @@ function isHiddenForSection(state, sectionId, itemId, bySectionKey) {
     sectionId = STUDENT_SECTION_ID;
   }
   const bySection = state.get(bySectionKey);
+  console.log("!!bySection.getIn([sectionId.toString(), itemId.toString()]);", !!bySection.getIn([sectionId.toString(), itemId.toString()]))
   return !!bySection.getIn([sectionId.toString(), itemId.toString()]);
 }

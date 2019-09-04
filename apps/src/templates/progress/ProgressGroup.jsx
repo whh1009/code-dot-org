@@ -6,7 +6,6 @@ import DetailProgressTable from './DetailProgressTable';
 import SummaryProgressTable from './SummaryProgressTable';
 import FontAwesome from '../FontAwesome';
 import {levelType, lessonType} from './progressTypes';
-import {lessonIsVisible} from './progressHelpers';
 import color from '@cdo/apps/util/color';
 import {isStageHiddenForSection} from '@cdo/apps/code-studio/hiddenStageRedux';
 
@@ -59,14 +58,34 @@ class ProgressGroup extends React.Component {
     hiddenStageState: PropTypes.object
   };
 
+  componentDidMount() {
+    this.checkVisibility(
+      this.props.lessons,
+      this.props.hiddenStageState,
+      this.props.sectionId
+    )
+  }
+
   state = {
-    collapsed: false
+    collapsed: false,
+    hidden: true
   };
 
   toggleCollapsed = () =>
     this.setState({
       collapsed: !this.state.collapsed
     });
+
+  checkVisibility = (lessons, hiddenStageState, sectionId) =>
+    lessons.forEach((lesson) => {
+      console.log("lesson.id", lesson.id)
+      if (!isStageHiddenForSection(hiddenStageState, sectionId, lesson.id)) {
+        this.setState({
+          hidden: false
+        });
+      };
+    });
+
 
   render() {
     const {
@@ -83,37 +102,33 @@ class ProgressGroup extends React.Component {
       ? SummaryProgressTable
       : DetailProgressTable;
     const icon = this.state.collapsed ? 'caret-right' : 'caret-down';
-
-
-    const hideFlexCategory =
-    // ERIN: you're getting close here! You need to iterate through all of the lessons and see if they are all hidden and if they are - then hide the whole group!
-     isStageHiddenForSection(hiddenStageState, sectionId, lessons[0].id);
-
-    console.log("hideFlexCategory", hideFlexCategory)
-
-
+    console.log("this.state.hidden", this.state.hidden)
     return (
       <div style={styles.main}>
-        <div
-          style={[
-            styles.header,
-            isPlc && styles.headerBlue,
-            this.state.collapsed && styles.bottom
-          ]}
-          onClick={this.toggleCollapsed}
-        >
-          <FontAwesome icon={icon} />
-          <span style={styles.headingText}>{groupName}</span>
-        </div>
-        {!this.state.collapsed && (
-          <div
-            style={[
-              styles.contents,
-              isPlc && styles.contentsBlue,
-              styles.bottom
-            ]}
-          >
-            <TableType lessons={lessons} levelsByLesson={levelsByLesson} />
+        {!this.state.hidden && (
+          <div>
+            <div
+              style={[
+                styles.header,
+                isPlc && styles.headerBlue,
+                this.state.collapsed && styles.bottom
+              ]}
+              onClick={this.toggleCollapsed}
+            >
+              <FontAwesome icon={icon} />
+              <span style={styles.headingText}>{groupName}</span>
+            </div>
+            {!this.state.collapsed && (
+              <div
+                style={[
+                  styles.contents,
+                  isPlc && styles.contentsBlue,
+                  styles.bottom
+                ]}
+              >
+                <TableType lessons={lessons} levelsByLesson={levelsByLesson} />
+              </div>
+            )}
           </div>
         )}
       </div>
