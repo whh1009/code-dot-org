@@ -634,7 +634,15 @@ exports.install = function(blockly, blockInstallOptions) {
       //   .appendTitle(blockly.Msg.CONTROLS_FOR_INPUT_WITH)
       //   .appendTitle(new blockly.FieldLabel(msg.loopVariable()), 'VAR');
       this.interpolateMsg(
+        // Blockly.Msg.CONTROLS_FOR_INPUT_FROM_TO_BY,
+
         Blockly.Msg.CONTROLS_FOR_INPUT_FOR_FROM_TO_BY,
+        // () => {
+        //   this.appendDummyInput().appendTitle(
+        //     new blockly.FieldLabel(msg.loopVariable()),
+        //     'VAR'
+        //   );
+        // },
         ['FROM', 'Number', blockly.ALIGN_RIGHT],
         ['TO', 'Number', blockly.ALIGN_RIGHT],
         ['BY', 'Number', blockly.ALIGN_RIGHT],
