@@ -489,8 +489,7 @@ FirebaseStorage.createTable = function(tableName, onSuccess, onError) {
           }
           return Promise.resolve();
         });
-    })
-    .then(onSuccess, onError);
+    });
 };
 
 /**

@@ -343,8 +343,7 @@ describe('FirebaseStorage', () => {
 
   describe('createTable', () => {
     it('creates a table but not a record', done => {
-      FirebaseStorage.createTable(
-        'mytable',
+      FirebaseStorage.createTable('mytable').then(
         () => verifyEmptyTable(done),
         error => {
           throw error;
@@ -353,25 +352,24 @@ describe('FirebaseStorage', () => {
     });
 
     it('cant create more than maxTableCount tables', done => {
-      FirebaseStorage.createTable('table1', createTable2, error => {
+      FirebaseStorage.createTable('table1').then(createTable2, error => {
         throw error;
       });
 
       function createTable2() {
-        FirebaseStorage.createTable('table2', createTable3, error => {
+        FirebaseStorage.createTable('table2').then(createTable3, error => {
           throw error;
         });
       }
 
       function createTable3() {
-        FirebaseStorage.createTable('table3', createTable4, error => {
+        FirebaseStorage.createTable('table3').then(createTable4, error => {
           throw error;
         });
       }
 
       function createTable4() {
-        FirebaseStorage.createTable(
-          'table4',
+        FirebaseStorage.createTable('table4').then(
           () => {
             throw 'unexpectedly allowed to create 4th table';
           },
@@ -1042,8 +1040,7 @@ describe('FirebaseStorage', () => {
     });
 
     it('returns [] for a table with no rows', done => {
-      FirebaseStorage.createTable(
-        'emptytable',
+      FirebaseStorage.createTable('emptytable').then(
         () => {
           FirebaseStorage.readRecords('emptytable', {}, onSuccess, error => {
             throw error;
