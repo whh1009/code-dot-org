@@ -50,7 +50,8 @@ class FlexGroup extends Component {
     addGroup: PropTypes.func.isRequired,
     addStage: PropTypes.func.isRequired,
     stages: PropTypes.array.isRequired,
-    levelKeyList: PropTypes.object.isRequired
+    levelKeyList: PropTypes.object.isRequired,
+    flexCategoryMap: PropTypes.object.isRequired
   };
 
   handleAddGroup = () => {
@@ -142,16 +143,18 @@ class FlexGroup extends Component {
   render() {
     const groups = _.groupBy(
       this.props.stages,
-      stage => stage.flex_category || 'Default'
+      stage => stage.flex_category || ''
     );
     let afterStage = 1;
+    const {flexCategoryMap} = this.props;
 
     return (
       <div>
-        {_.keys(groups).map((group, groupIndex) => (
+        {_.keys(groups).map(group => (
           <div key={group}>
             <div style={styles.groupHeader}>
-              Group {groupIndex + 1}: {group}
+              Flex Category: {group || '(none)'}: "
+              {flexCategoryMap[group] || 'Content'}"
               <OrderControls
                 type={ControlTypes.Group}
                 position={afterStage}
@@ -188,7 +191,7 @@ class FlexGroup extends Component {
           type="button"
         >
           <i style={{marginRight: 7}} className="fa fa-plus-circle" />
-          Add Group
+          Add Flex Category
         </button>
         <input
           type="hidden"
@@ -203,7 +206,8 @@ class FlexGroup extends Component {
 export default connect(
   state => ({
     levelKeyList: state.levelKeyList,
-    stages: state.stages
+    stages: state.stages,
+    flexCategoryMap: state.flexCategoryMap
   }),
   dispatch => ({
     addGroup(stageName, groupName) {
