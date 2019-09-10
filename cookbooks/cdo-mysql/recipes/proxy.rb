@@ -30,6 +30,10 @@ template 'proxysql.cnf' do
 end
 
 service 'proxysql' do
+  supports status: true, restart: true, reload: true
+  action [:enable, :start]
+  # 14.04 proxysql package provides Debian service script.
+  provider Chef::Provider::Service::Debian
   action [:enable, :start]
   subscribes :reload, 'template[proxysql.cnf]', :immediately
 end
