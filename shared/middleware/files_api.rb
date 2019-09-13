@@ -93,6 +93,17 @@ class FilesApi < Sinatra::Base
     NewRelic::Agent.record_metric("Custom/FilesApi/#{quota_event_type}_#{quota_type}", value)
   end
 
+  def get_manifest_helper(encrypted_channel_id)
+    dont_cache
+    content_type :json
+
+    begin
+      get_bucket_impl('files').new.list(encrypted_channel_id).to_json
+    rescue ArgumentError, OpenSSL::Cipher::CipherError
+      bad_request
+    end
+  end
+
   def record_event(quota_event_type, quota_type, encrypted_channel_id)
     return unless CDO.newrelic_logging
 
@@ -569,8 +580,9 @@ class FilesApi < Sinatra::Base
     not_modified if result[:status] == 'NOT_MODIFIED'
     last_modified result[:last_modified]
 
+    manifest = {}
     if result[:status] == 'NOT_FOUND'
-      {"filesVersionId": "", "files": []}.to_json
+      manifest = {"filesVersionId": "", "files": []}
     else
       # {
       #   "filesVersionId": "sadfhkjahfsdj",
@@ -583,8 +595,13 @@ class FilesApi < Sinatra::Base
       #     }
       #   ]
       # }
-      {"filesVersionId": result[:version_id], "files": JSON.load(result[:body])}.to_json
+      manifest = {"filesVersionId": result[:version_id], "files": JSON.load(result[:body])}
     end
+    if manifest[:files].length == 0
+      manifest = {"filesVersionId": result[:version_id].nil? ? "" : result[:version_id], "files": JSON.load(get_manifest_helper(encrypted_channel_id))}
+      put_file('files', encrypted_channel_id, "manifest.json", get_manifest_helper(encrypted_channel_id))
+    end
+    manifest.to_json
   end
 
   #

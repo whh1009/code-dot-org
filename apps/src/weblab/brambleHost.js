@@ -175,7 +175,8 @@ function syncFilesWithBramble(fileEntries, currentProjectVersion, callback) {
 
   function requestFileEntryAndWrite(fileEntry, callback) {
     // read the data
-    $.ajax(`${fileEntry.url}?version=${fileEntry.versionId}`, {
+    let url = fileEntry.versionId ? `${fileEntry.url}?version=${fileEntry.versionId}` : `${fileEntry.url}`;
+    $.ajax(url, {
       dataType: 'binary',
       responseType: 'arraybuffer'
     })
