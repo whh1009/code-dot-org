@@ -164,6 +164,10 @@ export const commands = {
     return spriteCommands.getThisSprite(which, extraArgs);
   },
 
+  clickedSpritePointer(which, extraArgs) {
+    return spriteCommands.clickedSpritePointer(which, extraArgs);
+  },
+
   makeNewSpriteAnon(animation, location) {
     spriteCommands.makeSprite.apply(this, [
       {animation: animation, location: location}

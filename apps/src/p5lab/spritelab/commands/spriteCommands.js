@@ -48,6 +48,12 @@ export const commands = {
     }
   },
 
+  clickedSpritePointer(which, extraArgs) {
+    if (extraArgs) {
+      return extraArgs.sprite;
+    }
+  },
+
   makeSprite(opts) {
     opts = opts || {};
     let name = opts.name;
