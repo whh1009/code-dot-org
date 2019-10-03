@@ -64,6 +64,11 @@ Dashboard::Application.routes.draw do
   get 'docs/*path', to: 'curriculum_proxy#get_doc'
   get 'curriculum/*path', to: 'curriculum_proxy#get_curriculum'
 
+  # Override Error Codes
+  get '/404', to: "errors#not_found"
+  get '/422', to: "errors#unacceptable"
+  get '/500', to: "errors#internal_server_error"
+
   # User-facing section routes
   resources :sections, only: [:show] do
     member do

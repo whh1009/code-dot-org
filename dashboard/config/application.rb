@@ -102,6 +102,9 @@ module Dashboard
       end
     end
 
+    # Use custom routes for error codes
+    config.exceptions_app = routes
+
     config.after_initialize do
       # For some reason custom fallbacks need to be set on the I18n module
       # itself and can't be configured using config.i18n.fallbacks.
