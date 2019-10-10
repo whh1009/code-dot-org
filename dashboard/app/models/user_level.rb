@@ -76,6 +76,7 @@ class UserLevel < ActiveRecord::Base
   # also gets credit for the solution.
   has_many :paired_user_levels_as_navigator, class_name: 'PairedUserLevel', foreign_key: 'navigator_user_level_id'
   has_many :paired_user_levels_as_driver, class_name: 'PairedUserLevel', foreign_key: 'driver_user_level_id'
+  scope :paired, -> {joins(:paired_user_levels_as_navigator).union(joins(:paired_user_levels_as_driver))}
 
   has_many :navigator_user_levels, through: :paired_user_levels_as_driver
   has_many :driver_user_levels, through: :paired_user_levels_as_navigator

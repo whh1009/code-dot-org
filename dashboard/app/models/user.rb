@@ -991,7 +991,7 @@ class User < ActiveRecord::Base
 
   # Retrieve all user levels for the designated set of users in the given
   # script, with a single query.
-  # @param [Enumerable<User>] users
+  # @param [ActiveRecord::Relation<User>] users
   # @param [Script] script
   # @return [Hash] UserLevels by user id by level id
   # Example return value (where 1,2,3 are user ids and 101, 102 are level ids):
@@ -1007,13 +1007,11 @@ class User < ActiveRecord::Base
   #   3: {}
   # }
   def self.user_levels_by_user_by_level(users, script)
-    initial_hash = Hash[users.map {|user| [user.id, {}]}]
     UserLevel.where(
-      script_id: script.id,
-      user_id: users.map(&:id)
-    ).
+      script_id: script.id
+    ).joins(:user).merge(users).
       group_by(&:user_id).
-      inject(initial_hash) do |memo, (user_id, user_levels)|
+      inject({}) do |memo, (user_id, user_levels)|
         memo[user_id] = user_levels.index_by(&:level_id)
         memo
       end
