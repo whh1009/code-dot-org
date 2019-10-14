@@ -1,5 +1,5 @@
 const TIME_FORMAT = 'h:mma';
-const DATE_FORMAT = 'YYYY-MM-DD';
+const DATE_FORMAT = 'yyyy-MM-dd';
 const DATETIME_FORMAT = `${DATE_FORMAT} ${TIME_FORMAT}`;
 const COURSE_CSF = 'CS Fundamentals';
 
