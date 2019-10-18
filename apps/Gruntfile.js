@@ -716,7 +716,7 @@ describe('entry tests', () => {
     regionalPartnerMiniContact:
       './src/regionalPartnerMiniContact/regionalPartnerMiniContact',
 
-    donorTeacherBanner: './src/donorTeacherBanner/donorTeacherBanner',
+    donorTeacherBanner: './src/donorTeacherBanner/donorTeacherBanner'
   };
 
   // Create a config for each of our bundles
@@ -862,7 +862,7 @@ describe('entry tests', () => {
                   Object.keys(appsEntries),
                   Object.keys(pegasusEntries),
                   Object.keys(professionalDevelopmentEntries),
-                  Object.keys(internalEntries)
+                  Object.keys(internalEntries),
                   Object.keys(sharedEntries)
                 );
                 return chunkNames.includes(chunk.name);
