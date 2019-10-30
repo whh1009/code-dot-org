@@ -13,10 +13,16 @@ def avatar_image(name, width=320, square_photo=false)
   "/images/#{dimensions}/avatars/#{File.basename(path)}"
 end
 
+# Redirect to the sign-in page if the current user is not signed in.
 def authentication_required!(url=request.url)
   dont_cache
-  return if dashboard_user_helper
+  return if signed_in?
   redirect((request.scheme || 'http') + ':' + CDO.studio_url("/users/sign_in?user_return_to=#{url}"), 302)
+end
+
+# Returns true if the current user is signed into a code studio account.
+def signed_in?
+  !request.cookies[environment_specific_cookie_name('_user_type')].nil?
 end
 
 def dont_cache
