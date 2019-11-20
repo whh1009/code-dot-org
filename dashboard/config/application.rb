@@ -115,6 +115,8 @@ module Dashboard
     config.assets.paths << Rails.root.join('../shared/css')
     config.assets.paths << Rails.root.join('../shared/js')
 
+    config.assets.css_compressor = :sass if CDO.optimize_rails_assets
+
     # Whether to fallback to assets pipeline if a precompiled asset is missed.
     config.assets.compile = !CDO.optimize_rails_assets
 
