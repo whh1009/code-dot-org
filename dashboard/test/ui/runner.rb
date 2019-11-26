@@ -470,8 +470,9 @@ end
 
 # Returns the flakiness from 0.0 to 1.0 or nil if flakiness is unknown
 def flakiness_for_test(test_run_identifier)
-  return nil if $stop_calculating_flakiness
-  TestFlakiness.summary_for(:test_flakiness, test_run_identifier)
+  return nil
+  #return nil if $stop_calculating_flakiness
+  #TestFlakiness.summary_for(:test_flakiness, test_run_identifier)
 rescue Exception => e
   puts "Error calculating flakiness: #{e.full_message}. Will stop calculating test flakiness for this run."
   $stop_calculating_flakiness = true
@@ -480,8 +481,9 @@ end
 
 # Returns the estimated duration in seconds or nil if unknown
 def estimate_for_test(test_run_identifier)
-  return nil if $stop_calculating_flakiness
-  TestFlakiness.summary_for(:test_estimate, test_run_identifier)
+  return nil
+  #return nil if $stop_calculating_flakiness
+  #TestFlakiness.summary_for(:test_estimate, test_run_identifier)
 rescue Exception => e
   puts "Error calculating estimate: #{e.full_message}. Will stop calculating test flakiness for this run."
   $stop_calculating_flakiness = true

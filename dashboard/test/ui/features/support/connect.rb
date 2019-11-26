@@ -52,7 +52,10 @@ def saucelabs_browser(test_run_name)
     capabilities.merge!(sauce_capabilities)
   end
 
-  very_verbose "DEBUG: Capabilities: #{CGI.escapeHTML capabilities.inspect}"
+  capabilities['maxDuration'] = 3600
+
+  very_verbose "DEBUG: Capabilities: #{capabilities.inspect}"
+  #very_verbose "DEBUG: Capabilities: #{CGI.escapeHTML capabilities.inspect}"
 
   $http_client = SeleniumBrowser::Client.new(read_timeout: 2.minutes)
   with_read_timeout(5.minutes) do
