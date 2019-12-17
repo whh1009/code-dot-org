@@ -21,7 +21,8 @@ const ButtonColor = {
 
 const ButtonSize = {
   default: 'default',
-  large: 'large'
+  large: 'large',
+  thin: 'thin'
 };
 
 const styles = {
@@ -148,13 +149,20 @@ const styles = {
       paddingLeft: 30,
       paddingRight: 30,
       lineHeight: '40px'
-    }
+    },
+    [ButtonSize.thin]: {
+      height: 34,
+      paddingLeft: 12,
+      paddingRight: 12,
+      lineHeight: '34px'
+    },
   }
 };
 
 class Button extends React.Component {
   static propTypes = {
     className: PropTypes.string,
+    refGenerator: PropTypes.func,
     href: PropTypes.string,
     text: PropTypes.string.isRequired,
     size: PropTypes.oneOf(Object.keys(ButtonSize)),
@@ -196,7 +204,8 @@ class Button extends React.Component {
       id,
       tabIndex,
       isPending,
-      pendingText
+      pendingText,
+      refGenerator, 
     } = this.props;
 
     const color = this.props.color || ButtonColor.orange;
@@ -219,6 +228,7 @@ class Button extends React.Component {
         onKeyDown={this.onKeyDown}
         tabIndex={tabIndex}
         id={id}
+        ref={refGenerator ? refGenerator : undefined}
       >
         <div style={_.pick(style, ['textAlign'])}>
           {icon && (

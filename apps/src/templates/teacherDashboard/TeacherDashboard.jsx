@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Route, Switch} from 'react-router-dom';
-import {TeacherDashboardPath} from './TeacherDashboardNavigation';
+import TeacherDashboardNavigation, {
+  TeacherDashboardPath
+} from './TeacherDashboardNavigation';
 import TeacherDashboardHeader from './TeacherDashboardHeader';
 import StatsTableWithData from './StatsTableWithData';
 import SectionProgress from '@cdo/apps/templates/sectionProgress/SectionProgress';
@@ -74,7 +76,12 @@ class TeacherDashboard extends Component {
 
     return (
       <div>
-        {includeHeader && <TeacherDashboardHeader sectionName={sectionName} />}
+        {includeHeader && (
+          <div>
+            {' '}
+            <TeacherDashboardHeader /> <TeacherDashboardNavigation />{' '}
+          </div>
+        )}
         <Switch>
           <Route
             path={TeacherDashboardPath.manageStudents}

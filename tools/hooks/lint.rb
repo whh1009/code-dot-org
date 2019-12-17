@@ -56,6 +56,8 @@ def run_rubocop(files)
 end
 
 def run_eslint_apps(files)
+  run("node ./node_modules/prettier/bin-prettier.js --write #{files.join(' ')}", APPS_DIR)
+  run("git add #{files.join(' ')}", REPO_DIR)
   run("./node_modules/.bin/eslint -c .eslintrc.js #{files.join(' ')}", APPS_DIR)
 end
 
