@@ -7,10 +7,10 @@ driver:
     - SYS_ADMIN
   privileged: true # because Docker and SystemD/Upstart
 
-
+verifier:
+  name: inspec
 transport:
   name: dokken
-
 provisioner:
   name: dokken
   chef_license: accept

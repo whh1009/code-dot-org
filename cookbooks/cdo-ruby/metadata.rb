@@ -8,3 +8,4 @@ version          '0.2.15'
 
 depends 'apt', '~> 2.6.0'
 depends 'sudo-user'
+depends 'ruby_rbenv', '~> 2.3.1'

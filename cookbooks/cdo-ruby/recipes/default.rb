@@ -1,4 +1,5 @@
-include_recipe 'cdo-ruby::brightbox'
+include_recipe 'cdo-ruby::rbenv'
+
 gem_package 'rake' do
   action :upgrade
   version node['cdo-ruby']['rake_version']
