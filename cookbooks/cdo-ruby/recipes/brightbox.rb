@@ -4,7 +4,7 @@
 include_recipe 'apt'
 
 apt_repository 'brightbox-ruby-ng' do
-  uri 'ppa:brightbox/ruby-ng'
+  uri 'ppa:brightbox/ruby-ng-experimental'
   distribution node['lsb']['codename']
   retries 3
 end
