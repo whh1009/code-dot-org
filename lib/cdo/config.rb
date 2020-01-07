@@ -59,6 +59,8 @@ module Cdo
       WithDefault.new(self, default_value)
     end
 
+    require 'delegate'
+
     class WithDefault < SimpleDelegator
       def initialize(target, default_value)
         @default_value = default_value
