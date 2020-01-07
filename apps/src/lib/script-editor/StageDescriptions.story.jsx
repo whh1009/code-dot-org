@@ -31,7 +31,7 @@ const importedDescriptions = [
 ];
 
 /**
- * Hack that gives us a ref to a child so that we can modify it's state;
+ * Hack that gives us a ref to a child so that we can modify its state;
  */
 class ModifyState extends React.Component {
   static propTypes = {
