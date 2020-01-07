@@ -1,0 +1,3 @@
+function touchingSpritePointer() {
+  return thisSprite;
+}

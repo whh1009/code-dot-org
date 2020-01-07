@@ -1,11 +1,8 @@
 {
-  "category": "",
+  "category": "Events",
   "config": {
     "func": "touchingSpritePointer",
     "blockText": "subject {SPRITE}",
-    "extraArgs": [
-      "extraArgs"
-    ],
     "args": [
       {
         "name": "SPRITE",
