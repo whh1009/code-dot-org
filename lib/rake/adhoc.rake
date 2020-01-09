@@ -11,7 +11,6 @@ namespace :adhoc do
   desc 'Launch/update an adhoc server.
 Note: Consumes AWS resources until `adhoc:stop` is called.'
   task start: :environment do
-    raise "adhoc name must not include 'dashboard'" if AWS::CloudFormation.stack_name.include?('dashboard')
     AWS::CloudFormation.create_or_update
   end
 
