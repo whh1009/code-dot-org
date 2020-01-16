@@ -43,7 +43,7 @@ module Dashboard
 
       # Autoload mailer previews in development mode so changes are picked up without restarting the server.
       # autoload_paths is frozen by time it gets to development.rb, so it must be done here.
-      config.autoload_paths << Rails.root.join('test/mailers/previews')
+      config.eager_load_paths << Rails.root.join('test/mailers/previews')
     end
 
     if CDO.image_optim
@@ -130,11 +130,11 @@ module Dashboard
       jquery.handsontable.full.js
       video-js/*.css
     )
-    config.autoload_paths << Rails.root.join('lib')
-    config.autoload_paths << Rails.root.join('app', 'models', 'experiments')
-    config.autoload_paths << Rails.root.join('app', 'models', 'levels')
-    config.autoload_paths << Rails.root.join('app', 'models', 'sections')
-    config.autoload_paths << Rails.root.join('../lib/cdo/shared_constants')
+    config.eager_load_paths << Rails.root.join('lib')
+    config.eager_load_paths << Rails.root.join('app', 'models', 'experiments')
+    config.eager_load_paths << Rails.root.join('app', 'models', 'levels')
+    config.eager_load_paths << Rails.root.join('app', 'models', 'sections')
+    config.eager_load_paths << Rails.root.join('../lib/cdo/shared_constants')
 
     # use https://(*-)studio.code.org urls in mails
     config.action_mailer.default_url_options = {host: CDO.canonical_hostname('studio.code.org'), protocol: 'https'}
