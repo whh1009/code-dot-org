@@ -1,5 +1,5 @@
 module Queries
-  class UserSchoolInfo
+  class UserSchoolInf
     def self.last_complete(user)
       user.
         user_school_infos.
