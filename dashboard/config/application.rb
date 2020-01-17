@@ -131,10 +131,11 @@ module Dashboard
       video-js/*.css
     )
     config.autoload_paths << Rails.root.join('lib')
+
+    config.eager_load_paths << Rails.root.join('lib', 'queries')
     config.eager_load_paths << Rails.root.join('lib', 'api')
     config.eager_load_paths << Rails.root.join('lib', 'pd')
     config.eager_load_paths << Rails.root.join('lib', 'policies')
-    config.eager_load_paths << Rails.root.join('lib', 'queries')
     config.eager_load_paths << Rails.root.join('lib', 'services')
     config.eager_load_paths << Rails.root.join('app', 'models', 'experiments')
     config.eager_load_paths << Rails.root.join('app', 'models', 'levels')
