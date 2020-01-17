@@ -130,7 +130,12 @@ module Dashboard
       jquery.handsontable.full.js
       video-js/*.css
     )
-    config.eager_load_paths << Rails.root.join('lib')
+    config.autoload_paths << Rails.root.join('lib')
+    config.eager_load_paths << Rails.root.join('lib', 'api')
+    config.eager_load_paths << Rails.root.join('lib', 'pd')
+    config.eager_load_paths << Rails.root.join('lib', 'policies')
+    config.eager_load_paths << Rails.root.join('lib', 'queries')
+    config.eager_load_paths << Rails.root.join('lib', 'services')
     config.eager_load_paths << Rails.root.join('app', 'models', 'experiments')
     config.eager_load_paths << Rails.root.join('app', 'models', 'levels')
     config.eager_load_paths << Rails.root.join('app', 'models', 'sections')
