@@ -366,11 +366,15 @@ function addFallbackVideoPlayer(videoInfo, playerWidth, playerHeight) {
   // to expand to its edges.  This is currently implemented by a standalone
   // video.
   let containerDivStyle;
+  let extraVideoStyle = '';
+  let dimensions = '';
   if (playerWidth === '100%' && playerHeight === '100%') {
     containerDivStyle =
       'position: absolute; top: 0; bottom: 0; left: 0; right: 0';
+    extraVideoStyle = 'vjs-fill';
   } else {
     containerDivStyle = '';
+    dimensions = 'width="' + playerWidth + '" height="' + playerHeight + '" ';
   }
 
   var playerCode =
@@ -379,13 +383,11 @@ function addFallbackVideoPlayer(videoInfo, playerWidth, playerHeight) {
     '"><video id="' +
     fallbackPlayerID +
     '" ' +
-    'width="' +
-    playerWidth +
-    '" height="' +
-    playerHeight +
-    '" ' +
+    dimensions +
     (videoInfo.autoplay ? 'autoplay ' : '') +
-    'class="video-js vjs-default-skin vjs-big-play-centered" ' +
+    'class="video-js vjs-default-skin vjs-big-play-centered ' +
+    extraVideoStyle +
+    '" ' +
     'controls preload="auto" ' +
     'poster="' +
     videoInfo.thumbnail +
