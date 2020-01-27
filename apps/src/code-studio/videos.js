@@ -388,7 +388,7 @@ function addFallbackVideoPlayer(videoInfo, playerWidth, playerHeight) {
     'class="video-js vjs-default-skin vjs-big-play-centered ' +
     extraVideoStyle +
     '" ' +
-    'controls playsinline preload="auto" ' +
+    'controls preload="auto" ' +
     'poster="' +
     videoInfo.thumbnail +
     '">' +
