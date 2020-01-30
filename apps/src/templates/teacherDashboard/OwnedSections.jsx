@@ -19,6 +19,7 @@ import styleConstants from '@cdo/apps/styleConstants';
 import AddSectionDialog from './AddSectionDialog';
 import EditSectionDialog from './EditSectionDialog';
 import SetUpSections from '../studioHomepages/SetUpSections';
+import {recordOpenEditSectionDetails} from './sectionHelpers';
 
 const styles = {
   button: {
@@ -67,6 +68,11 @@ class OwnedSections extends React.Component {
   // Wrapped to avoid passing event args
   beginEditingNewSection = () => this.props.beginEditingNewSection();
 
+  beginEditingSection(id) {
+    this.props.beginEditingSection(id);
+    recordOpenEditSectionDetails(id);
+  }
+
   toggleViewHidden = () => {
     this.setState({
       viewHidden: !this.state.viewHidden
@@ -78,7 +84,6 @@ class OwnedSections extends React.Component {
       sectionIds,
       hiddenSectionIds,
       asyncLoadComplete,
-      beginEditingSection,
       locale
     } = this.props;
     const {viewHidden} = this.state;
@@ -98,7 +103,7 @@ class OwnedSections extends React.Component {
             {visibleSectionIds.length > 0 && (
               <OwnedSectionsTable
                 sectionIds={visibleSectionIds}
-                onEdit={beginEditingSection}
+                onEdit={this.beginEditingSection}
               />
             )}
             <div style={styles.buttonContainer}>

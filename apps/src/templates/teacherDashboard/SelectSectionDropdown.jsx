@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import i18n from '@cdo/locale';
-import {switchToSection, recordSwitchToSection} from './urlHelpers';
+import {switchToSection, recordSwitchToSection} from './sectionHelpers';
 import {getVisibleSections} from '@cdo/apps/templates/teacherDashboard/teacherSectionsRedux';
 
 const styles = {
@@ -27,7 +27,7 @@ class SelectSectionDropdown extends React.Component {
     let toSectionId = event.target.value;
     let fromSectionId = this.props.selectedSectionId;
     switchToSection(toSectionId, fromSectionId);
-    recordSwitchToSection('from_dropdown');
+    recordSwitchToSection(toSectionId, fromSectionId, 'from_select');
   };
 
   render() {

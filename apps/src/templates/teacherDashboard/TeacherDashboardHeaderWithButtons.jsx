@@ -1,7 +1,7 @@
 import FontAwesome from './../FontAwesome';
 import React from 'react';
 import {connect} from 'react-redux';
-import {switchToSection, recordSwitchToSection} from './urlHelpers';
+import {switchToSection, recordSwitchToSection, recordOpenEditSectionDetails} from './sectionHelpers';
 import PropTypes from 'prop-types';
 import i18n from '@cdo/locale';
 import SmallChevronLink from '../SmallChevronLink';
@@ -55,7 +55,7 @@ class TeacherDashboardHeader extends React.Component {
       let section = sections[key];
       let optionOnClick = () => {
         switchToSection(section.id, self.selectedSection.id);
-        recordSwitchToSection('from_button');
+        recordSwitchToSection(section.id, self.selectedSection.id,'from_button');
       }
       let icon = undefined;
       if (section.id === self.selectedSection.id) {
@@ -73,20 +73,6 @@ class TeacherDashboardHeader extends React.Component {
     });
     return options;
   }
-
- recordOpenEditSectionDialog(sectionId) {
-   firehoseClient.putRecord(
-     {
-       study: 'teacher_dashboard_actions',
-       study_group: ??,
-       event:'open_edit_section_dashboard_header',
-       data_json = JSON.stringify({
-         section_id: sectionId
-       })
-     },
-     {includeUserId: true}
-   )
- }
 
   render() {
     return (
@@ -109,8 +95,8 @@ class TeacherDashboardHeader extends React.Component {
             <div style={styles.buttonSection}>
               <Button
                 onClick={() =>
-                  this.props.openEditSectionDialog(this.selectedSection.id)
-                  this.recordOpenEditSectionDialog(this.selectedSection.id)
+                  this.props.openEditSectionDialog(this.selectedSection.id);
+                  recordOpenEditSectionDetails(this.selectedSection.id, 'dashboard_header');
                 }
                 icon="gear"
                 size="narrow"
