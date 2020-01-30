@@ -20,6 +20,7 @@ import AddSectionDialog from './AddSectionDialog';
 import EditSectionDialog from './EditSectionDialog';
 import SetUpSections from '../studioHomepages/SetUpSections';
 import {recordOpenEditSectionDetails} from './sectionHelpers';
+import experiments from '@cdo/apps/util/experiments';
 
 const styles = {
   button: {
@@ -100,7 +101,11 @@ class OwnedSections extends React.Component {
                 sectionIds={visibleSectionIds}
                 onEdit={(id) => {
                   this.props.beginEditingSection(id);
-                  recordOpenEditSectionDetails(id, 'owned_sections_table');
+                  if(experiments.isEnabled(experiments.TEACHER_DASHBOARD_SECTION_BUTTONS)) {
+                    recordOpenEditSectionDetails(id, 'owned_sections_table_with_dashboard_header_buttons');
+                  } else {
+                    recordOpenEditSectionDetails(id, 'owned_sections_table_without_dashboard_header_buttons');
+                  }
                 }}
               />
             )}
