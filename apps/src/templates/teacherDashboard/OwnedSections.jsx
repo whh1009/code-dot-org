@@ -58,11 +58,25 @@ class OwnedSections extends React.Component {
     viewHidden: false
   };
 
+  constructor(props) {
+    super(props)
+    this.onEditSection = this.onEditSection.bind(this)
+  }
+
   componentDidMount() {
     const {queryStringOpen, beginImportRosterFlow} = this.props;
 
     if (queryStringOpen === 'rosterDialog') {
       beginImportRosterFlow();
+    }
+  }
+
+  onEditSection(id) {
+    this.props.beginEditingSection(id);
+    if (experiments.isEnabled(experiments.TEACHER_DASHBOARD_SECTION_BUTTONS)) {
+      recordOpenEditSectionDetails(id, 'owned_sections_table_with_dashboard_header_buttons');
+    } else {
+      recordOpenEditSectionDetails(id, 'owned_sections_table_without_dashboard_header_buttons');
     }
   }
 
@@ -99,14 +113,7 @@ class OwnedSections extends React.Component {
             {visibleSectionIds.length > 0 && (
               <OwnedSectionsTable
                 sectionIds={visibleSectionIds}
-                onEdit={(id) => {
-                  this.props.beginEditingSection(id);
-                  if(experiments.isEnabled(experiments.TEACHER_DASHBOARD_SECTION_BUTTONS)) {
-                    recordOpenEditSectionDetails(id, 'owned_sections_table_with_dashboard_header_buttons');
-                  } else {
-                    recordOpenEditSectionDetails(id, 'owned_sections_table_without_dashboard_header_buttons');
-                  }
-                }}
+                onEdit={this.onEditSection}
               />
             )}
             <div style={styles.buttonContainer}>
@@ -131,7 +138,7 @@ class OwnedSections extends React.Component {
                 </div>
                 <OwnedSectionsTable
                   sectionIds={hiddenSectionIds}
-                  onEdit={beginEditingSection}
+                  onEdit={this.onEditSection}
                 />
               </div>
             )}
