@@ -33,11 +33,15 @@ export const switchToSection = (toSectionId, fromSectionId) => {
     : baseUrl;
   navigateToHref(sectionUrl);
 
+};
+
+export const recordSwitchToSection(eventSuffix) {
+  let eventPrefix = 'change_section';
   firehoseClient.putRecord(
     {
       study: 'teacher_dashboard_actions',
       study_group: currentTab,
-      event: 'change_section',
+      event: !!eventSuffix ? `${eventPrefix}_eventSuffix` : eventPrefix,
       data_json: JSON.stringify({
         section_id: fromSectionId,
         old_section_id: fromSectionId,
@@ -46,4 +50,4 @@ export const switchToSection = (toSectionId, fromSectionId) => {
     },
     {includeUserId: true}
   );
-};
+}
