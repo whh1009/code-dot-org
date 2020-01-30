@@ -68,11 +68,6 @@ class OwnedSections extends React.Component {
   // Wrapped to avoid passing event args
   beginEditingNewSection = () => this.props.beginEditingNewSection();
 
-  beginEditingSection(id) {
-    this.props.beginEditingSection(id);
-    recordOpenEditSectionDetails(id);
-  }
-
   toggleViewHidden = () => {
     this.setState({
       viewHidden: !this.state.viewHidden
@@ -103,7 +98,10 @@ class OwnedSections extends React.Component {
             {visibleSectionIds.length > 0 && (
               <OwnedSectionsTable
                 sectionIds={visibleSectionIds}
-                onEdit={this.beginEditingSection}
+                onEdit={(id) => {
+                  this.props.beginEditingSection(id);
+                  recordOpenEditSectionDetails(id, 'owned_sections_table');
+                }}
               />
             )}
             <div style={styles.buttonContainer}>

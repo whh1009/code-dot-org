@@ -11,10 +11,10 @@ export const switchToSection = (toSectionId, fromSectionId) => {
     ? baseUrl.concat(currentTab)
     : baseUrl;
   navigateToHref(sectionUrl);
-
 };
 
-export const recordSwitchToSection(toSectionId, fromSectionId, studyGroup) {
+export const recordSwitchToSection = (toSectionId, fromSectionId, studyGroup) => {
+  console.log(`recording switching from ${fromSectionId} to ${toSectionId} for ${studyGroup}`)
   firehoseClient.putRecord(
     {
       study: 'teacher_dashboard_actions',
@@ -30,13 +30,14 @@ export const recordSwitchToSection(toSectionId, fromSectionId, studyGroup) {
   );
 }
 
-export const recordOpenEditSectionDetails(sectionId, studyGroup) {
+export const recordOpenEditSectionDetails = (sectionId, studyGroup) => {
+   console.log(`recording opening edit section details for ${sectionId} for study group ${studyGroup}`)
    firehoseClient.putRecord(
      {
        study: 'teacher_dashboard_actions',
        study_group: studyGroup,
        event:'open_edit_section_dashboard_header',
-       data_json = JSON.stringify({
+       data_json: JSON.stringify({
          section_id: sectionId
        })
      },

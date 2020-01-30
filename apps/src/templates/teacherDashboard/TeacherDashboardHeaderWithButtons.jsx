@@ -94,10 +94,10 @@ class TeacherDashboardHeader extends React.Component {
           <div style={styles.rightColumn}>
             <div style={styles.buttonSection}>
               <Button
-                onClick={() =>
+                onClick={() => {
                   this.props.openEditSectionDialog(this.selectedSection.id);
                   recordOpenEditSectionDetails(this.selectedSection.id, 'dashboard_header');
-                }
+                }}
                 icon="gear"
                 size="narrow"
                 color="gray"
