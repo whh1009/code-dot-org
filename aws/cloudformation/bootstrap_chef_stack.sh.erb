@@ -158,6 +158,8 @@ aws cloudformation signal-resource \
   --region $REGION \
   || true
 
+ps aux | grep "cluster worker" | grep dashboard | head -n 3 | tr --squeeze-repeats ' ' | cut -d ' ' -f 2 | xargs -P 3 -I {} sudo ./rbspy record --silent --duration 120 --pid {}
+
 <% if shutdown -%>
 shutdown -h now
 <% end -%>
