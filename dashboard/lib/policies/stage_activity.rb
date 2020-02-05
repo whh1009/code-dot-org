@@ -20,13 +20,12 @@ class Policies::StageActivity
 
     number_of_students_in_section = section.students.count
 
-    number_of_students_who_completed_stage = 0
-    section.students.each do |student|
-      if completed_by_user?(student, stage)
-        number_of_students_who_completed_stage += 1
-      end
-    end
+    (number_of_students_who_completed_stage(section, stage).to_f / number_of_students_in_section) >= 0.8
+  end
 
-    (number_of_students_who_completed_stage.to_f / number_of_students_in_section) >= 0.8
+  def self.number_of_students_who_completed_stage(section, stage)
+    section.students.select do |student|
+      completed_by_user?(student, stage)
+    end.count
   end
 end
