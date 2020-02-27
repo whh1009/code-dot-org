@@ -95,11 +95,48 @@ Resources:
           - Effect: Allow
             Action: 's3:*'
             Resource: '*'
+<% if load_balancer -%>
+  # TODO hourofcode.com and csedweek.org load balancers should be added to this template.
+  LoadBalancer:
+    Type: AWS::ElasticLoadBalancing::LoadBalancer
+    Properties:
+<% raise "LoadBalancer name [#{stack_name}] cannot be longer than 32 characters" if stack_name.length > 32 -%>
+      LoadBalancerName: !Ref AWS::StackName
+      CrossZone: true
+      SecurityGroups: [!ImportValue VPC-ELBSecurityGroup]
+      Subnets: <%= public_subnets.to_json %>
+      LBCookieStickinessPolicy:
+        - PolicyName: CookieBasedPolicy
+          CookieExpirationPeriod: 30
+      Listeners:
+        - LoadBalancerPort: 80
+          InstancePort: 80
+          Protocol: HTTP
+          PolicyNames: [CookieBasedPolicy]
+        - LoadBalancerPort: 443
+          InstancePort: 80
+          Protocol: HTTPS
+          SSLCertificateId: <%=certificate_arn%>
+          PolicyNames: [CookieBasedPolicy]
+      HealthCheck:
+        Target: HTTP:80/health_check
+        HealthyThreshold: 2
+        UnhealthyThreshold: 5
+        Interval: 10
+        Timeout: 5
+      ConnectionDrainingPolicy:
+        Enabled: true
+        Timeout: 300
+<%   if !frontends && daemon_instance_id -%>
+      Instances: [<%=daemon_instance_id%>]
+<%   end -%>
+<% end -%>
+
 <% if frontends -%>
   FrontendRole:
     Type: AWS::IAM::Role
     Properties:
-      <%=service_role 'ec2'%>
+        <%=service_role 'ec2'%>
       Policies:
         - PolicyName: LifecycleHook
           PolicyDocument:
@@ -166,45 +203,6 @@ Resources:
     ],
     LaunchConfiguration: {Ref: 'FrontendLaunchConfig'}
   %>
-<% end -%>
-<% if load_balancer -%>
-  # TODO hourofcode.com and csedweek.org load balancers should be added to this template.
-  LoadBalancer:
-    Type: AWS::ElasticLoadBalancing::LoadBalancer
-    Properties:
-<% raise "LoadBalancer name [#{stack_name}] cannot be longer than 32 characters" if stack_name.length > 32 -%>
-      LoadBalancerName: !Ref AWS::StackName
-      CrossZone: true
-      SecurityGroups: [!ImportValue VPC-ELBSecurityGroup]
-      Subnets: <%= public_subnets.to_json %>
-      LBCookieStickinessPolicy:
-        - PolicyName: CookieBasedPolicy
-          CookieExpirationPeriod: 30
-      Listeners:
-        - LoadBalancerPort: 80
-          InstancePort: 80
-          Protocol: HTTP
-          PolicyNames: [CookieBasedPolicy]
-        - LoadBalancerPort: 443
-          InstancePort: 80
-          Protocol: HTTPS
-          SSLCertificateId: <%=certificate_arn%>
-          PolicyNames: [CookieBasedPolicy]
-      HealthCheck:
-        Target: HTTP:80/health_check
-        HealthyThreshold: 2
-        UnhealthyThreshold: 5
-        Interval: 10
-        Timeout: 5
-      ConnectionDrainingPolicy:
-        Enabled: true
-        Timeout: 300
-<%   if !frontends && daemon_instance_id -%>
-      Instances: [<%=daemon_instance_id%>]
-<%   end -%>
-<% end -%>
-
-<% if frontends -%>
   Frontends:
     DependsOn: [ASGCount]
     Type: AWS::AutoScaling::AutoScalingGroup
@@ -265,16 +263,6 @@ Resources:
         PredefinedMetricSpecification:
           PredefinedMetricType: ASGAverageCPUUtilization
         TargetValue: 50
-  WebServerHook:
-    Type: AWS::AutoScaling::LifecycleHook
-    Properties:
-      LifecycleHookName: !Sub "WebServerHook-${AWS::StackName}"
-      AutoScalingGroupName: !Ref Frontends
-      LifecycleTransition: 'autoscaling:EC2_INSTANCE_LAUNCHING'
-      DefaultResult: ABANDON
-      HeartbeatTimeout: 1200 # seconds = 20 minutes
-      NotificationTargetARN: !Ref WebServerHookTopicNew
-      RoleARN: !GetAtt WebServerHookRole.Arn
   WebServerHookEventRule:
     Type: AWS::Events::Rule
     Properties:
@@ -301,19 +289,7 @@ Resources:
       Action: 'lambda:InvokeFunction'
       Principal: events.amazonaws.com
       SourceArn: !GetAtt WebServerHookEventRule.Arn
-  WebServerHookTopicNew: {Type: 'AWS::SNS::Topic'}
-  WebServerHookRole:
-    Type: AWS::IAM::Role
-    Properties:
-      <%=service_role 'autoscaling'%>
-      Policies:
-        - PolicyName: snsPublish
-          PolicyDocument:
-            Statement:
-              - Effect: Allow
-                Action: 'sns:Publish'
-                Resource: !Ref WebServerHookTopicNew
-      PermissionsBoundary: !ImportValue IAM-DevPermissions
+<%= file('web_server_hook.yml.erb', asg: '!Ref Frontends', timeout: 1200) %>
 <%  if environment == :production -%>
   HealthEventRule:
     Type: AWS::Events::Rule
