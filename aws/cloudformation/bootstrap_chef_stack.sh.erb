@@ -1,12 +1,3 @@
-#!/bin/bash -x
-# UserData bootstrap script for CloudFormation stack instances.
-
-<% unless daemon -%>
-# Modify cloud-init to re-run this user-data script every time instance restarts.
-# Ref: http://stackoverflow.com/a/10455027
-sed -i 's/scripts-user$/\[scripts-user, always\]/' /etc/cloud/cloud.cfg
-<% end -%>
-
 # Bootstrap prerequisites
 apt-get update
 unattended-upgrade
@@ -22,7 +13,6 @@ ENVIRONMENT=<%=environment%>
 RUN_LIST='<%=run_list.to_json%>'
 INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
 NODE_NAME=<%=node_name%>
-RESOURCE_ID=<%=resource_id%>
 
 # Increase EC2 instance metadata service retries/timeouts.
 export AWS_METADATA_SERVICE_TIMEOUT=30
@@ -59,8 +49,7 @@ aws logs put-retention-policy \
 <% unless @load_balancer -%>
 # Fetch acmesmith-provisioned SSL certificate and key from S3
 aws configure set s3.signature_version s3v4
-SUBDOMAIN=<%=subdomain%>
-S3_PATH=s3://$S3_BUCKET/ssl/certs/$SUBDOMAIN
+S3_PATH=<%=ssl_certs_path%>
 CURRENT=$S3_PATH/$(aws s3 cp $S3_PATH/current -)
 function replace_newline() {
   sed 's/$/\\n/' | tr -d '\n'
@@ -70,7 +59,7 @@ CHAIN=$(aws s3 cp $CURRENT/chain.pem - | replace_newline)
 KEY=$(aws s3 cp $CURRENT/key.pem - | replace_newline)
 <% end -%>
 
-<% if template == 'cloud_formation_stack.yml.erb' && @database -%>
+<% if @database -%>
 apt-get install -y  jq
 DB_SECRET_NAME=${DatabaseSecret}
 DB_SECRET=$(aws --region $REGION secretsmanager get-secret-value --secret-id $DB_SECRET_NAME --version-stage AWSCURRENT | jq -r ".SecretString")
@@ -140,24 +129,11 @@ cat <<JSON > $FIRST_BOOT
 JSON
 
 # Provision via Chef.
-OPTIONS="<%=local_mode ? '-z ' : ''%> -b $BRANCH -n $NODE_NAME -r '$RUN_LIST' -e $ENVIRONMENT -v $CHEF_VERSION"
-sudo -u ubuntu bash -c "aws s3 cp s3://$S3_BUCKET/<%=CHEF_KEY%>/bootstrap-$STACK.sh - | sudo bash -s -- $OPTIONS"
+OPTIONS="<%=cookbooks_path ? '-z ' : ''%> -b $BRANCH -n $NODE_NAME -r '$RUN_LIST' -e $ENVIRONMENT -v $CHEF_VERSION"
+sudo -u ubuntu bash -c "aws s3 cp <%=bootstrap_script_path%> - | sudo bash -s -- $OPTIONS"
 [ $? -eq 0 ] && STATUS=SUCCESS || STATUS=<%=daemon ? 'SUCCESS' : 'FAILURE'%>
 
 <% unless daemon -%>
 # Workaround for version-controlled files modified by seed.
 sudo -u ubuntu bash -c "cd /home/ubuntu/$ENVIRONMENT && git reset --hard"
-<% end -%>
-
-# Signal CloudFormation resource.
-aws cloudformation signal-resource \
-  --unique-id $INSTANCE_ID \
-  --stack-name $STACK \
-  --logical-resource-id $RESOURCE_ID \
-  --status $STATUS \
-  --region $REGION \
-  || true
-
-<% if shutdown -%>
-shutdown -h now
 <% end -%>

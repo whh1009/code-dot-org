@@ -1,17 +1,9 @@
 <%
 commit = ENV['COMMIT'] || `git rev-parse HEAD`.split.first
-ami = commit[0..4]
 -%>
 ---
 AWSTemplateFormatVersion: 2010-09-09
 Description: Minimal test stack for AMI-builder.
-Parameters:
-  InstanceType:
-    Type: String
-    Default: t3.large
-  ImageIdParameter:
-    Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
-    Default: '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
 Resources:
   # Stack-specific IAM permissions applied to both daemon and frontends.
   CDOPolicy:
@@ -25,31 +17,12 @@ Resources:
           - Effect: Allow
             Action: 'cloudformation:SignalResource'
             Resource: !Sub "arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/${AWS::StackName}/*"
-
-  LaunchTemplate:
-    Type: AWS::EC2::LaunchTemplate
-    Properties:
-      ImageId: !Ref AMI<%=ami%>
-      InstanceType: !Ref InstanceType
-      IamInstanceProfile: !Ref FrontendInstanceProfile
-      SecurityGroups: [!ImportValue VPC-FrontendSecurityGroup]
-      KeyName: <%=SSH_KEY_NAME%>
-      BlockDeviceMappings:
-        - DeviceName: /dev/xvda
-          Ebs:
-            VolumeSize: 16
-            VolumeType: gp2
-      UserData:
-        Fn::Base64: !Sub |
-          #!/bin/bash -x
-          # This line causes the LaunchTemplate to be replaced on each new commit.
-          COMMIT=<%=commit%>
-
-          sleep 10 # Prevent 'No active Lifecycle Action found' error
-          # Signal CompleteLifecycleAction, in case this instance was launched from an Auto Scaling process.
-          <%=complete_lifecycle 'WebServerHook-${AWS::StackName}', 'Frontends-${AWS::StackName}'%> || true
-          # Signal CloudFormation, in case this instance was launched from a CloudFormation stack update.
-          <%=signal_resource 'Frontends'%> || true
-
-<%= file 'ami.yml.erb' -%>
-
+<%= erb_file 'components/ami.yml.erb', commit: commit -%>
+<%
+  params[:InstanceType][:Default] = 't3.large'
+  params[:ImageId] = {
+    Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>',
+    Default: '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
+  }
+-%>
+Parameters: <%=params.to_json%>

@@ -16,7 +16,6 @@ module Cdo::CloudFormation
     LOG_NAME = '/var/log/bootstrap.log'.freeze
     CHEF_KEY = rack_env?(:adhoc) ? 'adhoc/chef' : 'chef'
 
-    SSH_KEY_NAME = 'server_access_key'.freeze
     IMAGE_ID = ENV['IMAGE_ID'] || 'ami-07d0cf3af28718ef8' # ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-20190722.1
     INSTANCE_TYPE = rack_env?(:production) ? 'm4.10xlarge' : 't2.2xlarge'
     ORIGIN = "https://github.com/code-dot-org/code-dot-org.git"
@@ -65,13 +64,6 @@ module Cdo::CloudFormation
 
       tags.push(key: 'environment', value: rack_env)
       tags.push(key: 'owner', value: Aws::STS::Client.new.get_caller_identity.arn) if rack_env?(:adhoc)
-    end
-
-    def create_or_update
-      update_certs unless load_balancer
-      update_cookbooks if CDO.chef_local_mode
-      update_bootstrap_script
-      super
     end
 
     def check_branch!
@@ -131,33 +123,49 @@ To specify an alternate branch name, run `rake adhoc:start branch=BRANCH`.'
         certificate_arn
     end
 
-    def update_bootstrap_script
-      Aws::S3::Client.new.put_object(
-        bucket: S3_BUCKET,
-        key: "#{CHEF_KEY}/bootstrap-#{stack_name}.sh",
-        body: File.read(aws_dir('chef-bootstrap.sh'))
-      )
-    end
-
-    def update_certs
-      Dir.chdir(aws_dir('cloudformation')) do
-        RakeUtils.bundle_exec './update_certs',
-          subdomain,
-          studio_subdomain,
-          subdomain('origin')
+    def bootstrap_script_path
+      @bootstrap_script ||= begin
+        unless dry_run.tap{|x| puts "bootstrap path"}
+          Aws::S3::Client.new.put_object(
+            bucket: S3_BUCKET,
+            key: "#{CHEF_KEY}/bootstrap-#{stack_name}.sh",
+            body: File.read(aws_dir('chef-bootstrap.sh'))
+          )
+        end
+        "s3://#{S3_BUCKET}/#{CHEF_KEY}/bootstrap-$STACK.sh"
       end
     end
 
-    def update_cookbooks
-      RakeUtils.with_bundle_dir(cookbooks_dir) do
-        Tempfile.open('berks') do |tmp|
-          RakeUtils.bundle_exec 'berks', 'package', tmp.path
-          Aws::S3::Client.new.put_object(
-            bucket: S3_BUCKET,
-            key: "#{CHEF_KEY}/#{branch}.tar.gz",
-            body: tmp.read
-          )
+    def ssl_certs_path
+      @certs_path ||= begin
+        unless dry_run.tap{|x| puts "Certs path"}
+          Dir.chdir(aws_dir('cloudformation')) do
+            RakeUtils.bundle_exec './update_certs',
+              subdomain,
+              studio_subdomain,
+              subdomain('origin')
+          end
         end
+        "s3://#{s3_bucket}/ssl/certs/#{subdomain}"
+      end
+    end
+
+    def cookbooks_path
+      return nil unless local_mode
+      @cookbooks_path ||= begin
+        unless dry_run.tap{|x| puts "Cookbooks path"}
+          RakeUtils.with_bundle_dir(cookbooks_dir) do
+            Tempfile.open('berks') do |tmp|
+              RakeUtils.bundle_exec 'berks', 'package', tmp.path
+              Aws::S3::Client.new.put_object(
+                bucket: S3_BUCKET,
+                key: "#{CHEF_KEY}/#{branch}.tar.gz",
+                body: tmp.read
+              )
+            end
+          end
+        end
+        "s3://#{S3_BUCKET}/#{CHEF_KEY}/#{branch}.tar.gz"
       end
     end
 

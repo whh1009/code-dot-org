@@ -1,7 +1,6 @@
 namespace :adhoc do
   task :environment do
     require_relative '../../deployment'
-    ENV['TEMPLATE'] ||= 'cloud_formation_stack.yml.erb'
     unless ENV['CHEF_SERVER']
       raise "RAILS_ENV=adhoc required to deploy adhoc instance." unless rack_env?(:adhoc)
     end

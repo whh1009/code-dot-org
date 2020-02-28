@@ -11,8 +11,15 @@ module Cdo::CloudFormation
     S3_BUCKET = 'cdo-dist'.freeze
     DOMAIN = ENV['DOMAIN'] || 'cdn-code.org'
     SSH_IP = '0.0.0.0/0'.freeze
-
+    SSH_KEY_NAME = 'server_access_key'.freeze
     AVAILABILITY_ZONES = ('b'..'e').map {|i| "us-east-1#{i}"}
+
+    attr_reader :params
+
+    def initialize(**options)
+      super
+      @params = {}
+    end
 
     def get_binding
       binding
@@ -81,6 +88,33 @@ module Cdo::CloudFormation
 
     def log_name
       LOG_NAME
+    end
+
+    def signal_resource(resource_id, status='SUCCESS')
+      <<~SH.chomp
+        aws cloudformation signal-resource \
+          --unique-id $(curl -s http://169.254.169.254/latest/meta-data/instance-id) \
+          --stack-name ${AWS::StackName} \
+          --logical-resource-id #{resource_id} \
+          --status #{status} \
+          --region ${AWS::Region}
+      SH
+    end
+
+    def complete_lifecycle(hook_name, asg_name)
+      <<~SH.chomp
+        aws autoscaling complete-lifecycle-action \
+          --lifecycle-action-result CONTINUE \
+          --instance-id $(curl -s http://169.254.169.254/latest/meta-data/instance-id) \
+          --lifecycle-hook-name #{hook_name} \
+          --auto-scaling-group-name #{asg_name} \
+          --region ${AWS::Region}
+      SH
+    end
+
+    # Adds the specified properties to a YAML document.
+    def add_properties(properties)
+      properties.transform_values(&:to_json).map{|p| p.join(': ')}.join("\n      ")
     end
   end
 end

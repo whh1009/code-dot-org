@@ -13,7 +13,7 @@ module Cdo::CloudFormation
     extend Forwardable
     def_delegators :@log, :info, :debug, :warn
 
-    attr_accessor :log
+    attr_accessor :log, :dry_run
     attr_reader :template, :template_policy, :stack_name, :stack, :options
 
     def initialize(**options)
@@ -41,7 +41,8 @@ module Cdo::CloudFormation
     # First prints the JSON-formatted template, then either raises an error (if invalid)
     # or prints the template description (if valid).
     def validate
-      template = render_template(dry_run: true)
+      self.dry_run = true
+      template = render_template
       info template if options[:verbose]
       template_info = string_or_url(template)
       info cfn.validate_template(template_info).description
@@ -127,7 +128,9 @@ module Cdo::CloudFormation
           # Required parameter value not found in environment, existing stack or default.
           # Ask for input directly.
           require 'highline'
-          param[:parameter_value] = HighLine.new.ask("Enter value for Parameter #{key}:", String)
+          param[:parameter_value] = dry_run ?
+            '!Required' :
+            HighLine.new.ask("Enter value for Parameter #{key}:", String)
         end
         param
       end.compact
@@ -257,8 +260,8 @@ module Cdo::CloudFormation
       info "Don't forget to remove AWS resources by running `rake adhoc:delete` after you're done testing your instance!" if action == :create
     end
 
-    def render_template(template: self.template, dry_run: false)
-      erb_file(template, dry_run: dry_run)
+    def render_template(template: self.template)
+      erb_file(template)
     end
 
     # Inline a file into a CloudFormation template.

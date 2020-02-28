@@ -1,21 +1,36 @@
 <%
+# Template component to deploy AMI-backed frontends to an autoscaling group with rolling updates.
 ami = commit[0..4]
-parameters.add Timeout: {Type: 'String', Default: 'PT10M'}
-parameters.add FrontendTimeout: {Type: 'String', Default: 'PT10M'}
-parameters.add BuildAMI: {Type: 'String', Default: ''}
+build_ami ||= ''
+build_frontend ||= 'sleep 10'
+frontend_policies ||= {}
+frontend_properties ||= {}
+
+params[:ImageId] ||= {Type: 'AWS::EC2::Image::Id'}
+params[:SSHKeyName] ||= {Type: 'AWS::EC2::KeyPair::KeyName'}
+params[:InstanceType] ||= {Type: 'String'}
+
+ami_timeout ||= 'PT10M'
+frontend_timeout ||= 'PT10M'
+lifecycle_timeout ||= 1200 # seconds = 20 minutes
+frontend_volume_size ||= 16
+frontend_device_name ||= '/dev/sda1'
 -%>
   FrontendRole:
     Type: AWS::IAM::Role
     Properties:
-        <%=service_role 'ec2'%>
+      <%=service_role 'ec2'%>
       Policies:
         - PolicyName: LifecycleHook
           PolicyDocument:
             Statement:
               - Effect: Allow
+                Action: 'cloudformation:SignalResource'
+                Resource: !Sub "arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/${AWS::StackName}/*"
+              - Effect: Allow
                 Action: 'autoscaling:CompleteLifecycleAction'
                 Resource: !Sub "arn:aws:autoscaling:${AWS::Region}:${AWS::AccountId}:autoScalingGroup:*:autoScalingGroupName/Frontends-${AWS::StackName}"
-      ManagedPolicyArns: [!Ref CDOPolicy]
+      ManagedPolicyArns: <%=frontend_policies.to_json%>
       PermissionsBoundary: !ImportValue IAM-DevPermissions
   FrontendInstanceProfile:
     Type: AWS::IAM::InstanceProfile
@@ -25,16 +40,69 @@ parameters.add BuildAMI: {Type: 'String', Default: ''}
     Type: AWS::CloudFormation::WaitCondition
     CreationPolicy:
       ResourceSignal:
-        Timeout: !Ref Timeout
+        Timeout: <%=ami_timeout%>
         Count: 1
-  AMI<%=ami%>: <%= lambda_fn.call 'AMIManager',
+  AMI<%=ami%>: <%= lambda_fn 'AMIManager',
     DependsOn: "AMICreate#{ami}",
     InstanceId: {Ref: "WebServerAMI" } %>
-  FastSnapshotRestore: <%= lambda_fn.call 'FastSnapshotRestore',
+  FastSnapshotRestore: <%= lambda_fn 'FastSnapshotRestore',
     ImageIds: [{Ref: "AMI#{ami}" }],
     AvailabilityZones: AVAILABILITY_ZONES
   %>
-  ASGCount: <%= lambda_fn.call 'CountASG',
+  LaunchConfiguration:
+    Type: AWS::AutoScaling::LaunchConfiguration
+    DependsOn: FastSnapshotRestore
+    Properties:
+      ImageId: !GetAtt [AMI<%=ami%>, ImageId]
+      InstanceType: !Ref InstanceType
+      IamInstanceProfile: !Ref FrontendInstanceProfile
+      SecurityGroups: [!ImportValue VPC-FrontendSecurityGroup]
+      KeyName: !Ref SSHKeyName
+      BlockDeviceMappings:
+        - DeviceName: <%=frontend_device_name%>
+          Ebs:
+            VolumeSize: <%=frontend_volume_size%>
+            VolumeType: gp2
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash -x
+          # This line causes the LaunchConfiguration to be replaced on each new commit.
+          COMMIT=<%=commit%>
+
+          <%=build_frontend%>
+
+          # Signal CompleteLifecycleAction, in case the frontend was launched from an Auto Scaling process.
+          <%=complete_lifecycle 'WebServerHook-${AWS::StackName}', 'Frontends-${AWS::StackName}'%> || true
+          # Signal CloudFormation, in case the frontend was launched from a CloudFormation stack update.
+          <%=signal_resource 'Frontends'%> || true
+
+  WebServerAMI:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !Ref ImageId
+      InstanceType: !Ref InstanceType
+      IamInstanceProfile: !Ref FrontendInstanceProfile
+      SecurityGroups: [!ImportValue VPC-FrontendSecurityGroup]
+      KeyName: !Ref SSHKeyName
+      BlockDeviceMappings:
+        - DeviceName: <%=frontend_device_name%>
+          Ebs:
+            VolumeSize: <%=frontend_volume_size%>
+            VolumeType: gp2
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash -x
+          # Modify cloud-init to re-run this user-data script every time instance restarts.
+          sed -i 's/scripts-user$/\[scripts-user, always\]/' /etc/cloud/cloud.cfg
+          # This line causes the instance to reboot on each new commit.
+          COMMIT=<%=commit%>
+
+          <%=build_ami%>
+
+          # Signal AMI WaitCondition.
+          <%=signal_resource "AMICreate#{ami}"-%> || true
+          shutdown -h now
+  ASGCount: <%= lambda_fn 'CountASG',
     Default: {
       MinSize: 2,
       MaxSize: 20,
@@ -44,29 +112,14 @@ parameters.add BuildAMI: {Type: 'String', Default: ''}
       {Key: 'aws:cloudformation:stack-id', Value: {Ref: 'AWS::StackId'}},
       {Key: 'aws:cloudformation:logical-id', Value: 'Frontends'}
     ],
-    LaunchTemplate: {Ref: 'LaunchTemplate'}
+    LaunchConfiguration: {Ref: 'LaunchConfiguration'}
   %>
-  WebServerAMI:
-    Type: AWS::EC2::Instance
-    Properties:
-      LaunchTemplate:
-        LaunchTemplateId: !Ref LaunchTemplate
-        Version: !GetAtt LaunchTemplate.LatestVersionNumber
-      UserData:
-        Fn::Base64: !Sub |
-          #!/bin/bash -x
-          # Modify cloud-init to re-run this user-data script every time instance restarts.
-          sed -i 's/scripts-user$/\[scripts-user, always\]/' /etc/cloud/cloud.cfg
-          ${BuildAMI}
-          # Signal AMI WaitCondition.
-          <%=signal_resource "AMICreate#{ami}"%> || true
-          shutdown -h now
   Frontends:
     DependsOn: [ASGCount]
     Type: AWS::AutoScaling::AutoScalingGroup
     CreationPolicy:
       ResourceSignal:
-        Timeout: !Ref FrontendTimeout
+        Timeout: <%=frontend_timeout%>
         Count: !GetAtt [ASGCount, DesiredCapacity]
       AutoScalingCreationPolicy:
         MinSuccessfulInstancesPercent: 80
@@ -75,7 +128,7 @@ parameters.add BuildAMI: {Type: 'String', Default: ''}
         MaxBatchSize: 20
         MinInstancesInService: !GetAtt [ASGCount, DesiredCapacity]
         MinSuccessfulInstancesPercent: 80
-        PauseTime: !Ref FrontendTimeout
+        PauseTime: <%=frontend_timeout%>
         SuspendProcesses: [ScheduledActions]
         WaitOnResourceSignals: true
     Properties:
@@ -84,11 +137,12 @@ parameters.add BuildAMI: {Type: 'String', Default: ''}
       MaxSize: !GetAtt [ASGCount, MaxSize]
       DesiredCapacity: !GetAtt [ASGCount, DesiredCapacity]
       VPCZoneIdentifier: <%=subnets.to_json%>
-      HealthCheckType: EC2
+      HealthCheckType: EC2 # TODO: use ELB health check that returns healthy even when fully loaded.
       HealthCheckGracePeriod: 2000
-      LaunchTemplate:
-        LaunchTemplateId: !Ref LaunchTemplate
-        Version: !GetAtt LaunchTemplate.LatestVersionNumber
+      LaunchConfigurationName: !Ref LaunchConfiguration
+      <%=add_properties frontend_properties%>
+      MetricsCollection:
+        - Granularity: 1Minute
   CPUScalingPolicy:
     Type: AWS::AutoScaling::ScalingPolicy
     Properties:
@@ -106,14 +160,14 @@ parameters.add BuildAMI: {Type: 'String', Default: ''}
       AutoScalingGroupName: !Ref Frontends
       LifecycleTransition: 'autoscaling:EC2_INSTANCE_LAUNCHING'
       DefaultResult: ABANDON
-      HeartbeatTimeout: 1200 # seconds = 20 minutes
+      HeartbeatTimeout: <%=lifecycle_timeout%>
       NotificationTargetARN: !Ref WebServerHookTopic
       RoleARN: !GetAtt WebServerHookRole.Arn
   WebServerHookTopic: {Type: 'AWS::SNS::Topic'}
   WebServerHookRole:
     Type: AWS::IAM::Role
     Properties:
-        <%=service_role 'autoscaling'%>
+      <%=service_role 'autoscaling'%>
       Policies:
         - PolicyName: snsPublish
           PolicyDocument:
