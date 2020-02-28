@@ -26,7 +26,7 @@ module Cdo::CloudFormation
 
     attr_reader :daemon, :daemon_instance_id,
       :frontends, :database, :load_balancer, :alarms,
-      :commit, :ami,
+      :commit,
       :chef_version
 
     def initialize(**options)
@@ -37,7 +37,6 @@ module Cdo::CloudFormation
 
       check_branch!
       @commit = options.delete(:commit) || `git ls-remote origin #{branch}`.split.first
-      @ami = @commit[0..4]
 
       @frontends = rack_env?(:production) || options[:frontends]
       @database = [:staging, :test, :levelbuilder].include?(rack_env) || options[:database]

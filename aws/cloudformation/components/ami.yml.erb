@@ -1,0 +1,124 @@
+<%
+ami = commit[0..4]
+parameters.add Timeout: {Type: 'String', Default: 'PT10M'}
+parameters.add FrontendTimeout: {Type: 'String', Default: 'PT10M'}
+parameters.add BuildAMI: {Type: 'String', Default: ''}
+-%>
+  FrontendRole:
+    Type: AWS::IAM::Role
+    Properties:
+        <%=service_role 'ec2'%>
+      Policies:
+        - PolicyName: LifecycleHook
+          PolicyDocument:
+            Statement:
+              - Effect: Allow
+                Action: 'autoscaling:CompleteLifecycleAction'
+                Resource: !Sub "arn:aws:autoscaling:${AWS::Region}:${AWS::AccountId}:autoScalingGroup:*:autoScalingGroupName/Frontends-${AWS::StackName}"
+      ManagedPolicyArns: [!Ref CDOPolicy]
+      PermissionsBoundary: !ImportValue IAM-DevPermissions
+  FrontendInstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties: {Roles: [!Ref FrontendRole]}
+  # Signal when the instance is fully provisioned and ready for AMI creation.
+  AMICreate<%=ami%>:
+    Type: AWS::CloudFormation::WaitCondition
+    CreationPolicy:
+      ResourceSignal:
+        Timeout: !Ref Timeout
+        Count: 1
+  AMI<%=ami%>: <%= lambda_fn.call 'AMIManager',
+    DependsOn: "AMICreate#{ami}",
+    InstanceId: {Ref: "WebServerAMI" } %>
+  FastSnapshotRestore: <%= lambda_fn.call 'FastSnapshotRestore',
+    ImageIds: [{Ref: "AMI#{ami}" }],
+    AvailabilityZones: AVAILABILITY_ZONES
+  %>
+  ASGCount: <%= lambda_fn.call 'CountASG',
+    Default: {
+      MinSize: 2,
+      MaxSize: 20,
+      DesiredCapacity: 2
+    },
+    AutoScalingGroupTags: [
+      {Key: 'aws:cloudformation:stack-id', Value: {Ref: 'AWS::StackId'}},
+      {Key: 'aws:cloudformation:logical-id', Value: 'Frontends'}
+    ],
+    LaunchTemplate: {Ref: 'LaunchTemplate'}
+  %>
+  WebServerAMI:
+    Type: AWS::EC2::Instance
+    Properties:
+      LaunchTemplate:
+        LaunchTemplateId: !Ref LaunchTemplate
+        Version: !GetAtt LaunchTemplate.LatestVersionNumber
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash -x
+          # Modify cloud-init to re-run this user-data script every time instance restarts.
+          sed -i 's/scripts-user$/\[scripts-user, always\]/' /etc/cloud/cloud.cfg
+          ${BuildAMI}
+          # Signal AMI WaitCondition.
+          <%=signal_resource "AMICreate#{ami}"%> || true
+          shutdown -h now
+  Frontends:
+    DependsOn: [ASGCount]
+    Type: AWS::AutoScaling::AutoScalingGroup
+    CreationPolicy:
+      ResourceSignal:
+        Timeout: !Ref FrontendTimeout
+        Count: !GetAtt [ASGCount, DesiredCapacity]
+      AutoScalingCreationPolicy:
+        MinSuccessfulInstancesPercent: 80
+    UpdatePolicy:
+      AutoScalingRollingUpdate:
+        MaxBatchSize: 20
+        MinInstancesInService: !GetAtt [ASGCount, DesiredCapacity]
+        MinSuccessfulInstancesPercent: 80
+        PauseTime: !Ref FrontendTimeout
+        SuspendProcesses: [ScheduledActions]
+        WaitOnResourceSignals: true
+    Properties:
+      AutoScalingGroupName: !Sub "Frontends-${AWS::StackName}"
+      MinSize: !GetAtt [ASGCount, MinSize]
+      MaxSize: !GetAtt [ASGCount, MaxSize]
+      DesiredCapacity: !GetAtt [ASGCount, DesiredCapacity]
+      VPCZoneIdentifier: <%=subnets.to_json%>
+      HealthCheckType: EC2
+      HealthCheckGracePeriod: 2000
+      LaunchTemplate:
+        LaunchTemplateId: !Ref LaunchTemplate
+        Version: !GetAtt LaunchTemplate.LatestVersionNumber
+  CPUScalingPolicy:
+    Type: AWS::AutoScaling::ScalingPolicy
+    Properties:
+      AutoScalingGroupName: !Ref Frontends
+      EstimatedInstanceWarmup: 300
+      PolicyType: TargetTrackingScaling
+      TargetTrackingConfiguration:
+        PredefinedMetricSpecification:
+          PredefinedMetricType: ASGAverageCPUUtilization
+        TargetValue: 50
+  WebServerHook:
+    Type: AWS::AutoScaling::LifecycleHook
+    Properties:
+      LifecycleHookName: !Sub "WebServerHook-${AWS::StackName}"
+      AutoScalingGroupName: !Ref Frontends
+      LifecycleTransition: 'autoscaling:EC2_INSTANCE_LAUNCHING'
+      DefaultResult: ABANDON
+      HeartbeatTimeout: 1200 # seconds = 20 minutes
+      NotificationTargetARN: !Ref WebServerHookTopic
+      RoleARN: !GetAtt WebServerHookRole.Arn
+  WebServerHookTopic: {Type: 'AWS::SNS::Topic'}
+  WebServerHookRole:
+    Type: AWS::IAM::Role
+    Properties:
+        <%=service_role 'autoscaling'%>
+      Policies:
+        - PolicyName: snsPublish
+          PolicyDocument:
+            Statement:
+              - Effect: Allow
+                Action: 'sns:Publish'
+                Resource: !Ref WebServerHookTopic
+      PermissionsBoundary: !ImportValue IAM-DevPermissions
