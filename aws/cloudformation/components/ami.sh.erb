@@ -1,0 +1,9 @@
+#!/bin/bash -x
+# Modify cloud-init to re-run this user-data script every time instance restarts.
+sed -i 's/scripts-user$/\[scripts-user, always\]/' /etc/cloud/cloud.cfg
+
+<%=build_ami%>
+
+# Signal AMI WaitCondition.
+<%=signal_resource "AMICreate#{ami}"-%> || true
+shutdown -h now

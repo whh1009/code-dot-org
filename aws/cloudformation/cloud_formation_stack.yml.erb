@@ -8,6 +8,12 @@ Parameters:
   Branch:
     Type: String
     Default: <%=branch%>
+  ImageId:
+    Type: AWS::EC2::Image::Id
+    Default: <%=IMAGE_ID%>
+  SSHKeyName:
+    Type: AWS::EC2::KeyPair::KeyName
+    Default: <%=SSH_KEY_NAME%>
 <% if database -%>
   DatabaseUsername:
     Type: String
@@ -134,7 +140,7 @@ Resources:
 
 <% if frontends -%>
 <%=
-  file 'components/ami.yml.erb',
+  erb_file 'components/ami.yml.erb',
     frontend_policies: [Ref: 'CDOPolicy'],
     frontend_properties: {
       LoadBalancerNames: [Ref: 'LoadBalancer']
@@ -142,10 +148,10 @@ Resources:
     frontend_volume_size: 64,
     ami_timeout: 'PT120M',
     frontend_timeout: 'PT50M',
-    build_frontend: file('bootstrap_frontend.sh.erb',
+    build_frontend: erb_file('bootstrap_frontend.sh.erb',
       node_name: 'fe-$INSTANCE_ID'
     ),
-    build_ami: file('bootstrap_chef_stack.sh.erb',
+    build_ami: erb_file('bootstrap_chef_stack.sh.erb',
       node_name: 'ami-$INSTANCE_ID',
       daemon: false,
       run_list: [local_mode ? 'recipe[cdo-apps]' : 'role[unmonitored-frontend]']
@@ -409,8 +415,16 @@ Resources:
     CreationPolicy:
       ResourceSignal:
         Timeout: PT2H
+    Metadata:
+      BootScript: <%=file('components/daemon.sh.erb',
+        build: file('bootstrap_chef_stack.sh.erb',
+          run_list: [
+            local_mode ? 'recipe[cdo-apps]' : 'role[daemon]'
+          ],
+        )
+      )%>
     Properties:
-      ImageId: <%=IMAGE_ID%>
+      ImageId: !Ref ImageId
       InstanceType: !Ref InstanceType
       IamInstanceProfile: !Ref DaemonInstanceProfile
       KeyName: <%=SSH_KEY_NAME%>
@@ -423,16 +437,12 @@ Resources:
             VolumeSize: 64
             VolumeType: gp2
       UserData:
-        Fn::Base64: <%=file('bootstrap_chef_stack.sh.erb',
-          resource_id: daemon,
-          node_name: '$STACK',
-          run_list: [
-            local_mode ? 'recipe[cdo-apps]' : 'role[daemon]'
-          ],
-          commit: nil, # track branch
-          shutdown: false,
-          daemon: true
-        )%>
+        Fn::Base64: !Sub |
+          /bin/bash -x
+          aws cloudformation describe-stack-resource \
+            --stack-name ${AWS::StackName} \
+            --logical-resource-id <%=daemon%> \
+
       NetworkInterfaces:
       - AssociatePublicIpAddress: true
         DeviceIndex: 0

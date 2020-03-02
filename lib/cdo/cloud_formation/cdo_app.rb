@@ -125,7 +125,7 @@ To specify an alternate branch name, run `rake adhoc:start branch=BRANCH`.'
 
     def bootstrap_script_path
       @bootstrap_script ||= begin
-        unless dry_run.tap{|x| puts "bootstrap path"}
+        unless dry_run
           Aws::S3::Client.new.put_object(
             bucket: S3_BUCKET,
             key: "#{CHEF_KEY}/bootstrap-#{stack_name}.sh",
@@ -138,7 +138,7 @@ To specify an alternate branch name, run `rake adhoc:start branch=BRANCH`.'
 
     def ssl_certs_path
       @certs_path ||= begin
-        unless dry_run.tap{|x| puts "Certs path"}
+        unless dry_run
           Dir.chdir(aws_dir('cloudformation')) do
             RakeUtils.bundle_exec './update_certs',
               subdomain,
@@ -153,7 +153,7 @@ To specify an alternate branch name, run `rake adhoc:start branch=BRANCH`.'
     def cookbooks_path
       return nil unless local_mode
       @cookbooks_path ||= begin
-        unless dry_run.tap{|x| puts "Cookbooks path"}
+        unless dry_run
           RakeUtils.with_bundle_dir(cookbooks_dir) do
             Tempfile.open('berks') do |tmp|
               RakeUtils.bundle_exec 'berks', 'package', tmp.path

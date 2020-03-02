@@ -64,18 +64,7 @@ frontend_device_name ||= '/dev/sda1'
             VolumeSize: <%=frontend_volume_size%>
             VolumeType: gp2
       UserData:
-        Fn::Base64: !Sub |
-          #!/bin/bash -x
-          # This line causes the LaunchConfiguration to be replaced on each new commit.
-          COMMIT=<%=commit%>
-
-          <%=build_frontend%>
-
-          # Signal CompleteLifecycleAction, in case the frontend was launched from an Auto Scaling process.
-          <%=complete_lifecycle 'WebServerHook-${AWS::StackName}', 'Frontends-${AWS::StackName}'%> || true
-          # Signal CloudFormation, in case the frontend was launched from a CloudFormation stack update.
-          <%=signal_resource 'Frontends'%> || true
-
+        Fn::Base64: <%=file('frontend.sh.erb', commit: commit, build_frontend: build_frontend)%>
   WebServerAMI:
     Type: AWS::EC2::Instance
     Properties:
@@ -90,18 +79,7 @@ frontend_device_name ||= '/dev/sda1'
             VolumeSize: <%=frontend_volume_size%>
             VolumeType: gp2
       UserData:
-        Fn::Base64: !Sub |
-          #!/bin/bash -x
-          # Modify cloud-init to re-run this user-data script every time instance restarts.
-          sed -i 's/scripts-user$/\[scripts-user, always\]/' /etc/cloud/cloud.cfg
-          # This line causes the instance to reboot on each new commit.
-          COMMIT=<%=commit%>
-
-          <%=build_ami%>
-
-          # Signal AMI WaitCondition.
-          <%=signal_resource "AMICreate#{ami}"-%> || true
-          shutdown -h now
+        Fn::Base64: <%=file('ami.sh.erb', ami: ami, build_ami: build_ami)%>
   ASGCount: <%= lambda_fn 'CountASG',
     Default: {
       MinSize: 2,
