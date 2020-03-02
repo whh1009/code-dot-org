@@ -201,30 +201,7 @@ Resources:
       Action: 'lambda:InvokeFunction'
       Principal: events.amazonaws.com
       SourceArn: !GetAtt HealthEventRule.Arn
-  ClassroomScaleUp:
-    Type: AWS::AutoScaling::ScheduledAction
-    Properties:
-      AutoScalingGroupName: !Ref Frontends
-      MinSize: 4
-      Recurrence: <%= Cdo::Cron.weekdays_at '4am' %>
-  ClassroomScaleDown:
-    Type: AWS::AutoScaling::ScheduledAction
-    Properties:
-      AutoScalingGroupName: !Ref Frontends
-      MinSize: 3
-      Recurrence: <%= Cdo::Cron.weekdays_at '1pm' %>
-  WeekendScaleDown:
-    Type: AWS::AutoScaling::ScheduledAction
-    Properties:
-      AutoScalingGroupName: !Ref Frontends
-      MinSize: 2
-      Recurrence: <%= Cdo::Cron.weekly_at '8pm Friday' %>
-  WeekendScaleUp:
-    Type: AWS::AutoScaling::ScheduledAction
-    Properties:
-      AutoScalingGroupName: !Ref Frontends
-      MinSize: 3
-      Recurrence: <%= Cdo::Cron.weekly_at '4am Monday', time_zone: 'London' %>
+<%=    erb_file 'scaling_schedule.yml.erb'%>
 <%   end -%>
 <% end -%>
 # Route53 (DNS) and CloudFront (CDN) resources:
@@ -418,9 +395,8 @@ Resources:
     Metadata:
       BootScript: <%=file('components/daemon.sh.erb',
         build: file('bootstrap_chef_stack.sh.erb',
-          run_list: [
-            local_mode ? 'recipe[cdo-apps]' : 'role[daemon]'
-          ],
+          node_name: '$STACK',
+          run_list: [local_mode ? 'recipe[cdo-apps]' : 'role[daemon]'],
         )
       )%>
     Properties:
@@ -439,10 +415,13 @@ Resources:
       UserData:
         Fn::Base64: !Sub |
           /bin/bash -x
-          aws cloudformation describe-stack-resource \
+          apt-get install -y jq
+          USER_DATA=$(aws cloudformation describe-stack-resource \
             --stack-name ${AWS::StackName} \
             --logical-resource-id <%=daemon%> \
-
+            --query StackResourceDetail.Metadata \
+          | jq .BootScript)
+          /bin/bash -c "$USER_DATA"
       NetworkInterfaces:
       - AssociatePublicIpAddress: true
         DeviceIndex: 0

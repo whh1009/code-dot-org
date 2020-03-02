@@ -5,21 +5,71 @@ commit = ENV['COMMIT'] || `git rev-parse HEAD`.split.first
 AWSTemplateFormatVersion: 2010-09-09
 Description: Minimal test stack for AMI-builder.
 Resources:
-  # Stack-specific IAM permissions applied to both daemon and frontends.
-  CDOPolicy:
-    Type: AWS::IAM::ManagedPolicy
+  DaemonRole:
+    Type: AWS::IAM::Role
     Properties:
-      Description: !Sub "Application permissions for ${AWS::StackName}."
-      PolicyDocument:
-        Version: 2012-10-17
-        Statement:
-          # Instance-bootstrap CloudFormation hook.
-          - Effect: Allow
-            Action: 'cloudformation:SignalResource'
-            Resource: !Sub "arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/${AWS::StackName}/*"
-<%= erb_file 'components/ami.yml.erb', commit: commit -%>
+      <%=service_role 'ec2'%>
+      Policies:
+        - PolicyName: Daemon
+          PolicyDocument:
+            Statement:
+              - Effect: Allow
+                Action:
+                  - 'cloudformation:DescribeStackResource'
+                  - 'cloudformation:SignalResource'
+                Resource: !Sub "arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/${AWS::StackName}/*"
+      PermissionsBoundary: !ImportValue IAM-DevPermissions
+  DaemonInstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties: {Roles: [!Ref DaemonRole]}
+  Daemon:
+    Type: AWS::EC2::Instance
+    CreationPolicy: {ResourceSignal: {Timeout: PT2H}}
+    Metadata:
+      BootScript: !Sub |
+        #!/bin/bash -x
+        echo "Running boot userdata"
+        touch /tmp/ran-userdata.txt
+    Properties:
+      ImageId: !Ref ImageId
+      InstanceType: !Ref InstanceType
+      IamInstanceProfile: !Ref DaemonInstanceProfile
+      KeyName: <%=SSH_KEY_NAME%>
+      Tags:
+        - Key: Name
+          Value: !Ref AWS::StackName
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs: {VolumeSize: 16, VolumeType: gp2}
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash -x
+          yum install -y jq
+          BOOT=$(aws cloudformation describe-stack-resource \
+            --stack-name ${AWS::StackName} \
+            --logical-resource-id Daemon \
+            --query StackResourceDetail.Metadata \
+            --region ${AWS::Region} \
+            --output text \
+          | jq -r .BootScript)
+          /bin/bash -c "$BOOT"
+          <%=signal_resource('Daemon')%> || true
+      NetworkInterfaces:
+        - AssociatePublicIpAddress: true
+          DeviceIndex: 0
+          SubnetId: !ImportValue VPC-PublicSubnet<%=azs.first%>
+          GroupSet:
+            - !ImportValue VPC-FrontendSecurityGroup
+            - !ImportValue VPC-DaemonSecurityGroup # SSH access to frontends
+            - !ImportValue VPC-ELBSecurityGroup # Accept HTTP traffic on daemon
+<%=
+  #erb_file 'components/ami.yml.erb',
+  # commit: commit,
+  # frontend_device_name: '/dev/xvda',
+  # frontend_policies: [Ref: 'CDOPolicy']
+-%>
 <%
-  params[:InstanceType][:Default] = 't3.large'
+  params[:InstanceType] = {Type: 'String', Default: 't3.large'}
   params[:ImageId] = {
     Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>',
     Default: '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
