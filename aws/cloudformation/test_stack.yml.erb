@@ -26,7 +26,7 @@ Resources:
     Type: AWS::EC2::Instance
     CreationPolicy: {ResourceSignal: {Timeout: PT2H}}
     Metadata:
-      BootScript: !Sub |
+      Boot: !Sub |
         #!/bin/bash -x
         echo "Running boot userdata"
         touch /tmp/ran-userdata.txt
@@ -45,15 +45,7 @@ Resources:
         Fn::Base64: !Sub |
           #!/bin/bash -x
           yum install -y jq
-          BOOT=$(aws cloudformation describe-stack-resource \
-            --stack-name ${AWS::StackName} \
-            --logical-resource-id Daemon \
-            --query StackResourceDetail.Metadata \
-            --region ${AWS::Region} \
-            --output text \
-          | jq -r .BootScript)
-          /bin/bash -c "$BOOT"
-          <%=signal_resource('Daemon')%> || true
+          /bin/bash -c "$(<%=get_metadata 'Daemon', 'Boot'%>)"
       NetworkInterfaces:
         - AssociatePublicIpAddress: true
           DeviceIndex: 0
@@ -63,10 +55,9 @@ Resources:
             - !ImportValue VPC-DaemonSecurityGroup # SSH access to frontends
             - !ImportValue VPC-ELBSecurityGroup # Accept HTTP traffic on daemon
 <%=
-  #erb_file 'components/ami.yml.erb',
-  # commit: commit,
-  # frontend_device_name: '/dev/xvda',
-  # frontend_policies: [Ref: 'CDOPolicy']
+  erb_file 'components/ami.yml.erb',
+  commit: commit,
+  frontend_device_name: '/dev/xvda'
 -%>
 <%
   params[:InstanceType] = {Type: 'String', Default: 't3.large'}

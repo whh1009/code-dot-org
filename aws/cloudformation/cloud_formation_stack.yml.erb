@@ -46,7 +46,9 @@ Resources:
             Resource: 'arn:aws:s3:::cdo-dist/<%=environment%>/*'
           # Instance-bootstrap CloudFormation hook.
           - Effect: Allow
-            Action: 'cloudformation:SignalResource'
+            Action:
+              - 'cloudformation:SignalResource'
+              - 'cloudformation:DescribeStackResource'
             Resource: !Sub "arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/${AWS::StackName}/*"
           # Forward syslog to CloudWatch Logs via cdo-cloudwatch-logger.
           - Effect: Allow
@@ -140,67 +142,25 @@ Resources:
 
 <% if frontends -%>
 <%=
-  erb_file 'components/ami.yml.erb',
-    frontend_policies: [Ref: 'CDOPolicy'],
-    frontend_properties: {
-      LoadBalancerNames: [Ref: 'LoadBalancer']
-    },
-    frontend_volume_size: 64,
-    ami_timeout: 'PT120M',
-    frontend_timeout: 'PT50M',
-    build_frontend: erb_file('bootstrap_frontend.sh.erb',
-      node_name: 'fe-$INSTANCE_ID'
-    ),
-    build_ami: erb_file('bootstrap_chef_stack.sh.erb',
-      node_name: 'ami-$INSTANCE_ID',
-      daemon: false,
-      run_list: [local_mode ? 'recipe[cdo-apps]' : 'role[unmonitored-frontend]']
-    )
+    erb_file 'components/ami.yml.erb',
+      frontend_policies: [Ref: 'CDOPolicy'],
+      frontend_properties: {
+        LoadBalancerNames: [Ref: 'LoadBalancer']
+      },
+      frontend_volume_size: 64,
+      ami_timeout: 'PT120M',
+      build_ami: erb_file('bootstrap_chef_stack.sh.erb',
+        node_name: 'ami-$INSTANCE_ID',
+        daemon: false,
+        run_list: [local_mode ? 'recipe[cdo-apps]' : 'role[unmonitored-frontend]']
+      ),
+      frontend_timeout: 'PT50M',
+      build_frontend: erb_file('bootstrap_frontend.sh.erb',
+        node_name: 'fe-$INSTANCE_ID'
+      )
 %>
-  WebServerHookEventRule:
-    Type: AWS::Events::Rule
-    Properties:
-      Description: !Sub "Auto Scaling Events for ${AWS::StackName}."
-      EventPattern:
-        source: [aws.autoscaling]
-        detail-type:
-        - EC2 Instance Launch Successful
-        - EC2 Instance Terminate Successful
-        - EC2 Instance Launch Unsuccessful
-        - EC2 Instance Terminate Unsuccessful
-        - EC2 Instance-launch Lifecycle Action
-        - EC2 Instance-terminate Lifecycle Action
-        detail:
-          AutoScalingGroupName: [!Ref Frontends]
-      State: ENABLED
-      Targets:
-      - Arn: !ImportValue SlackEvent
-        Id: WebServerHookTarget
-  WebServerHookEventPermission:
-    Type: AWS::Lambda::Permission
-    Properties:
-      FunctionName: !ImportValue SlackEvent
-      Action: 'lambda:InvokeFunction'
-      Principal: events.amazonaws.com
-      SourceArn: !GetAtt WebServerHookEventRule.Arn
-<%  if environment == :production -%>
-  HealthEventRule:
-    Type: AWS::Events::Rule
-    Properties:
-      Description: !Sub "Health Events for ${AWS::StackName}."
-      EventPattern:
-        source: [aws.health]
-      State: ENABLED
-      Targets:
-      - Arn: !ImportValue SlackEvent
-        Id: HealthEventRuleTarget
-  HealthEventPermission:
-    Type: AWS::Lambda::Permission
-    Properties:
-      FunctionName: !ImportValue SlackEvent
-      Action: 'lambda:InvokeFunction'
-      Principal: events.amazonaws.com
-      SourceArn: !GetAtt HealthEventRule.Arn
+<%   if environment == :production -%>
+<%=    erb_file 'slack_events.yml.erb' %>
 <%=    erb_file 'scaling_schedule.yml.erb'%>
 <%   end -%>
 <% end -%>
@@ -254,43 +214,7 @@ Resources:
 <%   end -%>
 <% end -%>
 <% if frontends -%>
-<%   cache_node_type = rack_env?(:production) ? 'cache.r3.large' : 'cache.t2.micro' -%>
-  GeocoderSubnetGroup:
-    Type: AWS::ElastiCache::SubnetGroup
-    Properties:
-      Description: Geocoder Cache Subnet Group
-      SubnetIds: <%= subnets.to_json %>
-  GeocoderGroup:
-    Type: AWS::ElastiCache::ReplicationGroup
-    Properties:
-      ReplicationGroupDescription: Geocoder Replication Group
-      NumCacheClusters: 3
-<%  if cache_node_type.include? 'cache.t2' %>
-      AutomaticFailoverEnabled: false
-<%  end-%>
-      Engine: redis
-      CacheNodeType: <%= cache_node_type %>
-      SecurityGroupIds: [!ImportValue VPC-RedisSecurityGroup]
-      CacheSubnetGroupName: !Ref GeocoderSubnetGroup
-  MemcachedParameterGroup:
-    Type: AWS::ElastiCache::ParameterGroup
-    Properties:
-      CacheParameterGroupFamily: memcached1.4
-      Description: Memcached modified max_item_size.
-      Properties:
-        max_item_size: <%=64.megabytes%>
-  Memcached:
-    Type: AWS::ElastiCache::CacheCluster
-    Properties:
-      CacheNodeType: <%= cache_node_type %>
-      CacheParameterGroupName: !Ref MemcachedParameterGroup
-      CacheSubnetGroupName: !Ref GeocoderSubnetGroup
-      ClusterName: <%=stack_name[0..19]%> # Max 20 chars
-      Engine: memcached
-      NumCacheNodes: 2
-      AZMode: cross-az
-      PreferredAvailabilityZones: <%= availability_zones.first(2).to_json %>
-      VpcSecurityGroupIds: [!ImportValue VPC-MemcachedSecurityGroup]
+<%=  erb_file 'components/cache.yml.erb', node_type: rack_env?(:production) && 'cache.r3.large' %>
 <% end -%>
   DaemonRole:
     Type: AWS::IAM::Role
@@ -393,13 +317,14 @@ Resources:
       ResourceSignal:
         Timeout: PT2H
     Metadata:
-      BootScript: <%=file('components/daemon.sh.erb',
-        build: file('bootstrap_chef_stack.sh.erb',
+      Boot: !Sub |
+        #!/bin/bash -x
+        <%= indent(erb_file('bootstrap_chef_stack.sh.erb',
           node_name: '$STACK',
           run_list: [local_mode ? 'recipe[cdo-apps]' : 'role[daemon]'],
-        )
-      )%>
-    Properties:
+        ), 8)%>
+        <%=signal_resource(daemon)%> || true
+  Properties:
       ImageId: !Ref ImageId
       InstanceType: !Ref InstanceType
       IamInstanceProfile: !Ref DaemonInstanceProfile
@@ -414,14 +339,9 @@ Resources:
             VolumeType: gp2
       UserData:
         Fn::Base64: !Sub |
-          /bin/bash -x
+          #!/bin/bash -x
           apt-get install -y jq
-          USER_DATA=$(aws cloudformation describe-stack-resource \
-            --stack-name ${AWS::StackName} \
-            --logical-resource-id <%=daemon%> \
-            --query StackResourceDetail.Metadata \
-          | jq .BootScript)
-          /bin/bash -c "$USER_DATA"
+          /bin/bash -c "$(<%=get_metadata daemon, 'Boot' %>)"
       NetworkInterfaces:
       - AssociatePublicIpAddress: true
         DeviceIndex: 0
@@ -432,95 +352,15 @@ Resources:
 <%  unless load_balancer -%>
           - !ImportValue VPC-ELBSecurityGroup # Accept HTTP traffic on daemon
 <%  end -%>
-<% if database %>
+<%  if database %>
     DependsOn: Aurora1
-<% end -%>
+<%  end -%>
 <%end-%>
 <% if alarms %>
-  DaemonStorageUtilizationAlarm:
-    Type: "AWS::CloudWatch::Alarm"
-    Properties:
-      AlarmActions:
-        - !Sub "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:CDO-<%= rack_env?(:production) ? 'Urgent' : 'LowPriority'%>"
-      AlarmDescription: Send page if daemon storage utilization exceeds 80% for an hour
-      AlarmName: <%="#{stack_name}_daemon_high_storage_utilization" %>
-      ComparisonOperator: GreaterThanThreshold
-      Dimensions:
-        - Name: Filesystem
-          Value: '/dev/xvda1'
-        - Name: MountPath
-          Value: '/'
-        - Name: InstanceId
-          Value: <%= daemon_instance_id || "!Ref #{daemon}" %>
-      EvaluationPeriods: 60
-      MetricName: DiskSpaceUtilization
-      Namespace: 'System/Linux'
-      Period: 60
-      Statistic: Average
-      Threshold: 80
-      TreatMissingData: missing
-  DaemonMemoryUtilizationAlarm:
-    Type: "AWS::CloudWatch::Alarm"
-    Properties:
-      AlarmActions:
-        - !Sub "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:CDO-<%= rack_env?(:production) ? 'Urgent' : 'LowPriority'%>"
-      AlarmDescription: Send page if daemon memory utilization exceeds 87% for 5 minutes
-      AlarmName: <%="#{stack_name}_daemon_high_memory_utilization" %>
-      ComparisonOperator: GreaterThanThreshold
-      Dimensions:
-        - Name: InstanceId
-          Value: <%= daemon_instance_id || "!Ref #{daemon}" %>
-      EvaluationPeriods: 5
-      MetricName: MemoryUtilization
-      Namespace: 'System/Linux'
-      Period: 60
-      Statistic: Maximum
-      Threshold: 87
-      TreatMissingData: missing
+<%=  erb_file 'components/alarms.yml.erb'%>
 <% end -%>
 <% if database -%>
-  AuroraCluster:
-    Type: AWS::RDS::DBCluster
-    Properties:
-      DBClusterIdentifier: !Sub "${AWS::StackName}-cluster"
-      DBClusterParameterGroupName: !Ref AuroraClusterDBParameters
-      Engine: aurora-mysql
-      # We will usually do engine version updates manually, since updating this requires replacement, so this value may be out of sync with cluster.
-      EngineVersion: 5.7.12
-      MasterUsername: !Sub "{{resolve:secretsmanager:${DatabaseSecret}:SecretString:username}}"
-      MasterUserPassword: !Sub "{{resolve:secretsmanager:${DatabaseSecret}:SecretString:password}}"
-      VpcSecurityGroupIds: [!ImportValue VPC-DBSecurityGroup]
-      DBSubnetGroupName: !ImportValue VPC-DBSubnetGroup
-
-<% 2.times do |i| %>
-  Aurora<%=i%>:
-    Type: AWS::RDS::DBInstance
-    Properties:
-      DBInstanceIdentifier: !Sub "${AWS::StackName}-<%=i%>"
-      DBClusterIdentifier: !Ref AuroraCluster
-      DBInstanceClass: db.r4.large
-      DBSubnetGroupName: !ImportValue VPC-DBSubnetGroup
-      Engine: aurora-mysql
-      # We will usually do engine version updates manually, so don't specify an EngineVersion for the DBInstance.
-<% end -%>
-
-  AuroraClusterDBParameters:
-    Type: AWS::RDS::DBClusterParameterGroup
-    Properties:
-      Description: !Sub "Aurora DB Cluster Parameters for ${AWS::StackName}."
-      Family: aurora-mysql5.7
-      Parameters: {'innodb_monitor_enable': 'all'}
-
-  DatabaseSecret:
-    Type: AWS::SecretsManager::Secret
-    Properties:
-      Description: !Sub "Secrets for accessing database from ${AWS::StackName} CloudFormation stack"
-      GenerateSecretString:
-        SecretStringTemplate: !Sub '{"username": "${DatabaseUsername}"}'
-        GenerateStringKey: password
-        PasswordLength: 10
-        ExcludePunctuation: True
-      Name: !Sub "CfnStack/${AWS::StackName}/database-secret"
+<%=  erb_file 'components/database.yml.erb' %>
 <% end -%>
 Outputs:
   DashboardURL:

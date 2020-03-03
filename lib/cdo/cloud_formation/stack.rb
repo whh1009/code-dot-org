@@ -112,9 +112,25 @@ module Cdo::CloudFormation
       SH
     end
 
+    def get_metadata(logical_id, key)
+      <<~SH.chomp
+        aws cloudformation describe-stack-resource \
+          --stack-name ${AWS::StackName} \
+          --logical-resource-id #{logical_id} \
+          --query StackResourceDetail.Metadata \
+          --region ${AWS::Region} \
+          --output text \
+        | jq -r .#{key}
+      SH
+    end
+
+    def indent(string, chars)
+      string.gsub(/\n/, "\n#{' ' * chars}")
+    end
+
     # Adds the specified properties to a YAML document.
     def add_properties(properties)
-      properties.transform_values(&:to_json).map{|p| p.join(': ')}.join("\n      ")
+      properties.transform_values(&:to_json).map {|p| p.join(': ')}.join("\n      ")
     end
   end
 end
