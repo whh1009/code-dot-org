@@ -79,7 +79,8 @@ frontend_device_name ||= '/dev/sda1'
       ImageId: !Ref ImageId
       InstanceType: !Ref InstanceType
       IamInstanceProfile: !Ref FrontendInstanceProfile
-      SecurityGroups: [!ImportValue VPC-FrontendSecurityGroup]
+      SecurityGroupIds: [!ImportValue VPC-FrontendSecurityGroup]
+      SubnetId: !ImportValue VPC-Subnet<%=azs.first%>
       KeyName: !Ref SSHKeyName
       BlockDeviceMappings:
         - DeviceName: <%=frontend_device_name%>
