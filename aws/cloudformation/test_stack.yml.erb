@@ -30,11 +30,12 @@ Resources:
         #!/bin/bash -x
         echo "Running boot userdata"
         touch /tmp/ran-userdata.txt
+        <%=signal_resource 'Daemon'%>
     Properties:
       ImageId: !Ref ImageId
       InstanceType: !Ref InstanceType
       IamInstanceProfile: !Ref DaemonInstanceProfile
-      KeyName: <%=SSH_KEY_NAME%>
+      KeyName: !Ref SSHKeyName
       Tags:
         - Key: Name
           Value: !Ref AWS::StackName
