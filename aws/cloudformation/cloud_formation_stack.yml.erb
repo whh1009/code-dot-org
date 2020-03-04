@@ -213,9 +213,11 @@ Resources:
           ResourceRecords: [!GetAtt <%=daemon%>.PublicIp]
 <%   end -%>
 <% end -%>
+
 <% if frontends -%>
 <%=  erb_file 'components/cache.yml.erb', node_type: rack_env?(:production) && 'cache.r3.large' %>
 <% end -%>
+
   DaemonRole:
     Type: AWS::IAM::Role
     Properties:
@@ -356,12 +358,15 @@ Resources:
     DependsOn: Aurora1
 <%  end -%>
 <%end-%>
+
 <% if alarms %>
 <%=  erb_file 'components/alarms.yml.erb'%>
 <% end -%>
+
 <% if database -%>
 <%=  erb_file 'components/database.yml.erb' %>
 <% end -%>
+
 Outputs:
   DashboardURL:
     Value: "https://<%=studio_subdomain%>"
