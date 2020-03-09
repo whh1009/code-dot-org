@@ -1,7 +1,5 @@
 namespace :stack do
   task :environment do
-    require_relative '../../deployment'
-    ENV['TEMPLATE'] ||= 'cloud_formation_stack.yml.erb'
     ENV['CDN_ENABLED'] ||= '1' unless rack_env?(:adhoc)
     ENV['DOMAIN'] ||= rack_env?(:adhoc) ? 'cdn-code.org' : 'code.org'
     require 'cdo/aws/cloud_formation'
@@ -31,24 +29,26 @@ Note: Consumes AWS resources until `adhoc:stop` is called.'
     AWS::CloudFormation.validate
   end
 
+  # Managed resource stacks other than the Code.org application.
   %I(vpc iam ami data lambda alerting).each do |stack|
     namespace stack do
       task :environment do
-        require_relative '../../deployment'
         ENV['TEMPLATE'] ||= "#{stack}.yml.erb"
         ENV['STACK_NAME'] ||= stack.to_s if [:lambda, :alerting].include? stack
         ENV['STACK_NAME'] ||= "#{stack.upcase}#{"-#{rack_env}" if [:ami, :data].include? stack}"
         require 'cdo/aws/cloud_formation'
+        require 'cdo/cloud_formation/stack'
+        @stack = AWS::CloudFormation.init(Cdo::CloudFormation::Stack)
       end
 
       desc "Launch/update #{stack} stack component."
       task start: :environment do
-        AWS::CloudFormation.create_or_update
+        @stack.create_or_update
       end
 
       desc "Validate #{stack} stack template."
       task validate: :environment do
-        AWS::CloudFormation.validate
+        @stack.validate
       end
 
       # `stop` command intentionally removed. Use AWS console to manually delete stacks.

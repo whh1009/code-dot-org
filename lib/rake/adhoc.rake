@@ -1,7 +1,6 @@
 namespace :adhoc do
   task :environment do
     require_relative '../../deployment'
-    ENV['TEMPLATE'] ||= 'cloud_formation_stack.yml.erb'
     unless ENV['CHEF_SERVER']
       raise "RAILS_ENV=adhoc required to deploy adhoc instance." unless rack_env?(:adhoc)
     end
@@ -11,7 +10,6 @@ namespace :adhoc do
   desc 'Launch/update an adhoc server.
 Note: Consumes AWS resources until `adhoc:stop` is called.'
   task start: :environment do
-    raise "adhoc name must not include 'dashboard'" if AWS::CloudFormation.stack_name.include?('dashboard')
     AWS::CloudFormation.create_or_update
   end
 
