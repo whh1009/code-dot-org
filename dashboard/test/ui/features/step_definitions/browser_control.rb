@@ -1,5 +1,6 @@
 And(/^I change the browser window size to (\d+) by (\d+)$/) do |length, height| 
   @browser.manage.window.resize_to(length, height)
+  #wait_until {@browser.manage.window.size.length == length and @browser.manage.window.size.height == height}
 end
 
 # for explanation of js function, see
@@ -22,5 +23,5 @@ And(/^I check that selector "([^"]*)" is in the viewport$/) do |selector|
     return false;
   JAVASCRIPT
   wait_for_jquery
-  wait_until { @browser.execute_script(is_in_viewport) == true}
+  wait_until {@browser.execute_script(is_in_viewport) == true}
 end
