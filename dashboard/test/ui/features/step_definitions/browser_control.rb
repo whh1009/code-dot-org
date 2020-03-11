@@ -1,6 +1,4 @@
 And(/^I change the browser window size to (\d+) by (\d+)$/) do |length, height| 
-  puts length
-  puts height
   @browser.manage.window.resize_to(length, height)
 end
 
