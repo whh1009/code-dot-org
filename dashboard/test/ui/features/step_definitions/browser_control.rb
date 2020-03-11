@@ -6,9 +6,13 @@ end
 
 # for explanation of js function, see
 # https://stackoverflow.com/questions/45243992/verification-of-element-in-viewport-in-selenium
-And(/^I look for it in the viewport$/) do
+
+
+#"([^"]*)" is (not )?visible$/ do |selector, negation|
+
+And(/^I check that selector "([^"]*)" is in the viewport$/) do |selector|
   is_in_viewport = <<-JAVASCRIPT
-    var elem = $('#finishButton')[0],  //arguments[0],
+    var elem = $('#{selector}')[0],  //arguments[0],
       box = elem.getBoundingClientRect(),
       cx = box.left + box.width / 2,
       cy = box.top + box.height / 2,
@@ -17,8 +21,8 @@ And(/^I look for it in the viewport$/) do
       if (e === elem)
         return true;
     }
-    return true;
+    return false;
   JAVASCRIPT
   wait_for_jquery
-  wait_until { @browser.execute_script(is_in_viewport) == true }
+  wait_until { @browser.execute_script(is_in_viewport) == true}
 end
