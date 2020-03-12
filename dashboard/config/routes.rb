@@ -47,6 +47,8 @@ Dashboard::Application.routes.draw do
     end
   end
 
+  get 'mail_preview', to: 'mail_preview#index'
+
   get 'maker/home', to: 'maker#home'
   get 'maker/setup', to: 'maker#setup'
   get 'maker/discountcode', to: 'maker#discountcode'

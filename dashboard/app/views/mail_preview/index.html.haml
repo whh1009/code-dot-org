@@ -1,0 +1,18 @@
+- @page_title = 'Code.org Mail Preview'
+
+%h1 My mail preview
+
+%p
+  != "<b>From:</b> #{h @email.header['from']}"
+  != "<br><b>Reply-To:</b> #{h @email.header['reply-to']}" if @email.reply_to
+  != "<br><b>To:</b> #{h @email.header['to']}"
+  != "<br><b>CC:</b> #{h @email.header['cc']}" if @email.cc
+  != "<br><b>Subject:</b> #{h @email.subject}"
+  - if @email.attachments.present?
+    %br
+    %b Attachments:
+    - @email.attachments.each do |a|
+      - filename = a.respond_to?(:original_filename) ? a.original_filename : a.filename
+      = link_to filename, "data:application/octet-stream;charset=utf-8;base64,#{Base64.encode64(a.body.to_s)}", download: filename
+
+%iframe{srcdoc: "#{@email_content}", style: "width: 100%;height: 800px;border: 2px solid lightgrey;"}
