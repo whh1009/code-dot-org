@@ -22,13 +22,13 @@ Given /^I load the Artist free play level/i do
 #   And I set up the LEVEL TYPE level
 # STEPS
   individual_steps <<-STEPS
-    And I set up the STAR LABS level with url "http://studio.code.org/s//20-hour/stage/5/puzzle/10?noautoplay=true"
+    And I set up the STAR LABS level with url "http://studio.code.org/s/20-hour/stage/5/puzzle/10?noautoplay=true"
   STEPS
 end 
 
 Given /^I load the Bounce free play level/i do
   individual_steps <<-STEPS
-    And I set up the STAR LABS level with url "https://studio.code.org/s/course3/stage/15/puzzle/10?noautoplay=true"
+    And I set up the STAR LABS level with url "http://studio.code.org/s/course3/stage/15/puzzle/10?noautoplay=true"
   STEPS
 end
 

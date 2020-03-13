@@ -1,16 +1,16 @@
 Feature: Make sure we can see the finish button for all LEVEL TYPE levels on small screens
 
-#  @no_mobile
-#  Scenario: Can see finish button for Dance Party on desktop browser
-#    Given I load the Dance Party free play level
-#    And I change the browser window size to 1280 by 600
-#    And I check that selector "#finishButton" is in the viewport
-#
-#  @no_mobile
-#  Scenario: Can see finish button for Artist on desktop browser
-#    Given I load the Artist free play level
-#    And I change the browser window size to 1280 by 600
-#    And I check that selector "#finishButton" is in the viewport
+  @no_mobile
+  Scenario: Can see finish button for Dance Party on desktop browser
+    Given I load the Dance Party free play level
+    And I change the browser window size to 1280 by 600
+    And I check that selector "#finishButton" is in the viewport
+
+  @no_mobile
+  Scenario: Can see finish button for Artist on desktop browser
+    Given I load the Artist free play level
+    And I change the browser window size to 1280 by 600
+    And I check that selector "#finishButton" is in the viewport
 
   @no_mobile
   Scenario: Can see finish button for Bounce on desktop browser
