@@ -32,6 +32,12 @@ Given /^I load the Bounce free play level/i do
   STEPS
 end
 
+Given /^I load the CS in Algebra free play level/i do
+  individual_steps <<-STEPS
+    And I set up the STAR LABS level with url "http://studio.code.org/s/algebra/stage/1/puzzle/2?noautoplay=true"
+  STEPS
+end
+
 #Given /^I am on "([^"]*)"$/ do |url|
 When /^I set up the STAR LABS level with url "([^"]*)"/i do |url|
   individual_steps <<-STEPS
