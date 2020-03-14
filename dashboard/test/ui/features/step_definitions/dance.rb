@@ -1,47 +1,31 @@
 # Helper steps for dance party levels
 
-Given /^I load the Dance Party free play level/i do
-#  individual_steps <<-STEPS
-#    And I am on "http://studio.code.org/s/dance/stage/1/puzzle/13?noautoplay=true"
-#    And I set up the LEVEL TYPE level
+blockly_free_play_level_urls = {
+  'Dance Party' => 'http://studio.code.org/s/dance/stage/1/puzzle/13?noautoplay=true',
+  'Artist' => 'http://studio.code.org/s/20-hour/stage/5/puzzle/10?noautoplay=true',
+  'Bounce' => 'http://studio.code.org/s/course3/stage/15/puzzle/10?noautoplay=true',
+  'CS in Algebra' => 'http://studio.code.org/s/algebra/stage/1/puzzle/2?noautoplay=true',
+  'Flappy' => 'http://studio.code.org/flappy/10?noautoplay=true'
+}
+
+droplet_free_play_level_urls = {
+  'App Lab' => 'https://studio.code.org/s/applab-intro/stage/1/puzzle/15?noautoplay=true',
+  'Game Lab' => 'https://studio.code.org/s/csd3-2019/stage/22/puzzle/12?noautoplay=true'
+}
+
+When /^I check that the blockly free play level for "([^"]*)" shows the finish button for small screens/i do |level_name|
+    #And I check that selector "#finishButton" is in the viewport
   individual_steps <<-STEPS
-    And I set up the STAR LABS level with url "http://studio.code.org/s/dance/stage/1/puzzle/13?noautoplay=true"
+    And I set up the blockly free play level for "#{level_name}"
+    And I change the browser window size to 1280 by 600
+    And I press "runButton"
+    And I check that selector "button:contains('Finish')" is in the viewport
   STEPS
 end
 
-Given /^I load the Dance Party project level/i do
+When /^I set up the (blockly|droplet) free play level for "([^"]*)"/i do |level_type, level_name|
   individual_steps <<-STEPS
-    And I am on "http://studio.code.org/projects/dance/new"
-    And I set up the LEVEL TYPE level
-  STEPS
-end
-
-Given /^I load the Artist free play level/i do
-#  individual_steps <<-STEPS
-#    And I am on "http://studio.code.org/s//20-hour/stage/5/puzzle/10?noautoplay=true"
-#   And I set up the LEVEL TYPE level
-# STEPS
-  individual_steps <<-STEPS
-    And I set up the STAR LABS level with url "http://studio.code.org/s/20-hour/stage/5/puzzle/10?noautoplay=true"
-  STEPS
-end 
-
-Given /^I load the Bounce free play level/i do
-  individual_steps <<-STEPS
-    And I set up the STAR LABS level with url "http://studio.code.org/s/course3/stage/15/puzzle/10?noautoplay=true"
-  STEPS
-end
-
-Given /^I load the CS in Algebra free play level/i do
-  individual_steps <<-STEPS
-    And I set up the STAR LABS level with url "http://studio.code.org/s/algebra/stage/1/puzzle/2?noautoplay=true"
-  STEPS
-end
-
-#Given /^I am on "([^"]*)"$/ do |url|
-When /^I set up the STAR LABS level with url "([^"]*)"/i do |url|
-  individual_steps <<-STEPS
-    And I am on "#{url}"
+    And I am on "#{blockly_free_play_level_urls[level_name]}"
     And I rotate to landscape
     And I wait until I see selector "#runButton"
     And I bypass the age dialog
