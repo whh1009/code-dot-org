@@ -12,7 +12,12 @@ free_play_level_urls = {
      'Artist' => 'http://studio.code.org/s/20-hour/stage/5/puzzle/10?noautoplay=true',
      'Bounce' => 'http://studio.code.org/s/course3/stage/15/puzzle/10?noautoplay=true',
      'CS in Algebra' => 'http://studio.code.org/s/algebra/stage/1/puzzle/2?noautoplay=true',
-     'Flappy' => 'http://studio.code.org/flappy/10?noautoplay=true'
+     'Flappy' => 'http://studio.code.org/flappy/10?noautoplay=true',
+     'Minecraft Aquatic' => 'http://studio.code.org/s/aquatic/stage/1/puzzle/12?noautoplay=true',
+     'Minecraft Heroes Journey' => 'http://studio.code.org/s/hero/stage/1/puzzle/12?noautoplay=true',
+     'Minecraft Adventurer' => 'http://studio.code.org/s/mc/stage/1/puzzle/14?noautoplay=true',
+     'Minecraft Designer' => 'http://studio.code.org/s/minecraft/stage/1/puzzle/12?noautoplay=true',
+     'Sprite Lab' => 'http://studio.code.org/s/coursee-2018/stage/20/puzzle/9?noautoplay=true'
   },
   'droplet' => {
     'App Lab' => 'http://studio.code.org/s/applab-intro/stage/1/puzzle/15?noautoplay=true',
@@ -20,11 +25,11 @@ free_play_level_urls = {
   }
 }
 
-When /^I check that the (blockly|droplet) free play level for "([^"]*)" shows the finish button for small screens/i do |level_type, level_name|
-    #And I check that selector "#finishButton" is in the viewport
+When /^I check that the (blockly|droplet|minecraft) free play level for "([^"]*)" shows the finish button for small screens/i do |level_type, level_name|
   individual_steps <<-STEPS
     And I set up the #{level_type} free play level for "#{level_name}"
     And I change the browser window size to 1280 by 600
+    And I wait until the Minecraft game is loaded
     And I press "runButton"
     And I check that selector "button:contains('Finish')" is in the viewport
   STEPS
