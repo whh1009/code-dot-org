@@ -31,9 +31,9 @@ Feature: Make sure we can see the finish button for all LEVEL TYPE levels on sma
 #    And I check that the blockly free play level for "Bounce" shows the finish button for small screens
     And I check that the blockly free play level for "CS in Algebra" shows the finish button for small screens
     And I check that the blockly free play level for "Flappy" shows the finish button for small screens
-    And I check that the blockly free play level for "Minecraft Heroes Journey" shows the finish button for small screens
-    And I check that the blockly free play level for "Minecraft Adventurer" shows the finish button for small screens
-    And I check that the blockly free play level for "Minecraft Designer" shows the finish button for small screens
+    And I check that the minecraft free play level for "Minecraft Heroes Journey" shows the finish button for small screens
+    And I check that the minecraft free play level for "Minecraft Adventurer" shows the finish button for small screens
+    And I check that the minecraft free play level for "Minecraft Designer" shows the finish button for small screens
     And I check that the blockly free play level for "Sprite Lab" shows the finish button for small screens
 
     #And I check that the droplet free play level for "App Lab" shows the finish button for small screens
