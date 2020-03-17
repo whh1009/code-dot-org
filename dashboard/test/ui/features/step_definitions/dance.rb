@@ -1,11 +1,4 @@
 # Helper steps for dance party levels
-
-blockly_free_play_level_urls = {
-}
-
-droplet_free_play_level_urls = {
-}
-
 free_play_level_urls = {
   'blockly' => {
      'Dance Party' => 'http://studio.code.org/s/dance/stage/1/puzzle/13?noautoplay=true',
@@ -27,10 +20,10 @@ free_play_level_urls = {
   }
 }
 
-When /^I check that the (blockly|droplet|minecraft) free play level for "([^"]*)" shows the finish button for small screens/i do |level_type, level_name|
+When /^I check that the (blockly|droplet|minecraft) free play level for "([^"]*)" shows the finish button for (small|mobile) screens/i do |level_type, level_name, screen_type|
   individual_steps <<-STEPS
     And I set up the #{level_type} free play level for "#{level_name}"
-    And I change the browser window size to 1366 by 600 
+    #{screen_type == 'small' ? 'And I change the browser window size to 1366 by 600' : ''}
     #{level_type == 'minecraft'? 'And I wait until the Minecraft game is loaded' : ''}
     And I press "runButton"
     And I check that selector "button:contains('Finish')" is in the viewport
