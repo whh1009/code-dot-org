@@ -358,6 +358,7 @@ export const loadScript = (scriptId, sectionId) => {
     if (
       state.studentLevelProgressByScript[scriptId] &&
       state.scriptDataByScript[scriptId] &&
+      state.studentTimestampsByScript[scriptId] &&
       state.currentView !== ViewType.STANDARDS
     ) {
       return;
@@ -403,7 +404,6 @@ export const loadScript = (scriptId, sectionId) => {
             )
           );
           dispatch(addStudentTimestamps(scriptId, data.student_timestamps));
-
           dispatch(
             addStudentLevelPairing(scriptId, getStudentPairing(dataByStudent))
           );
