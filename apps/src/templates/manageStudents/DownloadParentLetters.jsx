@@ -5,16 +5,14 @@ import ReactTooltip from 'react-tooltip';
 import BaseDialog from '@cdo/apps/templates/BaseDialog';
 import DialogFooter from '@cdo/apps/templates/teacherDashboard/DialogFooter';
 
-const DIALOG_WIDTH = 800;
-
 const styles = {
   button: {
     marginLeft: 'auto'
   },
   dialog: {
-    padding: 20,
-    width: DIALOG_WIDTH,
-    marginLeft: -(DIALOG_WIDTH / 2)
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingBottom: 20
   }
 };
 
@@ -68,6 +66,13 @@ export default class DownloadParentLetters extends Component {
           style={styles.dialog}
           handleClose={this.closeDialog}
         >
+          <h2>Parent letter for [section name]</h2>
+          <div>
+            Download a PDF letter to send to parents. The letter will include
+            information about Code.org and how Code.org protects student
+            privacy, plus tips for how parents can stay involved in their
+            student’s computer science education.
+          </div>
           <DialogFooter rightAlign>
             <Button
               __useDeprecatedTag
