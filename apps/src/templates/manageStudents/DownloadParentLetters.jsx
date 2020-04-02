@@ -73,6 +73,14 @@ export default class DownloadParentLetters extends Component {
             privacy, plus tips for how parents can stay involved in their
             student’s computer science education.
           </div>
+          <br />
+          <div>
+            <strong>
+              Do you want to include individual student login instructions
+              (username and password) in the letter so students can sign in at
+              home?
+            </strong>
+          </div>
           <DialogFooter rightAlign>
             <Button
               __useDeprecatedTag
