@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import Button from '@cdo/apps/templates/Button';
 import ReactTooltip from 'react-tooltip';
 import BaseDialog from '@cdo/apps/templates/BaseDialog';
+import DialogFooter from '@cdo/apps/templates/teacherDashboard/DialogFooter';
 
 const DIALOG_WIDTH = 800;
 
@@ -34,6 +35,11 @@ export default class DownloadParentLetters extends Component {
     this.setState({isDialogOpen: false});
   };
 
+  download = () => {
+    console.log('downloading!');
+    this.setState({isDialogOpen: false});
+  };
+
   render() {
     return (
       <div style={styles.button}>
@@ -42,7 +48,6 @@ export default class DownloadParentLetters extends Component {
             __useDeprecatedTag
             onClick={this.openDialog}
             color={Button.ButtonColor.gray}
-            // text={i18n.moveStudents()}
             text="Download parent letters"
           />
         </span>
@@ -62,7 +67,15 @@ export default class DownloadParentLetters extends Component {
           isOpen={this.state.isDialogOpen}
           style={styles.dialog}
           handleClose={this.closeDialog}
-        />
+        >
+          <DialogFooter rightAlign>
+            <Button
+              __useDeprecatedTag
+              text="Download letter"
+              onClick={this.download}
+            />
+          </DialogFooter>
+        </BaseDialog>
       </div>
     );
   }
