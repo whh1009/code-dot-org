@@ -533,6 +533,12 @@ class ManageStudentsTable extends Component {
     return dataColumns;
   };
 
+  onLetterTypeChanged = letterType => {
+    this.setState({
+      letterType
+    });
+  };
+
   render() {
     // Define a sorting transform that can be applied to each column
     const sortable = wrappedSortable(
@@ -600,6 +606,8 @@ class ManageStudentsTable extends Component {
           )}
           <DownloadParentLetters
             numStudents={this.studentDataMinusBlanks().length}
+            letterType={this.state.letterType}
+            onLetterTypeChanged={this.onLetterTypeChanged}
           />
         </div>
         <Table.Provider

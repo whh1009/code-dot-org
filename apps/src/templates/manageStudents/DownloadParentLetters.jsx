@@ -5,6 +5,10 @@ import ReactTooltip from 'react-tooltip';
 import BaseDialog from '@cdo/apps/templates/BaseDialog';
 import DialogFooter from '@cdo/apps/templates/teacherDashboard/DialogFooter';
 
+const INDIVIDUAL = 'individual';
+
+const GENERIC = 'generic';
+
 const styles = {
   button: {
     marginLeft: 'auto'
@@ -13,12 +17,20 @@ const styles = {
     paddingLeft: 20,
     paddingRight: 20,
     paddingBottom: 20
+  },
+  radioLabel: {
+    display: 'inline-block'
+  },
+  radioInput: {
+    height: 18,
+    verticalAlign: 'middle'
   }
 };
 
 export default class DownloadParentLetters extends Component {
   static propTypes = {
-    numStudents: PropTypes.number.isRequired
+    numStudents: PropTypes.number.isRequired,
+    onLetterTypeChanged: PropTypes.func.isRequired
   };
 
   state = {
@@ -36,6 +48,10 @@ export default class DownloadParentLetters extends Component {
   download = () => {
     console.log('downloading!');
     this.setState({isDialogOpen: false});
+  };
+
+  onRadioChange = ({target}) => {
+    this.setState({letterType: target.id});
   };
 
   render() {
@@ -80,6 +96,37 @@ export default class DownloadParentLetters extends Component {
               (username and password) in the letter so students can sign in at
               home?
             </strong>
+            <div>
+              <input
+                style={styles.radioInput}
+                type="radio"
+                id={INDIVIDUAL}
+                checked={this.state.letterType === INDIVIDUAL}
+                onChange={this.onRadioChange}
+              />
+              <label htmlFor={INDIVIDUAL} style={styles.radioLabel}>
+                <strong>
+                  Yes, include individualized login instructions for each
+                  student
+                </strong>
+                <br />
+                This will download one letter per student as a .zip file.
+              </label>
+            </div>
+            <div>
+              <input
+                style={styles.radioInput}
+                type="radio"
+                id={GENERIC}
+                checked={this.state.letterType === GENERIC}
+                onChange={this.onRadioChange}
+              />
+              <label htmlFor={GENERIC} style={styles.radioLabel}>
+                <strong>No, create one generic letter for all students</strong>
+                <br />
+                This will download a single letter.
+              </label>
+            </div>
           </div>
           <DialogFooter rightAlign>
             <Button
