@@ -608,6 +608,7 @@ class ManageStudentsTable extends Component {
             numStudents={this.studentDataMinusBlanks().length}
             letterType={this.state.letterType}
             onLetterTypeChanged={this.onLetterTypeChanged}
+            loginType={this.props.loginType}
           />
         </div>
         <Table.Provider

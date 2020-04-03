@@ -30,7 +30,9 @@ const styles = {
 export default class DownloadParentLetters extends Component {
   static propTypes = {
     numStudents: PropTypes.number.isRequired,
-    onLetterTypeChanged: PropTypes.func.isRequired
+    letterType: PropTypes.string,
+    onLetterTypeChanged: PropTypes.func.isRequired,
+    loginType: PropTypes.string.isRequired
   };
 
   state = {
@@ -46,12 +48,11 @@ export default class DownloadParentLetters extends Component {
   };
 
   download = () => {
-    console.log('downloading!');
     this.setState({isDialogOpen: false});
   };
 
   onRadioChange = ({target}) => {
-    this.setState({letterType: target.id});
+    this.props.onLetterTypeChanged(target.id);
   };
 
   render() {
@@ -101,7 +102,7 @@ export default class DownloadParentLetters extends Component {
                 style={styles.radioInput}
                 type="radio"
                 id={INDIVIDUAL}
-                checked={this.state.letterType === INDIVIDUAL}
+                checked={this.props.letterType === INDIVIDUAL}
                 onChange={this.onRadioChange}
               />
               <label htmlFor={INDIVIDUAL} style={styles.radioLabel}>
@@ -118,7 +119,7 @@ export default class DownloadParentLetters extends Component {
                 style={styles.radioInput}
                 type="radio"
                 id={GENERIC}
-                checked={this.state.letterType === GENERIC}
+                checked={this.props.letterType === GENERIC}
                 onChange={this.onRadioChange}
               />
               <label htmlFor={GENERIC} style={styles.radioLabel}>
