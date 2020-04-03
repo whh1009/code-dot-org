@@ -70,6 +70,7 @@ export default class DownloadParentLetters extends Component {
             onClick={this.openDialog}
             color={Button.ButtonColor.gray}
             text="Download parent letters"
+            icon="file-text"
           />
         </span>
         <ReactTooltip
