@@ -3,6 +3,10 @@ import MicroBitBoard from '@cdo/apps/lib/kits/maker/MicroBitBoard';
 import {MicrobitStubBoard} from './makeStubBoard';
 import sinon from 'sinon';
 import {itImplementsTheMakerBoardInterface} from './MakerBoardTest';
+import _ from 'lodash';
+import {EXTERNAL_PINS} from '@cdo/apps/lib/kits/maker/MicroBitConstants';
+import ExternalLed from '@cdo/apps/lib/kits/maker/ExternalLed';
+import ExternalButton from '@cdo/apps/lib/kits/maker/ExternalButton';
 
 describe('MicroBitBoard', () => {
   let board;
@@ -20,7 +24,13 @@ describe('MicroBitBoard', () => {
 
   describe('Maker Board Interface', () => {
     itImplementsTheMakerBoardInterface(MicroBitBoard, board => {
-      board.boardClient_ = new MicrobitStubBoard();
+      sinon.stub(board.boardClient_, 'connect').callsFake(() => {
+        board.boardClient_.myPort = {write: () => {}};
+        sinon.stub(board.boardClient_.myPort, 'write');
+      });
+
+      sinon.stub(board.boardClient_, 'analogRead').callsArgWith(1, 0);
+      sinon.stub(board.boardClient_, 'digitalRead').callsArgWith(1, 0);
     });
   });
 
@@ -89,6 +99,18 @@ describe('MicroBitBoard', () => {
     });
   });
 
+  describe(`digitalRead(pin, callback)`, () => {
+    it('forwards the call to firmata', () => {
+      return board.connect().then(() => {
+        let digitalReadSpy = sinon.spy(board.boardClient_, 'digitalRead');
+        const pin = 11;
+        const arg2 = () => {};
+        board.digitalRead(pin, arg2);
+        expect(digitalReadSpy).to.have.been.calledWith(pin, arg2);
+      });
+    });
+  });
+
   describe(`analogWrite(pin, value)`, () => {
     it('forwards the call to firmata', () => {
       return board.connect().then(() => {
@@ -97,6 +119,58 @@ describe('MicroBitBoard', () => {
         const arg2 = 1023;
         board.analogWrite(pin, arg2);
         expect(analogWriteSpy).to.have.been.calledWith(pin, arg2);
+      });
+    });
+  });
+
+  describe(`analogRead(pin, callback)`, () => {
+    it('forwards the call to firmata', () => {
+      return board.connect().then(() => {
+        let analogReadSpy = sinon.spy(board.boardClient_, 'analogRead');
+        const pin = 11;
+        const arg2 = () => {};
+        board.analogRead(pin, arg2);
+        expect(analogReadSpy).to.have.been.calledWith(pin, arg2);
+      });
+    });
+  });
+
+  describe(`createLed(pin)`, () => {
+    it('makes an LED controller', () => {
+      return board.connect().then(() => {
+        const pin = 13;
+        const newLed = board.createLed(pin);
+        expect(newLed).to.be.an.instanceOf(ExternalLed);
+      });
+    });
+  });
+
+  describe(`createButton(pin)`, () => {
+    it('makes a button controller', () => {
+      return board.connect().then(() => {
+        const pin = 13;
+        const newButton = board.createButton(pin);
+        expect(newButton).to.be.an.instanceOf(ExternalButton);
+      });
+    });
+
+    it('configures the controller as a pullup if passed an external pin', () => {
+      return board.connect().then(() => {
+        EXTERNAL_PINS.forEach(pin => {
+          const newButton = board.createButton(pin);
+          expect(newButton.pullup).to.be.true;
+        });
+      });
+    });
+
+    it('does not configure the controller as a pullup if passed a non-external pin', () => {
+      return board.connect().then(() => {
+        _.range(21)
+          .filter(pin => !EXTERNAL_PINS.includes(pin))
+          .forEach(pin => {
+            const newButton = board.createButton(pin);
+            expect(newButton.pullup).to.be.false;
+          });
       });
     });
   });

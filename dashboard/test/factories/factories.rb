@@ -725,6 +725,11 @@ FactoryGirl.define do
     end
   end
 
+  factory :lesson_group do
+    sequence(:key) {|n| "Bogus Lesson Group #{n}"}
+    script
+  end
+
   factory :stage do
     sequence(:name) {|n| "Bogus Stage #{n}"}
     script
@@ -1242,25 +1247,25 @@ FactoryGirl.define do
   factory :contact_rollups_raw do
     sequence(:email) {|n| "contact_#{n}@example.domain"}
     sequence(:sources) {|n| "dashboard.table_#{n}"}
-    data {{opt_in: 1}}
+    data {{opt_in: true}}
     data_updated_at {Time.now}
   end
 
   factory :contact_rollups_processed do
     sequence(:email) {|n| "contact_#{n}@example.domain"}
-    data {{'dashboard.email_preferences' => {'opt_in' => 1}}}
+    data {{'opt_in' => true}}
   end
 
   factory :contact_rollups_final do
     sequence(:email) {|n| "contact_#{n}@example.domain"}
-    data {{'dashboard.email_preferences' => {'opt_in' => 1}}}
+    data {{'opt_in' => true}}
   end
 
   factory :contact_rollups_pardot_memory do
     sequence (:email) {|n| "contact_#{n}@example.domain"}
     sequence(:pardot_id) {|n| n}
     pardot_id_updated_at {Time.now - 1.hour}
-    data_synced {{opt_in: 0}}
+    data_synced {{opt_in: false}}
     data_synced_at {Time.now}
   end
 end

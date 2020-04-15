@@ -27,7 +27,15 @@ export class MicrobitStubBoard {
 
   digitalWrite(pinNum, value) {}
 
+  digitalRead(pinNum, callback) {
+    callback();
+  }
+
   analogWrite(pinNum, value) {}
+
+  analogRead(pinNum, callback) {
+    callback();
+  }
 
   displayPlot() {}
 
@@ -49,6 +57,8 @@ export class MicrobitStubBoard {
     }
   }
 
+  trackDigitalPin() {}
+
   addFirmataEventListener(eventListenerFunction) {
     this.eventListeners.push(eventListenerFunction);
   }
@@ -60,4 +70,6 @@ export class MicrobitStubBoard {
   streamAnalogChannel(channel) {}
 
   stopStreamingAnalogChannel(channel) {}
+
+  trackDigitalComponent() {}
 }
