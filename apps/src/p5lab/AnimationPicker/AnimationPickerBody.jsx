@@ -109,7 +109,6 @@ class AnimationPickerBody extends React.Component {
 
   render() {
     const {libraryManifest} = this.state;
-    console.log(libraryManifest);
     if (!libraryManifest) {
       return <div>Loading...</div>;
     }
