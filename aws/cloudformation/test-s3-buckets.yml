@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: 'TEST S3 Buckets'
+Parameters:
+  PrimaryAccount:
+    Type: String
+    NoEcho: true
+  SecondaryAccount:
+    Type: String
+    NoEcho: true
+Resources:
+  TestProjectBucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: 'cdo-v3-test'
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: 'aws:kms'
+      VersioningConfiguration:
+        Status: 'Enabled'
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      ReplicationConfiguration:
+        # TODO: (suresh) Define this Role and its attached Policy in this Template.
+        Role: !Sub "arn:aws:iam::${PrimaryAccount}:role/s3-replicate-project-data"
+        Rules:
+          - Destination:
+              AccessControlTranslation:
+                Owner: Destination
+              Account: !Ref SecondaryAccount
+              Bucket: 'arn:aws:s3:::cdo-secondary-v3-test'
+              EncryptionConfiguration:
+                ReplicaKmsKeyID: !Sub "arn:aws:kms:us-east-1:${SecondaryAccount}:alias/s3-backup"
+            Prefix: ''
+            SourceSelectionCriteria:
+              SseKmsEncryptedObjects:
+                Status: Enabled
+            Status: Enabled

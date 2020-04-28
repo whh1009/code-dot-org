@@ -1,0 +1,68 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: 'TEST S3 Buckets'
+Parameters:
+  PrimaryAccount:
+    Type: String
+    NoEcho: true
+Resources:
+  TestTargetProjectBucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: 'cdo-secondary-v3-test'
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              KMSMasterKeyID: !Ref S3Key
+              SSEAlgorithm: 'aws:kms'
+      VersioningConfiguration:
+        Status: 'Enabled'
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+  CrossAccountS3ReplicationBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref TestTargetProjectBucket
+      PolicyDocument:
+        Statement:
+          -
+            Sid: Grant primary account permission to replicate objects to secondary bucket.
+            Effect: "Allow"
+            Action:
+              - "s3:GetBucketVersioning"
+              - "s3:PutBucketVersioning"
+              - "s3:ReplicateObject"
+              - "s3:ReplicateDelete"
+              - "s3:ObjectOwnerOverrideToBucketOwner"
+            Resource:
+              - !Sub "arn:aws:s3:::${TestTargetProjectBucket}"
+              - !Sub "arn:aws:s3:::${TestTargetProjectBucket}/*"
+            Principal: {AWS: [!Sub "arn:aws:iam::${PrimaryAccount}:root"]}
+  S3Key:
+    Type: AWS::KMS::Key
+    Properties:
+      Description: Encrypt objects in backup S3 bucket with Customer Managed key that can be shared with source Account.
+      EnableKeyRotation: true
+      KeyPolicy:
+        Version: 2012-10-17
+        Id: key-policy-1
+        Statement:
+          - Sid: Enable IAM policies in secondary account for managing key access.
+            Effect: Allow
+            Principal: {AWS: [!Sub "arn:aws:iam::${AWS::AccountId}:root"]}
+            Action: 'kms:*'
+            Resource: '*'
+          - Sid: Enable primary account to encrypt objects it replicates to secondary account.
+            Effect: Allow
+            Principal:
+              AWS: !Ref PrimaryAccount
+            Action:
+             - 'kms:Encrypt'
+            Resource: '*'
+  DBSnapshotKeyAlias:
+    Type: AWS::KMS::Alias
+    Properties:
+      AliasName: "alias/s3-backup"
+      TargetKeyId: !Ref S3Key
