@@ -805,7 +805,7 @@ class Script < ActiveRecord::Base
   end
 
   def has_lesson_pdf?
-    return false if ScriptConstants.script_in_category?(:csf, name) || ScriptConstants.script_in_category?(:csf_2018, name)
+    return false if curriculum_umbrella == 'CSF' && (version_year == '2017' || version_year == '2018')
 
     has_lesson_plan?
   end
