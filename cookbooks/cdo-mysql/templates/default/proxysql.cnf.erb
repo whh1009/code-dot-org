@@ -174,4 +174,11 @@ mysql_query_rules:
     match_digest="SET @@wait_timeout"
     multiplex=2
   },
+  {
+    # Disable multiplexing on connections with custom max_execution_time.
+    rule_id=6
+    active=1
+    match_digest="^SET SESSION MAX_EXECUTION_TIME"
+    multiplex=0
+  },
 )
