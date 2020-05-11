@@ -4,7 +4,7 @@ Feature: Using the progress tab of the teacher dashboard
 
   Scenario: Toggling between views in progress tab
     When I open my eyes to test "progress tab views"
-    Given I create an authorized teacher-associated student named "Sally"
+    Given I create an authorized teacher-associated student named "Sally" in a section with an assignment
 
    # Make sure Course A is in the drop down so we can use it for standards tab
     Given I am assigned to script "coursea-2019"
@@ -21,6 +21,7 @@ Feature: Using the progress tab of the teacher dashboard
     And I save the section id from row 0 of the section table
     Then I navigate to teacher dashboard for the section I saved
     And I wait until element "#uitest-course-dropdown" contains text "All the Things! *"
+    And I wait until element "#assignment-name" is visible
 
     # Summary View
     And I wait until element ".uitest-summary-cell" is visible

@@ -1139,6 +1139,17 @@ And(/^I create a(n authorized)? teacher-associated( under-13)? student named "([
   create_user(name, url: "/join/#{section_code}", code: 200, age: under_13 ? '10' : '16')
 end
 
+And(/^I create a(n authorized)? teacher-associated( under-13)? student named "([^"]*)" in a section with an assignment$/) do |authorized, under_13, name|
+  steps "Given I create a teacher named \"Teacher_#{name}\""
+  # enroll in a plc course as a way of becoming an authorized teacher
+  steps 'And I am enrolled in a plc course' if authorized
+
+  section = JSON.parse(browser_request(url: '/dashboardapi/sections', method: 'POST', body: {login_type: 'email', script_id: 1}))
+  section_code = section['code']
+  @section_url = "http://studio.code.org/join/#{section_code}"
+  create_user(name, url: "/join/#{section_code}", code: 200, age: under_13 ? '10' : '16')
+end
+
 And(/^I create a levelbuilder named "([^"]*)"$/) do |name|
   steps %{
     Given I create a teacher named "#{name}"
