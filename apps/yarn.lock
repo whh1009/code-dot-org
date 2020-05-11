@@ -3617,9 +3617,10 @@ block-stream@*:
   dependencies:
     inherits "~2.0.0"
 
-"blockly@github:google/blockly#3.20200402.1":
+blockly@^3.20200402.1:
   version "3.20200402.1"
-  resolved "https://codeload.github.com/google/blockly/tar.gz/07762ff4da3c713f7592c80052b1fa7cadb461a2"
+  resolved "https://registry.yarnpkg.com/blockly/-/blockly-3.20200402.1.tgz#dbcba398a88a5c3112c5104cccaa9efc6fabf564"
+  integrity sha512-3caKdRgwD7EtiSfHYS82nRG0gb8/82AYUHUd3hQFypUAe1nJT8+gkM5SRLkwzEeYJcmRZraiYEpYaG2U603vcw==
   dependencies:
     jsdom "^15.2.1"
 
