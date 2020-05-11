@@ -694,7 +694,7 @@ StudioApp.prototype.handleClearPuzzle = function(config) {
     if (Blockly.functionEditor) {
       Blockly.functionEditor.hideIfOpen();
     }
-    Blockly.mainBlockSpace.clear();
+    Blockly.getMainWorkspace().clear();
     this.setStartBlocks_(config, false);
     if (config.level.openFunctionDefinition) {
       this.openFunctionDefinition_(config);
@@ -909,7 +909,7 @@ StudioApp.prototype.runChangeHandlers = function() {
 StudioApp.prototype.setupChangeHandlers = function() {
   const runAllHandlers = this.runChangeHandlers.bind(this);
   if (this.isUsingBlockly()) {
-    const blocklyCanvas = Blockly.mainBlockSpace.getCanvas();
+    const blocklyCanvas = Blockly.getMainWorkspace().getCanvas();
     blocklyCanvas.addEventListener('blocklyBlockSpaceChange', runAllHandlers);
   } else {
     this.editor.on('change', runAllHandlers);
@@ -1286,9 +1286,11 @@ StudioApp.prototype.onResize = function() {
         this.lastWorkspaceWidth !== workspaceWidth
       ) {
         var blockOffset = workspaceWidth - this.lastWorkspaceWidth;
-        Blockly.mainBlockSpace.getTopBlocks().forEach(function(topBlock) {
-          topBlock.moveBy(blockOffset, 0);
-        });
+        Blockly.getMainWorkspace()
+          .getTopBlocks()
+          .forEach(function(topBlock) {
+            topBlock.moveBy(blockOffset, 0);
+          });
       }
     }
     this.lastWorkspaceWidth = workspaceWidth;
@@ -1496,7 +1498,7 @@ StudioApp.prototype.resizeToolboxHeader = function() {
     var categories = document.querySelector('.droplet-palette-wrapper');
     toolboxWidth = categories.getBoundingClientRect().width;
   } else if (this.isUsingBlockly()) {
-    toolboxWidth = Blockly.mainBlockSpaceEditor.getToolboxWidth();
+    toolboxWidth = Blockly.getMainWorkspace().getMetrics().toolboxWidth;
   } else if (this.scratch) {
     toolboxWidth = Blockly.getMainWorkspace().getMetrics().toolboxWidth;
   }
@@ -1517,7 +1519,7 @@ StudioApp.prototype.highlight = function(id, spotlight) {
       }
     }
 
-    Blockly.mainBlockSpace.highlightBlock(id, spotlight);
+    Blockly.getMainWorkspace().highlightBlock(id, spotlight);
   }
 };
 
@@ -1777,7 +1779,7 @@ StudioApp.prototype.resetButtonClick = function() {
   getStore().dispatch(setFeedback(null));
   if (this.isUsingBlockly()) {
     Blockly.mainBlockSpaceEditor.setEnableToolbox(true);
-    Blockly.mainBlockSpace.traceOn(false);
+    Blockly.getMainWorkspace().traceOn(false);
   }
   this.reset(false);
 };
@@ -1977,7 +1979,9 @@ function runButtonClickWrapper(callback) {
     var customEvent = utils.createEvent(
       Blockly.BlockSpace.EVENTS.RUN_BUTTON_CLICKED
     );
-    Blockly.mainBlockSpace.getCanvas().dispatchEvent(customEvent);
+    Blockly.getMainWorkspace()
+      .getCanvas()
+      .dispatchEvent(customEvent);
   }
 
   callback();
@@ -2612,7 +2616,7 @@ StudioApp.prototype.setStartBlocks_ = function(config, loadLastAttempt) {
   } catch (e) {
     if (loadLastAttempt) {
       try {
-        Blockly.mainBlockSpace.clear();
+        Blockly.getMainWorkspace().clear();
         // Try loading the default start blocks instead.
         this.setStartBlocks_(config, false);
       } catch (otherException) {
@@ -2830,18 +2834,20 @@ StudioApp.prototype.getUnfilledFunctionalExample = function() {
  */
 StudioApp.prototype.getFilteredUnfilledFunctionalBlock_ = function(filter) {
   var unfilledBlock;
-  Blockly.mainBlockSpace.getAllUsedBlocks().some(function(block) {
-    // Get the root block in the chain
-    var rootBlock = block.getRootBlock();
-    if (!filter(rootBlock)) {
-      return false;
-    }
+  Blockly.getMainWorkspace()
+    .getAllUsedBlocks()
+    .some(function(block) {
+      // Get the root block in the chain
+      var rootBlock = block.getRootBlock();
+      if (!filter(rootBlock)) {
+        return false;
+      }
 
-    if (block.hasUnfilledFunctionalInput()) {
-      unfilledBlock = block;
-      return true;
-    }
-  });
+      if (block.hasUnfilledFunctionalInput()) {
+        unfilledBlock = block;
+        return true;
+      }
+    });
 
   return unfilledBlock;
 };
@@ -2933,19 +2939,21 @@ StudioApp.prototype.getUnfilledFunctionalBlockError = function(topLevelType) {
  */
 StudioApp.prototype.checkForFailingExamples = function(failureChecker) {
   var failingBlockName = '';
-  Blockly.mainBlockSpace.findFunctionExamples().forEach(function(exampleBlock) {
-    var failure = failureChecker(exampleBlock, false);
+  Blockly.getMainWorkspace()
+    .findFunctionExamples()
+    .forEach(function(exampleBlock) {
+      var failure = failureChecker(exampleBlock, false);
 
-    // Update the example result. No-op if we're not currently editing this
-    // function.
-    Blockly.contractEditor.updateExampleResult(exampleBlock, failure);
+      // Update the example result. No-op if we're not currently editing this
+      // function.
+      Blockly.contractEditor.updateExampleResult(exampleBlock, failure);
 
-    if (failure) {
-      failingBlockName = exampleBlock
-        .getInputTargetBlock('ACTUAL')
-        .getTitleValue('NAME');
-    }
-  });
+      if (failure) {
+        failingBlockName = exampleBlock
+          .getInputTargetBlock('ACTUAL')
+          .getTitleValue('NAME');
+      }
+    });
   return failingBlockName;
 };
 
@@ -2953,13 +2961,15 @@ StudioApp.prototype.checkForFailingExamples = function(failureChecker) {
  * @returns {boolean} True if we have a function or variable named "" (empty string)
  */
 StudioApp.prototype.hasEmptyFunctionOrVariableName = function() {
-  return Blockly.mainBlockSpace.getTopBlocks().some(function(block) {
-    if (block.type !== 'functional_definition') {
-      return false;
-    }
+  return Blockly.getMainWorkspace()
+    .getTopBlocks()
+    .some(function(block) {
+      if (block.type !== 'functional_definition') {
+        return false;
+      }
 
-    return !block.getProcedureInfo().name;
-  });
+      return !block.getProcedureInfo().name;
+    });
 };
 
 StudioApp.prototype.createCoordinateGridBackground = function(options) {
