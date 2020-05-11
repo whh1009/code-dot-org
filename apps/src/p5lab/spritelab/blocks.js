@@ -285,28 +285,28 @@ export default {
   customInputTypes,
   install(blockly, blockInstallOptions) {
     // Legacy style block definitions :(
-    const generator = blockly.Generator.get('JavaScript');
+    const generator = blockly.Generator;
 
-    const behaviorEditor = (Blockly.behaviorEditor = new Blockly.FunctionEditor(
-      {
-        FUNCTION_HEADER: i18n.behaviorEditorHeader(),
-        FUNCTION_NAME_LABEL: i18n.behaviorEditorLabel(),
-        FUNCTION_DESCRIPTION_LABEL: i18n.behaviorEditorDescription()
-      },
-      'behavior_definition',
-      {
-        [Blockly.BlockValueType.SPRITE]: 'sprite_parameter_get'
-      },
-      false /* disableParamEditing */,
-      [
-        Blockly.BlockValueType.NUMBER,
-        Blockly.BlockValueType.STRING,
-        Blockly.BlockValueType.COLOUR,
-        Blockly.BlockValueType.BOOLEAN,
-        Blockly.BlockValueType.SPRITE,
-        Blockly.BlockValueType.LOCATION
-      ]
-    ));
+    // const behaviorEditor = (Blockly.behaviorEditor = new Blockly.FunctionEditor(
+    //   {
+    //     FUNCTION_HEADER: i18n.behaviorEditorHeader(),
+    //     FUNCTION_NAME_LABEL: i18n.behaviorEditorLabel(),
+    //     FUNCTION_DESCRIPTION_LABEL: i18n.behaviorEditorDescription()
+    //   },
+    //   'behavior_definition',
+    //   {
+    //     [Blockly.BlockValueType.SPRITE]: 'sprite_parameter_get'
+    //   },
+    //   false /* disableParamEditing */,
+    //   [
+    //     Blockly.BlockValueType.NUMBER,
+    //     Blockly.BlockValueType.STRING,
+    //     Blockly.BlockValueType.COLOUR,
+    //     Blockly.BlockValueType.BOOLEAN,
+    //     Blockly.BlockValueType.SPRITE,
+    //     Blockly.BlockValueType.LOCATION
+    //   ]
+    // ));
 
     Blockly.Blocks.sprite_variables_get = {
       // Variable getter.
@@ -351,10 +351,10 @@ export default {
         Blockly.JavaScript.ORDER_ATOMIC
       ];
     };
-    Blockly.Variables.registerGetter(
-      Blockly.BlockValueType.SPRITE,
-      'sprite_variables_get'
-    );
+    // Blockly.Variables.registerGetter(
+    //   Blockly.BlockValueType.SPRITE,
+    //   'sprite_variables_get'
+    // );
 
     Blockly.Blocks.sprite_parameter_get = {
       init() {
@@ -370,10 +370,10 @@ export default {
         this.setTooltip(Blockly.Msg.VARIABLES_GET_TOOLTIP);
       },
       renameVar(oldName, newName) {
-        if (behaviorEditor.isOpen()) {
-          behaviorEditor.renameParameter(oldName, newName);
-          behaviorEditor.refreshParamsEverywhere();
-        }
+        // if (behaviorEditor.isOpen()) {
+        //   behaviorEditor.renameParameter(oldName, newName);
+        //   behaviorEditor.refreshParamsEverywhere();
+        // }
       },
       removeVar: Blockly.Blocks.variables_get.removeVar
     };
@@ -421,7 +421,7 @@ export default {
 
       openEditor(e) {
         e.stopPropagation();
-        behaviorEditor.openEditorForFunction(this, this.getTitleValue('VAR'));
+        // behaviorEditor.openEditorForFunction(this, this.getTitleValue('VAR'));
       },
 
       getVars() {
@@ -507,31 +507,31 @@ export default {
       ];
     };
 
-    Blockly.Blocks.behavior_definition = Blockly.Block.createProcedureDefinitionBlock(
-      {
-        initPostScript(block) {
-          block.setHSV(136, 0.84, 0.8);
-          block.parameterNames_ = ['this sprite'];
-          block.parameterTypes_ = [Blockly.BlockValueType.SPRITE];
-        },
-        overrides: {
-          getVars(category) {
-            return {
-              Behavior: [this.getTitleValue('NAME')]
-            };
-          },
-          callType_: 'gamelab_behavior_get'
-        }
-      }
-    );
+    // Blockly.Blocks.behavior_definition = Blockly.Block.createProcedureDefinitionBlock(
+    //   {
+    //     initPostScript(block) {
+    //       block.setHSV(136, 0.84, 0.8);
+    //       block.parameterNames_ = ['this sprite'];
+    //       block.parameterTypes_ = [Blockly.BlockValueType.SPRITE];
+    //     },
+    //     overrides: {
+    //       getVars(category) {
+    //         return {
+    //           Behavior: [this.getTitleValue('NAME')]
+    //         };
+    //       },
+    //       callType_: 'gamelab_behavior_get'
+    //     }
+    //   }
+    // );
 
     generator.behavior_definition = generator.procedures_defnoreturn;
 
     Blockly.Procedures.DEFINITION_BLOCK_TYPES.push('behavior_definition');
-    Blockly.Variables.registerGetter(
-      Blockly.BlockValueType.BEHAVIOR,
-      'gamelab_behavior_get'
-    );
+    // Blockly.Variables.registerGetter(
+    //   Blockly.BlockValueType.BEHAVIOR,
+    //   'gamelab_behavior_get'
+    // );
 
     // NOTE: On the page where behaviors are created (the functions/#/edit page)
     // blockInstallOptions is undefined.
@@ -539,18 +539,18 @@ export default {
       !blockInstallOptions ||
       blockInstallOptions.level.editBlocks !== TOOLBOX_EDIT_MODE
     ) {
-      Blockly.Flyout.configure(Blockly.BlockValueType.BEHAVIOR, {
-        initialize(flyout, cursor) {
-          if (behaviorEditor && !behaviorEditor.isOpen()) {
-            flyout.addButtonToFlyout_(
-              cursor,
-              i18n.createBlocklyBehavior(),
-              behaviorEditor.openWithNewFunction.bind(behaviorEditor)
-            );
-          }
-        },
-        addDefaultVar: false
-      });
+      // Blockly.Flyout.configure(Blockly.BlockValueType.BEHAVIOR, {
+      //   initialize(flyout, cursor) {
+      //     if (behaviorEditor && !behaviorEditor.isOpen()) {
+      //       flyout.addButtonToFlyout_(
+      //         cursor,
+      //         i18n.createBlocklyBehavior(),
+      //         behaviorEditor.openWithNewFunction.bind(behaviorEditor)
+      //       );
+      //     }
+      //   },
+      //   addDefaultVar: false
+      // });
     }
   }
 };

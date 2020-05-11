@@ -32,4 +32,19 @@ Blockly.BlockValueType = {
   LOCATION: 'Location'
 };
 
+/** Flyout category to separate procedure names from variables and generated functions. */
+Blockly.Procedures.NAME_TYPE = 'PROCEDURE';
+
+/** Flyout category type for functional variables, which are procedures under the covers */
+Blockly.Procedures.NAME_TYPE_FUNCTIONAL_VARIABLE = 'FUNCTIONAL_VARIABLE';
+
+Blockly.Procedures.DEFINITION_BLOCK_TYPES = [
+  'procedures_defnoreturn',
+  'procedures_defreturn',
+  'functional_definition'
+];
+
+Blockly.Procedures.PROCEDURAL_TO_FUNCTIONAL_CALL_TYPE =
+  'procedural_to_functional_call';
+
 window.Blockly = Blockly;
