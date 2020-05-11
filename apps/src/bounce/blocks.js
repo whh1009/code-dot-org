@@ -22,7 +22,7 @@ var generateSetterCode = function(ctx, name) {
 exports.install = function(blockly, blockInstallOptions) {
   var skin = blockInstallOptions.skin;
 
-  var generator = blockly.Generator.get('JavaScript');
+  var generator = blockly.Generator;
   blockly.JavaScript = generator;
 
   blockly.Blocks.bounce_whenLeft = {
