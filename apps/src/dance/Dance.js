@@ -469,7 +469,7 @@ Dance.prototype.onPuzzleComplete = function(result, message) {
   const levelComplete = result;
 
   // We're using blockly, report the program as xml.
-  var xml = Blockly.Xml.blockSpaceToDom(Blockly.mainBlockSpace);
+  var xml = Blockly.Xml.workspaceToDom(Blockly.mainBlockSpace);
   let program = encodeURIComponent(Blockly.Xml.domToText(xml));
 
   if (this.testResults >= TestResults.FREE_PLAY) {

@@ -2400,7 +2400,7 @@ Studio.prepareForRemix = function() {
     return Promise.resolve();
   }
 
-  const blocksDom = Blockly.Xml.blockSpaceToDom(Blockly.mainBlockSpace);
+  const blocksDom = Blockly.Xml.workspaceToDom(Blockly.mainBlockSpace);
   const blocksDocument = blocksDom.ownerDocument;
 
   let whenRun = blocksDom.querySelector('block[type="when_run"]');
@@ -3762,7 +3762,7 @@ Studio.onPuzzleComplete = function() {
 
     program = studioApp().getCode();
   } else {
-    var xml = Blockly.Xml.blockSpaceToDom(Blockly.mainBlockSpace);
+    var xml = Blockly.Xml.workspaceToDom(Blockly.mainBlockSpace);
     program = Blockly.Xml.domToText(xml);
   }
 

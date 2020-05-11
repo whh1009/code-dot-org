@@ -828,7 +828,7 @@ P5Lab.prototype.onPuzzleComplete = function(submit, testResult, message) {
     this.message = null;
   } else {
     // We're using blockly, report the program as xml
-    var xml = Blockly.Xml.blockSpaceToDom(Blockly.mainBlockSpace);
+    var xml = Blockly.Xml.workspaceToDom(Blockly.mainBlockSpace);
 
     // When SharedFunctions (aka shared behavior_definitions) are enabled, they
     // are always appended to startBlocks on page load.

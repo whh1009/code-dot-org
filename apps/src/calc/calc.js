@@ -708,7 +708,7 @@ Calc.evaluateResults_ = function(targetSet, userSet) {
 Calc.execute = function() {
   Calc.generateResults_();
 
-  var xml = Blockly.Xml.blockSpaceToDom(Blockly.mainBlockSpace);
+  var xml = Blockly.Xml.workspaceToDom(Blockly.mainBlockSpace);
   var textBlocks = Blockly.Xml.domToText(xml);
 
   var reportData = {

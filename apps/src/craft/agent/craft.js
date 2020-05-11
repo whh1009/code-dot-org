@@ -835,7 +835,7 @@ export default class Craft {
       image: encodedImage,
       program: encodeURIComponent(
         Blockly.Xml.domToText(
-          Blockly.Xml.blockSpaceToDom(Blockly.mainBlockSpace)
+          Blockly.Xml.workspaceToDom(Blockly.mainBlockSpace)
         )
       ),
       // typically delay feedback until response back

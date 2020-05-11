@@ -386,7 +386,7 @@ Artist.prototype.init = function(config) {
  * orientation.
  */
 Artist.prototype.prepareForRemix = function() {
-  const blocksDom = Blockly.Xml.blockSpaceToDom(Blockly.mainBlockSpace);
+  const blocksDom = Blockly.Xml.workspaceToDom(Blockly.mainBlockSpace);
   const blocksDocument = blocksDom.ownerDocument;
   const remix_props = REMIX_PROPS_BY_SKIN[this.skin.id] || REMIX_PROPS;
   let next = false;
@@ -1485,7 +1485,7 @@ Artist.prototype.checkAnswer = function() {
 
 Artist.prototype.getUserCode = function() {
   if (this.studioApp_.isUsingBlockly()) {
-    var xml = Blockly.Xml.blockSpaceToDom(Blockly.mainBlockSpace);
+    var xml = Blockly.Xml.workspaceToDom(Blockly.mainBlockSpace);
     return Blockly.Xml.domToText(xml);
   } else if (this.level.editCode) {
     // If we want to "normalize" the JavaScript to avoid proliferation of nearly

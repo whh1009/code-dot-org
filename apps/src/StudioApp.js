@@ -1048,7 +1048,7 @@ StudioApp.prototype.showNextHint = function() {
 /**
  * Initialize Blockly for a readonly iframe.  Called on page load. No sounds.
  * XML argument may be generated from the console with:
- * Blockly.Xml.domToText(Blockly.Xml.blockSpaceToDom(Blockly.mainBlockSpace)).slice(5, -6)
+ * Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(Blockly.mainBlockSpace)).slice(5, -6)
  */
 StudioApp.prototype.initReadonly = function(options) {
   Blockly.inject(document.getElementById('codeWorkspace'), {

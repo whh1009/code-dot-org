@@ -469,7 +469,7 @@ module.exports = class Maze {
 
       program = studioApp().editor.getValue();
     } else {
-      var xml = Blockly.Xml.blockSpaceToDom(Blockly.mainBlockSpace);
+      var xml = Blockly.Xml.workspaceToDom(Blockly.mainBlockSpace);
       program = Blockly.Xml.domToText(xml);
     }
 

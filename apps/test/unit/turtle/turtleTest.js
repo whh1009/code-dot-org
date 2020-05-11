@@ -424,7 +424,7 @@ describe('Artist', () => {
       newDom = undefined;
       window.Blockly = {
         Xml: {
-          blockSpaceToDom() {
+          workspaceToDom() {
             return parseElement(oldXml);
           },
           domToBlockSpace(blockspace, dom) {

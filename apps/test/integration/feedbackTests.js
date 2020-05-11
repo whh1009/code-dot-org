@@ -32,7 +32,7 @@ describe('checkForEmptyContainerBlockFailure_', function() {
     // make sure we loaded correctly. text wont match exactly, but make sure if
     // we had xml, we loaded something
     var loaded = Blockly.Xml.domToText(
-      Blockly.Xml.blockSpaceToDom(Blockly.mainBlockSpace)
+      Blockly.Xml.workspaceToDom(Blockly.mainBlockSpace)
     );
     assert(
       !args.blockXml || loaded,
@@ -308,7 +308,7 @@ describe('getUserBlocks_', function() {
     // make sure we loaded correctly. text wont match exactly, but make sure if
     // we had xml, we loaded something
     var loaded = Blockly.Xml.domToText(
-      Blockly.Xml.blockSpaceToDom(Blockly.mainBlockSpace)
+      Blockly.Xml.workspaceToDom(Blockly.mainBlockSpace)
     );
     assert(loaded, "we didn't correctly load our test blocks");
 
@@ -420,7 +420,7 @@ describe('getMissingBlocks_ tests', function() {
     // make sure we loaded correctly. text wont match exactly, but make sure if
     // we had xml, we loaded something
     var loaded = Blockly.Xml.domToText(
-      Blockly.Xml.blockSpaceToDom(Blockly.mainBlockSpace)
+      Blockly.Xml.workspaceToDom(Blockly.mainBlockSpace)
     );
     assert(
       !options.userBlockXml || loaded,

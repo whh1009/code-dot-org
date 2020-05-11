@@ -264,7 +264,7 @@ Jigsaw.onPuzzleComplete = function() {
     studioApp().playAudio('failure');
   }
 
-  var xml = Blockly.Xml.blockSpaceToDom(Blockly.mainBlockSpace);
+  var xml = Blockly.Xml.workspaceToDom(Blockly.mainBlockSpace);
   var textBlocks = Blockly.Xml.domToText(xml);
 
   Jigsaw.waitingForReport = true;
