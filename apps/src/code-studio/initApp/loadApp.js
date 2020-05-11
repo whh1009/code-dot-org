@@ -1,4 +1,4 @@
-/* global addToHome Applab Blockly */
+Blockly.getMainWorkspace(); /* global addToHome Applab Blockly */
 import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -154,7 +154,7 @@ export function setupApp(appOptions) {
       // in the contained level case, unless we're editing blocks.
       if (appOptions.level.edit_blocks || !appOptions.hasContainedLevels) {
         if (appOptions.hasContainedLevels) {
-          var xml = Blockly.Xml.blockSpaceToDom(Blockly.mainBlockSpace);
+          var xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
           report.program = Blockly.Xml.domToText(xml);
         }
         report.callback = appOptions.report.callback;
@@ -495,11 +495,9 @@ const sourceHandler = {
         resolve(appOptions.getCode());
       } else if (window.Blockly) {
         // If we're readOnly, source hasn't changed at all
-        source = Blockly.mainBlockSpace.isReadOnly()
-          ? currentLevelSource
-          : Blockly.Xml.domToText(
-              Blockly.Xml.blockSpaceToDom(Blockly.mainBlockSpace)
-            );
+        source = Blockly.Xml.domToText(
+          Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace())
+        );
         resolve(source);
       } else if (appOptions.getCode) {
         source = appOptions.getCode();

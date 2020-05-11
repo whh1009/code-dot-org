@@ -436,15 +436,15 @@ StudioApp.prototype.init = function(config) {
 
   // TODO (cpirich): implement block count for droplet (for now, blockly only)
   if (this.isUsingBlockly()) {
-    Blockly.mainBlockSpaceEditor.addUnusedBlocksHelpListener(function(e) {
-      utils.showUnusedBlockQtip(e.target);
-    });
+    // Blockly.mainBlockSpaceEditor.addUnusedBlocksHelpListener(function(e) {
+    //   utils.showUnusedBlockQtip(e.target);
+    // });
     // Store result so that we can cleanup later in tests
-    this.changeListener = Blockly.mainBlockSpaceEditor.addChangeListener(
-      _.bind(function() {
-        this.updateBlockCount();
-      }, this)
-    );
+    // this.changeListener = Blockly.mainBlockSpaceEditor.addChangeListener(
+    //   _.bind(function() {
+    //     this.updateBlockCount();
+    //   }, this)
+    // );
 
     if (config.level.openFunctionDefinition) {
       this.openFunctionDefinition_(config);
@@ -1066,7 +1066,7 @@ StudioApp.prototype.initReadonly = function(options) {
  */
 StudioApp.prototype.loadBlocks = function(blocksXml) {
   var xml = parseXmlElement(blocksXml);
-  Blockly.Xml.domToBlockSpace(Blockly.mainBlockSpace, xml);
+  Blockly.Xml.domToWorkspace(Blockly.mainBlockSpace, xml);
 };
 
 /**
@@ -1778,7 +1778,7 @@ StudioApp.prototype.resetButtonClick = function() {
   this.clearHighlighting();
   getStore().dispatch(setFeedback(null));
   if (this.isUsingBlockly()) {
-    Blockly.mainBlockSpaceEditor.setEnableToolbox(true);
+    // Blockly.mainBlockSpaceEditor.setEnableToolbox(true);
     Blockly.getMainWorkspace().traceOn(false);
   }
   this.reset(false);
@@ -2621,10 +2621,11 @@ StudioApp.prototype.setStartBlocks_ = function(config, loadLastAttempt) {
         this.setStartBlocks_(config, false);
       } catch (otherException) {
         // re-throw the original exception
-        throw e;
+        console.log(e);
       }
     } else {
-      throw e;
+      console.log(e);
+      // throw e;
     }
   }
 };
