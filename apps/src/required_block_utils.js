@@ -1,5 +1,5 @@
 /* global Text */
-
+/* global CDOBlockly */
 var xml = require('./xml');
 var msg = require('@cdo/locale');
 var _ = require('lodash');
@@ -110,7 +110,7 @@ function testFromBlock(node) {
   return {
     test: function(userBlock) {
       // Encode userBlock while ignoring child statements
-      var userElement = Blockly.Xml.blockToDom(userBlock, true);
+      var userElement = CDOBlockly.Xml.blockToDom(userBlock, true);
       return elementsEquivalent(node, userElement);
     },
     blockDisplayXML: xml.serialize(node)

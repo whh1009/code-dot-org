@@ -1,3 +1,4 @@
+/* global CDOBlockly */
 /**
  * Defines blocks useful in multiple blockly apps
  */
@@ -5,7 +6,7 @@ var commonMsg = require('@cdo/locale');
 
 /**
  * Install extensions to Blockly's language and JavaScript generator
- * @param blockly instance of Blockly
+ * @param blockly instance of CDOBlockly
  */
 exports.install = function(blockly, blockInstallOptions) {
   var skin = blockInstallOptions.skin;
@@ -101,7 +102,7 @@ function installNumberDropdown(blockly) {
       this.setHelpUrl(blockly.Msg.MATH_NUMBER_HELPURL);
       this.setHSV(258, 0.35, 0.62);
       this.appendDummyInput().appendTitle(new blockly.FieldDropdown(), 'NUM');
-      this.setOutput(true, Blockly.BlockValueType.NUMBER);
+      this.setOutput(true, CDOBlockly.BlockValueType.NUMBER);
       this.setTooltip(blockly.Msg.MATH_NUMBER_TOOLTIP);
     }
   };
@@ -207,7 +208,7 @@ function installJoinBlock(blockly) {
     init: function() {
       this.helpUrl = '';
       this.setColour(160);
-      this.setOutput(true, Blockly.BlockValueType.STRING);
+      this.setOutput(true, CDOBlockly.BlockValueType.STRING);
       this.setTooltip(commonMsg.joinTextTooltip());
       this.inputCount = 0;
     },
@@ -294,14 +295,14 @@ function installJoinBlock(blockly) {
     var parts = new Array(this.inputCount === '???' ? 2 : this.inputCount);
     for (var n = 0; n < this.inputCount; n++) {
       parts[n] =
-        Blockly.JavaScript.valueToCode(
+        CDOBlockly.JavaScript.valueToCode(
           this,
           'ADD' + n,
-          Blockly.JavaScript.ORDER_COMMA
+          CDOBlockly.JavaScript.ORDER_COMMA
         ) || "''";
     }
     var code = `[${parts.join(',')}].join('')`;
-    return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+    return [code, CDOBlockly.JavaScript.ORDER_FUNCTION_CALL];
   };
 }
 
@@ -311,7 +312,7 @@ function installCommentBlock(blockly) {
       this.setHSV(0, 0, 0.6);
       this.appendDummyInput()
         .appendTitle(commonMsg.commentPrefix())
-        .appendTitle(new Blockly.FieldTextInput(''), 'TEXT');
+        .appendTitle(new CDOBlockly.FieldTextInput(''), 'TEXT');
       this.setPreviousStatement(true);
       this.setNextStatement(true);
       this.setTooltip(commonMsg.commentTooltip());

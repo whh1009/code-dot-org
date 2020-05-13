@@ -1,4 +1,4 @@
-/* global Blockly, droplet */
+/* global CDOBlockly, droplet */
 
 import $ from 'jquery';
 import React from 'react';
@@ -436,11 +436,11 @@ StudioApp.prototype.init = function(config) {
 
   // TODO (cpirich): implement block count for droplet (for now, blockly only)
   if (this.isUsingBlockly()) {
-    Blockly.mainBlockSpaceEditor.addUnusedBlocksHelpListener(function(e) {
+    CDOBlockly.mainBlockSpaceEditor.addUnusedBlocksHelpListener(function(e) {
       utils.showUnusedBlockQtip(e.target);
     });
     // Store result so that we can cleanup later in tests
-    this.changeListener = Blockly.mainBlockSpaceEditor.addChangeListener(
+    this.changeListener = CDOBlockly.mainBlockSpaceEditor.addChangeListener(
       _.bind(function() {
         this.updateBlockCount();
       }, this)
@@ -470,8 +470,8 @@ StudioApp.prototype.init = function(config) {
 
   this.initVersionHistoryUI(config);
 
-  if (this.isUsingBlockly() && Blockly.contractEditor) {
-    Blockly.contractEditor.registerTestsFailedOnCloseHandler(
+  if (this.isUsingBlockly() && CDOBlockly.contractEditor) {
+    CDOBlockly.contractEditor.registerTestsFailedOnCloseHandler(
       function() {
         this.feedback_.showSimpleDialog({
           headerText: undefined,
@@ -480,7 +480,7 @@ StudioApp.prototype.init = function(config) {
           confirmText: msg.tryAgain(),
           onConfirm: null,
           onCancel: function() {
-            Blockly.contractEditor.hideIfOpen();
+            CDOBlockly.contractEditor.hideIfOpen();
           }
         });
 
@@ -667,7 +667,7 @@ StudioApp.prototype.scaleLegacyShare = function() {
 
 StudioApp.prototype.getCode = function() {
   if (!this.editCode) {
-    return codegen.workspaceCode(Blockly);
+    return codegen.workspaceCode(CDOBlockly);
   }
   if (this.hideSource) {
     return this.startBlocks_;
@@ -691,10 +691,10 @@ StudioApp.prototype.setIconsFromSkin = function(skin) {
 StudioApp.prototype.handleClearPuzzle = function(config) {
   var promise;
   if (this.isUsingBlockly()) {
-    if (Blockly.functionEditor) {
-      Blockly.functionEditor.hideIfOpen();
+    if (CDOBlockly.functionEditor) {
+      CDOBlockly.functionEditor.hideIfOpen();
     }
-    Blockly.mainBlockSpace.clear();
+    CDOBlockly.mainBlockSpace.clear();
     this.setStartBlocks_(config, false);
     if (config.level.openFunctionDefinition) {
       this.openFunctionDefinition_(config);
@@ -715,11 +715,11 @@ StudioApp.prototype.handleClearPuzzle = function(config) {
 
     annotationList.clearRuntimeAnnotations();
   } else if (this.scratch) {
-    const workspace = Blockly.getMainWorkspace();
+    const workspace = CDOBlockly.getMainWorkspace();
     workspace.clear();
 
-    const dom = Blockly.Xml.textToDom(config.level.startBlocks);
-    Blockly.Xml.domToWorkspace(dom, workspace);
+    const dom = CDOBlockly.Xml.textToDom(config.level.startBlocks);
+    CDOBlockly.Xml.domToWorkspace(dom, workspace);
   }
   if (config.afterClearPuzzle) {
     promise = config.afterClearPuzzle(config);
@@ -909,7 +909,7 @@ StudioApp.prototype.runChangeHandlers = function() {
 StudioApp.prototype.setupChangeHandlers = function() {
   const runAllHandlers = this.runChangeHandlers.bind(this);
   if (this.isUsingBlockly()) {
-    const blocklyCanvas = Blockly.mainBlockSpace.getCanvas();
+    const blocklyCanvas = CDOBlockly.mainBlockSpace.getCanvas();
     blocklyCanvas.addEventListener('blocklyBlockSpaceChange', runAllHandlers);
   } else {
     this.editor.on('change', runAllHandlers);
@@ -1019,7 +1019,7 @@ StudioApp.prototype.stopLoopingAudio = function(name) {
 };
 
 /**
- * @param {Object} options Configuration parameters for Blockly. Parameters are
+ * @param {Object} options Configuration parameters for CDOBlockly. Parameters are
  * optional and include:
  *  - {string} path The root path to the /apps directory, defaults to the
  *    the directory in which this script is located.
@@ -1028,7 +1028,7 @@ StudioApp.prototype.stopLoopingAudio = function(name) {
  *    defaults to the element with 'toolbox'.
  *  - {boolean} trashcan True if the trashcan should be displayed, defaults to
  *    true.
- * @param {Element} div The parent div in which to insert Blockly.
+ * @param {Element} div The parent div in which to insert CDOBlockly.
  */
 StudioApp.prototype.inject = function(div, options) {
   var defaults = {
@@ -1038,7 +1038,11 @@ StudioApp.prototype.inject = function(div, options) {
     trashcan: true,
     customSimpleDialog: this.feedback_.showSimpleDialog.bind(this.feedback_)
   };
-  Blockly.inject(div, utils.extend(defaults, options), Sounds.getSingleton());
+  CDOBlockly.inject(
+    div,
+    utils.extend(defaults, options),
+    Sounds.getSingleton()
+  );
 };
 
 StudioApp.prototype.showNextHint = function() {
@@ -1046,12 +1050,12 @@ StudioApp.prototype.showNextHint = function() {
 };
 
 /**
- * Initialize Blockly for a readonly iframe.  Called on page load. No sounds.
+ * Initialize CDOBlockly for a readonly iframe.  Called on page load. No sounds.
  * XML argument may be generated from the console with:
- * Blockly.Xml.domToText(Blockly.Xml.blockSpaceToDom(Blockly.mainBlockSpace)).slice(5, -6)
+ * CDOBlockly.Xml.domToText(CDOBlockly.Xml.blockSpaceToDom(CDOBlockly.mainBlockSpace)).slice(5, -6)
  */
 StudioApp.prototype.initReadonly = function(options) {
-  Blockly.inject(document.getElementById('codeWorkspace'), {
+  CDOBlockly.inject(document.getElementById('codeWorkspace'), {
     assetUrl: this.assetUrl,
     readOnly: true,
     rtl: getStore().getState().isRtl,
@@ -1066,14 +1070,14 @@ StudioApp.prototype.initReadonly = function(options) {
  */
 StudioApp.prototype.loadBlocks = function(blocksXml) {
   var xml = parseXmlElement(blocksXml);
-  Blockly.Xml.domToBlockSpace(Blockly.mainBlockSpace, xml);
+  CDOBlockly.Xml.domToBlockSpace(CDOBlockly.mainBlockSpace, xml);
 };
 
 /**
  * Applies the specified arrangement to top startBlocks. If any
  * individual blocks have x or y properties set in the XML, those values
  * take priority. If no arrangement for a particular block type is
- * specified, blocks are automatically positioned by Blockly.
+ * specified, blocks are automatically positioned by CDOBlockly.
  *
  * Note that, currently, only bounce and flappy use arrangements.
  *
@@ -1107,7 +1111,7 @@ StudioApp.prototype.arrangeBlockPosition = function(startBlocks, arrangement) {
       }
     }
   }
-  return Blockly.Xml.domToText(xml);
+  return CDOBlockly.Xml.domToText(xml);
 };
 
 StudioApp.prototype.createModalDialog = function(options) {
@@ -1125,7 +1129,7 @@ StudioApp.prototype.showGeneratedCode = function() {
 /**
  * Simple passthrough to AuthoredHints.displayMissingBlockHints
  * @param {String[]} blocks An array of XML strings representing the
- *        missing recommended Blockly Blocks for which we want to
+ *        missing recommended CDOBlockly Blocks for which we want to
  *        display hints.
  */
 StudioApp.prototype.displayMissingBlockHints = function(blocks) {
@@ -1280,13 +1284,13 @@ StudioApp.prototype.onResize = function() {
     var workspaceWidth = codeWorkspace.clientWidth;
 
     // Keep blocks static relative to the right edge in RTL mode
-    if (this.isUsingBlockly() && Blockly.RTL) {
+    if (this.isUsingBlockly() && CDOBlockly.RTL) {
       if (
         this.lastWorkspaceWidth &&
         this.lastWorkspaceWidth !== workspaceWidth
       ) {
         var blockOffset = workspaceWidth - this.lastWorkspaceWidth;
-        Blockly.mainBlockSpace.getTopBlocks().forEach(function(topBlock) {
+        CDOBlockly.mainBlockSpace.getTopBlocks().forEach(function(topBlock) {
           topBlock.moveBy(blockOffset, 0);
         });
       }
@@ -1496,9 +1500,9 @@ StudioApp.prototype.resizeToolboxHeader = function() {
     var categories = document.querySelector('.droplet-palette-wrapper');
     toolboxWidth = categories.getBoundingClientRect().width;
   } else if (this.isUsingBlockly()) {
-    toolboxWidth = Blockly.mainBlockSpaceEditor.getToolboxWidth();
+    toolboxWidth = CDOBlockly.mainBlockSpaceEditor.getToolboxWidth();
   } else if (this.scratch) {
-    toolboxWidth = Blockly.getMainWorkspace().getMetrics().toolboxWidth;
+    toolboxWidth = CDOBlockly.getMainWorkspace().getMetrics().toolboxWidth;
   }
   document.getElementById('toolbox-header').style.width = toolboxWidth + 'px';
 };
@@ -1517,7 +1521,7 @@ StudioApp.prototype.highlight = function(id, spotlight) {
       }
     }
 
-    Blockly.mainBlockSpace.highlightBlock(id, spotlight);
+    CDOBlockly.mainBlockSpace.highlightBlock(id, spotlight);
   }
 };
 
@@ -1776,8 +1780,8 @@ StudioApp.prototype.resetButtonClick = function() {
   this.clearHighlighting();
   getStore().dispatch(setFeedback(null));
   if (this.isUsingBlockly()) {
-    Blockly.mainBlockSpaceEditor.setEnableToolbox(true);
-    Blockly.mainBlockSpace.traceOn(false);
+    CDOBlockly.mainBlockSpaceEditor.setEnableToolbox(true);
+    CDOBlockly.mainBlockSpace.traceOn(false);
   }
   this.reset(false);
 };
@@ -1930,7 +1934,7 @@ StudioApp.prototype.setConfigValues_ = function(config) {
 
   if (config.level.initializationBlocks) {
     var xml = parseXmlElement(config.level.initializationBlocks);
-    this.initializationBlocks = Blockly.Generator.xmlToBlocks(
+    this.initializationBlocks = CDOBlockly.Generator.xmlToBlocks(
       'JavaScript',
       xml
     );
@@ -1972,12 +1976,12 @@ function runButtonClickWrapper(callback) {
     $(window).trigger('appModeChanged');
   }
 
-  // inform Blockly that the run button has been pressed
-  if (window.Blockly && Blockly.mainBlockSpace) {
+  // inform CDOBlockly that the run button has been pressed
+  if (window.CDOBlockly && CDOBlockly.mainBlockSpace) {
     var customEvent = utils.createEvent(
-      Blockly.BlockSpace.EVENTS.RUN_BUTTON_CLICKED
+      CDOBlockly.BlockSpace.EVENTS.RUN_BUTTON_CLICKED
     );
-    Blockly.mainBlockSpace.getCanvas().dispatchEvent(customEvent);
+    CDOBlockly.mainBlockSpace.getCanvas().dispatchEvent(customEvent);
   }
 
   callback();
@@ -2612,7 +2616,7 @@ StudioApp.prototype.setStartBlocks_ = function(config, loadLastAttempt) {
   } catch (e) {
     if (loadLastAttempt) {
       try {
-        Blockly.mainBlockSpace.clear();
+        CDOBlockly.mainBlockSpace.clear();
         // Try loading the default start blocks instead.
         this.setStartBlocks_(config, false);
       } catch (otherException) {
@@ -2630,8 +2634,8 @@ StudioApp.prototype.setStartBlocks_ = function(config, loadLastAttempt) {
  * @param {AppOptionsConfig}
  */
 StudioApp.prototype.openFunctionDefinition_ = function(config) {
-  if (Blockly.contractEditor) {
-    Blockly.contractEditor.autoOpenWithLevelConfiguration({
+  if (CDOBlockly.contractEditor) {
+    CDOBlockly.contractEditor.autoOpenWithLevelConfiguration({
       autoOpenFunction: config.level.openFunctionDefinition,
       contractCollapse: config.level.contractCollapse,
       contractHighlight: config.level.contractHighlight,
@@ -2641,7 +2645,7 @@ StudioApp.prototype.openFunctionDefinition_ = function(config) {
       definitionHighlight: config.level.definitionHighlight
     });
   } else {
-    Blockly.functionEditor.autoOpenFunction(
+    CDOBlockly.functionEditor.autoOpenFunction(
       config.level.openFunctionDefinition
     );
   }
@@ -2753,7 +2757,7 @@ StudioApp.prototype.handleUsingBlockly_ = function(config) {
     // https://openradar.appspot.com/31725316
     // Rerun the blockly resize handler after 500ms when clientWidth/Height
     // should be correct
-    window.setTimeout(() => Blockly.fireUiEvent(window, 'resize'), 500);
+    window.setTimeout(() => CDOBlockly.fireUiEvent(window, 'resize'), 500);
   }
 };
 
@@ -2782,7 +2786,7 @@ StudioApp.prototype.hasExtraTopBlocks = function() {
  * gracefully?
  */
 StudioApp.prototype.hasUnwantedExtraTopBlocks = function() {
-  return this.hasExtraTopBlocks() && !Blockly.showUnusedBlocks;
+  return this.hasExtraTopBlocks() && !CDOBlockly.showUnusedBlocks;
 };
 
 /**
@@ -2830,7 +2834,7 @@ StudioApp.prototype.getUnfilledFunctionalExample = function() {
  */
 StudioApp.prototype.getFilteredUnfilledFunctionalBlock_ = function(filter) {
   var unfilledBlock;
-  Blockly.mainBlockSpace.getAllUsedBlocks().some(function(block) {
+  CDOBlockly.mainBlockSpace.getAllUsedBlocks().some(function(block) {
     // Get the root block in the chain
     var rootBlock = block.getRootBlock();
     if (!filter(rootBlock)) {
@@ -2851,7 +2855,7 @@ StudioApp.prototype.getFilteredUnfilledFunctionalBlock_ = function(filter) {
  *   undefined if all have at least one.
  */
 StudioApp.prototype.getFunctionWithoutTwoExamples = function() {
-  var definitionNames = Blockly.mainBlockSpace
+  var definitionNames = CDOBlockly.mainBlockSpace
     .getTopBlocks()
     .filter(function(block) {
       return block.type === 'functional_definition' && !block.isVariable();
@@ -2860,7 +2864,7 @@ StudioApp.prototype.getFunctionWithoutTwoExamples = function() {
       return definitionBlock.getProcedureInfo().name;
     });
 
-  var exampleNames = Blockly.mainBlockSpace
+  var exampleNames = CDOBlockly.mainBlockSpace
     .getTopBlocks()
     .filter(function(block) {
       if (block.type !== 'functional_example') {
@@ -2933,19 +2937,21 @@ StudioApp.prototype.getUnfilledFunctionalBlockError = function(topLevelType) {
  */
 StudioApp.prototype.checkForFailingExamples = function(failureChecker) {
   var failingBlockName = '';
-  Blockly.mainBlockSpace.findFunctionExamples().forEach(function(exampleBlock) {
-    var failure = failureChecker(exampleBlock, false);
+  CDOBlockly.mainBlockSpace
+    .findFunctionExamples()
+    .forEach(function(exampleBlock) {
+      var failure = failureChecker(exampleBlock, false);
 
-    // Update the example result. No-op if we're not currently editing this
-    // function.
-    Blockly.contractEditor.updateExampleResult(exampleBlock, failure);
+      // Update the example result. No-op if we're not currently editing this
+      // function.
+      CDOBlockly.contractEditor.updateExampleResult(exampleBlock, failure);
 
-    if (failure) {
-      failingBlockName = exampleBlock
-        .getInputTargetBlock('ACTUAL')
-        .getTitleValue('NAME');
-    }
-  });
+      if (failure) {
+        failingBlockName = exampleBlock
+          .getInputTargetBlock('ACTUAL')
+          .getTitleValue('NAME');
+      }
+    });
   return failingBlockName;
 };
 
@@ -2953,7 +2959,7 @@ StudioApp.prototype.checkForFailingExamples = function(failureChecker) {
  * @returns {boolean} True if we have a function or variable named "" (empty string)
  */
 StudioApp.prototype.hasEmptyFunctionOrVariableName = function() {
-  return Blockly.mainBlockSpace.getTopBlocks().some(function(block) {
+  return CDOBlockly.mainBlockSpace.getTopBlocks().some(function(block) {
     if (block.type !== 'functional_definition') {
       return false;
     }
@@ -3167,7 +3173,7 @@ StudioApp.prototype.hasDuplicateVariablesInForLoops = function() {
   if (this.editCode) {
     return false;
   }
-  return Blockly.mainBlockSpace
+  return CDOBlockly.mainBlockSpace
     .getAllUsedBlocks()
     .some(this.forLoopHasDuplicatedNestedVariables_);
 };
@@ -3191,7 +3197,7 @@ StudioApp.prototype.forLoopHasDuplicatedNestedVariables_ = function(block) {
   // it to matter.
   return (
     innerBlock &&
-    Blockly.Variables.allVariablesFromBlock(block).some(function(varName) {
+    CDOBlockly.Variables.allVariablesFromBlock(block).some(function(varName) {
       return innerBlock.getDescendants().some(function(descendant) {
         if (
           descendant.type !== 'controls_for' &&
@@ -3200,7 +3206,7 @@ StudioApp.prototype.forLoopHasDuplicatedNestedVariables_ = function(block) {
           return false;
         }
         return (
-          Blockly.Variables.allVariablesFromBlock(descendant).indexOf(
+          CDOBlockly.Variables.allVariablesFromBlock(descendant).indexOf(
             varName
           ) !== -1
         );
@@ -3389,7 +3395,7 @@ if (IN_UNIT_TEST) {
     instance.removeAllListeners();
     instance.libraries = {};
     if (instance.changeListener) {
-      Blockly.removeChangeListener(instance.changeListener);
+      CDOBlockly.removeChangeListener(instance.changeListener);
     }
     instance = __oldInstance;
     __oldInstance = null;

@@ -1,3 +1,4 @@
+/* global CDOBlockly */
 import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -83,7 +84,7 @@ class MarkdownInstructions extends React.Component {
       // make sure we don't initialize any blockspace before the main
       // block space has been created, lest we violate some assumptions
       // blockly has.
-      Blockly.BlockSpace.onMainBlockSpaceCreated(() => {
+      CDOBlockly.BlockSpace.onMainBlockSpaceCreated(() => {
         convertXmlToBlockly(ReactDOM.findDOMNode(this));
         this.props.onResize();
       });

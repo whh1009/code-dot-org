@@ -1,3 +1,4 @@
+/* global CDOBlockly */
 import {TestResults} from './constants';
 var parseXmlElement = require('./xml').parseElement;
 
@@ -65,7 +66,7 @@ FeedbackBlocks.prototype.render = function() {
   }
 
   var parsedXml = parseXmlElement(this.xml);
-  var blockSpace = Blockly.BlockSpace.createReadOnlyBlockSpace(
+  var blockSpace = CDOBlockly.BlockSpace.createReadOnlyBlockSpace(
     this.div,
     parsedXml
   );

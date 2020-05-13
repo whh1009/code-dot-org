@@ -1,3 +1,4 @@
+/* global CDOBlockly */
 import $ from 'jquery';
 import Immutable from 'immutable';
 import RGBColor from 'rgbcolor';
@@ -141,21 +142,21 @@ Function.prototype.inherits = function(parent) {
 };
 
 /**
- * Wrap a couple of our Blockly number validators to allow for ???.  This is
+ * Wrap a couple of our CDOBlockly number validators to allow for ???.  This is
  * done so that level builders can specify required blocks with wildcard fields.
  */
 export function wrapNumberValidatorsForLevelBuilder() {
-  var nonNeg = Blockly.FieldTextInput.nonnegativeIntegerValidator;
-  var numVal = Blockly.FieldTextInput.numberValidator;
+  var nonNeg = CDOBlockly.FieldTextInput.nonnegativeIntegerValidator;
+  var numVal = CDOBlockly.FieldTextInput.numberValidator;
 
-  Blockly.FieldTextInput.nonnegativeIntegerValidator = function(text) {
+  CDOBlockly.FieldTextInput.nonnegativeIntegerValidator = function(text) {
     if (text === '???') {
       return text;
     }
     return nonNeg(text);
   };
 
-  Blockly.FieldTextInput.numberValidator = function(text) {
+  CDOBlockly.FieldTextInput.numberValidator = function(text) {
     if (text === '???') {
       return text;
     }

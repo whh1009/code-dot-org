@@ -1,3 +1,4 @@
+/* global CDOBlockly */
 import $ from 'jquery';
 import {getStore} from './redux';
 import React from 'react';
@@ -38,7 +39,7 @@ var FeedbackUtils = function(studioApp) {
 module.exports = FeedbackUtils;
 
 // Globals used in this file:
-//   Blockly
+//   CDOBlockly
 
 var codegen = require('./lib/tools/jsinterpreter/codegen');
 /** @type {Object<string, function>} */
@@ -725,8 +726,8 @@ FeedbackUtils.prototype.getFeedbackMessage = function(options) {
         if (options.level.emptyFunctionBlocksErrorMsg) {
           message = options.level.emptyFunctionBlocksErrorMsg;
         } else if (
-          Blockly.useContractEditor ||
-          Blockly.useModalFunctionEditor
+          CDOBlockly.useContractEditor ||
+          CDOBlockly.useModalFunctionEditor
         ) {
           message = msg.errorEmptyFunctionBlockModal();
         } else {
@@ -747,7 +748,7 @@ FeedbackUtils.prototype.getFeedbackMessage = function(options) {
           options.level.levelIncompleteError || msg.levelIncompleteError();
         break;
       case TestResults.EXTRA_TOP_BLOCKS_FAIL:
-        var hasWhenRun = Blockly.mainBlockSpace
+        var hasWhenRun = CDOBlockly.mainBlockSpace
           .getTopBlocks()
           .some(function(block) {
             return block.type === 'when_run' && block.isUserVisible();
@@ -781,7 +782,7 @@ FeedbackUtils.prototype.getFeedbackMessage = function(options) {
         break;
       case TestResults.BLOCK_LIMIT_FAIL:
         var exceededBlockType = this.hasExceededLimitedBlocks_();
-        var limit = Blockly.mainBlockSpace.blockSpaceEditor.blockLimits.getLimit(
+        var limit = CDOBlockly.mainBlockSpace.blockSpaceEditor.blockLimits.getLimit(
           exceededBlockType
         );
         var block = `<xml><block type='${exceededBlockType}'></block></xml>`;
@@ -1142,7 +1143,7 @@ FeedbackUtils.prototype.getGeneratedCodeString_ = function() {
   if (this.studioApp_.editCode) {
     return this.studioApp_.editor ? this.studioApp_.editor.getValue() : '';
   } else {
-    return codegen.workspaceCode(Blockly);
+    return codegen.workspaceCode(CDOBlockly);
   }
 };
 
@@ -1387,11 +1388,11 @@ FeedbackUtils.prototype.showToggleBlocksError = function() {
 
 /**
  * Get an empty container block, if any are present.
- * @return {Blockly.Block} an empty container block, or null if none exist.
+ * @return {CDOBlockly.Block} an empty container block, or null if none exist.
  */
 FeedbackUtils.prototype.getEmptyContainerBlock_ = function() {
-  var blocks = Blockly.mainBlockSpace.getAllUsedBlocks();
-  return Blockly.findEmptyContainerBlock(blocks);
+  var blocks = CDOBlockly.mainBlockSpace.getAllUsedBlocks();
+  return CDOBlockly.findEmptyContainerBlock(blocks);
 };
 
 /**
@@ -1414,7 +1415,9 @@ FeedbackUtils.prototype.checkForEmptyContainerBlockFailure_ = function() {
       block.type === emptyBlockInfo.callType &&
       block.getTitleValue('NAME') === emptyBlockInfo.name;
 
-    if (Blockly.mainBlockSpace.getAllUsedBlocks().filter(findUsages).length) {
+    if (
+      CDOBlockly.mainBlockSpace.getAllUsedBlocks().filter(findUsages).length
+    ) {
       return TestResults.EMPTY_FUNCTION_BLOCK_FAIL;
     } else {
       return TestResults.ALL_PASS;
@@ -1430,8 +1433,8 @@ FeedbackUtils.prototype.checkForEmptyContainerBlockFailure_ = function() {
 /**
  * Throws errors with descriptive messages when example call or result blocks
  * don't exist or have unfilled functional inputs.
- * @param {Blockly.Block} callBlock
- * @param {Blockly.Block} resultBlock
+ * @param {CDOBlockly.Block} callBlock
+ * @param {CDOBlockly.Block} resultBlock
  */
 FeedbackUtils.prototype.throwOnInvalidExampleBlocks = function(
   callBlock,
@@ -1475,13 +1478,13 @@ FeedbackUtils.prototype.hasAllBlocks_ = function(blocks) {
  * @return {Array<Object>} The blocks.
  */
 FeedbackUtils.prototype.getUserBlocks_ = function() {
-  var allBlocks = Blockly.mainBlockSpace.getAllUsedBlocks();
+  var allBlocks = CDOBlockly.mainBlockSpace.getAllUsedBlocks();
   var blocks = allBlocks.filter(function(block) {
     var blockValid = !block.disabled && block.type !== 'when_run';
-    // If Blockly is in readOnly mode, then all blocks are uneditable
+    // If CDOBlockly is in readOnly mode, then all blocks are uneditable
     // so this filter would be useless. Ignore uneditable blocks only if
-    // Blockly is in edit mode.
-    if (!Blockly.mainBlockSpace.isReadOnly()) {
+    // CDOBlockly is in edit mode.
+    if (!CDOBlockly.mainBlockSpace.isReadOnly()) {
       blockValid = blockValid && block.isEditable();
     }
     return blockValid;
@@ -1522,7 +1525,7 @@ FeedbackUtils.blockShouldBeCounted_ = function(block) {
  * @return {Array<Object>} The blocks.
  */
 FeedbackUtils.prototype.getCountableBlocks_ = function() {
-  var allBlocks = Blockly.mainBlockSpace.getAllUsedBlocks();
+  var allBlocks = CDOBlockly.mainBlockSpace.getAllUsedBlocks();
   var blocks = allBlocks.filter(FeedbackUtils.blockShouldBeCounted_);
   return blocks;
 };
@@ -1582,7 +1585,7 @@ FeedbackUtils.prototype.getMissingBlocks_ = function(blocks, maxBlocksToFlag) {
       for (var testId = 0; testId < block.length; testId++) {
         var test = block[testId].test;
         if (typeof test === 'string') {
-          code = code || Blockly.Generator.blockSpaceToCode('JavaScript');
+          code = code || CDOBlockly.Generator.blockSpaceToCode('JavaScript');
           if (code.indexOf(test) !== -1) {
             // Succeeded, moving to the next list of tests
             usedBlock = true;
@@ -1620,7 +1623,7 @@ FeedbackUtils.prototype.hasExtraTopBlocks = function() {
   if (this.studioApp_.editCode) {
     return false;
   }
-  var topBlocks = Blockly.mainBlockSpace.getTopBlocks();
+  var topBlocks = CDOBlockly.mainBlockSpace.getTopBlocks();
   for (var i = 0; i < topBlocks.length; i++) {
     // ignore disabled top blocks. we have a level turtle:2_7 that depends on
     // having disabled top level blocks
@@ -1681,7 +1684,7 @@ FeedbackUtils.prototype.getTestResults = function(
     }
   }
   if (
-    !Blockly.showUnusedBlocks &&
+    !CDOBlockly.showUnusedBlocks &&
     !options.allowTopBlocks &&
     this.hasExtraTopBlocks()
   ) {
@@ -1690,7 +1693,7 @@ FeedbackUtils.prototype.getTestResults = function(
   if (this.studioApp_.hasDuplicateVariablesInForLoops()) {
     return TestResults.NESTED_FOR_SAME_VARIABLE;
   }
-  if (Blockly.useContractEditor || Blockly.useModalFunctionEditor) {
+  if (CDOBlockly.useContractEditor || CDOBlockly.useModalFunctionEditor) {
     if (this.hasUnusedParam_()) {
       return TestResults.UNUSED_PARAM;
     }
@@ -1736,7 +1739,7 @@ FeedbackUtils.prototype.getTestResults = function(
     numEnabledBlocks > this.studioApp_.IDEAL_BLOCK_NUM
   ) {
     return TestResults.TOO_MANY_BLOCKS_FAIL;
-  } else if (this.hasExtraTopBlocks() && Blockly.showUnusedBlocks) {
+  } else if (this.hasExtraTopBlocks() && CDOBlockly.showUnusedBlocks) {
     return TestResults.PASS_WITH_EXTRA_TOP_BLOCKS;
   } else if (
     isFinite(this.studioApp_.IDEAL_BLOCK_NUM) &&
@@ -1750,7 +1753,7 @@ FeedbackUtils.prototype.getTestResults = function(
 
 /**
  * Fire off a click event in a cross-browser supported manner. This code is
- * similar to Blockly.fireUIEvent (without taking a Blockly dependency).
+ * similar to CDOBlockly.fireUIEvent (without taking a CDOBlockly dependency).
  */
 function simulateClick(element) {
   if (document.createEvent) {
@@ -1826,7 +1829,7 @@ FeedbackUtils.prototype.createModalDialog = function(options) {
  * Check for '???' instead of a value in block fields.
  */
 FeedbackUtils.prototype.hasQuestionMarksInNumberField = function() {
-  return Blockly.mainBlockSpace.getAllUsedBlocks().some(function(block) {
+  return CDOBlockly.mainBlockSpace.getAllUsedBlocks().some(function(block) {
     return block.getTitles().some(function(title) {
       return title.value_ === '???' || title.text_ === '???';
     });
@@ -1839,7 +1842,7 @@ FeedbackUtils.prototype.hasQuestionMarksInNumberField = function() {
  */
 FeedbackUtils.prototype.hasUnusedParam_ = function() {
   var self = this;
-  return Blockly.mainBlockSpace.getAllUsedBlocks().some(function(userBlock) {
+  return CDOBlockly.mainBlockSpace.getAllUsedBlocks().some(function(userBlock) {
     var params = userBlock.parameterNames_;
     // Only search procedure definitions
     return (
@@ -1863,7 +1866,7 @@ FeedbackUtils.prototype.hasUnusedParam_ = function() {
  * Ensure that all procedure calls have each parameter input connected.
  */
 FeedbackUtils.prototype.hasParamInputUnattached_ = function() {
-  return Blockly.mainBlockSpace.getAllUsedBlocks().some(function(userBlock) {
+  return CDOBlockly.mainBlockSpace.getAllUsedBlocks().some(function(userBlock) {
     // Only check procedure_call* blocks
     if (!/^procedures_call/.test(userBlock.type)) {
       return false;
@@ -1885,7 +1888,7 @@ FeedbackUtils.prototype.hasParamInputUnattached_ = function() {
 FeedbackUtils.prototype.hasUnusedFunction_ = function() {
   var userDefs = [];
   var callBlocks = {};
-  Blockly.mainBlockSpace.getAllUsedBlocks().forEach(function(block) {
+  CDOBlockly.mainBlockSpace.getAllUsedBlocks().forEach(function(block) {
     var name = block.getTitleValue('NAME');
     if (/^procedures_def/.test(block.type) && block.userCreated) {
       userDefs.push(name);
@@ -1904,7 +1907,7 @@ FeedbackUtils.prototype.hasUnusedFunction_ = function() {
  */
 FeedbackUtils.prototype.hasIncompleteBlockInFunction_ = function() {
   var self = this;
-  return Blockly.mainBlockSpace.getAllUsedBlocks().some(function(userBlock) {
+  return CDOBlockly.mainBlockSpace.getAllUsedBlocks().some(function(userBlock) {
     // Only search procedure definitions
     if (!userBlock.parameterNames_) {
       return false;
@@ -1913,7 +1916,7 @@ FeedbackUtils.prototype.hasIncompleteBlockInFunction_ = function() {
       // Incomplete block if any input connection target is null
       return block.inputList.some(function(input) {
         return (
-          input.type === Blockly.INPUT_VALUE &&
+          input.type === CDOBlockly.INPUT_VALUE &&
           !input.connection.targetConnection
         );
       });
@@ -1939,6 +1942,6 @@ FeedbackUtils.prototype.hasMatchingDescendant_ = function(node, filter) {
  * Ensure that all limited toolbox blocks aren't exceeded.
  */
 FeedbackUtils.prototype.hasExceededLimitedBlocks_ = function() {
-  const blockLimits = Blockly.mainBlockSpace.blockSpaceEditor.blockLimits;
+  const blockLimits = CDOBlockly.mainBlockSpace.blockSpaceEditor.blockLimits;
   return blockLimits.blockLimitExceeded && blockLimits.blockLimitExceeded();
 };
