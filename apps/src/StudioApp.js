@@ -206,6 +206,9 @@ StudioApp.prototype.configure = function(options) {
   this.editCode = options.level && options.level.editCode;
   this.scratch = options.level && options.level.scratch;
   this.usingBlockly_ = !this.editCode && !this.scratch;
+  if (this.usingBlockly_) {
+    this.blockly_ = options.blockly || CDOBlockly;
+  }
 
   if (options.isEditorless) {
     this.editCode = false;
@@ -436,15 +439,19 @@ StudioApp.prototype.init = function(config) {
 
   // TODO (cpirich): implement block count for droplet (for now, blockly only)
   if (this.isUsingBlockly()) {
-    CDOBlockly.mainBlockSpaceEditor.addUnusedBlocksHelpListener(function(e) {
-      utils.showUnusedBlockQtip(e.target);
-    });
+    // this.getBlockly()
+    //   .getMainWorkspace()
+    //   .addUnusedBlocksHelpListener(function(e) {
+    //     utils.showUnusedBlockQtip(e.target);
+    //   });
     // Store result so that we can cleanup later in tests
-    this.changeListener = CDOBlockly.mainBlockSpaceEditor.addChangeListener(
-      _.bind(function() {
-        this.updateBlockCount();
-      }, this)
-    );
+    // this.changeListener = this.getBlockly()
+    //   .getMainWorkspace()
+    //   .addChangeListener(
+    //     _.bind(function() {
+    //       this.updateBlockCount();
+    //     }, this)
+    //   );
 
     if (config.level.openFunctionDefinition) {
       this.openFunctionDefinition_(config);
@@ -470,8 +477,8 @@ StudioApp.prototype.init = function(config) {
 
   this.initVersionHistoryUI(config);
 
-  if (this.isUsingBlockly() && CDOBlockly.contractEditor) {
-    CDOBlockly.contractEditor.registerTestsFailedOnCloseHandler(
+  if (this.isUsingBlockly() && this.getBlockly().contractEditor) {
+    this.getBlockly().contractEditor.registerTestsFailedOnCloseHandler(
       function() {
         this.feedback_.showSimpleDialog({
           headerText: undefined,
@@ -480,7 +487,7 @@ StudioApp.prototype.init = function(config) {
           confirmText: msg.tryAgain(),
           onConfirm: null,
           onCancel: function() {
-            CDOBlockly.contractEditor.hideIfOpen();
+            this.getBlockly().contractEditor.hideIfOpen();
           }
         });
 
@@ -667,7 +674,7 @@ StudioApp.prototype.scaleLegacyShare = function() {
 
 StudioApp.prototype.getCode = function() {
   if (!this.editCode) {
-    return codegen.workspaceCode(CDOBlockly);
+    return codegen.workspaceCode(this.getBlockly());
   }
   if (this.hideSource) {
     return this.startBlocks_;
@@ -691,10 +698,12 @@ StudioApp.prototype.setIconsFromSkin = function(skin) {
 StudioApp.prototype.handleClearPuzzle = function(config) {
   var promise;
   if (this.isUsingBlockly()) {
-    if (CDOBlockly.functionEditor) {
-      CDOBlockly.functionEditor.hideIfOpen();
+    if (this.getBlockly().functionEditor) {
+      this.getBlockly().functionEditor.hideIfOpen();
     }
-    CDOBlockly.mainBlockSpace.clear();
+    this.getBlockly()
+      .getMainWorkspace()
+      .clear();
     this.setStartBlocks_(config, false);
     if (config.level.openFunctionDefinition) {
       this.openFunctionDefinition_(config);
@@ -715,11 +724,11 @@ StudioApp.prototype.handleClearPuzzle = function(config) {
 
     annotationList.clearRuntimeAnnotations();
   } else if (this.scratch) {
-    const workspace = CDOBlockly.getMainWorkspace();
+    const workspace = this.getBlockly().getMainWorkspace();
     workspace.clear();
 
-    const dom = CDOBlockly.Xml.textToDom(config.level.startBlocks);
-    CDOBlockly.Xml.domToWorkspace(dom, workspace);
+    const dom = this.getBlockly().Xml.textToDom(config.level.startBlocks);
+    this.getBlockly().Xml.domToWorkspace(dom, workspace);
   }
   if (config.afterClearPuzzle) {
     promise = config.afterClearPuzzle(config);
@@ -742,6 +751,10 @@ StudioApp.prototype.handleClearPuzzle = function(config) {
  */
 StudioApp.prototype.isUsingBlockly = function() {
   return this.usingBlockly_;
+};
+
+StudioApp.prototype.getBlockly = function() {
+  return this.blockly_;
 };
 
 /**
@@ -909,7 +922,9 @@ StudioApp.prototype.runChangeHandlers = function() {
 StudioApp.prototype.setupChangeHandlers = function() {
   const runAllHandlers = this.runChangeHandlers.bind(this);
   if (this.isUsingBlockly()) {
-    const blocklyCanvas = CDOBlockly.mainBlockSpace.getCanvas();
+    const blocklyCanvas = this.getBlockly()
+      .getMainWorkspace()
+      .getCanvas();
     blocklyCanvas.addEventListener('blocklyBlockSpaceChange', runAllHandlers);
   } else {
     this.editor.on('change', runAllHandlers);
@@ -1038,7 +1053,7 @@ StudioApp.prototype.inject = function(div, options) {
     trashcan: true,
     customSimpleDialog: this.feedback_.showSimpleDialog.bind(this.feedback_)
   };
-  CDOBlockly.inject(
+  this.getBlockly().inject(
     div,
     utils.extend(defaults, options),
     Sounds.getSingleton()
@@ -1052,10 +1067,10 @@ StudioApp.prototype.showNextHint = function() {
 /**
  * Initialize CDOBlockly for a readonly iframe.  Called on page load. No sounds.
  * XML argument may be generated from the console with:
- * CDOBlockly.Xml.domToText(CDOBlockly.Xml.blockSpaceToDom(CDOBlockly.mainBlockSpace)).slice(5, -6)
+ * CDOBlockly.Xml.domToText(CDOBlockly.Xml.blockSpaceToDom(CDOBlockly.getMainWorkspace())).slice(5, -6)
  */
 StudioApp.prototype.initReadonly = function(options) {
-  CDOBlockly.inject(document.getElementById('codeWorkspace'), {
+  this.getBlockly().inject(document.getElementById('codeWorkspace'), {
     assetUrl: this.assetUrl,
     readOnly: true,
     rtl: getStore().getState().isRtl,
@@ -1070,7 +1085,10 @@ StudioApp.prototype.initReadonly = function(options) {
  */
 StudioApp.prototype.loadBlocks = function(blocksXml) {
   var xml = parseXmlElement(blocksXml);
-  CDOBlockly.Xml.domToBlockSpace(CDOBlockly.mainBlockSpace, xml);
+  this.getBlockly().Xml.domToBlockSpace(
+    this.getBlockly().getMainWorkspace(),
+    xml
+  );
 };
 
 /**
@@ -1111,7 +1129,7 @@ StudioApp.prototype.arrangeBlockPosition = function(startBlocks, arrangement) {
       }
     }
   }
-  return CDOBlockly.Xml.domToText(xml);
+  return this.getBlockly().Xml.domToText(xml);
 };
 
 StudioApp.prototype.createModalDialog = function(options) {
@@ -1284,15 +1302,18 @@ StudioApp.prototype.onResize = function() {
     var workspaceWidth = codeWorkspace.clientWidth;
 
     // Keep blocks static relative to the right edge in RTL mode
-    if (this.isUsingBlockly() && CDOBlockly.RTL) {
+    if (this.isUsingBlockly() && this.getBlockly().RTL) {
       if (
         this.lastWorkspaceWidth &&
         this.lastWorkspaceWidth !== workspaceWidth
       ) {
         var blockOffset = workspaceWidth - this.lastWorkspaceWidth;
-        CDOBlockly.mainBlockSpace.getTopBlocks().forEach(function(topBlock) {
-          topBlock.moveBy(blockOffset, 0);
-        });
+        this.getBlockly()
+          .getMainWorkspace()
+          .getTopBlocks()
+          .forEach(function(topBlock) {
+            topBlock.moveBy(blockOffset, 0);
+          });
       }
     }
     this.lastWorkspaceWidth = workspaceWidth;
@@ -1500,9 +1521,13 @@ StudioApp.prototype.resizeToolboxHeader = function() {
     var categories = document.querySelector('.droplet-palette-wrapper');
     toolboxWidth = categories.getBoundingClientRect().width;
   } else if (this.isUsingBlockly()) {
-    toolboxWidth = CDOBlockly.mainBlockSpaceEditor.getToolboxWidth();
+    toolboxWidth = this.getBlockly()
+      .getMainWorkspace()
+      .getMetrics().toolboxWidth;
   } else if (this.scratch) {
-    toolboxWidth = CDOBlockly.getMainWorkspace().getMetrics().toolboxWidth;
+    toolboxWidth = this.getBlockly()
+      .getMainWorkspace()
+      .getMetrics().toolboxWidth;
   }
   document.getElementById('toolbox-header').style.width = toolboxWidth + 'px';
 };
@@ -1521,7 +1546,9 @@ StudioApp.prototype.highlight = function(id, spotlight) {
       }
     }
 
-    CDOBlockly.mainBlockSpace.highlightBlock(id, spotlight);
+    this.getBlockly()
+      .getMainWorkspace()
+      .highlightBlock(id, spotlight);
   }
 };
 
@@ -1779,10 +1806,6 @@ StudioApp.prototype.resetButtonClick = function() {
   this.toggleRunReset('run');
   this.clearHighlighting();
   getStore().dispatch(setFeedback(null));
-  if (this.isUsingBlockly()) {
-    CDOBlockly.mainBlockSpaceEditor.setEnableToolbox(true);
-    CDOBlockly.mainBlockSpace.traceOn(false);
-  }
   this.reset(false);
 };
 
@@ -1934,7 +1957,7 @@ StudioApp.prototype.setConfigValues_ = function(config) {
 
   if (config.level.initializationBlocks) {
     var xml = parseXmlElement(config.level.initializationBlocks);
-    this.initializationBlocks = CDOBlockly.Generator.xmlToBlocks(
+    this.initializationBlocks = this.getBlockly().Generator.xmlToBlocks(
       'JavaScript',
       xml
     );
@@ -1977,11 +2000,14 @@ function runButtonClickWrapper(callback) {
   }
 
   // inform CDOBlockly that the run button has been pressed
-  if (window.CDOBlockly && CDOBlockly.mainBlockSpace) {
+  if (this.getBlockly().getMainWorkspace()) {
     var customEvent = utils.createEvent(
-      CDOBlockly.BlockSpace.EVENTS.RUN_BUTTON_CLICKED
+      this.getBlockly().BlockSpace.EVENTS.RUN_BUTTON_CLICKED
     );
-    CDOBlockly.mainBlockSpace.getCanvas().dispatchEvent(customEvent);
+    this.getBlockly()
+      .getMainWorkspace()
+      .getCanvas()
+      .dispatchEvent(customEvent);
   }
 
   callback();
@@ -2016,7 +2042,8 @@ StudioApp.prototype.configureDom = function(config) {
   var runButton = container.querySelector('#runButton');
   var resetButton = container.querySelector('#resetButton');
   var runClick = this.runButtonClick.bind(this);
-  var clickWrapper = config.runButtonClickWrapper || runButtonClickWrapper;
+  var clickWrapper =
+    config.runButtonClickWrapper || runButtonClickWrapper.bind(this);
   var throttledRunClick = _.debounce(clickWrapper.bind(null, runClick), 250, {
     leading: true,
     trailing: false
@@ -2616,7 +2643,9 @@ StudioApp.prototype.setStartBlocks_ = function(config, loadLastAttempt) {
   } catch (e) {
     if (loadLastAttempt) {
       try {
-        CDOBlockly.mainBlockSpace.clear();
+        this.getBlockly()
+          .getMainWorkspace()
+          .clear();
         // Try loading the default start blocks instead.
         this.setStartBlocks_(config, false);
       } catch (otherException) {
@@ -2634,8 +2663,8 @@ StudioApp.prototype.setStartBlocks_ = function(config, loadLastAttempt) {
  * @param {AppOptionsConfig}
  */
 StudioApp.prototype.openFunctionDefinition_ = function(config) {
-  if (CDOBlockly.contractEditor) {
-    CDOBlockly.contractEditor.autoOpenWithLevelConfiguration({
+  if (this.getBlockly().contractEditor) {
+    this.getBlockly().contractEditor.autoOpenWithLevelConfiguration({
       autoOpenFunction: config.level.openFunctionDefinition,
       contractCollapse: config.level.contractCollapse,
       contractHighlight: config.level.contractHighlight,
@@ -2645,7 +2674,7 @@ StudioApp.prototype.openFunctionDefinition_ = function(config) {
       definitionHighlight: config.level.definitionHighlight
     });
   } else {
-    CDOBlockly.functionEditor.autoOpenFunction(
+    this.getBlockly().functionEditor.autoOpenFunction(
       config.level.openFunctionDefinition
     );
   }
@@ -2757,7 +2786,10 @@ StudioApp.prototype.handleUsingBlockly_ = function(config) {
     // https://openradar.appspot.com/31725316
     // Rerun the blockly resize handler after 500ms when clientWidth/Height
     // should be correct
-    window.setTimeout(() => CDOBlockly.fireUiEvent(window, 'resize'), 500);
+    window.setTimeout(
+      () => this.getBlockly().fireUiEvent(window, 'resize'),
+      500
+    );
   }
 };
 
@@ -2786,7 +2818,7 @@ StudioApp.prototype.hasExtraTopBlocks = function() {
  * gracefully?
  */
 StudioApp.prototype.hasUnwantedExtraTopBlocks = function() {
-  return this.hasExtraTopBlocks() && !CDOBlockly.showUnusedBlocks;
+  return this.hasExtraTopBlocks() && !this.getBlockly().showUnusedBlocks;
 };
 
 /**
@@ -2834,18 +2866,21 @@ StudioApp.prototype.getUnfilledFunctionalExample = function() {
  */
 StudioApp.prototype.getFilteredUnfilledFunctionalBlock_ = function(filter) {
   var unfilledBlock;
-  CDOBlockly.mainBlockSpace.getAllUsedBlocks().some(function(block) {
-    // Get the root block in the chain
-    var rootBlock = block.getRootBlock();
-    if (!filter(rootBlock)) {
-      return false;
-    }
+  this.getBlockly()
+    .getMainWorkspace()
+    .getAllUsedBlocks()
+    .some(function(block) {
+      // Get the root block in the chain
+      var rootBlock = block.getRootBlock();
+      if (!filter(rootBlock)) {
+        return false;
+      }
 
-    if (block.hasUnfilledFunctionalInput()) {
-      unfilledBlock = block;
-      return true;
-    }
-  });
+      if (block.hasUnfilledFunctionalInput()) {
+        unfilledBlock = block;
+        return true;
+      }
+    });
 
   return unfilledBlock;
 };
@@ -2855,7 +2890,8 @@ StudioApp.prototype.getFilteredUnfilledFunctionalBlock_ = function(filter) {
  *   undefined if all have at least one.
  */
 StudioApp.prototype.getFunctionWithoutTwoExamples = function() {
-  var definitionNames = CDOBlockly.mainBlockSpace
+  var definitionNames = this.getBlockly()
+    .getMainWorkspace()
     .getTopBlocks()
     .filter(function(block) {
       return block.type === 'functional_definition' && !block.isVariable();
@@ -2864,7 +2900,8 @@ StudioApp.prototype.getFunctionWithoutTwoExamples = function() {
       return definitionBlock.getProcedureInfo().name;
     });
 
-  var exampleNames = CDOBlockly.mainBlockSpace
+  var exampleNames = this.getBlockly()
+    .getMainWorkspace()
     .getTopBlocks()
     .filter(function(block) {
       if (block.type !== 'functional_example') {
@@ -2937,14 +2974,18 @@ StudioApp.prototype.getUnfilledFunctionalBlockError = function(topLevelType) {
  */
 StudioApp.prototype.checkForFailingExamples = function(failureChecker) {
   var failingBlockName = '';
-  CDOBlockly.mainBlockSpace
+  this.getBlockly()
+    .getMainWorkspace()
     .findFunctionExamples()
     .forEach(function(exampleBlock) {
       var failure = failureChecker(exampleBlock, false);
 
       // Update the example result. No-op if we're not currently editing this
       // function.
-      CDOBlockly.contractEditor.updateExampleResult(exampleBlock, failure);
+      this.getBlockly().contractEditor.updateExampleResult(
+        exampleBlock,
+        failure
+      );
 
       if (failure) {
         failingBlockName = exampleBlock
@@ -2959,13 +3000,16 @@ StudioApp.prototype.checkForFailingExamples = function(failureChecker) {
  * @returns {boolean} True if we have a function or variable named "" (empty string)
  */
 StudioApp.prototype.hasEmptyFunctionOrVariableName = function() {
-  return CDOBlockly.mainBlockSpace.getTopBlocks().some(function(block) {
-    if (block.type !== 'functional_definition') {
-      return false;
-    }
+  return this.getBlockly()
+    .getMainWorkspace()
+    .getTopBlocks()
+    .some(function(block) {
+      if (block.type !== 'functional_definition') {
+        return false;
+      }
 
-    return !block.getProcedureInfo().name;
-  });
+      return !block.getProcedureInfo().name;
+    });
 };
 
 StudioApp.prototype.createCoordinateGridBackground = function(options) {
@@ -3173,7 +3217,8 @@ StudioApp.prototype.hasDuplicateVariablesInForLoops = function() {
   if (this.editCode) {
     return false;
   }
-  return CDOBlockly.mainBlockSpace
+  return this.getBlockly()
+    .getMainWorkspace()
     .getAllUsedBlocks()
     .some(this.forLoopHasDuplicatedNestedVariables_);
 };
@@ -3197,21 +3242,23 @@ StudioApp.prototype.forLoopHasDuplicatedNestedVariables_ = function(block) {
   // it to matter.
   return (
     innerBlock &&
-    CDOBlockly.Variables.allVariablesFromBlock(block).some(function(varName) {
-      return innerBlock.getDescendants().some(function(descendant) {
-        if (
-          descendant.type !== 'controls_for' &&
-          descendant.type !== 'controls_for_counter'
-        ) {
-          return false;
-        }
-        return (
-          CDOBlockly.Variables.allVariablesFromBlock(descendant).indexOf(
-            varName
-          ) !== -1
-        );
-      });
-    })
+    this.getBlockly()
+      .Variables.allVariablesFromBlock(block)
+      .some(function(varName) {
+        return innerBlock.getDescendants().some(function(descendant) {
+          if (
+            descendant.type !== 'controls_for' &&
+            descendant.type !== 'controls_for_counter'
+          ) {
+            return false;
+          }
+          return (
+            this.getBlockly()
+              .Variables.allVariablesFromBlock(descendant)
+              .indexOf(varName) !== -1
+          );
+        });
+      })
   );
 };
 
@@ -3395,7 +3442,7 @@ if (IN_UNIT_TEST) {
     instance.removeAllListeners();
     instance.libraries = {};
     if (instance.changeListener) {
-      CDOBlockly.removeChangeListener(instance.changeListener);
+      this.getBlockly().removeChangeListener(instance.changeListener);
     }
     instance = __oldInstance;
     __oldInstance = null;

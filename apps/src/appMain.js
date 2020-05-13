@@ -86,8 +86,11 @@ export default function(app, levels, options) {
       wrapNumberValidatorsForLevelBuilder();
     }
 
-    blocksCommon.install(CDOBlockly, blockInstallOptions);
-    options.blocksModule.install(CDOBlockly, blockInstallOptions);
+    blocksCommon.install(options.blockly || CDOBlockly, blockInstallOptions);
+    options.blocksModule.install(
+      options.blockly || CDOBlockly,
+      blockInstallOptions
+    );
 
     if (level) {
       const levelCustomBlocksConfig = !level.customBlocks
@@ -103,7 +106,7 @@ export default function(app, levels, options) {
       ];
       if (customBlocksConfig.length > 0) {
         const blocksByCategory = installCustomBlocks({
-          blockly: CDOBlockly,
+          blockly: options.blockly || CDOBlockly,
           blockDefinitions: customBlocksConfig,
           customInputTypes: options.blocksModule.customInputTypes
         });

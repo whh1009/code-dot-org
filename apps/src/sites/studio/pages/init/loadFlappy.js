@@ -11,5 +11,6 @@ import skins from '@cdo/apps/flappy/skins';
 export default function loadFlappy(options) {
   options.skinsModule = skins;
   options.blocksModule = blocks;
+  options.blockly = Blockly;
   appMain(window.Flappy, levels, options);
 }

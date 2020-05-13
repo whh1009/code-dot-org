@@ -1,6 +1,6 @@
-/* global CDOBlockly */
+/* global Blockly */
 /**
- * CDOBlockly App: Flappy
+ * Blockly App: Flappy
  *
  * Copyright 2013 Code.org
  *
@@ -560,7 +560,7 @@ Flappy.onMouseDown = function(e) {
   }
 };
 /**
- * Initialize CDOBlockly and the Flappy app.  Called on page load.
+ * Initialize Blockly and the Flappy app.  Called on page load.
  */
 Flappy.init = function(config) {
   // replace studioApp() methods with our own
@@ -601,11 +601,11 @@ Flappy.init = function(config) {
      * The richness of block colours, regardless of the hue.
      * MOOC blocks should be brighter (target audience is younger).
      * Must be in the range of 0 (inclusive) to 1 (exclusive).
-     * CDOBlockly's default is 0.45.
+     * Blockly's default is 0.45.
      */
-    CDOBlockly.HSV_SATURATION = 0.6;
+    Blockly.HSV_SATURATION = 0.6;
 
-    CDOBlockly.SNAP_RADIUS *= Flappy.scale.snapRadius;
+    Blockly.SNAP_RADIUS *= Flappy.scale.snapRadius;
 
     drawMap();
   };
@@ -827,16 +827,14 @@ Flappy.execute = function() {
   Flappy.response = null;
 
   // Map event handler hooks (e.g. Flappy.whenClick) to the generated code.
-  const generator = CDOBlockly.Generator.blockSpaceToCode.bind(
-    CDOBlockly.Generator,
-    'JavaScript'
-  );
   const events = {
-    whenClick: {code: generator('flappy_whenClick')},
-    whenCollideGround: {code: generator('flappy_whenCollideGround')},
-    whenEnterObstacle: {code: generator('flappy_whenEnterObstacle')},
-    whenCollideObstacle: {code: generator('flappy_whenCollideObstacle')},
-    whenRunButton: {code: generator('when_run')}
+    whenClick: {code: Blockly.JavaScript.flappy_whenClick()},
+    whenCollideGround: {code: Blockly.JavaScript.flappy_whenCollideGround()},
+    whenEnterObstacle: {code: Blockly.JavaScript.flappy_whenEnterObstacle()},
+    whenCollideObstacle: {
+      code: Blockly.JavaScript.flappy_whenCollideObstacle()
+    },
+    whenRunButton: {code: Blockly.JavaScript.when_run()}
   };
 
   CustomMarshalingInterpreter.evalWithEvents(
@@ -905,8 +903,8 @@ Flappy.onPuzzleComplete = function() {
 };
 
 function sendReport() {
-  const xml = CDOBlockly.Xml.blockSpaceToDom(CDOBlockly.mainBlockSpace);
-  const textBlocks = CDOBlockly.Xml.domToText(xml);
+  const xml = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
+  const textBlocks = Blockly.Xml.domToText(xml);
 
   Flappy.waitingForReport = true;
 
