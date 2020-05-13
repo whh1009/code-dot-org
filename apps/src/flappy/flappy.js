@@ -162,7 +162,7 @@ var drawMap = function() {
   visualizationColumn.style.width = Flappy.MAZE_WIDTH + 'px';
 
   if (skin.background) {
-    tile = document.createElementNS(CDOBlockly.SVG_NS, 'image');
+    tile = document.createElementNS(Blockly.utils.dom.SVG_NS, 'image');
     tile.setAttributeNS(
       'http://www.w3.org/1999/xlink',
       'xlink:href',
@@ -178,7 +178,10 @@ var drawMap = function() {
 
   // Add obstacles
   Flappy.obstacles.forEach(function(obstacle, index) {
-    var obstacleTopIcon = document.createElementNS(CDOBlockly.SVG_NS, 'image');
+    var obstacleTopIcon = document.createElementNS(
+      Blockly.utils.dom.SVG_NS,
+      'image'
+    );
     obstacleTopIcon.setAttributeNS(
       'http://www.w3.org/1999/xlink',
       'xlink:href',
@@ -190,7 +193,7 @@ var drawMap = function() {
     svg.appendChild(obstacleTopIcon);
 
     var obstacleBottomIcon = document.createElementNS(
-      CDOBlockly.SVG_NS,
+      Blockly.utils.dom.SVG_NS,
       'image'
     );
     obstacleBottomIcon.setAttributeNS(
@@ -206,7 +209,10 @@ var drawMap = function() {
 
   if (level.ground) {
     for (i = 0; i < Flappy.MAZE_WIDTH / Flappy.GROUND_WIDTH + 1; i++) {
-      var groundIcon = document.createElementNS(CDOBlockly.SVG_NS, 'image');
+      var groundIcon = document.createElementNS(
+        Blockly.utils.dom.SVG_NS,
+        'image'
+      );
       groundIcon.setAttributeNS(
         'http://www.w3.org/1999/xlink',
         'xlink:href',
@@ -222,7 +228,7 @@ var drawMap = function() {
   }
 
   if (level.goal && level.goal.startX) {
-    var goal = document.createElementNS(CDOBlockly.SVG_NS, 'image');
+    var goal = document.createElementNS(Blockly.utils.dom.SVG_NS, 'image');
     goal.setAttribute('id', 'goal');
     goal.setAttributeNS(
       'http://www.w3.org/1999/xlink',
@@ -236,9 +242,15 @@ var drawMap = function() {
     svg.appendChild(goal);
   }
 
-  var avatArclip = document.createElementNS(CDOBlockly.SVG_NS, 'clipPath');
+  var avatArclip = document.createElementNS(
+    Blockly.utils.dom.SVG_NS,
+    'clipPath'
+  );
   avatArclip.setAttribute('id', 'avatArclipPath');
-  var avatArclipRect = document.createElementNS(CDOBlockly.SVG_NS, 'rect');
+  var avatArclipRect = document.createElementNS(
+    Blockly.utils.dom.SVG_NS,
+    'rect'
+  );
   avatArclipRect.setAttribute('id', 'avatArclipRect');
   avatArclipRect.setAttribute('width', Flappy.MAZE_WIDTH);
   avatArclipRect.setAttribute(
@@ -249,7 +261,7 @@ var drawMap = function() {
   svg.appendChild(avatArclip);
 
   // Add avatar.
-  var avatarIcon = document.createElementNS(CDOBlockly.SVG_NS, 'image');
+  var avatarIcon = document.createElementNS(Blockly.utils.dom.SVG_NS, 'image');
   avatarIcon.setAttribute('id', 'avatar');
   avatarIcon.setAttributeNS(
     'http://www.w3.org/1999/xlink',
@@ -263,7 +275,10 @@ var drawMap = function() {
   }
   svg.appendChild(avatarIcon);
 
-  var instructions = document.createElementNS(CDOBlockly.SVG_NS, 'image');
+  var instructions = document.createElementNS(
+    Blockly.utils.dom.SVG_NS,
+    'image'
+  );
   instructions.setAttributeNS(
     'http://www.w3.org/1999/xlink',
     'xlink:href',
@@ -277,7 +292,7 @@ var drawMap = function() {
   instructions.setAttribute('visibility', 'hidden');
   svg.appendChild(instructions);
 
-  var getready = document.createElementNS(CDOBlockly.SVG_NS, 'image');
+  var getready = document.createElementNS(Blockly.utils.dom.SVG_NS, 'image');
   getready.setAttributeNS(
     'http://www.w3.org/1999/xlink',
     'xlink:href',
@@ -291,7 +306,7 @@ var drawMap = function() {
   getready.setAttribute('visibility', 'hidden');
   svg.appendChild(getready);
 
-  var clickrun = document.createElementNS(CDOBlockly.SVG_NS, 'image');
+  var clickrun = document.createElementNS(Blockly.utils.dom.SVG_NS, 'image');
   clickrun.setAttributeNS(
     'http://www.w3.org/1999/xlink',
     'xlink:href',
@@ -305,7 +320,7 @@ var drawMap = function() {
   clickrun.setAttribute('visibility', 'visibile');
   svg.appendChild(clickrun);
 
-  var gameover = document.createElementNS(CDOBlockly.SVG_NS, 'image');
+  var gameover = document.createElementNS(Blockly.utils.dom.SVG_NS, 'image');
   gameover.setAttributeNS(
     'http://www.w3.org/1999/xlink',
     'xlink:href',
@@ -319,7 +334,7 @@ var drawMap = function() {
   gameover.setAttribute('visibility', 'hidden');
   svg.appendChild(gameover);
 
-  var score = document.createElementNS(CDOBlockly.SVG_NS, 'text');
+  var score = document.createElementNS(Blockly.utils.dom.SVG_NS, 'text');
   score.setAttribute('id', 'score');
   score.setAttribute('class', 'flappy-score');
   score.setAttribute('x', Flappy.MAZE_WIDTH / 2);
@@ -328,7 +343,7 @@ var drawMap = function() {
   score.setAttribute('visibility', 'hidden');
   svg.appendChild(score);
 
-  var clickRect = document.createElementNS(CDOBlockly.SVG_NS, 'rect');
+  var clickRect = document.createElementNS(Blockly.utils.dom.SVG_NS, 'rect');
   clickRect.setAttribute('width', Flappy.MAZE_WIDTH);
   clickRect.setAttribute('height', Flappy.MAZE_HEIGHT);
   clickRect.setAttribute('fill-opacity', 0);
