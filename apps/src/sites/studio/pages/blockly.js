@@ -8,6 +8,9 @@ Blockly.setLocale(locale);
 CDOBlockly.getMainWorkspace = function() {
   return CDOBlockly.mainBlockSpace;
 };
+CDOBlockly.Input.prototype.appendField = function(a, b) {
+  return this.appendTitle(a, b);
+};
 window.CDOBlockly = CDOBlockly;
 
 Blockly.Block.prototype.setHSV = function(h, s, v) {
