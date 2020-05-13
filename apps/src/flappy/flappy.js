@@ -766,8 +766,6 @@ Flappy.runButtonClick = function() {
   document.getElementById('getready').setAttribute('visibility', 'visible');
 
   studioApp().toggleRunReset('reset');
-  CDOBlockly.mainBlockSpace.traceOn(true);
-  // studioApp().reset(false);
   studioApp().attempts++;
   Flappy.execute();
 
