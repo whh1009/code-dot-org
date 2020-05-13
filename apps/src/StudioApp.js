@@ -2191,8 +2191,6 @@ StudioApp.prototype.handleHideSource_ = function(options) {
 
 StudioApp.prototype.handleIframeEmbedAppAndCode_ = function(options) {
 	document.body.style.backgroundColor = 'transparent';
-
-	$('.header-wrapper').hide();
 	var vizColumn = document.getElementById('visualizationColumn');
 	$(vizColumn).addClass('chromelessShare');
 };
