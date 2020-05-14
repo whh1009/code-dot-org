@@ -629,13 +629,7 @@ exports.install = function(blockly, blockInstallOptions) {
       this.setHSV(312, 0.32, 0.62);
       this.appendDummyInput()
         .appendField(msg.setScore())
-        .appendField(
-          new blockly.FieldTextInput(
-            '0',
-            blockly.FieldTextInput.numberValidator
-          ),
-          'VALUE'
-        );
+        .appendField(new blockly.FieldNumber('0'), 'VALUE');
       this.setInputsInline(true);
       this.setPreviousStatement(true);
       this.setNextStatement(true);
@@ -646,7 +640,7 @@ exports.install = function(blockly, blockInstallOptions) {
   blockly.JavaScript.flappy_setScore = function() {
     // Generate JavaScript for moving forward or backward the internal number of
     // pixels.
-    var value = window.parseInt(this.getTitleValue('VALUE'), 10);
+    var value = window.parseInt(this.getFieldValue('VALUE'), 10);
     return "Flappy.setScore('block_id_" + this.id + "', " + value + ');\n';
   };
 
