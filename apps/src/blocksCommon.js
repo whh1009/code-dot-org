@@ -49,6 +49,7 @@ function installControlsRepeatSimplified(blockly, skin) {
       this.setPreviousStatement(true);
       this.setNextStatement(true);
       this.setTooltip(blockly.Msg.CONTROLS_REPEAT_TOOLTIP);
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 
@@ -66,6 +67,7 @@ function installControlsRepeatSimplified(blockly, skin) {
       this.setPreviousStatement(true);
       this.setNextStatement(true);
       this.setTooltip(blockly.Msg.CONTROLS_REPEAT_TOOLTIP);
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 }
@@ -89,6 +91,7 @@ function installControlsRepeatDropdown(blockly) {
       this.setPreviousStatement(true);
       this.setNextStatement(true);
       this.setTooltip(blockly.Msg.CONTROLS_REPEAT_TOOLTIP);
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 }
@@ -104,6 +107,7 @@ function installNumberDropdown(blockly) {
       this.appendDummyInput().appendField(new blockly.FieldDropdown(), 'NUM');
       this.setOutput(true, CDOBlockly.BlockValueType.NUMBER);
       this.setTooltip(blockly.Msg.MATH_NUMBER_TOOLTIP);
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 }
@@ -121,6 +125,7 @@ function installPickOne(blockly) {
         'Pick one (Use only in required blocks)'
       );
       this.appendStatementInput('PICK');
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 
@@ -143,6 +148,7 @@ function installCategory(blockly) {
         .appendField(new blockly.FieldTextInput('Name'), 'CATEGORY');
       this.setPreviousStatement(false);
       this.setNextStatement(false);
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 
@@ -168,6 +174,7 @@ function installCategory(blockly) {
         .appendField(customDropdown, 'CUSTOM');
       this.setPreviousStatement(false);
       this.setNextStatement(false);
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 
@@ -191,6 +198,7 @@ function installWhenRun(blockly, skin, isK1) {
       }
       this.setPreviousStatement(false);
       this.setNextStatement(true);
+      this.blockId = ++Blockly.blockIdCounter_;
     },
     shouldBeGrayedOut: function() {
       return false;
@@ -211,6 +219,7 @@ function installJoinBlock(blockly) {
       this.setOutput(true, CDOBlockly.BlockValueType.STRING);
       this.setTooltip(commonMsg.joinTextTooltip());
       this.inputCount = 0;
+      this.blockId = ++Blockly.blockIdCounter_;
     },
 
     getCustomContextMenuItems: function() {
@@ -316,6 +325,7 @@ function installCommentBlock(blockly) {
       this.setPreviousStatement(true);
       this.setNextStatement(true);
       this.setTooltip(commonMsg.commentTooltip());
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 

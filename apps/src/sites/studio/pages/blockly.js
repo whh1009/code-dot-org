@@ -47,4 +47,5 @@ Blockly.BlockSpace.EVENTS.BLOCK_SPACE_SCROLLED = 'blockSpaceScrolled';
  * @type {string}
  */
 Blockly.BlockSpace.EVENTS.RUN_BUTTON_CLICKED = 'runButtonClicked';
+Blockly.blockIdCounter_ = 0;
 window.Blockly = Blockly;

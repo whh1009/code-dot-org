@@ -26,7 +26,9 @@ var generateSetterCode = function(ctx, name) {
     value = 'Flappy.random([' + possibleValues + '])';
   }
 
-  return 'Flappy.' + name + "('block_id_" + ctx.id + "', " + value + ');\n';
+  return (
+    'Flappy.' + name + "('block_id_" + ctx.blockId + "', " + value + ');\n'
+  );
 };
 
 // Install extensions to Blockly's language and JavaScript generator.
@@ -49,6 +51,7 @@ exports.install = function(blockly, blockInstallOptions) {
       this.setPreviousStatement(false);
       this.setNextStatement(true);
       this.setTooltip(msg.whenClickTooltip());
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 
@@ -72,6 +75,7 @@ exports.install = function(blockly, blockInstallOptions) {
       this.setPreviousStatement(false);
       this.setNextStatement(true);
       this.setTooltip(msg.whenCollideGroundTooltip());
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 
@@ -95,6 +99,7 @@ exports.install = function(blockly, blockInstallOptions) {
       this.setPreviousStatement(false);
       this.setNextStatement(true);
       this.setTooltip(msg.whenCollideObstacleTooltip());
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 
@@ -118,6 +123,7 @@ exports.install = function(blockly, blockInstallOptions) {
       this.setPreviousStatement(false);
       this.setNextStatement(true);
       this.setTooltip(msg.whenEnterObstacleTooltip());
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 
@@ -141,12 +147,13 @@ exports.install = function(blockly, blockInstallOptions) {
       this.setPreviousStatement(true);
       this.setNextStatement(true);
       this.setTooltip(msg.flapTooltip());
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 
   blockly.JavaScript.flappy_flap = function(velocity) {
     // Generate JavaScript for moving left.
-    return "Flappy.flap('block_id_" + this.id + "');\n";
+    return "Flappy.flap('block_id_" + this.blockId + "');\n";
   };
 
   blockly.Blocks.flappy_flap_height = {
@@ -161,6 +168,7 @@ exports.install = function(blockly, blockInstallOptions) {
       this.setPreviousStatement(true);
       this.setNextStatement(true);
       this.setTooltip(msg.flapTooltip());
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 
@@ -209,6 +217,7 @@ exports.install = function(blockly, blockInstallOptions) {
       this.setPreviousStatement(true);
       this.setNextStatement(true);
       this.setTooltip(msg.playSoundTooltip());
+      this.blockId = ++Blockly.blockIdCounter_;
     },
     get k1SoundChoices() {
       return [
@@ -266,12 +275,13 @@ exports.install = function(blockly, blockInstallOptions) {
       this.setPreviousStatement(true);
       this.setNextStatement(true);
       this.setTooltip(msg.incrementPlayerScoreTooltip());
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 
   blockly.JavaScript.flappy_incrementPlayerScore = function() {
     // Generate JavaScript for incrementing the player's score.
-    return "Flappy.incrementPlayerScore('block_id_" + this.id + "');\n";
+    return "Flappy.incrementPlayerScore('block_id_" + this.blockId + "');\n";
   };
 
   blockly.Blocks.flappy_endGame = {
@@ -288,12 +298,13 @@ exports.install = function(blockly, blockInstallOptions) {
       this.setPreviousStatement(true);
       this.setNextStatement(true);
       this.setTooltip(msg.endGameTooltip());
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 
   blockly.JavaScript.flappy_endGame = function() {
     // Generate JavaScript for incrementing the player's score.
-    return "Flappy.endGame('block_id_" + this.id + "');\n";
+    return "Flappy.endGame('block_id_" + this.blockId + "');\n";
   };
 
   /**
@@ -322,6 +333,7 @@ exports.install = function(blockly, blockInstallOptions) {
       this.setPreviousStatement(true);
       this.setNextStatement(true);
       this.setTooltip(msg.setSpeedTooltip());
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 
@@ -359,6 +371,7 @@ exports.install = function(blockly, blockInstallOptions) {
       this.setPreviousStatement(true);
       this.setNextStatement(true);
       this.setTooltip(msg.setGapHeightTooltip());
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 
@@ -399,6 +412,7 @@ exports.install = function(blockly, blockInstallOptions) {
       this.setPreviousStatement(true);
       this.setNextStatement(true);
       this.setTooltip(msg.setBackgroundTooltip());
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 
@@ -449,6 +463,7 @@ exports.install = function(blockly, blockInstallOptions) {
       this.setPreviousStatement(true);
       this.setNextStatement(true);
       this.setTooltip(msg.setPlayerTooltip());
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 
@@ -515,6 +530,7 @@ exports.install = function(blockly, blockInstallOptions) {
       this.setPreviousStatement(true);
       this.setNextStatement(true);
       this.setTooltip(msg.setObstacleTooltip());
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 
@@ -565,6 +581,7 @@ exports.install = function(blockly, blockInstallOptions) {
       this.setPreviousStatement(true);
       this.setNextStatement(true);
       this.setTooltip(msg.setGroundTooltip());
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 
@@ -607,6 +624,7 @@ exports.install = function(blockly, blockInstallOptions) {
       this.setPreviousStatement(true);
       this.setNextStatement(true);
       this.setTooltip(msg.setGravityTooltip());
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 
@@ -634,6 +652,7 @@ exports.install = function(blockly, blockInstallOptions) {
       this.setPreviousStatement(true);
       this.setNextStatement(true);
       this.setTooltip(msg.setScoreTooltip());
+      this.blockId = ++Blockly.blockIdCounter_;
     }
   };
 
@@ -641,7 +660,7 @@ exports.install = function(blockly, blockInstallOptions) {
     // Generate JavaScript for moving forward or backward the internal number of
     // pixels.
     var value = window.parseInt(this.getFieldValue('VALUE'), 10);
-    return "Flappy.setScore('block_id_" + this.id + "', " + value + ');\n';
+    return "Flappy.setScore('block_id_" + this.blockId + "', " + value + ');\n';
   };
 
   delete blockly.Blocks.procedures_defreturn;
