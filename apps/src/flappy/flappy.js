@@ -621,7 +621,7 @@ Flappy.init = function(config) {
   config.makeUrl = 'http://code.org/flappy';
   config.makeImage = studioApp().assetUrl('media/flappy_promo.png');
 
-  config.enableShowCode = false;
+  config.enableShowCode = true;
   config.enableShowBlockCount = false;
 
   if (level.isK1) {

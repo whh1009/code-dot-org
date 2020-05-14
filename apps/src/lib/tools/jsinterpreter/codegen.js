@@ -70,7 +70,7 @@ exports.strip = function(code) {
  * Extract the user's code as raw JavaScript.
  */
 exports.workspaceCode = function(blockly) {
-  var code = blockly.Generator.blockSpaceToCode('JavaScript', null, false);
+  var code = blockly.JavaScript.workspaceToCode(blockly.getMainWorkspace());
   return exports.strip(code);
 };
 
