@@ -826,15 +826,23 @@ Flappy.execute = function() {
   Flappy.waitingForReport = false;
   Flappy.response = null;
 
+  const generator = blockType => {
+    const blocks = Blockly.getMainWorkspace()
+      .getTopBlocks()
+      .filter(block => block.type === blockType);
+    if (blocks.length === 1) {
+      return Blockly.JavaScript.blockToCode(blocks[0]);
+    } else {
+      return '';
+    }
+  };
   // Map event handler hooks (e.g. Flappy.whenClick) to the generated code.
   const events = {
-    whenClick: {code: Blockly.JavaScript.flappy_whenClick()},
-    whenCollideGround: {code: Blockly.JavaScript.flappy_whenCollideGround()},
-    whenEnterObstacle: {code: Blockly.JavaScript.flappy_whenEnterObstacle()},
-    whenCollideObstacle: {
-      code: Blockly.JavaScript.flappy_whenCollideObstacle()
-    },
-    whenRunButton: {code: Blockly.JavaScript.when_run()}
+    whenClick: {code: generator('flappy_whenClick')},
+    whenCollideGround: {code: generator('flappy_whenCollideGround')},
+    whenEnterObstacle: {code: generator('flappy_whenEnterObstacle')},
+    whenCollideObstacle: {code: generator('flappy_whenCollideObstacle')},
+    whenRunButton: {code: generator('when_run')}
   };
 
   CustomMarshalingInterpreter.evalWithEvents(
