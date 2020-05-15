@@ -1,4 +1,4 @@
-/* global CDOBlockly */
+/* global Blockly */
 import {getStore, registerReducers} from './redux';
 import {wrapNumberValidatorsForLevelBuilder, valueOr} from './utils';
 import {makeTestsFromBuilderRequiredBlocks} from './required_block_utils';
@@ -18,8 +18,8 @@ import defaultSkinModule from './skins.js';
 window.__TestInterface = {
   loadBlocks: (...args) => studioApp().loadBlocks(...args),
   getBlockXML: () =>
-    CDOBlockly.Xml.domToText(
-      CDOBlockly.Xml.blockSpaceToDom(CDOBlockly.mainBlockSpace)
+    Blockly.Xml.domToText(
+      Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace())
     ),
   arrangeBlockPosition: (...args) => studioApp().arrangeBlockPosition(...args),
   getDropletContents: () => studioApp().editor.getValue(),
@@ -86,9 +86,9 @@ export default function(app, levels, options) {
       wrapNumberValidatorsForLevelBuilder();
     }
 
-    blocksCommon.install(options.blockly || CDOBlockly, blockInstallOptions);
+    blocksCommon.install(options.blockly || Blockly, blockInstallOptions);
     options.blocksModule.install(
-      options.blockly || CDOBlockly,
+      options.blockly || Blockly,
       blockInstallOptions
     );
 
@@ -106,7 +106,7 @@ export default function(app, levels, options) {
       ];
       if (customBlocksConfig.length > 0) {
         const blocksByCategory = installCustomBlocks({
-          blockly: options.blockly || CDOBlockly,
+          blockly: options.blockly || Blockly,
           blockDefinitions: customBlocksConfig,
           customInputTypes: options.blocksModule.customInputTypes
         });
@@ -123,7 +123,7 @@ export default function(app, levels, options) {
       }
     }
 
-    CDOBlockly.JavaScript.INFINITE_LOOP_TRAP = codegen.loopTrap();
+    Blockly.JavaScript.INFINITE_LOOP_TRAP = codegen.loopTrap();
   }
 
   function onReady() {

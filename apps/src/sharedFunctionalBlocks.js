@@ -1,4 +1,4 @@
-/* global CDOBlockly */
+/* global Blockly */
 /**
  * A set of functional blocks
  */
@@ -46,8 +46,8 @@ function installPlus(blockly, generator, gensym) {
   };
 
   generator.functional_plus = function() {
-    var arg1 = CDOBlockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
-    var arg2 = CDOBlockly.JavaScript.statementToCode(this, 'ARG2', false) || 0;
+    var arg1 = Blockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
+    var arg2 = Blockly.JavaScript.statementToCode(this, 'ARG2', false) || 0;
     return '(' + arg1 + ' + ' + arg2 + ')';
   };
 }
@@ -70,8 +70,8 @@ function installMinus(blockly, generator, gensym) {
   };
 
   generator.functional_minus = function() {
-    var arg1 = CDOBlockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
-    var arg2 = CDOBlockly.JavaScript.statementToCode(this, 'ARG2', false) || 0;
+    var arg1 = Blockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
+    var arg2 = Blockly.JavaScript.statementToCode(this, 'ARG2', false) || 0;
     return '(' + arg1 + ' - ' + arg2 + ')';
   };
 }
@@ -94,8 +94,8 @@ function installTimes(blockly, generator, gensym) {
   };
 
   generator.functional_times = function() {
-    var arg1 = CDOBlockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
-    var arg2 = CDOBlockly.JavaScript.statementToCode(this, 'ARG2', false) || 0;
+    var arg1 = Blockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
+    var arg2 = Blockly.JavaScript.statementToCode(this, 'ARG2', false) || 0;
     return '(' + arg1 + ' * ' + arg2 + ')';
   };
 }
@@ -118,8 +118,8 @@ function installDividedBy(blockly, generator, gensym) {
   };
 
   generator.functional_dividedby = function() {
-    var arg1 = CDOBlockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
-    var arg2 = CDOBlockly.JavaScript.statementToCode(this, 'ARG2', false) || 0;
+    var arg1 = Blockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
+    var arg2 = Blockly.JavaScript.statementToCode(this, 'ARG2', false) || 0;
     return '(' + arg1 + ' / ' + arg2 + ')';
   };
 }
@@ -143,8 +143,8 @@ function installGreaterThan(blockly, generator, gensym) {
   };
 
   generator.functional_greater_than = function() {
-    var arg1 = CDOBlockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
-    var arg2 = CDOBlockly.JavaScript.statementToCode(this, 'ARG2', false) || 0;
+    var arg1 = Blockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
+    var arg2 = Blockly.JavaScript.statementToCode(this, 'ARG2', false) || 0;
     return '(' + arg1 + ' > ' + arg2 + ')';
   };
 }
@@ -166,8 +166,8 @@ function installLessThan(blockly, generator, gensym) {
   };
 
   generator.functional_less_than = function() {
-    var arg1 = CDOBlockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
-    var arg2 = CDOBlockly.JavaScript.statementToCode(this, 'ARG2', false) || 0;
+    var arg1 = Blockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
+    var arg2 = Blockly.JavaScript.statementToCode(this, 'ARG2', false) || 0;
     return '(' + arg1 + ' < ' + arg2 + ')';
   };
 }
@@ -189,8 +189,8 @@ function installNumberEquals(blockly, generator, gensym) {
   };
 
   generator.functional_number_equals = function() {
-    var arg1 = CDOBlockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
-    var arg2 = CDOBlockly.JavaScript.statementToCode(this, 'ARG2', false) || 0;
+    var arg1 = Blockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
+    var arg2 = Blockly.JavaScript.statementToCode(this, 'ARG2', false) || 0;
     return '(' + arg1 + ' === ' + arg2 + ')';
   };
 }
@@ -212,8 +212,8 @@ function installStringEquals(blockly, generator, gensym) {
   };
 
   generator.functional_string_equals = function() {
-    var arg1 = CDOBlockly.JavaScript.statementToCode(this, 'ARG1', false) || '';
-    var arg2 = CDOBlockly.JavaScript.statementToCode(this, 'ARG2', false) || '';
+    var arg1 = Blockly.JavaScript.statementToCode(this, 'ARG1', false) || '';
+    var arg2 = Blockly.JavaScript.statementToCode(this, 'ARG2', false) || '';
     return '(' + arg1 + ' === ' + arg2 + ')';
   };
 }
@@ -237,8 +237,8 @@ function installLogicalAnd(blockly, generator, gensym) {
   };
 
   generator.functional_logical_and = function() {
-    var arg1 = CDOBlockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
-    var arg2 = CDOBlockly.JavaScript.statementToCode(this, 'ARG2', false) || 0;
+    var arg1 = Blockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
+    var arg2 = Blockly.JavaScript.statementToCode(this, 'ARG2', false) || 0;
     return '(' + arg1 + ' && ' + arg2 + ')';
   };
 }
@@ -260,8 +260,8 @@ function installLogicalOr(blockly, generator, gensym) {
   };
 
   generator.functional_logical_or = function() {
-    var arg1 = CDOBlockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
-    var arg2 = CDOBlockly.JavaScript.statementToCode(this, 'ARG2', false) || 0;
+    var arg1 = Blockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
+    var arg2 = Blockly.JavaScript.statementToCode(this, 'ARG2', false) || 0;
     return '(' + arg1 + ' || ' + arg2 + ')';
   };
 }
@@ -280,7 +280,7 @@ function installLogicalNot(blockly, generator, gensym) {
   };
 
   generator.functional_logical_not = function() {
-    var arg1 = CDOBlockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
+    var arg1 = Blockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
     return '!(' + arg1 + ')';
   };
 }
@@ -300,7 +300,7 @@ function installBoolean(blockly, generator, gensym) {
       var values = blockly.Blocks.functional_boolean.VALUES;
       this.appendDummyInput()
         .appendTitle(new blockly.FieldDropdown(values), 'VAL')
-        .setAlign(CDOBlockly.ALIGN_CENTRE);
+        .setAlign(Blockly.ALIGN_CENTRE);
       this.setFunctionalOutput(true, blockly.BlockValueType.BOOLEAN);
     }
   };
@@ -329,13 +329,13 @@ function installMathNumber(blockly, generator, gensym) {
       );
       this.appendDummyInput()
         .appendTitle(
-          new CDOBlockly.FieldTextInput(
+          new Blockly.FieldTextInput(
             '0',
-            CDOBlockly.FieldTextInput.numberValidator
+            Blockly.FieldTextInput.numberValidator
           ),
           'NUM'
         )
-        .setAlign(CDOBlockly.ALIGN_CENTRE);
+        .setAlign(Blockly.ALIGN_CENTRE);
       this.setFunctionalOutput(true, blockly.BlockValueType.NUMBER);
     }
   };
@@ -356,8 +356,8 @@ function installMathNumber(blockly, generator, gensym) {
         blockly.FunctionalTypeColors[blockly.BlockValueType.NUMBER]
       );
       this.appendDummyInput()
-        .appendTitle(new CDOBlockly.FieldDropdown(), 'NUM')
-        .setAlign(CDOBlockly.ALIGN_CENTRE);
+        .appendTitle(new Blockly.FieldDropdown(), 'NUM')
+        .setAlign(Blockly.ALIGN_CENTRE);
       this.setFunctionalOutput(true, blockly.BlockValueType.NUMBER);
     }
   };
@@ -377,10 +377,10 @@ function installString(blockly, generator) {
         blockly.FunctionalTypeColors[blockly.BlockValueType.STRING]
       );
       this.appendDummyInput()
-        .appendTitle(new CDOBlockly.FieldLabel('"'))
-        .appendTitle(new CDOBlockly.FieldTextInput(''), 'VAL')
-        .appendTitle(new CDOBlockly.FieldLabel('"'))
-        .setAlign(CDOBlockly.ALIGN_CENTRE);
+        .appendTitle(new Blockly.FieldLabel('"'))
+        .appendTitle(new Blockly.FieldTextInput(''), 'VAL')
+        .appendTitle(new Blockly.FieldLabel('"'))
+        .setAlign(Blockly.ALIGN_CENTRE);
       this.setFunctionalOutput(true, blockly.BlockValueType.STRING);
     }
   };
@@ -404,7 +404,7 @@ function installSqrt(blockly, generator) {
   };
 
   generator.functional_sqrt = function() {
-    var arg1 = CDOBlockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
+    var arg1 = Blockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
     return 'Math.sqrt(' + arg1 + ')';
   };
 }
@@ -423,8 +423,8 @@ function installPow(blockly, generator) {
   };
 
   generator.functional_pow = function() {
-    var arg1 = CDOBlockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
-    var arg2 = CDOBlockly.JavaScript.statementToCode(this, 'ARG2', false) || 0;
+    var arg1 = Blockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
+    var arg2 = Blockly.JavaScript.statementToCode(this, 'ARG2', false) || 0;
     return 'Math.pow(' + arg1 + ', ' + arg2 + ')';
   };
 }
@@ -443,7 +443,7 @@ function installSquared(blockly, generator) {
   };
 
   generator.functional_squared = function() {
-    var arg1 = CDOBlockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
+    var arg1 = Blockly.JavaScript.statementToCode(this, 'ARG1', false) || 0;
     return arg1 + ' * ' + arg1;
   };
 }
@@ -455,11 +455,11 @@ function installSquared(blockly, generator) {
 function installCond(blockly, generator) {
   // Note: These blocks likely don't support RTL
   var types = [
-    CDOBlockly.BlockValueType.NONE,
-    CDOBlockly.BlockValueType.NUMBER,
-    CDOBlockly.BlockValueType.STRING,
-    CDOBlockly.BlockValueType.IMAGE,
-    CDOBlockly.BlockValueType.BOOLEAN
+    Blockly.BlockValueType.NONE,
+    Blockly.BlockValueType.NUMBER,
+    Blockly.BlockValueType.STRING,
+    Blockly.BlockValueType.IMAGE,
+    Blockly.BlockValueType.BOOLEAN
   ];
 
   // Generates the following blocks:
@@ -475,7 +475,7 @@ function installCond(blockly, generator) {
 
 function installCondForType(blockly, generator, type) {
   var blockName = 'functional_cond';
-  if (type !== CDOBlockly.BlockValueType.NONE) {
+  if (type !== Blockly.BlockValueType.NONE) {
     blockName += '_' + type.toLowerCase();
   }
 
@@ -491,10 +491,10 @@ function installCondForType(blockly, generator, type) {
         fixedSize: {height: 35}
       };
 
-      this.setHSV.apply(this, CDOBlockly.FunctionalTypeColors[type]);
+      this.setHSV.apply(this, Blockly.FunctionalTypeColors[type]);
 
-      var plusField = new CDOBlockly.FieldIcon('+');
-      CDOBlockly.bindEvent_(
+      var plusField = new Blockly.FieldIcon('+');
+      Blockly.bindEvent_(
         plusField.getRootElement(),
         'mousedown',
         this,
@@ -502,16 +502,16 @@ function installCondForType(blockly, generator, type) {
       );
 
       this.appendDummyInput()
-        .appendTitle(new CDOBlockly.FieldLabel('cond', options))
-        .setAlign(CDOBlockly.ALIGN_CENTRE);
+        .appendTitle(new Blockly.FieldLabel('cond', options))
+        .setAlign(Blockly.ALIGN_CENTRE);
 
       this.appendDummyInput('ELSE').appendTitle(
-        new CDOBlockly.FieldLabel('else', options)
+        new Blockly.FieldLabel('else', options)
       );
       var defaultInput = this.appendFunctionalInput('DEFAULT').setInline(true);
       defaultInput.setHSV.apply(
         defaultInput,
-        CDOBlockly.FunctionalTypeColors[type]
+        Blockly.FunctionalTypeColors[type]
       );
 
       this.appendDummyInput('PLUS')
@@ -520,7 +520,7 @@ function installCondForType(blockly, generator, type) {
 
       this.setFunctionalOutput(
         true,
-        type === CDOBlockly.BlockValueType.NONE ? undefined : type
+        type === Blockly.BlockValueType.NONE ? undefined : type
       );
 
       this.addConditionalRow();
@@ -544,14 +544,14 @@ function installCondForType(blockly, generator, type) {
       this.moveInputBefore('COND' + id, 'ELSE');
 
       var input = this.appendFunctionalInput('VALUE' + id).setInline(true);
-      input.setHSV.apply(input, CDOBlockly.FunctionalTypeColors[type]);
+      input.setHSV.apply(input, Blockly.FunctionalTypeColors[type]);
       this.moveInputBefore('VALUE' + id, 'ELSE');
 
       var minusInput = this.appendDummyInput('MINUS' + id).setInline(true);
 
       if (this.pairs_.length > 1) {
-        var minusField = new CDOBlockly.FieldIcon('-');
-        CDOBlockly.bindEvent_(
+        var minusField = new Blockly.FieldIcon('-');
+        Blockly.bindEvent_(
           minusField.getRootElement(),
           'mousedown',
           this,
@@ -652,14 +652,13 @@ function installCondForType(blockly, generator, type) {
       }
       var id = this.pairs_[i];
       cond =
-        CDOBlockly.JavaScript.statementToCode(this, 'COND' + id, false) ||
-        false;
+        Blockly.JavaScript.statementToCode(this, 'COND' + id, false) || false;
       value =
-        CDOBlockly.JavaScript.statementToCode(this, 'VALUE' + id, false) || '';
+        Blockly.JavaScript.statementToCode(this, 'VALUE' + id, false) || '';
       code += 'if (' + cond + ') { return ' + value + '; }\n  ';
     }
     defaultValue =
-      CDOBlockly.JavaScript.statementToCode(this, 'DEFAULT', false) || '';
+      Blockly.JavaScript.statementToCode(this, 'DEFAULT', false) || '';
     code += 'else { return ' + defaultValue + '; }\n';
     code += '})()';
     return code;

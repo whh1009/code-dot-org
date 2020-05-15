@@ -572,6 +572,7 @@ Flappy.init = function(config) {
   level = config.level;
 
   config.grayOutUndeletableBlocks = level.grayOutUndeletableBlocks;
+  config.renderer = 'thrasos';
 
   loadLevel();
 

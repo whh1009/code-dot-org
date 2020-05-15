@@ -147,7 +147,7 @@ describe('Level tests', function() {
     // of these tests depend on that rendering actually happening.
     originalRender = Blockly.BlockSvg.prototype.render;
     Blockly.BlockSvg.prototype.render = function() {
-      this.block_.rendered = true;
+      this.rendered = true;
     };
 
     if (window.Studio) {

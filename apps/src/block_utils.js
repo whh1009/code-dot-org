@@ -1,4 +1,4 @@
-/* global CDOBlockly */
+/* global Blockly */
 import _ from 'lodash';
 import xml from './xml';
 import experiments from '@cdo/apps/util/experiments';
@@ -204,7 +204,7 @@ exports.generateSimpleBlock = function(blockly, generator, options) {
  * @returns {*}
  */
 exports.domToBlock = function(blockDOM) {
-  return CDOBlockly.Xml.domToBlock(CDOBlockly.mainBlockSpace, blockDOM);
+  return Blockly.Xml.domToBlock(blockDOM, Blockly.getMainWorkspace());
 };
 
 /**
@@ -482,12 +482,12 @@ exports.appendNewFunctions = function(blocksXml, functionsXml) {
  * defined, but not both.
  *
  * @typedef {Object} InputType
- * @property {?function(CDOBlockly, CDOBlockly.Block, InputConfig): CDOBlockly.Input} addInputRow
+ * @property {?function(Blockly, Blockly.Block, InputConfig): Blockly.Input} addInputRow
  *   Adds a potentially line-ending input to the provided block and returns the
  *   new input.
- * @property {?function(CDOBlockly, CDOBlockly.Block, InputConfig, CDOBlockly.Input)} addInput
+ * @property {?function(Blockly, Blockly.Block, InputConfig, Blockly.Input)} addInput
  *   Adds an inline input by appending fields or titles to the provided input
- * @property {function(CDOBlockly.Block, InputConfig): string} generateCode
+ * @property {function(Blockly.Block, InputConfig): string} generateCode
  *   Return the code to be inserted as an argument to the function call
  *   generated for the give block.
  */
@@ -499,8 +499,8 @@ exports.appendNewFunctions = function(blocksXml, functionsXml) {
  *   Each entry is a 2-element string array with the display name first, and the
  *   codegen-compatible value second (i.e. strings should be doubly-quoted).
  *   Also accepts a zero-argument function to generate these options.
- * @property {CDOBlockly.BlockValueType} type For value inputs, the type required.
- *   Use CDOBlockly.BlockValueType.NONE to accept any block.
+ * @property {Blockly.BlockValueType} type For value inputs, the type required.
+ *   Use Blockly.BlockValueType.NONE to accept any block.
  * @property {boolean} statement Indicates that an input is a statement input,
  *   which is passed as a callback function.
  * @property {string} customInput Use the customInput type under this name to
@@ -658,10 +658,10 @@ const STANDARD_INPUT_TYPES = {
       return inputRow;
     },
     generateCode(block, inputConfig) {
-      return CDOBlockly.JavaScript.valueToCode(
+      return Blockly.JavaScript.valueToCode(
         block,
         inputConfig.name,
-        CDOBlockly.JavaScript.ORDER_COMMA
+        Blockly.JavaScript.ORDER_COMMA
       );
     }
   },
@@ -670,10 +670,7 @@ const STANDARD_INPUT_TYPES = {
       return block.appendStatementInput(inputConfig.name);
     },
     generateCode(block, inputConfig) {
-      const code = CDOBlockly.JavaScript.statementToCode(
-        block,
-        inputConfig.name
-      );
+      const code = Blockly.JavaScript.statementToCode(block, inputConfig.name);
       return `function () {\n${code}}`;
     }
   },
@@ -695,7 +692,7 @@ const STANDARD_INPUT_TYPES = {
     generateCode(block, inputConfig) {
       let code = block.getTitleValue(inputConfig.name);
       if (
-        inputConfig.type === CDOBlockly.BlockValueType.STRING &&
+        inputConfig.type === Blockly.BlockValueType.STRING &&
         !code.startsWith('"') &&
         !code.startsWith("'")
       ) {
@@ -717,7 +714,7 @@ const STANDARD_INPUT_TYPES = {
     },
     generateCode(block, inputConfig) {
       let code = block.getTitleValue(inputConfig.name);
-      if (inputConfig.type === CDOBlockly.BlockValueType.STRING) {
+      if (inputConfig.type === Blockly.BlockValueType.STRING) {
         // Wraps the value in quotes, and escapes quotes/newlines
         code = JSON.stringify(code);
       }
@@ -729,7 +726,7 @@ const STANDARD_INPUT_TYPES = {
 /**
  * Given a type string for a field input, returns an appropriate change handler function
  * for that type, which customizes the input field and provides validation on blur.
- * @param {CDOBlockly} blockly
+ * @param {Blockly} blockly
  * @param {string} type
  * @returns {?function}
  */
@@ -738,7 +735,7 @@ function getFieldInputChangeHandler(blockly, type) {
   if (clampedNumberMatch) {
     const min = parseFloat(clampedNumberMatch[1]);
     const max = parseFloat(clampedNumberMatch[2]);
-    return CDOBlockly.FieldTextInput.clampedNumberValidator(min, max);
+    return blockly.FieldTextInput.clampedNumberValidator(min, max);
   } else if ('Number' === type) {
     return blockly.FieldTextInput.numberValidator;
   } else {
@@ -769,7 +766,7 @@ exports.groupInputsByRow = groupInputsByRow;
 
 /**
  * Adds the specified inputs to the block
- * @param {CDOBlockly} blockly The CDOBlockly object provided to install()
+ * @param {Blockly} blockly The Blockly object provided to install()
  * @param {Block} block The block to add the inputs to
  * @param {LabeledInputConfig[][]} inputs The list of inputs to interpolate,
  *   grouped by row.
@@ -813,7 +810,7 @@ exports.interpolateInputs = interpolateInputs;
  * Create a block generator that creats blocks that directly map to a javascript
  * function call, method call, or other (hopefully simple) expression.
  *
- * @params {CDOBlockly} blockly The CDOBlockly object provided to install()
+ * @params {Blockly} blockly The Blockly object provided to install()
  * @params {string[]} strictTypes Input/output types that are always configerd
  *   with strict type checking.
  * @params {string} defaultObjectType Default type used for the 'THIS' input in
@@ -829,7 +826,7 @@ exports.createJsWrapperBlockCreator = function(
   defaultObjectType,
   customInputTypes
 ) {
-  const {ORDER_FUNCTION_CALL, ORDER_MEMBER, ORDER_NONE} = CDOBlockly.JavaScript;
+  const {ORDER_FUNCTION_CALL, ORDER_MEMBER, ORDER_NONE} = blockly.JavaScript;
 
   const generator = blockly.Generator.get('JavaScript');
 
@@ -966,7 +963,7 @@ exports.createJsWrapperBlockCreator = function(
     const inputs = [...args];
     if (methodCall && !thisObject) {
       const thisType =
-        objectType || defaultObjectType || CDOBlockly.BlockValueType.NONE;
+        objectType || defaultObjectType || blockly.BlockValueType.NONE;
       inputs.push({
         name: 'THIS',
         type: thisType,
@@ -1008,7 +1005,7 @@ exports.createJsWrapperBlockCreator = function(
           miniToolboxBlocks &&
           experiments.isEnabled(experiments.MINI_TOOLBOX)
         ) {
-          var toggle = new CDOBlockly.FieldIcon('+');
+          var toggle = new blockly.FieldIcon('+');
           var miniToolboxXml = '<xml>';
           miniToolboxBlocks.forEach(block => {
             miniToolboxXml += `\n <block type="${block}"></block>`;
@@ -1017,7 +1014,7 @@ exports.createJsWrapperBlockCreator = function(
           // Block.tray is used in the blockly repo to track whether or not the horizontal flyout is open.
           this.tray = false;
           // On button click, open/close the horizontal flyout, toggle button text between +/-, and re-render the block.
-          CDOBlockly.bindEvent_(toggle.fieldGroup_, 'mousedown', this, () => {
+          blockly.bindEvent_(toggle.fieldGroup_, 'mousedown', this, () => {
             if (this.tray) {
               toggle.setText('+');
             } else {
@@ -1097,15 +1094,15 @@ exports.createJsWrapperBlockCreator = function(
       if (methodCall) {
         const object =
           thisObject ||
-          CDOBlockly.JavaScript.valueToCode(this, 'THIS', ORDER_MEMBER);
+          Blockly.JavaScript.valueToCode(this, 'THIS', ORDER_MEMBER);
         prefix += `${object}.`;
       }
 
       if (eventBlock) {
         const nextBlock =
           this.nextConnection && this.nextConnection.targetBlock();
-        let handlerCode = CDOBlockly.JavaScript.blockToCode(nextBlock, true);
-        handlerCode = CDOBlockly.Generator.prefixLines(handlerCode, '  ');
+        let handlerCode = Blockly.JavaScript.blockToCode(nextBlock, true);
+        handlerCode = Blockly.Generator.prefixLines(handlerCode, '  ');
         if (callbackParams) {
           let params = callbackParams.join(',');
           values.push(`function (${params}) {\n${handlerCode}}`);
@@ -1175,12 +1172,12 @@ exports.installCustomBlocks = function({
     blockly.Blocks.gamelab_location_variable_set &&
     blockly.Blocks.gamelab_location_variable_get
   ) {
-    CDOBlockly.Variables.registerGetter(
-      CDOBlockly.BlockValueType.LOCATION,
+    blockly.Variables.registerGetter(
+      blockly.BlockValueType.LOCATION,
       'gamelab_location_variable_get'
     );
-    CDOBlockly.Variables.registerSetter(
-      CDOBlockly.BlockValueType.LOCATION,
+    blockly.Variables.registerSetter(
+      blockly.BlockValueType.LOCATION,
       'gamelab_location_variable_set'
     );
   }

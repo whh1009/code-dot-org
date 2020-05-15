@@ -47,5 +47,37 @@ Blockly.BlockSpace.EVENTS.BLOCK_SPACE_SCROLLED = 'blockSpaceScrolled';
  * @type {string}
  */
 Blockly.BlockSpace.EVENTS.RUN_BUTTON_CLICKED = 'runButtonClicked';
+
+/**
+ * Attempts to find a container block with an empty input.
+ * @param {Blockly.Block[]} blocks
+ * @returns {Blockly.Block|null} block with empty input, or null if none found
+ */
+Blockly.findEmptyContainerBlock = function(blocks) {
+  for (var i = 0; i < blocks.length; i++) {
+    var block = blocks[i];
+    if (Blockly.findEmptyInput(block, Blockly.NEXT_STATEMENT)) {
+      return block;
+    }
+  }
+  return null;
+};
+
+/**
+ * Finds an empty input of the given input type.
+ * @param {Blockly.Block} block
+ * @param {number} inputType
+ * @returns {Blockly.Input|null} empty input or null if none found
+ */
+Blockly.findEmptyInput = function(block, inputType) {
+  return block.inputList.find(function(input) {
+    return input.type === inputType && !input.connection.targetConnection;
+  });
+};
+
+Blockly.Workspace.prototype.getBlockCount = function() {
+  return this.getAllBlocks().length;
+};
+
 Blockly.blockIdCounter_ = 0;
 window.Blockly = Blockly;

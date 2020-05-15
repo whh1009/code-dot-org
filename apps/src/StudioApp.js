@@ -1,4 +1,4 @@
-/* global CDOBlockly, droplet */
+/* global Blockly, droplet */
 
 import $ from 'jquery';
 import React from 'react';
@@ -207,7 +207,7 @@ StudioApp.prototype.configure = function(options) {
   this.scratch = options.level && options.level.scratch;
   this.usingBlockly_ = !this.editCode && !this.scratch;
   if (this.usingBlockly_) {
-    this.blockly_ = options.blockly || CDOBlockly;
+    this.blockly_ = options.blockly || Blockly;
   }
 
   if (options.isEditorless) {
@@ -728,7 +728,7 @@ StudioApp.prototype.handleClearPuzzle = function(config) {
     workspace.clear();
 
     const dom = this.getBlockly().Xml.textToDom(config.level.startBlocks);
-    this.getBlockly().Xml.domToWorkspace(dom, workspace);
+    this.getBlockly().Xml.domToWorkspace(workspace, dom);
   }
   if (config.afterClearPuzzle) {
     promise = config.afterClearPuzzle(config);
@@ -1034,7 +1034,7 @@ StudioApp.prototype.stopLoopingAudio = function(name) {
 };
 
 /**
- * @param {Object} options Configuration parameters for CDOBlockly. Parameters are
+ * @param {Object} options Configuration parameters for Blockly. Parameters are
  * optional and include:
  *  - {string} path The root path to the /apps directory, defaults to the
  *    the directory in which this script is located.
@@ -1043,7 +1043,7 @@ StudioApp.prototype.stopLoopingAudio = function(name) {
  *    defaults to the element with 'toolbox'.
  *  - {boolean} trashcan True if the trashcan should be displayed, defaults to
  *    true.
- * @param {Element} div The parent div in which to insert CDOBlockly.
+ * @param {Element} div The parent div in which to insert Blockly.
  */
 StudioApp.prototype.inject = function(div, options) {
   var defaults = {
@@ -1051,7 +1051,8 @@ StudioApp.prototype.inject = function(div, options) {
     rtl: getStore().getState().isRtl,
     toolbox: document.getElementById('toolbox'),
     trashcan: true,
-    customSimpleDialog: this.feedback_.showSimpleDialog.bind(this.feedback_)
+    customSimpleDialog: this.feedback_.showSimpleDialog.bind(this.feedback_),
+    renderer: 'zelos'
   };
   this.getBlockly().inject(
     div,
@@ -1065,9 +1066,9 @@ StudioApp.prototype.showNextHint = function() {
 };
 
 /**
- * Initialize CDOBlockly for a readonly iframe.  Called on page load. No sounds.
+ * Initialize Blockly for a readonly iframe.  Called on page load. No sounds.
  * XML argument may be generated from the console with:
- * CDOBlockly.Xml.domToText(CDOBlockly.Xml.blockSpaceToDom(CDOBlockly.getMainWorkspace())).slice(5, -6)
+ * Blockly.Xml.domToText(Blockly.Xml.blockSpaceToDom(Blockly.getMainWorkspace())).slice(5, -6)
  */
 StudioApp.prototype.initReadonly = function(options) {
   this.getBlockly().inject(document.getElementById('codeWorkspace'), {
@@ -1086,8 +1087,8 @@ StudioApp.prototype.initReadonly = function(options) {
 StudioApp.prototype.loadBlocks = function(blocksXml) {
   var xml = parseXmlElement(blocksXml);
   this.getBlockly().Xml.domToBlockSpace(
-    this.getBlockly().getMainWorkspace(),
-    xml
+    xml,
+    this.getBlockly().getMainWorkspace()
   );
 };
 
@@ -1095,7 +1096,7 @@ StudioApp.prototype.loadBlocks = function(blocksXml) {
  * Applies the specified arrangement to top startBlocks. If any
  * individual blocks have x or y properties set in the XML, those values
  * take priority. If no arrangement for a particular block type is
- * specified, blocks are automatically positioned by CDOBlockly.
+ * specified, blocks are automatically positioned by Blockly.
  *
  * Note that, currently, only bounce and flappy use arrangements.
  *
@@ -1147,7 +1148,7 @@ StudioApp.prototype.showGeneratedCode = function() {
 /**
  * Simple passthrough to AuthoredHints.displayMissingBlockHints
  * @param {String[]} blocks An array of XML strings representing the
- *        missing recommended CDOBlockly Blocks for which we want to
+ *        missing recommended Blockly Blocks for which we want to
  *        display hints.
  */
 StudioApp.prototype.displayMissingBlockHints = function(blocks) {
@@ -1999,7 +2000,7 @@ function runButtonClickWrapper(callback) {
     $(window).trigger('appModeChanged');
   }
 
-  // inform CDOBlockly that the run button has been pressed
+  // inform Blockly that the run button has been pressed
   if (this.getBlockly().getMainWorkspace()) {
     var customEvent = utils.createEvent(
       this.getBlockly().BlockSpace.EVENTS.RUN_BUTTON_CLICKED
