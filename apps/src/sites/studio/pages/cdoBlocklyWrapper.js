@@ -1,4 +1,5 @@
 var BlocklyWrapper = function(blocklyInstance) {
+  this.blocklyVersion = 'CODEDOTORG';
   this.blockly_ = blocklyInstance;
   this.Msg = blocklyInstance.Msg;
   this.inject = this.blockly_.inject;

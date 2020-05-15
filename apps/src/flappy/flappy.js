@@ -810,10 +810,24 @@ Flappy.execute = function() {
   Flappy.response = null;
 
   // Map event handler hooks (e.g. Flappy.whenClick) to the generated code.
-  const generator = Blockly.Generator.blockSpaceToCode.bind(
-    Blockly.Generator,
-    'JavaScript'
-  );
+  let generator;
+  if (Blockly.blocklyVersion === 'GOOGLE') {
+    generator = blockType => {
+      const blocks = Blockly.getMainBlockSpace()
+        .getTopBlocks()
+        .filter(block => block.type === blockType);
+      if (blocks.length === 1) {
+        return Blockly.JavaScript.blockToCode(blocks[0]);
+      } else {
+        return '';
+      }
+    };
+  } else {
+    generator = Blockly.Generator.blockSpaceToCode.bind(
+      Blockly.Generator,
+      'JavaScript'
+    );
+  }
   const events = {
     whenClick: {code: generator('flappy_whenClick')},
     whenCollideGround: {code: generator('flappy_whenCollideGround')},
