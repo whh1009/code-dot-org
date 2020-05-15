@@ -1,4 +1,5 @@
 var BlocklyWrapper = function(blocklyInstance) {
+  this.blocklyVersion = 'GOOGLE';
   this.blockly_ = blocklyInstance;
   this.Msg = blocklyInstance.Msg;
   this.inject = this.blockly_.inject;
@@ -13,16 +14,29 @@ var BlocklyWrapper = function(blocklyInstance) {
   this.blockly_.Workspace.prototype.getAllUsedBlocks = this.blockly_.Workspace.prototype.getAllBlocks; // TODO
   this.blockly_.Workspace.prototype.getToolboxWidth = () =>
     this.blockly_.getMainWorkspace().getMetrics().toolboxWidth;
-  this.SVG_NS = this.blockly_.SVG_NS;
+  this.blockly_.Workspace.prototype.isReadOnly = () => false; // TODO
+  this.blockly_.Workspace.prototype.setEnableToolbox = () => {}; // TODO
+  this.SVG_NS = this.blockly_.utils.dom.SVG_NS;
   this.BlockSvg = this.blockly_.BlockSvg;
   this.Block = this.blockly_.Block;
+  this.Block.prototype.getTitleValue = this.Block.prototype.getFieldValue;
   this.Block.prototype.setHSV = function(h, s, v) {
     this.setColour(h);
+  };
+  this.Block.prototype.getTitles = function() {
+    let fields = [];
+    this.inputList.forEach(input => {
+      input.fieldRow.forEach(field => {
+        fields.push(field);
+      });
+    });
+    return fields;
   };
 
   this.Blocks = this.blockly_.Blocks;
   this.Xml = this.blockly_.Xml;
   this.Xml.domToBlockSpace = this.Xml.domToWorkspace;
+  this.Xml.blockSpaceToDom = this.Xml.workspaceToDom;
 
   this.BlockSpace = {};
   this.BlockSpace.EVENTS = {};
@@ -33,7 +47,7 @@ var BlocklyWrapper = function(blocklyInstance) {
   this.BlockSpace.EVENTS.RUN_BUTTON_CLICKED = 'runButtonClicked';
   this.BlockSpace.onMainBlockSpaceCreated = () => {}; // TODO
 
-  this.findEmptyContainerBlock = this.blockly_.findEmptyContainerBlock;
+  this.findEmptyContainerBlock = () => {}; // TODO
   this.getReadOnly = () => this.blockly_.readOnly;
   this.setReadOnly = readOnly => (this.blockly_.readOnly = readOnly);
 
