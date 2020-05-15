@@ -7,20 +7,38 @@ var BlocklyWrapper = function(blocklyInstance) {
   this.setAssetUrl = assetUrlFn => (this.blockly_.assetUrl = assetUrlFn);
 
   // Blockspace
-  this.getMainBlockSpace = () => this.blockly_.mainBlockSpace;
-  this.getMainBlockSpaceEditor = () => this.blockly_.mainBlockSpaceEditor;
+  this.getMainBlockSpace = () => this.blockly_.mainWorkspace;
+  this.getMainBlockSpaceEditor = () => this.blockly_.mainWorkspace;
+  this.blockly_.Workspace.prototype.addUnusedBlocksHelpListener = () => {}; // TODO
+  this.blockly_.Workspace.prototype.getAllUsedBlocks = this.blockly_.Workspace.prototype.getAllBlocks; // TODO
+  this.blockly_.Workspace.prototype.getToolboxWidth = () =>
+    this.blockly_.getMainWorkspace().getMetrics().toolboxWidth;
   this.SVG_NS = this.blockly_.SVG_NS;
   this.BlockSvg = this.blockly_.BlockSvg;
   this.Block = this.blockly_.Block;
+  this.Block.prototype.setHSV = function(h, s, v) {
+    this.setColour(h);
+  };
+
   this.Blocks = this.blockly_.Blocks;
   this.Xml = this.blockly_.Xml;
-  this.BlockSpace = this.blockly_.BlockSpace;
+  this.Xml.domToBlockSpace = this.Xml.domToWorkspace;
+
+  this.BlockSpace = {};
+  this.BlockSpace.EVENTS = {};
+  this.BlockSpace.EVENTS.MAIN_BLOCK_SPACE_CREATED = 'mainBlockSpaceCreated';
+  this.BlockSpace.EVENTS.EVENT_BLOCKS_IMPORTED = 'blocksImported';
+  this.BlockSpace.EVENTS.BLOCK_SPACE_CHANGE = 'blockSpaceChange';
+  this.BlockSpace.EVENTS.BLOCK_SPACE_SCROLLED = 'blockSpaceScrolled';
+  this.BlockSpace.EVENTS.RUN_BUTTON_CLICKED = 'runButtonClicked';
+  this.BlockSpace.onMainBlockSpaceCreated = () => {}; // TODO
+
   this.findEmptyContainerBlock = this.blockly_.findEmptyContainerBlock;
   this.getReadOnly = () => this.blockly_.readOnly;
   this.setReadOnly = readOnly => (this.blockly_.readOnly = readOnly);
 
   // Code Generation
-  this.getGenerator = () => this.Generator.get('JavaScript');
+  this.getGenerator = () => this.JavaScript;
   this.Procedures = this.blockly_.Procedures;
   this.Names = this.blockly_.Names;
   this.Generator = this.blockly_.Generator;
@@ -28,6 +46,9 @@ var BlocklyWrapper = function(blocklyInstance) {
   this.JavaScript = this.blockly_.JavaScript;
 
   // Fields
+  this.blockly_.Input.prototype.appendTitle = function(a, b) {
+    return this.appendField(a, b);
+  };
   this.BlockFieldHelper = this.blockly_.BlockFieldHelper;
   this.BlockValueType = this.blockly_.BlockValueType;
   this.FieldAngleDropdown = this.blockly_.FieldAngleDropdown;
