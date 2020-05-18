@@ -34,8 +34,57 @@ Resources:
               Bucket: 'arn:aws:s3:::cdo-secondary-v3-test'
               EncryptionConfiguration:
                 ReplicaKmsKeyID: !Sub "arn:aws:kms:us-east-1:${SecondaryAccount}:alias/s3-backup"
+            Id: 'Backup Project Data to Secondary Account'
             Prefix: ''
             SourceSelectionCriteria:
               SseKmsEncryptedObjects:
                 Status: Enabled
             Status: Enabled
+    ReplicationRole:
+      Type: AWS::IAM::Role
+      Properties:
+        # TODO: (suresh) Use `Cdo::CloudFormation::StackTemplate.service_role` to generate this.
+        AssumeRolePolicyDocument:
+          Statement:
+            - Effect: Allow
+              Principal:
+                Service:
+                  - s3.amazonaws.com
+              Action:
+                - 'sts:AssumeRole'
+        RoleName: 'backup-s3-objects-to-secondary-account'
+        Description: 'Allows S3 to call services to backup Objects to Secondary Account.'
+        Policies:
+          - PolicyName: 'backup-s3-objects-to-secondary-account'
+            PolicyDocument:
+              Statement:
+                - Effect: Allow
+                  Action:
+                    - 's3:GetReplicationConfiguration'
+                    - 's3:ListBucket'
+                  Resource: 'arn:aws:s3:::cdo-v3-*'
+                - Effect: Allow
+                  Action:
+                    - 's3:GetObjectVersion'
+                    - 's3:GetObjectVersionAcl'
+                    - 's3:GetObjectVersionTagging'
+                    - 's3:GetObjectVersionForReplication'
+                  Resource: 'arn:aws:s3:::cdo-v3-*/*'
+                # Decrypt Objects in source bucket
+                - Effect: Allow
+                  Condition:
+                    StringLike:
+                      - 'kms:ViaService': 's3.us-east-1.amazonaws.com'
+                      - 'kms:EncryptionContext:aws:s3:arn': 'arn:aws:s3:::cdo-v3-*/*'
+                  Action:
+                    - 'kms:Decrypt'
+                  Resource: !Sub "arn:aws:kms:us-east-1:${PrimaryAccount}:alias/aws/s3"
+                # Encrypt Objects with Key in Target Account
+                - Effect: Allow
+                  Condition:
+                    StringLike:
+                      - 'kms:ViaService': 's3.us-east-1.amazonaws.com'
+                      - 'kms:EncryptionContext:aws:s3:arn': 'arn:aws:s3:::cdo-secondary-v3-*/*'
+                  Action:
+                    - 'kms:Decrypt'
+                  Resource: !Sub "arn:aws:kms:us-east-1:${SecondaryAccount}:alias/s3-backup"
