@@ -9,6 +9,7 @@ import url from 'url';
 import {Provider} from 'react-redux';
 import trackEvent from './util/trackEvent';
 import cookies from 'js-cookie';
+import queryString from 'query-string';
 
 // Make sure polyfills are available in all code studio apps and level tests.
 import './polyfills';
@@ -1036,7 +1037,8 @@ StudioApp.prototype.inject = function(div, options) {
     rtl: getStore().getState().isRtl,
     toolbox: document.getElementById('toolbox'),
     trashcan: true,
-    customSimpleDialog: this.feedback_.showSimpleDialog.bind(this.feedback_)
+    customSimpleDialog: this.feedback_.showSimpleDialog.bind(this.feedback_),
+    renderer: queryString.parse(window.location.search).renderer || 'thrasos'
   };
   Blockly.inject(div, utils.extend(defaults, options), Sounds.getSingleton());
 };
