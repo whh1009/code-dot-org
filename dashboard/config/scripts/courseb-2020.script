@@ -1,4 +1,4 @@
-tts true
+hidden false
 hideable_stages true
 teacher_resources [["lessonPlans", "https://curriculum.code.org/csf-20/courseb/"], ["teacherForum", "https://forum.code.org/c/csf"], ["vocabulary", "https://curriculum.code.org/csf-20/courseb/vocab/"], ["standardMappings", "https://curriculum.code.org/csf-20/courseb/standards/"], ["curriculumGuide", "https://docs.google.com/document/d/1hstUHTGIdvtPP0TDdEfQeXG3zQ0q6ys237n2BY9CQmg/preview"]]
 lesson_extras_available true
@@ -9,6 +9,7 @@ project_widget_types ["playlab_k1", "artist_k1"]
 family_name 'courseb'
 version_year '2020'
 curriculum_umbrella 'CSF'
+tts true
 
 lesson_group 'csf_digcit', display_name: 'Digital Citizenship'
 stage 'Digital Trails'
@@ -130,3 +131,4 @@ level 'courseB_playlab_events7_2020', progression: 'Mini-Project: Royal Battle'
 level 'courseB_playlab_eventsFP_2020', progression: 'Free Play'
 bonus 'courseB_playlab_events_challenge1_2020'
 bonus 'courseB_playlab_events_challenge2_2020'
+

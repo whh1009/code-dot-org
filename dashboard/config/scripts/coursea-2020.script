@@ -1,4 +1,4 @@
-tts true
+hidden false
 hideable_stages true
 teacher_resources [["lessonPlans", "https://curriculum.code.org/csf-20/coursea/"], ["teacherForum", "http://forum.code.org/c/csf"], ["vocabulary", "https://curriculum.code.org/csf-20/coursea/vocab/"], ["standardMappings", "https://curriculum.code.org/csf-20/coursea/standards/"], ["curriculumGuide", "https://docs.google.com/document/d/1hstUHTGIdvtPP0TDdEfQeXG3zQ0q6ys237n2BY9CQmg/preview"]]
 lesson_extras_available true
@@ -9,6 +9,7 @@ project_widget_types ["playlab_k1", "artist_k1"]
 family_name 'coursea'
 version_year '2020'
 curriculum_umbrella 'CSF'
+tts true
 
 lesson_group 'csf_digcit', display_name: 'Digital Citizenship'
 stage 'Safety in My Online Neighborhood'
@@ -164,3 +165,4 @@ level 'courseA_playLab_events6_2020', progression: 'Mini-project: Jorge the Dog'
 level 'courseA_playLab_events7_2020', progression: 'Mini-project: Jorge the Dog'
 bonus 'courseA_playlab_events_challenge2_2020'
 bonus 'courseA_playlab_events_challenge1_2020'
+

@@ -1,4 +1,4 @@
-tts true
+hidden false
 hideable_stages true
 teacher_resources [["lessonPlans", "https://curriculum.code.org/csf-20/coursed/"], ["teacherForum", "https://forum.code.org/c/csf"], ["vocabulary", "https://curriculum.code.org/csf-20/coursed/vocab/"], ["standardMappings", "https://curriculum.code.org/csf-20/coursed/standards/"], ["curriculumGuide", "https://docs.google.com/document/d/1hstUHTGIdvtPP0TDdEfQeXG3zQ0q6ys237n2BY9CQmg/preview"]]
 lesson_extras_available true
@@ -7,6 +7,7 @@ curriculum_path 'https://curriculum.code.org/{LOCALE}/csf-20/coursed/{LESSON}'
 family_name 'coursed'
 version_year '2020'
 curriculum_umbrella 'CSF'
+tts true
 
 lesson_group 'csf_sequencing', display_name: 'Sequencing'
 stage 'Algorithms: Graph Paper Programming'
@@ -226,3 +227,4 @@ level 'csf_be_a_super_digital_citizen'
 lesson_group 'end_of_course_project', display_name: 'End of Course Project'
 stage 'End of Course Project'
 level 'courseD_EOC_2020', progression: 'Create your project'
+

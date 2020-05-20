@@ -1,3 +1,4 @@
+hidden false
 hideable_stages true
 teacher_resources [["lessonPlans", "https://curriculum.code.org/csf-20/coursef/"], ["teacherForum", "https://forum.code.org/c/csf"], ["vocabulary", "https://curriculum.code.org/csf-20/coursef/vocab/"], ["standardMappings", "https://curriculum.code.org/csf-20/coursef/standards/"], ["curriculumGuide", "https://docs.google.com/document/d/1hstUHTGIdvtPP0TDdEfQeXG3zQ0q6ys237n2BY9CQmg/preview"]]
 lesson_extras_available true
@@ -194,3 +195,4 @@ lesson_group 'end_of_course_project', display_name: 'End of Course Project'
 stage 'End of Course Project'
 level 'courseF_project_exemplars_2019_2020', progression: 'Example projects'
 level 'courseF_EOC_2020', progression: 'Create your project'
+
