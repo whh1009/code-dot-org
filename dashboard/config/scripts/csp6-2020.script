@@ -1,11 +1,10 @@
+hidden false
 login_required true
 hideable_stages true
 student_detail_progress_view true
 has_verified_resources true
 has_lesson_plan true
 curriculum_path 'https://curriculum.code.org/{LOCALE}/cspilot/unit6/{LESSON}'
-pilot_experiment 'csp-2020-access'
-project_sharing true
 curriculum_umbrella 'CSP'
 
 lesson_group 'csp_unit6_2020', display_name: 'Unit 6: Algorithms'
@@ -39,3 +38,4 @@ level 'U6 L05 Speedup Forever', progression: 'Check For Understanding', assessme
 stage 'Lesson 6: Assessment Day', lockable: true
 level 'CSP U6L6 SFLP 20-21', progression: 'Lesson Overview'
 level 'CSP Unit 6 AP-Style Assessment _2020', progression: 'Unit 6 Exam', assessment: true
+

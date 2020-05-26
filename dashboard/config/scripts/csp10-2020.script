@@ -1,11 +1,10 @@
+hidden false
 login_required true
 hideable_stages true
 student_detail_progress_view true
 has_verified_resources true
 has_lesson_plan true
 curriculum_path 'https://curriculum.code.org/{LOCALE}/cspilot/unit10/{LESSON}'
-pilot_experiment 'csp-2020-access'
-project_sharing true
 curriculum_umbrella 'CSP'
 
 lesson_group 'csp_unit10_2020', display_name: 'Unit 10: Cybersecurity and Global Impacts'
@@ -63,3 +62,4 @@ level 'CSP U10L13 SFLP 20-21', progression: 'Lesson Overview'
 stage 'Lesson 14: Unit Assessment Day'
 level 'CSP U10L14 SFLP 20-21', progression: 'Lesson Overview'
 level 'CSP 20-21 Unit 10 Assessment', progression: 'Unit 10 Exam', assessment: true
+

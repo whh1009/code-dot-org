@@ -1,10 +1,10 @@
+hidden false
 login_required true
 hideable_stages true
 student_detail_progress_view true
 has_verified_resources true
 has_lesson_plan true
 curriculum_path 'https://curriculum.code.org/{LOCALE}/cspilot/unit1/{LESSON}'
-pilot_experiment 'csp-2020-access'
 curriculum_umbrella 'CSP'
 
 lesson_group 'csp_unit1_2020', display_name: 'Unit 1: Digital Information'
@@ -89,3 +89,4 @@ level 'U1L14 CSP CFU digital information', progression: 'Check For Understanding
 
 stage 'Lesson 14: Assessment Day', lockable: true
 level 'CSP Unit 1 AP-Style Assessment _2020', progression: 'Unit 1 Exam', assessment: true
+

@@ -1,11 +1,10 @@
+hidden false
 login_required true
 hideable_stages true
 student_detail_progress_view true
 has_verified_resources true
 has_lesson_plan true
 curriculum_path 'https://curriculum.code.org/{LOCALE}/cspilot/unit3/{LESSON}'
-pilot_experiment 'csp-2020-access'
-project_sharing true
 curriculum_umbrella 'CSP'
 
 lesson_group 'csp_unit3_2020', display_name: 'Unit 3: Intro to App Design'
@@ -83,3 +82,4 @@ level 'CSP U3 L10 Submit App', progression: 'Submit Your App', assessment: true
 
 stage 'Lesson 11: Assessment Day', lockable: true
 level 'CSP Unit 3 MC Assessment _2020', progression: 'Unit 3 Exam', assessment: true
+

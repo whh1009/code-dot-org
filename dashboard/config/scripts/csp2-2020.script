@@ -1,11 +1,10 @@
+hidden false
 login_required true
 hideable_stages true
 student_detail_progress_view true
 has_verified_resources true
 has_lesson_plan true
 curriculum_path 'https://curriculum.code.org/{LOCALE}/cspilot/unit2/{LESSON}'
-pilot_experiment 'csp-2020-access'
-project_sharing true
 curriculum_umbrella 'CSP'
 
 lesson_group 'csp_unit2_2020', display_name: 'Unit 2: The Internet'
@@ -50,3 +49,4 @@ level 'CSP U2L9 SFLP 20-21', progression: 'Lesson Overview'
 
 stage 'Lesson 9: Assessment Day', lockable: true
 level 'CSP Unit 2 MC Assessment _2020', progression: 'Unit 2 Exam', assessment: true
+

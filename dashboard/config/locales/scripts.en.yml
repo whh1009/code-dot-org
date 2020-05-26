@@ -17054,11 +17054,15 @@ en:
               name: Create PT - Make a Plan
             Create PT - Complete the Task:
               name: Create PT - Complete the Task
+            new lesson:
+              name: new lesson
           title: CSP Unit 8 - Create PT Prep ('20-'21)
           description_audience: ''
           description_short: Practice and complete the Create Performance Task (PT).
           description: "In this unit prepare for, and do the AP Create Performance Task. Each lesson contains links to helpful documents and activities to help you understand the task and develop a plan for completing it.\r\n\r\n"
-          lesson_groups: {}
+          lesson_groups:
+            lesson group:
+              display_name: display name
         csp9-2020:
           stages:
             new stage:
