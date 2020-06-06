@@ -46,6 +46,7 @@ class Script < ActiveRecord::Base
   belongs_to :user
   has_many :course_scripts
   has_many :courses, through: :course_scripts
+  has_one :curriculum_chunk, as: :content
 
   scope :with_associated_models, -> do
     includes(

@@ -21,6 +21,8 @@ class Course < ApplicationRecord
   has_many :default_scripts, through: :default_course_scripts, source: :script
   has_many :alternate_course_scripts, -> {where.not(experiment_name: nil)}, class_name: 'CourseScript', dependent: :destroy
 
+  has_one :curriculum_chunk, as: :content
+
   after_save :write_serialization
 
   scope :with_associated_models, -> {includes([:plc_course, :default_course_scripts])}

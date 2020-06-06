@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200602014720) do
+ActiveRecord::Schema.define(version: 20200605164839) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.integer  "user_id"
@@ -350,6 +350,17 @@ ActiveRecord::Schema.define(version: 20200602014720) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.index ["name"], name: "index_courses_on_name", using: :btree
+  end
+
+  create_table "curriculum_chunks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.string   "pilot_experiment"
+    t.boolean  "assignable",       default: false, null: false
+    t.boolean  "stable",           default: false, null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "content_type"
+    t.integer  "content_id"
+    t.index ["content_type", "content_id"], name: "index_curriculum_chunks_on_content_type_and_content_id", using: :btree
   end
 
   create_table "donor_schools", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
