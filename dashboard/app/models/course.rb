@@ -80,11 +80,17 @@ class Course < ApplicationRecord
   def self.load_from_path(path)
     serialization = File.read(path)
     hash = JSON.parse(serialization)
+    puts hash['name']
 
-    course = Course.find_or_create_by!(name: hash['name'])
-    course.update_scripts(hash['script_names'], hash['alternate_scripts'])
-    course.properties = hash['properties']
-    course.save!
+    transaction do
+      course = Course.find_or_create_by!(name: hash['name'])
+      course.update_scripts(hash['script_names'], hash['alternate_scripts'])
+      course.properties = hash['properties']
+      course.save!
+
+      chunk = CurriculumChunk.new(content: course)
+      chunk.save!
+    end
   rescue Exception => e
     # print filename for better debugging
     new_e = Exception.new("in course: #{path}: #{e.message}")
