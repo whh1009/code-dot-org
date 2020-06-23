@@ -13,6 +13,8 @@
 #  index_contact_rollups_processed_on_email  (email) UNIQUE
 #
 
+require 'state_abbr'
+
 class ContactRollupsProcessed < ApplicationRecord
   self.table_name = 'contact_rollups_processed'
 
@@ -46,6 +48,7 @@ class ContactRollupsProcessed < ApplicationRecord
 
       processed_contact_data = {}
       processed_contact_data.merge!(extract_opt_in(contact_data))
+      processed_contact_data.merge!(extract_state(contact_data))
       processed_contact_data.merge!(extract_updated_at(contact_data))
       batch << {email: contact['email'], data: processed_contact_data}
       next if batch.size < batch_size
@@ -148,6 +151,24 @@ class ContactRollupsProcessed < ApplicationRecord
     return values.nil? ? {} : {opt_in: values.first}
   end
 
+  def self.extract_state(contact_data)
+    state_from_school = extract_field(contact_data, 'dashboard.schools', 'state')
+    puts "State from school #{state_from_school}"
+    #return {state: state_from_school.first} unless state_from_school.nil?
+
+    state_from_user_geos = extract_field(contact_data, 'dashboard.users', 'state')
+    puts "State from user geos #{state_from_user_geos}"
+    #return {state: state_from_user_geos.first} unless state_from_user_geos.nil?
+
+    states_from_form_geos = extract_field_most_recent(contact_data, 'pegasus.form_geos', 'state')
+    puts "State from form geos #{states_from_form_geos}"
+    #return {state: states_from_form_geos.first} unless states_from_form_geos.nil?
+
+    return {}
+
+    # Convert state abbreviations to full state names
+  end
+
   # Extracts values of a field in a source table from contact data.
   #
   # @param contact_data [Hash] compiled data from multiple source tables.
@@ -159,6 +180,16 @@ class ContactRollupsProcessed < ApplicationRecord
   def self.extract_field(contact_data, table, field)
     return nil unless contact_data.key?(table) && contact_data[table].key?(field)
     contact_data.dig(table, field).map {|item| item['value']}
+  end
+
+  def self.extract_field_most_recent(contact_data, table, field)
+    return nil unless contact_data.key?(table) && contact_data[table].key?(field)
+
+    last_data_updated_at = contact_data.dig(table, 'last_data_updated_at')
+    contact_data.
+      dig(table, field).
+      select {|item| item['updated_at'] == last_data_updated_at}.
+      map {|item| item['value']}
   end
 
   # Extracts the latest data_updated_at value.
