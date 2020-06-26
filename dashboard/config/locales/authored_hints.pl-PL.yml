@@ -325,7 +325,13 @@ pl-PL:
         4-5_Artist_8_a: "Dłuższe boki mają po 240 pikseli.  Oznacza to, że 2 krótsze
           boki mają razem: \n\n\\*\\* 800-240 - 240 = 320 \\*\\*\n\nIle to \\*\\*
           320/2 \\*\\*? "
+        4-5_Artist_8_b: "Ten obrazek może być zrobiony na 2 metody!  \n\n-   Narysuj
+          dwa prostokąty o długości **120** i wysokości **160**, z pokrywającym się
+          bokiem\n\n-   Narysuj jeden prostokąt o długości **240** i wysokości **160**.
+          Potem dodaj linię po środku."
       4-5 Artist 9:
+        4-5_Artist_9_a: 'Jeżeli trójkąt jest równoboczny, to wszystkie boki i wszystkie
+          kąty są takie same.  '
         4-5_Artist_9_b: Trzeba będzie narysować trzy trójkąty tej samej wielkości.
           Nie zapomnij, aby skoczyć na nową pozycję, po narysowaniu każdego z nich.
       4-5 Artist Assessment 1:
@@ -1117,6 +1123,24 @@ pl-PL:
         NEW_Course_4_Bee_For_Loops_8_a: "Jeśli pętla jest w trakcie iteracji, za każdym
           razem do zmiennej licznika dodawany jest przyrost. \n\nCo musisz dodać do
           każdej wartości aby otrzymać kolejną wartość?"
+      OPD-K5-events-2:
+        courseC_flappy_events1_a: "![](https://images.code.org/e5a08f29a9c4e306de5553dafca9fb5d-image-1467913845542.gif)"
+      OPD-K5-events-3:
+        courseC_flappy_events2_a: 'Blok, który musisz dodać nazywa się `set speed`. '
+        courseC_flappy_events2_b: Połącz blok `set speed` z blokiem `when run`, aby
+          rozwiązać zagadkę.
+      OPD-K5-events-4:
+        courseC_flappy_events3_a: Jeśli coś nie działa prawidłowo, upewnij się, że
+          bloki połączone są z odpowiednimi zdarzeniami w przestrzeni roboczej.
+      OPD-K5-events-6:
+        courseC_flappy_events5_a: Musisz użyć bloku `score a point` aby przejść ten
+          poziom.
+      OPD-K5-variables-1:
+        grade5_artist_variables_triangles1_a: Musisz pamiętać, że aby utworzyć wewnętrzny
+          kąt o 60 stopniach w tym trójkącie artysta musi się obrócić o 120 stopni.
+        grade5_artist_variables_triangles1_b: Aby skrócić swój kod użyj pętli 'powtórz'.
+        grade5_artist_variables_triangles1_c: Wewnątrz pętli musisz pójść do przodu
+          50 pikseli, a następnie skręcić w lewo o 120 stopni.
       Overworld Avoid Monsters:
         mc_8_a: Do wyboru jest kilka ścieżek. Która jest najkrótsza?
         mc_8_b: Wykorzystaj pętlę `repeat` aby uprościć swój kod.
@@ -1337,6 +1361,11 @@ pl-PL:
           ostrożny, bym obrócił się w dobrą stronę!_
         courseC_maze_programming_challenge2_b: Najkrótszym rozwiązaniem jest użycie
           5 bloków, ale wykorzystuje blok `repeat`!
+      course3_artist_functions_challenge1:
+        courseE_artist_functions_challenge1_a: Jeśli wywołasz funkcję jeszcze jeden
+          raz, możesz stworzyć ten sam projekt w ostatnim rogu. Możesz też "skoczyć
+          do" innych pozycji albo zmienić wszystko całkowicie w jaki tylko chcesz
+          sposób!
       course3_bee_functions_challenge1:
         courseE_bee_functions_challenge1_a: "Jeśli łamigłówka wydaje Ci się za trudna,
           spróbuj budować funkcje po kawałku.  \n\nDodaj bloki, a następnie wypróbuj
@@ -1348,6 +1377,9 @@ pl-PL:
       course3_farmer_condLoops_challenge1:
         courseD_farmer_condLoops_challenge1_a: Przycisk `STEP` może być bardzo pomocny
           w tym wyzwaniu.
+      course3_farmer_condLoops_challenge2:
+        courseD_farmer_condLoops_challenge2_a: 'Ilość każdego warzywa w różnych polach
+          zmienia się. Użyj do nich pętli "dopóki". '
       course3_maze_debugging_challenge1:
         courseC_maze_debugging_challenge1_b: Ścieżka Scrata jest w kształcie prostokąta!
           Musi obrócić się tak samo za każdym razem!
@@ -1564,6 +1596,8 @@ pl-PL:
           poszło nie tak? Który blok możesz usunąć? Jak możesz to naprawić?
       courseA_maze_seq5:
         courseA_maze_seq5_b: Będziesz potrzebował 2 bloków, wskazujących w 2 kierunkach.
+      courseA_maze_seq5_copy:
+        courseA_maze_seq5_b: Będziesz potrzebował 2 bloków, wskazujących w 2 kierunkach.
       courseA_maze_seq6:
         courseA_maze_seq6_b: Jeśli utkniesz, spróbuj rozwiązać zagadnę w 2 etapach,
           pierwsza część przed zakrętem, druga po zakręcie.
@@ -1571,6 +1605,9 @@ pl-PL:
         courseA_maze_seq6_b: Jeśli utkniesz, spróbuj rozwiązać zagadnę w 2 etapach,
           pierwsza część przed zakrętem, druga po zakręcie.
       courseA_maze_seq6_2019:
+        courseA_maze_seq6_b: Jeśli utkniesz, spróbuj rozwiązać zagadnę w 2 etapach,
+          pierwsza część przed zakrętem, druga po zakręcie.
+      courseA_maze_seq6_copy:
         courseA_maze_seq6_b: Jeśli utkniesz, spróbuj rozwiązać zagadnę w 2 etapach,
           pierwsza część przed zakrętem, druga po zakręcie.
       courseA_maze_seq9:
@@ -2246,6 +2283,9 @@ pl-PL:
       courseC_starWars_loops2_2019:
         courseC_starWars_loops2_a: Aby powtórzyć kod, przeciągnij pętlę `repeat`,
           następnie umieść tam blok, który chcesz aby się powtarzał.
+      courseC_starWars_loops2_copy:
+        courseC_starWars_loops2_a: Aby powtórzyć kod, przeciągnij pętlę `repeat`,
+          następnie umieść tam blok, który chcesz aby się powtarzał.
       courseC_starWars_loops4:
         courseC_starWars_loops4_b: 'Każda pętla `repeat` ma tylko jedną komendę w
           środku: `move forward`.'
@@ -2255,7 +2295,13 @@ pl-PL:
       courseC_starWars_loops4_2019:
         courseC_starWars_loops4_b: 'Każda pętla `repeat` ma tylko jedną komendę w
           środku: `move forward`.'
+      courseC_starWars_loops4_copy:
+        courseC_starWars_loops4_b: 'Każda pętla `repeat` ma tylko jedną komendę w
+          środku: `move forward`.'
       courseC_starWars_loops5:
+        courseC_starWars_loops5_b: Aby iść na dół, musisz się obrócić i dalej isś
+          prosto.
+      courseC_starWars_loops5_copy:
         courseC_starWars_loops5_b: Aby iść na dół, musisz się obrócić i dalej isś
           prosto.
       courseC_starWars_loops7:
@@ -2269,6 +2315,11 @@ pl-PL:
         courseC_starWars_loops7_c: Nie bój się popełniać błędów! Uruchom kod aby zobaczyć
           co się dzieje, nawet jeśli nie rozwiązałeś jeszcze zagadki.
       courseC_starWars_loops7_2019:
+        courseC_starWars_loops7_b: Jeśli masz problem z tą zagadką, spróbuj zapisać
+          wszystkie ruchy na kartce papieru i poszukać wzorca.
+        courseC_starWars_loops7_c: Nie bój się popełniać błędów! Uruchom kod aby zobaczyć
+          co się dzieje, nawet jeśli nie rozwiązałeś jeszcze zagadki.
+      courseC_starWars_loops7_copy:
         courseC_starWars_loops7_b: Jeśli masz problem z tą zagadką, spróbuj zapisać
           wszystkie ruchy na kartce papieru i poszukać wzorca.
         courseC_starWars_loops7_c: Nie bój się popełniać błędów! Uruchom kod aby zobaczyć
@@ -2331,12 +2382,24 @@ pl-PL:
           path ahead`, aby przejść przez ten labirynt.
         courseD_bee_conditionals2_hintVid2: Obejrzyj ten film, aby otrzymać pomoc
           w rozwiązaniu tej zagadki.
+      courseD_bee_conditionals2_copy:
+        courseD_bee_conditionals2_hintVid1: Potrzebujesz pomocy, aby zacząć? Obejrzyj
+          film!
+        courseD_bee_conditionals2_b: Możesz wykorzystać pętlę `repeat` albo `while
+          path ahead`, aby przejść przez ten labirynt.
+        courseD_bee_conditionals2_hintVid2: Obejrzyj ten film, aby otrzymać pomoc
+          w rozwiązaniu tej zagadki.
       courseD_bee_conditionals3:
         courseD_bee_conditionals3_hintVid1: Potrzebujesz pomocy, aby zacząć? Obejrzyj
           film!
         courseD_bee_conditionals3_hintVid2: Obejrzyj ten film, aby otrzymać pomoc
           w rozwiązaniu tej zagadki.
       courseD_bee_conditionals3_2018:
+        courseD_bee_conditionals3_hintVid1: Potrzebujesz pomocy, aby zacząć? Obejrzyj
+          film!
+        courseD_bee_conditionals3_hintVid2: Obejrzyj ten film, aby otrzymać pomoc
+          w rozwiązaniu tej zagadki.
+      courseD_bee_conditionals3_copy:
         courseD_bee_conditionals3_hintVid1: Potrzebujesz pomocy, aby zacząć? Obejrzyj
           film!
         courseD_bee_conditionals3_hintVid2: Obejrzyj ten film, aby otrzymać pomoc
@@ -2351,12 +2414,22 @@ pl-PL:
           film!
         courseD_bee_conditionals4_hintVid2: Obejrzyj ten film, aby otrzymać pomoc
           w rozwiązaniu tej zagadki.
+      courseD_bee_conditionals4_copy:
+        courseD_bee_conditionals4_hintVid1: Potrzebujesz pomocy, aby zacząć? Obejrzyj
+          film!
+        courseD_bee_conditionals4_hintVid2: Obejrzyj ten film, aby otrzymać pomoc
+          w rozwiązaniu tej zagadki.
       courseD_bee_conditionals5:
         courseD_bee_conditionals5_hintVid1: Potrzebujesz pomocy, aby zacząć? Obejrzyj
           film!
         courseD_bee_conditionals5_hintVid2: Obejrzyj ten film, aby otrzymać pomoc
           w rozwiązaniu tej zagadki.
       courseD_bee_conditionals5_2018:
+        courseD_bee_conditionals5_hintVid1: Potrzebujesz pomocy, aby zacząć? Obejrzyj
+          film!
+        courseD_bee_conditionals5_hintVid2: Obejrzyj ten film, aby otrzymać pomoc
+          w rozwiązaniu tej zagadki.
+      courseD_bee_conditionals5_copy:
         courseD_bee_conditionals5_hintVid1: Potrzebujesz pomocy, aby zacząć? Obejrzyj
           film!
         courseD_bee_conditionals5_hintVid2: Obejrzyj ten film, aby otrzymać pomoc
@@ -2492,6 +2565,10 @@ pl-PL:
         courseE_artist_functions1_a: Kwadraty mają boki o długości 100 pikseli, czyli
           musisz przesunąć się do przodu o 175 pikseli zanim narysujesz drugi kwadrat.
         courseE_artist_functions1_b: To dobrze rysować nakładające się linie do okularów.
+      courseE_artist_functions1_copy:
+        courseE_artist_functions1_a: Kwadraty mają boki o długości 100 pikseli, czyli
+          musisz przesunąć się do przodu o 175 pikseli zanim narysujesz drugi kwadrat.
+        courseE_artist_functions1_b: To dobrze rysować nakładające się linie do okularów.
       courseE_artist_functions2:
         courseD_artist_functions2_a: "Twój program powinien:\n\n-   uzyć funkcji,
           \n-   przesunąć się do przodu o 100 + 75 pikseli\n-   ponownie użyć funkcji"
@@ -2499,6 +2576,9 @@ pl-PL:
         courseD_artist_functions2_a: "Twój program powinien:\n\n-   uzyć funkcji,
           \n-   przesunąć się do przodu o 100 + 75 pikseli\n-   ponownie użyć funkcji"
       courseE_artist_functions2_2019:
+        courseD_artist_functions2_a: "Twój program powinien:\n\n-   uzyć funkcji,
+          \n-   przesunąć się do przodu o 100 + 75 pikseli\n-   ponownie użyć funkcji"
+      courseE_artist_functions2_copy:
         courseD_artist_functions2_a: "Twój program powinien:\n\n-   uzyć funkcji,
           \n-   przesunąć się do przodu o 100 + 75 pikseli\n-   ponownie użyć funkcji"
       courseE_artist_functions8:

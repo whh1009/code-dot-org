@@ -369,6 +369,9 @@ hu-HU:
       courseD_bee_conditionals2_2019:
         4_5_Bee_Conditionals_2_1: Emlékezz, ellenőrizni kell hogy van-e virág minden
           felhőben. A lépeket nem kell ellenőrizned.
+      courseD_bee_conditionals2_copy:
+        4_5_Bee_Conditionals_2_1: Emlékezz, ellenőrizni kell hogy van-e virág minden
+          felhőben. A lépeket nem kell ellenőrizned.
       courseD_bee_debugging_challenge1:
         courseD_bee_debugging_challenge1_callout1: Használd ezt a parancsot, hogy
           a méh visszafelé mozogjon.
@@ -484,6 +487,7 @@ hu-HU:
       frozen freeplay:
         snowflake_dropdown: Használd ezt a legördülő menüt különféle hópelyhek létrehozásához!
       frozen line:
+        run: Nyomd meg a „Futtatás” gombot, hogy kipróbáld a programodat!
         move_elsa_forward: Húzd a "menj előre" blokkot és illeszd azt a "futtatáskor"
           blokk alá ahhoz, hogy Elsa előre lépjen
       frozen perpendicular:
