@@ -30,11 +30,9 @@ module Cdo
       @scheduled_task = nil
       @buffer = Batch.new
 
-      @read, @write = UNIXSocket.pair(:DGRAM)
-      @buffer_thread = Thread.new(&method(:buffer_loop))
-
+      @ruby_pid = $$
       if wait_at_exit
-        at_exit {close(wait_at_exit) unless @write.closed?}
+        at_exit {flush!(wait_at_exit)}
       end
     end
 
@@ -51,30 +49,15 @@ module Cdo
     def buffer(event, size = nil)
       size ||= event.is_a?(String) ? event.bytesize : 1
       raise ArgumentError, 'Event exceeds batch size' if size > @batch_size
-      if @buffer_thread.alive?
-        @buffer << Batch::Item.new(event, size, now)
-        schedule_flush
-      else
-        @write << Marshal.dump([event, size])
-      end
-    end
-
-    # Close the buffer, flushing existing buffered events.
-    # @param [Float] timeout seconds to wait for buffered events to finish flushing.
-    def close(timeout = Float::INFINITY)
-      if @buffer_thread.alive?
-        @read.shutdown
-        start = now
-        @buffer_thread.join(timeout)
-        flush!(start - now + timeout)
-      end
-      @write.close
-      @read.close
+      reset_if_forked
+      @buffer << Batch::Item.new(event, size, now)
+      schedule_flush
     end
 
     # Flush existing buffered events.
     # @param [Float] timeout seconds to wait for buffered events to finish flushing.
     def flush!(timeout = Float::INFINITY)
+      reset_if_forked
       start = now
       until (wait = start - now + timeout) < 0 || @buffer.empty?
         wait = nil if wait.infinite?
@@ -86,15 +69,6 @@ module Cdo
 
     def now
       Concurrent.monotonic_time
-    end
-
-    # Buffer events serialized through a socket.
-    # The loop will exit when #shutdown is called on the socket.
-    def buffer_loop
-      len = @read.getsockopt(:SOCKET, :RCVBUF).int
-      until (msg = @read.recv(len)).empty?
-        buffer(Marshal.load(msg))
-      end
     end
 
     # Schedule a flush in the future when the next batch is ready.
@@ -169,6 +143,14 @@ module Cdo
 
       def earliest
         first&.created_at || Float::INFINITY
+      end
+    end
+
+    def reset_if_forked
+      if $$ != @ruby_pid
+        @buffer.clear
+        @scheduled_task&.cancel
+        @ruby_pid = $$
       end
     end
   end

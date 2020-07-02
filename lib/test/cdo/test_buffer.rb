@@ -80,16 +80,27 @@ class BufferTest < Minitest::Test
     end
   end
 
-  def test_fork
-    b = TestBuffer.new(batch_events: 1)
-    b.buffer 'foo'
-    pid = fork do
-      b.buffer 'bar'
+  class StdoutBuffer < Cdo::Buffer
+    def flush(events)
+      events.each(&method(:puts))
     end
-    Process.wait(pid)
-    b.buffer 'foo'
-    b.flush!
-    assert_equal 3, b.flushes
+  end
+
+  def test_fork
+    b = StdoutBuffer.new
+    output, err = capture_subprocess_io do
+      $stdout.sync = true
+      b.buffer 'foo2'
+      pid = fork do
+        b.buffer 'foo1'
+        b.flush!
+      end
+      Process.wait(pid)
+      b.buffer 'foo3'
+      b.flush!
+    end
+    assert_empty err
+    assert_equal "foo1\nfoo2\nfoo3\n", output
   end
 
   def test_min_interval
