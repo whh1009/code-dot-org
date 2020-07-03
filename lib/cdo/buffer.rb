@@ -9,7 +9,7 @@ module Cdo
   #
   # Because events are stored in memory, the buffer can synchronously flush when the Ruby process exits.
   class Buffer
-    MAX_INT = Concurrent::Utility::NativeInteger.MAX_VALUE
+    MAX_INT = Concurrent::Utility::NativeInteger::MAX_VALUE
 
     # @param [Integer] batch_events   Maximum number of events in a buffered batch.
     # @param [Integer] batch_size     Maximum total payload 'size', based on the size parameter passed to #buffer,
