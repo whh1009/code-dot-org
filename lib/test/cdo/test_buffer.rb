@@ -20,14 +20,14 @@ class BufferTest < Minitest::Test
   def test_batch_events
     b = TestBuffer.new(batch_events: 2)
     7.times {b.buffer('foo')}
-    b.close
+    b.flush!
     assert_equal 4, b.flushes
   end
 
   def test_batch_size_given_small_data_should_succeed
     b = TestBuffer.new(batch_size: 4)
     7.times {b.buffer('HI')}
-    b.close
+    b.flush!
     assert_equal 4, b.flushes
   end
 
@@ -60,7 +60,7 @@ class BufferTest < Minitest::Test
   def test_errors_after_close
     b = ReBuffer.new
     b.buffer 'foo'
-    b.close
+    b.flush!
     assert_equal 1, b.flushes
     assert_instance_of Errno::EPIPE, b.errors.first
     assert_raises(IOError) do

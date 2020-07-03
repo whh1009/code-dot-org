@@ -46,7 +46,6 @@ module Cdo
 
     # Add an event to the buffer.
     # @raise [ArgumentError] when the event exceeds batch size
-    # @raise [IOError, Errno::EPIPE] when the Buffer is closed
     # @param [Object] event
     # @param [Integer] size
     def buffer(event, size = nil)
@@ -59,11 +58,10 @@ module Cdo
 
     # Flush existing buffered events.
     # @param [Float] timeout seconds to wait for buffered events to finish flushing.
-    def flush!(timeout = Float::INFINITY)
+    def flush!(timeout = nil)
       reset_if_forked
       start = now
-      until (wait = start - now + timeout) < 0 || @buffer.empty?
-        wait = nil if wait.infinite?
+      until (wait = timeout && start - now + timeout).to_f < 0 || @buffer.empty?
         schedule_flush(true).value(wait)
       end
     end
@@ -79,7 +77,8 @@ module Cdo
     # @return [Concurrent::ScheduledTask]
     def schedule_flush(force = false)
       delay = batch_ready(force)
-      unless @scheduled_task&.reschedule(delay) || @scheduled_task&.pending?
+      # Only one future flush needs to be scheduled, so reschedule any existing pending task.
+      unless @scheduled_task&.reschedule(delay)
         @scheduled_task = Concurrent::ScheduledTask.execute(delay) do
           flush_batch
           schedule_flush
@@ -88,11 +87,12 @@ module Cdo
       @scheduled_task
     end
 
-    # Determine when the next batch of events is ready to be flushed.
+    # Determine when the next batch of existing buffered events will be ready to be flushed.
     # @param [Boolean] force flush batch even if not full.
     # @return [Float] Seconds until the next batch can be flushed.
     def batch_ready(force)
       # Wait until max_interval has passed since the earliest event to flush a non-full batch.
+      # If the buffer is empty, this will return Float::INFINITY.
       wait = @max_interval - (now - @buffer.earliest)
 
       # Flush now if the batch is full or when force flushing.
@@ -100,8 +100,10 @@ module Cdo
         @buffer.size >= @batch_size ||
         @buffer.length >= @batch_events
 
-      # Flush later if last flush was more recent than min_interval.
-      [0.0, wait, @min_interval - (now - @last_flush.to_f)].max.to_f
+      # Wait until min_interval has passed since the last flush.
+      min_delay = @min_interval - (now - @last_flush.to_f)
+
+      [0.0, wait, min_delay].max.to_f
     end
 
     # Flush a batch of events from the buffer.
