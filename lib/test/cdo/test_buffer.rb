@@ -57,29 +57,6 @@ class BufferTest < Minitest::Test
     assert_equal 1, b.flushes
   end
 
-  def test_errors_after_close
-    b = ReBuffer.new
-    b.buffer 'foo'
-    b.flush!
-    assert_equal 1, b.flushes
-    assert_instance_of Errno::EPIPE, b.errors.first
-    assert_raises(IOError) do
-      b.buffer 'foo'
-    end
-  end
-
-  class ReBuffer < TestBuffer
-    attr_reader :errors
-    # Re-buffer events endlessly until an error is raised when the buffer is closed.
-    def flush(events)
-      super
-      events.map(&method(:buffer))
-    rescue => e
-      (@errors ||= []) << e
-      raise
-    end
-  end
-
   class StdoutBuffer < Cdo::Buffer
     def flush(events)
       events.each(&method(:puts))

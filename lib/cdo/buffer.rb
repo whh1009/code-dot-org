@@ -78,7 +78,7 @@ module Cdo
     def schedule_flush(force = false)
       delay = batch_ready(force)
       # Only one future flush needs to be scheduled, so reschedule any existing pending task.
-      unless @scheduled_task&.reschedule(delay)
+      unless @scheduled_task&.reschedule(delay) || @scheduled_task&.pending?
         @scheduled_task = Concurrent::ScheduledTask.execute(delay) do
           flush_batch
           schedule_flush
