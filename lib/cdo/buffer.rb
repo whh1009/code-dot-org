@@ -1,4 +1,5 @@
 require 'concurrent/scheduled_task'
+require 'concurrent/utility/native_integer'
 require 'honeybadger/ruby'
 
 module Cdo
@@ -8,6 +9,8 @@ module Cdo
   #
   # Because events are stored in memory, the buffer can synchronously flush when the Ruby process exits.
   class Buffer
+    MAX_INT = Concurrent::Utility::NativeInteger.MAX_VALUE
+
     # @param [Integer] batch_events   Maximum number of events in a buffered batch.
     # @param [Integer] batch_size     Maximum total payload 'size', based on the size parameter passed to #buffer,
     #                                 in a buffered batch.
@@ -16,8 +19,8 @@ module Cdo
     #                                 Useful for rate-throttling.
     # @param [Float] wait_at_exit     Seconds to wait at exit for flushing to complete.
     def initialize(
-      batch_events: 2 << 32,
-      batch_size:   2 << 32,
+      batch_events: MAX_INT,
+      batch_size:   MAX_INT,
       max_interval: Float::INFINITY,
       min_interval: 0.0,
       wait_at_exit: nil
