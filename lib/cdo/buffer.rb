@@ -23,12 +23,14 @@ module Cdo
       batch_size:   MAX_INT,
       max_interval: Float::INFINITY,
       min_interval: 0.0,
-      wait_at_exit: nil
+      wait_at_exit: nil,
+      log: CDO.log
     )
       @batch_events = batch_events
       @batch_size   = batch_size
       @max_interval = max_interval
       @min_interval = min_interval
+      @log = log
 
       @scheduled_task = nil
       @buffer = Batch.new
@@ -57,10 +59,12 @@ module Cdo
 
     # Flush existing buffered events.
     # @param [Float] timeout seconds to wait for buffered events to finish flushing.
-    def flush!(timeout = nil)
+    def flush!(timeout = Float::INFINITY)
       reset_if_forked
-      timeout += now
-      until (wait = timeout - now) > 0 || @buffer.empty?
+      start = now
+      until (wait = start - now + timeout) < 0 || @buffer.empty?
+        @log.info "Flushing #{self.class}, waiting #{wait || 'forever'}"
+        wait = nil if wait.infinite?
         schedule_flush(true).value(wait)
       end
     end

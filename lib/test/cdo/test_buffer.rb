@@ -3,6 +3,10 @@ require 'cdo/buffer'
 
 class BufferTest < Minitest::Test
   class TestBuffer < Cdo::Buffer
+    def initialize(**args)
+      super(log: Logger.new('/dev/null'), **args)
+    end
+
     def flushed
       (@flushed ||= [])
     end
@@ -57,7 +61,7 @@ class BufferTest < Minitest::Test
     assert_equal 1, b.flushes
   end
 
-  class StdoutBuffer < Cdo::Buffer
+  class StdoutBuffer < TestBuffer
     def flush(events)
       events.each(&method(:puts))
     end
@@ -105,5 +109,26 @@ class BufferTest < Minitest::Test
     assert_equal 5, b.flushes
     sleep 0.1
     assert_equal 5, b.flushes
+  end
+
+  def test_errors_after_close
+    log_str = StringIO.new
+    log = Logger.new(log_str)
+    b = ReBuffer.new(log: log)
+    b.buffer 'foo'
+    b.flush!(0.1)
+    assert_match(/(Flushing BufferTest.*){10}/m, log_str.string)
+  end
+
+  class ReBuffer < TestBuffer
+    attr_reader :errors
+    # Re-buffer events endlessly until an error is raised when the buffer is closed.
+    def flush(events)
+      super
+      events.map(&method(:buffer))
+    rescue => e
+      (@errors ||= []) << e
+      raise
+    end
   end
 end
