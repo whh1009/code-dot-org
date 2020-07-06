@@ -47,11 +47,10 @@ module Cdo
     # Add an event to the buffer.
     # @raise [ArgumentError] when the event exceeds batch size
     # @param [Object] event
-    # @param [Integer] size
-    def buffer(event, size = nil)
-      size ||= event.is_a?(String) ? event.bytesize : 1
-      raise ArgumentError, 'Event exceeds batch size' if size > @batch_size
+    def buffer(event)
       reset_if_forked
+      size = event.try(:size)
+      raise ArgumentError, 'Event exceeds batch size' if size > @batch_size
       @buffer << Batch::Item.new(event, size, now)
       schedule_flush
     end
@@ -60,8 +59,8 @@ module Cdo
     # @param [Float] timeout seconds to wait for buffered events to finish flushing.
     def flush!(timeout = nil)
       reset_if_forked
-      start = now
-      until (wait = timeout && start - now + timeout).to_f < 0 || @buffer.empty?
+      timeout += now
+      until (wait = timeout - now) > 0 || @buffer.empty?
         schedule_flush(true).value(wait)
       end
     end
