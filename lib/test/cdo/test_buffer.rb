@@ -11,18 +11,22 @@ class BufferTest < Minitest::Test
       (@flushed ||= [])
     end
 
-    def flush(events)
-      raise "EMPTY" if events.empty?
-      flushed.push(events)
+    def flush(objects)
+      raise "EMPTY" if objects.empty?
+      flushed.push(objects)
     end
 
     def flushes
       flushed.length
     end
+
+    def size(object)
+      object.size
+    end
   end
 
-  def test_batch_events
-    b = TestBuffer.new(batch_events: 2)
+  def test_batch_count
+    b = TestBuffer.new(batch_count: 2)
     7.times {b.buffer('foo')}
     b.flush!
     assert_equal 4, b.flushes
@@ -35,20 +39,20 @@ class BufferTest < Minitest::Test
     assert_equal 4, b.flushes
   end
 
-  def test_batch_size_given_too_large_string_should_raise_exception
-    test_string = 'HI'
-    assert_raises(ArgumentError) do
-      b = TestBuffer.new(batch_size: test_string.bytesize - 1)
-      b.buffer(test_string)
+  def test_object_exceeding_batch_size_should_raise_exception
+    max_size = 5
+    e = assert_raises(ArgumentError) do
+      TestBuffer.new(batch_size: max_size).buffer('x' * (max_size + 1))
     end
+    assert_equal 'Object exceeds batch size', e.message
   end
 
-  def test_batch_size_given_too_large_object_should_raise_exception
+  def test_object_exceeding_object_size_should_raise_exception
     max_size = 5
-    assert_raises(ArgumentError) do
-      b = TestBuffer.new(batch_size: max_size)
-      b.buffer([], max_size + 1)
+    e = assert_raises(ArgumentError) do
+      TestBuffer.new(object_size: max_size).buffer('x' * (max_size + 1))
     end
+    assert_equal 'Object exceeds object size', e.message
   end
 
   def test_batch_interval
@@ -62,8 +66,8 @@ class BufferTest < Minitest::Test
   end
 
   class StdoutBuffer < TestBuffer
-    def flush(events)
-      events.each(&method(:puts))
+    def flush(objects)
+      objects.each(&method(:puts))
     end
   end
 
@@ -85,7 +89,7 @@ class BufferTest < Minitest::Test
   end
 
   def test_min_interval
-    b = TestBuffer.new(batch_events: 1, min_interval: 1.second.to_i)
+    b = TestBuffer.new(batch_count: 1, min_interval: 1.second.to_i)
     start = Concurrent.monotonic_time
     4.times {b.buffer('foo')}
     b.flush!
@@ -98,7 +102,7 @@ class BufferTest < Minitest::Test
   end
 
   def test_min_interval_no_flush
-    b = TestBuffer.new(batch_events: 1, min_interval: 0.1)
+    b = TestBuffer.new(batch_count: 1, min_interval: 0.1)
     4.times {b.buffer('foo')}
     sleep 0.05
     assert_equal 1, b.flushes
@@ -121,10 +125,10 @@ class BufferTest < Minitest::Test
   end
 
   class ReBuffer < TestBuffer
-    # Re-buffer events endlessly.
-    def flush(events)
+    # Re-buffer objects endlessly.
+    def flush(objects)
       super
-      events.map(&method(:buffer))
+      objects.map(&method(:buffer))
     end
   end
 end
