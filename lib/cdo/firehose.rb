@@ -44,7 +44,6 @@ class FirehoseClient < Cdo::Buffer
     super(
       batch_count: ITEMS_PER_REQUEST,
       batch_size: BYTES_PER_REQUEST,
-      object_size: BYTES_PER_RECORD,
       max_interval: 10.0,
       min_interval: 0.1
     )
@@ -57,21 +56,28 @@ class FirehoseClient < Cdo::Buffer
   # @param data [hash] The data to insert into the stream.
   def put_record(data)
     return unless Gatekeeper.allows('firehose', default: true)
-    buffer({data: add_common_values(data).to_json})
+    record = {data: add_common_values(data).to_json}
+    raise ArgumentError.new("Record too large") if record.bytesize > BYTES_PER_RECORD
+    buffer(record)
   end
 
-  def flush(events)
+  def flush(records)
     return unless Gatekeeper.allows('firehose', default: true)
     if client
       client.put_record_batch(
         {
           delivery_stream_name: STREAM_NAME,
-          records: events
+          records: records
         }
       )
     else
-      CDO.log.info "Skipped sending records to #{STREAM_NAME}:\n#{events}"
+      CDO.log.info "Skipped sending records to #{STREAM_NAME}:\n#{records}"
     end
+  end
+
+  # Calculate the total size of a PutRecordBatch call as the sum of all records.
+  def size(records)
+    records.sum(&:bytesize)
   end
 
   private

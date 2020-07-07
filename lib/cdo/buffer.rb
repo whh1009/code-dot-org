@@ -13,7 +13,6 @@ module Cdo
 
     # @param [Integer] batch_count    Maximum number of objects in a buffered batch.
     # @param [Integer] batch_size     Maximum total payload size in a buffered batch.
-    # @param [Integer] object_size    Maximum individual object size.
     # @param [Float] max_interval     Seconds after the first buffered item before a flush will occur.
     # @param [Float] min_interval     Seconds after the previous flush before a flush will occur.
     #                                 Useful for rate-throttling.
@@ -21,7 +20,6 @@ module Cdo
     def initialize(
       batch_count:  MAX_INT,
       batch_size:   MAX_INT,
-      object_size:  MAX_INT,
       max_interval: Float::INFINITY,
       min_interval: 0.0,
       wait_at_exit: nil,
@@ -31,11 +29,10 @@ module Cdo
       @batch_size   = batch_size
       @max_interval = max_interval
       @min_interval = min_interval
-      @object_size  = object_size
       @log = log
 
-      @scheduled_task = nil
-      @buffer = Batch.new
+      @scheduled_flush = Concurrent::ScheduledTask.new(0.0) {}
+      @buffer = []
 
       @ruby_pid = $$
       if wait_at_exit
@@ -43,16 +40,17 @@ module Cdo
       end
     end
 
+    # Flush a batch of buffered objects.
     # Implement in subclass.
     # @param [Array<Object>] objects
     def flush(objects)
     end
 
-    # Calculate the size of the provided object.
-    # Override in subclass when using 'batch_size' and/or 'object_size' limits.
-    # @param [Object] _object
-    # @return [Numeric] size of object
-    def size(_object)
+    # Calculate the total size of a batch of objects.
+    # Override in subclass when using 'batch_size' limit.
+    # @param [Array<Object>] objects
+    # @return [Numeric] size of objects
+    def size(objects)
       1
     end
 
@@ -61,10 +59,8 @@ module Cdo
     # @param [Object] object
     def buffer(object)
       reset_if_forked
-      size = size(object)
-      raise ArgumentError, 'Object exceeds object size' if size > @object_size
-      raise ArgumentError, 'Object exceeds batch size' if size > @batch_size
-      @buffer << Batch::Item.new(object, size, now)
+      raise ArgumentError, 'Object exceeds batch size' if size([object]) > @batch_size
+      @buffer << BufferObject.new(object, now)
       schedule_flush
     end
 
@@ -72,15 +68,19 @@ module Cdo
     # @param [Float] timeout seconds to wait for buffered objects to finish flushing.
     def flush!(timeout = Float::INFINITY)
       reset_if_forked
-      start = now
-      until (wait = start - now + timeout) < 0 || @buffer.empty?
-        @log.info "Flushing #{self.class}, waiting #{wait || 'forever'}"
-        wait = nil if wait.infinite?
-        schedule_flush(true).value(wait)
+      timeout_at = now + timeout
+      until (wait = timeout_at - now) < 0 || @buffer.empty?
+        @log.info "Flushing #{self.class}, waiting #{wait} seconds"
+        schedule_flush(true)
+        # Block until the pending flush is completed or timeout is reached.
+        @scheduled_flush.wait(wait.infinite? ? nil : wait)
       end
     end
 
     private
+
+    # Track time each object was added to the buffer.
+    BufferObject = Struct.new(:object, :added_at)
 
     def now
       Concurrent.monotonic_time
@@ -88,30 +88,31 @@ module Cdo
 
     # Schedule a flush in the future when the next batch is ready.
     # @param [Boolean] force flush batch even if not full.
-    # @return [Concurrent::ScheduledTask]
     def schedule_flush(force = false)
       delay = batch_ready(force)
-      # Only one future flush needs to be scheduled, so reschedule any existing pending task.
-      unless @scheduled_task&.reschedule(delay) || @scheduled_task&.pending?
-        @scheduled_task = Concurrent::ScheduledTask.execute(delay) do
+      if @scheduled_flush.pending?
+        @scheduled_flush.reschedule(delay)
+      else
+        @scheduled_flush = Concurrent::ScheduledTask.execute(delay) do
           flush_batch
-          schedule_flush
+          schedule_flush unless @buffer.empty?
         end
       end
-      @scheduled_task
     end
 
     # Determine when the next batch of existing buffered objects will be ready to be flushed.
     # @param [Boolean] force flush batch even if not full.
     # @return [Float] Seconds until the next batch can be flushed.
     def batch_ready(force)
+      return Float::INFINITY if @buffer.empty?
+
       # Wait until max_interval has passed since the earliest object to flush a non-full batch.
-      # If the buffer is empty, this will return Float::INFINITY.
-      wait = @max_interval - (now - @buffer.earliest)
+      earliest = @buffer.first.added_at
+      wait = @max_interval - (now - earliest)
 
       # Flush now if the batch is full or when force flushing.
       wait = 0.0 if force ||
-        @buffer.size >= @batch_size ||
+        size(@buffer) >= @batch_size ||
         @buffer.length >= @batch_count
 
       # Wait until min_interval has passed since the last flush.
@@ -131,44 +132,18 @@ module Cdo
 
     # Take a single batch of objects from the buffer.
     def take_batch
-      batch = Batch.new
+      batch = []
       batch << @buffer.shift until
         @buffer.empty? ||
           batch.length >= @batch_count ||
-          (batch.size + @buffer.first.size) > @batch_size
+          size(batch + [@buffer.first]) > @batch_size
       batch
-    end
-
-    # Helper class to track total size and earliest element in a batch of objects.
-    class Batch < Array
-      Item = Struct.new(:object, :size, :created_at)
-
-      attr_reader :size
-
-      def initialize
-        super
-        @size = 0
-      end
-
-      # @param [Item] item
-      def <<(item)
-        super.tap {@size += item.size}
-      end
-
-      # @return [Item]
-      def shift
-        super.tap {|item| @size -= item.size}
-      end
-
-      def earliest
-        first&.created_at || Float::INFINITY
-      end
     end
 
     def reset_if_forked
       if $$ != @ruby_pid
         @buffer.clear
-        @scheduled_task&.cancel
+        @scheduled_flush.cancel
         @ruby_pid = $$
       end
     end

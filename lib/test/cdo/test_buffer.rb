@@ -20,8 +20,8 @@ class BufferTest < Minitest::Test
       flushed.length
     end
 
-    def size(object)
-      object.size
+    def size(objects)
+      objects.sum(&:size)
     end
   end
 
@@ -45,14 +45,6 @@ class BufferTest < Minitest::Test
       TestBuffer.new(batch_size: max_size).buffer('x' * (max_size + 1))
     end
     assert_equal 'Object exceeds batch size', e.message
-  end
-
-  def test_object_exceeding_object_size_should_raise_exception
-    max_size = 5
-    e = assert_raises(ArgumentError) do
-      TestBuffer.new(object_size: max_size).buffer('x' * (max_size + 1))
-    end
-    assert_equal 'Object exceeds object size', e.message
   end
 
   def test_batch_interval
@@ -89,7 +81,7 @@ class BufferTest < Minitest::Test
   end
 
   def test_min_interval
-    b = TestBuffer.new(batch_count: 1, min_interval: 1.second.to_i)
+    b = TestBuffer.new(batch_count: 1, min_interval: 0.1)
     start = Concurrent.monotonic_time
     4.times {b.buffer('foo')}
     b.flush!
@@ -97,8 +89,8 @@ class BufferTest < Minitest::Test
     assert_equal 4, b.flushes
     time_taken = finish - start
     # Given a min_interval of 1 second and 4 flushes, assert the flush! takes 3-4 seconds.
-    assert_operator time_taken, :>, 3
-    assert_operator time_taken, :<, 4
+    assert_operator time_taken, :>, 0.3
+    assert_operator time_taken, :<, 0.4
   end
 
   def test_min_interval_no_flush

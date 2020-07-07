@@ -45,6 +45,10 @@ module Cdo
       rescue => e
         Honeybadger.notify(e)
       end
+
+      def size(events)
+        events.sum {|metric| metric.to_json.bytesize}
+      end
     end
 
     # Convenience method to put a single metric to CloudWatch.
@@ -66,7 +70,7 @@ module Cdo
     end
 
     def put_metric(namespace, metric)
-      @buffer[namespace].buffer(metric, metric.to_json.bytesize)
+      @buffer[namespace].buffer(metric)
     end
 
     def self.put_metric(namespace, metric)
