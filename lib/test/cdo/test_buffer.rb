@@ -111,7 +111,7 @@ class BufferTest < Minitest::Test
     assert_equal 5, b.flushes
   end
 
-  def test_errors_after_close
+  def test_log_repeat_flushes
     log_str = StringIO.new
     log = Logger.new(log_str)
     b = ReBuffer.new(log: log)
@@ -121,14 +121,10 @@ class BufferTest < Minitest::Test
   end
 
   class ReBuffer < TestBuffer
-    attr_reader :errors
-    # Re-buffer events endlessly until an error is raised when the buffer is closed.
+    # Re-buffer events endlessly.
     def flush(events)
       super
       events.map(&method(:buffer))
-    rescue => e
-      (@errors ||= []) << e
-      raise
     end
   end
 end

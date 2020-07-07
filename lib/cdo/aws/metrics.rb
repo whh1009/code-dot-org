@@ -23,9 +23,9 @@ module Cdo
     class Buffer < Cdo::Buffer
       def initialize(namespace)
         super(
-          batch_events: ITEMS_PER_REQUEST,
+          batch_count: ITEMS_PER_REQUEST,
           batch_size: BYTES_PER_REQUEST,
-          max_interval: 60,
+          max_interval: 60.0,
           min_interval: 0.1
         )
         @namespace = namespace

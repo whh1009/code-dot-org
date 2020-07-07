@@ -27,18 +27,25 @@ class FirehoseClient < Cdo::Buffer
   include Singleton
   cattr_accessor :client
 
+  # 'Each PutRecordBatch request supports up to 500 records.'
   # Ref: https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html
   ITEMS_PER_REQUEST = 500
 
-  # Ref: https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html
+  # 'The maximum size of a record sent to Kinesis Data Firehose, before base64-encoding, is 1,000 KiB.'
+  # Ref: https://docs.aws.amazon.com/firehose/latest/dev/limits.html
+  BYTES_PER_RECORD = 1024 * 1000
+
+  # 'The PutRecordBatch operation can take up to 500 records per call or 4 MiB per call, whichever is smaller.'
+  # Ref: https://docs.aws.amazon.com/firehose/latest/dev/limits.html
   BYTES_PER_REQUEST = 1024 * 1024 * 4
 
   # Initializes the @firehose to an AWS Firehose client.
   def initialize
     super(
-      batch_events: ITEMS_PER_REQUEST,
+      batch_count: ITEMS_PER_REQUEST,
       batch_size: BYTES_PER_REQUEST,
-      max_interval: 10,
+      object_size: BYTES_PER_RECORD,
+      max_interval: 10.0,
       min_interval: 0.1
     )
     unless [:development, :test].include? rack_env

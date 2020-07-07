@@ -4,32 +4,34 @@ require 'honeybadger/ruby'
 
 module Cdo
   # Abstract class to handle asynchronous-buffering and periodic-flushing using a thread pool.
-  # This class is content-agnostic, buffering event objects in memory through #buffer(event, size).
-  # Subclasses implement #flush(events), which will be called periodically as the buffer is flushed in batches.
+  # This class is content-agnostic, buffering objects in memory through #buffer(object).
+  # Subclasses implement #flush(objects), which will be called periodically as the buffer is flushed in batches.
   #
-  # Because events are stored in memory, the buffer can synchronously flush when the Ruby process exits.
+  # Because objects are stored in memory, the buffer can synchronously flush when the Ruby process exits.
   class Buffer
     MAX_INT = Concurrent::Utility::NativeInteger::MAX_VALUE
 
-    # @param [Integer] batch_events   Maximum number of events in a buffered batch.
-    # @param [Integer] batch_size     Maximum total payload 'size', based on the size parameter passed to #buffer,
-    #                                 in a buffered batch.
+    # @param [Integer] batch_count    Maximum number of objects in a buffered batch.
+    # @param [Integer] batch_size     Maximum total payload size in a buffered batch.
+    # @param [Integer] object_size    Maximum individual object size.
     # @param [Float] max_interval     Seconds after the first buffered item before a flush will occur.
     # @param [Float] min_interval     Seconds after the previous flush before a flush will occur.
     #                                 Useful for rate-throttling.
     # @param [Float] wait_at_exit     Seconds to wait at exit for flushing to complete.
     def initialize(
-      batch_events: MAX_INT,
+      batch_count:  MAX_INT,
       batch_size:   MAX_INT,
+      object_size:  MAX_INT,
       max_interval: Float::INFINITY,
       min_interval: 0.0,
       wait_at_exit: nil,
       log: CDO.log
     )
-      @batch_events = batch_events
+      @batch_count = batch_count
       @batch_size   = batch_size
       @max_interval = max_interval
       @min_interval = min_interval
+      @object_size  = object_size
       @log = log
 
       @scheduled_task = nil
@@ -42,23 +44,32 @@ module Cdo
     end
 
     # Implement in subclass.
-    # @param [Array<Object>] events
-    def flush(events)
+    # @param [Array<Object>] objects
+    def flush(objects)
     end
 
-    # Add an event to the buffer.
-    # @raise [ArgumentError] when the event exceeds batch size
-    # @param [Object] event
-    def buffer(event)
+    # Calculate the size of the provided object.
+    # Override in subclass when using 'batch_size' and/or 'object_size' limits.
+    # @param [Object] _object
+    # @return [Numeric] size of object
+    def size(_object)
+      1
+    end
+
+    # Add an object to the buffer.
+    # @raise [ArgumentError] when the object exceeds batch size
+    # @param [Object] object
+    def buffer(object)
       reset_if_forked
-      size = event.try(:size)
-      raise ArgumentError, 'Event exceeds batch size' if size > @batch_size
-      @buffer << Batch::Item.new(event, size, now)
+      size = size(object)
+      raise ArgumentError, 'Object exceeds object size' if size > @object_size
+      raise ArgumentError, 'Object exceeds batch size' if size > @batch_size
+      @buffer << Batch::Item.new(object, size, now)
       schedule_flush
     end
 
-    # Flush existing buffered events.
-    # @param [Float] timeout seconds to wait for buffered events to finish flushing.
+    # Flush existing buffered objects.
+    # @param [Float] timeout seconds to wait for buffered objects to finish flushing.
     def flush!(timeout = Float::INFINITY)
       reset_if_forked
       start = now
@@ -90,18 +101,18 @@ module Cdo
       @scheduled_task
     end
 
-    # Determine when the next batch of existing buffered events will be ready to be flushed.
+    # Determine when the next batch of existing buffered objects will be ready to be flushed.
     # @param [Boolean] force flush batch even if not full.
     # @return [Float] Seconds until the next batch can be flushed.
     def batch_ready(force)
-      # Wait until max_interval has passed since the earliest event to flush a non-full batch.
+      # Wait until max_interval has passed since the earliest object to flush a non-full batch.
       # If the buffer is empty, this will return Float::INFINITY.
       wait = @max_interval - (now - @buffer.earliest)
 
       # Flush now if the batch is full or when force flushing.
       wait = 0.0 if force ||
         @buffer.size >= @batch_size ||
-        @buffer.length >= @batch_events
+        @buffer.length >= @batch_count
 
       # Wait until min_interval has passed since the last flush.
       min_delay = @min_interval - (now - @last_flush.to_f)
@@ -109,28 +120,28 @@ module Cdo
       [0.0, wait, min_delay].max.to_f
     end
 
-    # Flush a batch of events from the buffer.
+    # Flush a batch of objects from the buffer.
     def flush_batch
       @last_flush = now
-      flush(take_batch.map(&:event))
+      flush(take_batch.map(&:object))
     rescue => e
       Honeybadger.notify(e)
       raise
     end
 
-    # Take a single batch of events from the buffer.
+    # Take a single batch of objects from the buffer.
     def take_batch
       batch = Batch.new
       batch << @buffer.shift until
         @buffer.empty? ||
-          batch.length >= @batch_events ||
+          batch.length >= @batch_count ||
           (batch.size + @buffer.first.size) > @batch_size
       batch
     end
 
-    # Helper class to track total size and earliest element in a batch of events.
+    # Helper class to track total size and earliest element in a batch of objects.
     class Batch < Array
-      Item = Struct.new(:event, :size, :created_at)
+      Item = Struct.new(:object, :size, :created_at)
 
       attr_reader :size
 
