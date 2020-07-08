@@ -39,13 +39,17 @@ class FirehoseClient < Cdo::Buffer
   # Ref: https://docs.aws.amazon.com/firehose/latest/dev/limits.html
   BYTES_PER_REQUEST = 1024 * 1024 * 4
 
+  # 'For US East (N. Virginia): 5,000 records/second, 2,000 requests/second, and 5 MiB/second.'
+  # Ref: https://docs.aws.amazon.com/firehose/latest/dev/limits.html
+  TRANSACTIONS_PER_SECOND = 2000.0
+
   # Initializes the @firehose to an AWS Firehose client.
   def initialize(log: CDO.log)
     super(
       batch_count: ITEMS_PER_REQUEST,
       batch_size: BYTES_PER_REQUEST,
       max_interval: 10.0,
-      min_interval: 0.1,
+      min_interval: 1.0 / (TRANSACTIONS_PER_SECOND / Concurrent.processor_count),
       log: log
     )
     unless [:development, :test].include? rack_env

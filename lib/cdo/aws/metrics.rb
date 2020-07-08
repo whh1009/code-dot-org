@@ -14,11 +14,17 @@ module Cdo
       @buffer = Hash.new {|h, key| h[key] = Buffer.new(key)}
     end
 
+    # '20/PutMetricData request.'
     # Ref: http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_limits.html
     ITEMS_PER_REQUEST = 20
 
+    # '40 KB for HTTP POST requests.'
     # Ref: http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_limits.html
     BYTES_PER_REQUEST = 1024 * 40
+
+    # 'PutMetricData can handle 150 transactions per second (TPS)'
+    # Ref: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_limits.html
+    TRANSACTIONS_PER_SECOND = 150.0
 
     class Buffer < Cdo::Buffer
       def initialize(namespace)
@@ -26,7 +32,7 @@ module Cdo
           batch_count: ITEMS_PER_REQUEST,
           batch_size: BYTES_PER_REQUEST,
           max_interval: 60.0,
-          min_interval: 0.1
+          min_interval: 1.0 / (TRANSACTIONS_PER_SECOND / Concurrent.processor_count)
         )
         @namespace = namespace
       end

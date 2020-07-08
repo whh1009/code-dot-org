@@ -44,10 +44,10 @@ class BufferTest < Minitest::Test
     e = assert_raises(ArgumentError) do
       TestBuffer.new(batch_size: max_size).buffer('x' * (max_size + 1))
     end
-    assert_equal 'Object exceeds batch size', e.message
+    assert_equal 'Object size (6) exceeds batch size (5)', e.message
   end
 
-  def test_batch_interval
+  def test_max_interval
     b = TestBuffer.new(max_interval: 0.1)
     7.times {b.buffer('bar')}
     assert_equal 0, b.flushes
