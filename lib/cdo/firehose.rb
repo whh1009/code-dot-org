@@ -85,13 +85,13 @@ class FirehoseClient < Cdo::Buffer
 
   # Calculate the exact request size of a PutRecordBatch call given the provided records.
   def size(records)
-    REQUEST_OVERHEAD + records.sum do |r|
+    REQUEST_OVERHEAD + records.each_with_index.sum do |record, i|
       RECORD_OVERHEAD +
         # Base64-converted data is 4/3 the size of the original content.
-        4 * (r.bytesize / 3.to_f).ceil +
-        # Comma separating Records in the array.
-        1
-    end - 1
+        4 * (record.bytesize / 3.to_f).ceil +
+        # Commas separating Records in the array (one less than length).
+        (i.zero? ? 0 : 1)
+    end
   end
 
   private

@@ -11,7 +11,7 @@ module Cdo
     cattr_accessor :client
 
     def initialize
-      @buffer = Hash.new {|h, key| h[key] = Buffer.new(key)}
+      @buffers = Hash.new {|h, key| h[key] = Buffer.new(key)}
     end
 
     # '20/PutMetricData request.'
@@ -59,7 +59,10 @@ module Cdo
 
     # Convenience method to put a single metric to CloudWatch.
     # Accepts a single '[namespace]/[metric_name]' name parameter
-    # and a standard Ruby hash.
+    # and a standard Ruby hash to specify dimension key/values.
+    #
+    # @param [Hash] options Additional keyword arguments will be merged
+    #  into the {Aws::CloudWatch::Types::MetricDatum} object.
     def put(name, value, dimensions={}, **options)
       namespace, metric_name = name.split('/', 2)
       metric = {
@@ -71,21 +74,25 @@ module Cdo
       put_metric(namespace, metric)
     end
 
+    # @see {Metrics#put}
     def self.put(name, value, dimensions={}, **options)
       instance.put(name, value, dimensions, **options)
     end
 
+    # @param [String] namespace
+    # @param [Hash, Aws::CloudWatch::Types::MetricDatum] metric
     def put_metric(namespace, metric)
-      @buffer[namespace].buffer(metric)
+      @buffers[namespace].buffer(metric)
     end
 
+    # @see {Metrics#put_metric}
     def self.put_metric(namespace, metric)
       instance.put_metric(namespace, metric)
     end
 
     # Asynchronously send a collection of CloudWatch metrics in batches.
     # @param namespace [String]
-    # @param metrics [Array<Types::MetricDatum>]
+    # @param metrics [Array<Hash, Aws::CloudWatch::Types::MetricDatum>]
     def self.push(namespace, metrics)
       metrics.each do |metric|
         put_metric(namespace, metric)
