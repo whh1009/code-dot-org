@@ -1,5 +1,6 @@
 class ProfanityController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
+  before_action :verify_authenticity_token!
 
   # POST /profanity/find
   # @param [String] params[:text] String to test

@@ -119,6 +119,7 @@ export const commands = {
    * @param {string} opts.language The language of the text to play.
    */
   async playSpeech(opts) {
+    console.log(appOptions.authenticityToken);
     apiValidateType(opts, 'playSpeech', 'text', opts.text, 'string');
     apiValidateType(opts, 'playSpeech', 'gender', opts.gender, 'string');
     apiValidateType(

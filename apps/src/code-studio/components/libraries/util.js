@@ -5,6 +5,6 @@ export const findProfanity = (text, language) => {
     url: '/profanity/find',
     method: 'POST',
     contentType: 'application/json;charset=UTF-8',
-    data: JSON.stringify({text, language})
+    data: JSON.stringify({text, language, authenticity_token: 'fake-token'})
   });
 };
