@@ -32,7 +32,8 @@ module Cdo
           batch_count: ITEMS_PER_REQUEST,
           batch_size: BYTES_PER_REQUEST,
           max_interval: 60.0,
-          min_interval: 1.0 / (TRANSACTIONS_PER_SECOND / Concurrent.processor_count)
+          min_interval: 1.0 / (TRANSACTIONS_PER_SECOND / Concurrent.processor_count),
+          wait_at_exit: 10.0
         )
         @namespace = namespace
       end

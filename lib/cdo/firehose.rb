@@ -50,7 +50,8 @@ class FirehoseClient < Cdo::Buffer
       batch_size: BYTES_PER_REQUEST,
       max_interval: 10.0,
       min_interval: 1.0 / (TRANSACTIONS_PER_SECOND / Concurrent.processor_count),
-      log: log
+      log: log,
+      wait_at_exit: 10.0
     )
     unless [:development, :test].include? rack_env
       self.client = Aws::Firehose::Client.new
