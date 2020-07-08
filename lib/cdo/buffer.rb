@@ -11,6 +11,8 @@ module Cdo
   class Buffer
     MAX_INT = Concurrent::Utility::NativeInteger::MAX_VALUE
 
+    attr_accessor :log
+
     # @param [Integer] batch_count    Maximum number of objects in a buffered batch.
     # @param [Integer] batch_size     Maximum total payload size in a buffered batch.
     # @param [Float] max_interval     Seconds after the first buffered item before a flush will occur.
@@ -59,7 +61,9 @@ module Cdo
     # @param [Object] object
     def buffer(object)
       reset_if_forked
-      raise ArgumentError, 'Object exceeds batch size' if size([object]) > @batch_size
+      if (size = size([object])) > @batch_size
+        raise ArgumentError, "Object size (#{size}) exceeds batch size (#{@batch_size})"
+      end
       @buffer << BufferObject.new(object, now)
       schedule_flush
     end
@@ -112,7 +116,7 @@ module Cdo
 
       # Flush now if the batch is full or when force flushing.
       wait = 0.0 if force ||
-        size(@buffer) >= @batch_size ||
+        size(@buffer.map(&:object)) >= @batch_size ||
         @buffer.length >= @batch_count
 
       # Wait until min_interval has passed since the last flush.
@@ -136,7 +140,7 @@ module Cdo
       batch << @buffer.shift until
         @buffer.empty? ||
           batch.length >= @batch_count ||
-          size(batch + [@buffer.first]) > @batch_size
+          size((batch + [@buffer.first]).map(&:object)) > @batch_size
       batch
     end
 

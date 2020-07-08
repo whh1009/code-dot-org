@@ -40,12 +40,13 @@ class FirehoseClient < Cdo::Buffer
   BYTES_PER_REQUEST = 1024 * 1024 * 4
 
   # Initializes the @firehose to an AWS Firehose client.
-  def initialize
+  def initialize(log: CDO.log)
     super(
       batch_count: ITEMS_PER_REQUEST,
       batch_size: BYTES_PER_REQUEST,
       max_interval: 10.0,
-      min_interval: 0.1
+      min_interval: 0.1,
+      log: log
     )
     unless [:development, :test].include? rack_env
       self.client = Aws::Firehose::Client.new
@@ -56,8 +57,10 @@ class FirehoseClient < Cdo::Buffer
   # @param data [hash] The data to insert into the stream.
   def put_record(data)
     return unless Gatekeeper.allows('firehose', default: true)
-    record = {data: add_common_values(data).to_json}
-    raise ArgumentError.new("Record too large") if record.bytesize > BYTES_PER_RECORD
+    record = add_common_values(data).to_json
+    if (size = record.bytesize) > BYTES_PER_RECORD
+      raise ArgumentError.new("Record too large (#{size} bytes)")
+    end
     buffer(record)
   end
 
@@ -65,19 +68,26 @@ class FirehoseClient < Cdo::Buffer
     return unless Gatekeeper.allows('firehose', default: true)
     if client
       client.put_record_batch(
-        {
-          delivery_stream_name: STREAM_NAME,
-          records: records
-        }
+        delivery_stream_name: STREAM_NAME,
+        records: records.map {|r| {data: r}}
       )
     else
-      CDO.log.info "Skipped sending records to #{STREAM_NAME}:\n#{records}"
+      log.info "Skipped sending records to #{STREAM_NAME}:\n#{records}"
     end
   end
 
-  # Calculate the total size of a PutRecordBatch call as the sum of all records.
+  REQUEST_OVERHEAD = {DeliveryStreamName: STREAM_NAME, Records: []}.to_json.size
+  RECORD_OVERHEAD = {Data: ''}.to_json.size
+
+  # Calculate the exact request size of a PutRecordBatch call given the provided records.
   def size(records)
-    records.sum(&:bytesize)
+    REQUEST_OVERHEAD + records.sum do |r|
+      RECORD_OVERHEAD +
+        # Base64-converted data is 4/3 the size of the original content.
+        4 * (r.bytesize / 3.to_f).ceil +
+        # Comma separating Records in the array.
+        1
+    end - 1
   end
 
   private
