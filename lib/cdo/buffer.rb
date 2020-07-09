@@ -16,7 +16,7 @@ module Cdo
     # @param [Integer] batch_count    Maximum number of objects in a buffered batch.
     # @param [Integer] batch_size     Maximum total payload size in a buffered batch.
     # @param [Float] max_interval     Seconds after the first buffered item before a flush will occur.
-    # @param [Float] min_interval     Seconds after the previous flush before a flush will occur.
+    # @param [Float] min_interval     Seconds after the previous flush before a flush is allowed to occur.
     #                                 Useful for rate-throttling.
     # @param [Float] wait_at_exit     Seconds to wait at exit for flushing to complete.
     def initialize(
@@ -131,7 +131,6 @@ module Cdo
       flush(take_batch.map(&:object))
     rescue => e
       Honeybadger.notify(e)
-      raise
     end
 
     # Take a single batch of objects from the buffer.

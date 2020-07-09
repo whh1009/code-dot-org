@@ -81,8 +81,8 @@ class FirehoseClient < Cdo::Buffer
     end
   end
 
-  REQUEST_OVERHEAD = {DeliveryStreamName: STREAM_NAME, Records: []}.to_json.size
-  RECORD_OVERHEAD = {Data: ''}.to_json.size
+  REQUEST_OVERHEAD = {DeliveryStreamName: STREAM_NAME, Records: []}.to_json.bytesize
+  RECORD_OVERHEAD = {Data: ''}.to_json.bytesize
 
   # Calculate the exact request size of a PutRecordBatch call given the provided records.
   def size(records)
