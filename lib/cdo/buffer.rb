@@ -1,6 +1,7 @@
 require 'concurrent/scheduled_task'
 require 'concurrent/utility/native_integer'
 require 'honeybadger/ruby'
+require 'cdo/fork_safe'
 
 module Cdo
   # Abstract class to handle asynchronous-buffering and periodic-flushing using a thread pool.
@@ -56,10 +57,12 @@ module Cdo
       1
     end
 
+    using ForkSafe
+
     # Add an object to the buffer.
     # @raise [ArgumentError] when the object exceeds batch size
     # @param [Object] object
-    def buffer(object)
+    fork_safe def buffer(object)
       reset_if_forked
       if (size = size([object])) > @batch_size
         raise ArgumentError, "Object size (#{size}) exceeds batch size (#{@batch_size})"
@@ -70,7 +73,7 @@ module Cdo
 
     # Flush existing buffered objects.
     # @param [Float] timeout seconds to wait for buffered objects to finish flushing.
-    def flush!(timeout = Float::INFINITY)
+    fork_safe def flush!(timeout = Float::INFINITY)
       reset_if_forked
       timeout_at = now + timeout
       until (wait = timeout_at - now) < 0 || @buffer.empty?

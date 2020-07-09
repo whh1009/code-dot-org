@@ -67,17 +67,17 @@ class BufferTest < Minitest::Test
     b = StdoutBuffer.new
     output, err = capture_subprocess_io do
       $stdout.sync = true
-      b.buffer 'foo2'
+      b.buffer 'foo1'
       pid = fork do
-        b.buffer 'foo1'
+        b.buffer 'foo2'
         b.flush!
       end
-      Process.wait(pid)
       b.buffer 'foo3'
       b.flush!
+      Process.wait(pid)
     end
     assert_empty err
-    assert_equal "foo1\nfoo2\nfoo3\n", output
+    assert_equal %w(foo1 foo2 foo3), output.split.sort
   end
 
   def test_min_interval
