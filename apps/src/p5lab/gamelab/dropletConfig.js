@@ -8,6 +8,7 @@ import audioApiDropletConfig from '@cdo/apps/lib/util/audioApiDropletConfig';
 import * as timeoutApi from '@cdo/apps/lib/util/timeoutApi';
 var getAssetDropdown = require('@cdo/apps/assetManagement/getAssetDropdown');
 import {getStore} from '@cdo/apps/redux';
+import experiments from '@cdo/apps/util/experiments';
 
 var spriteMethodPrefix = '[Sprite].';
 var groupMethodPrefix = '[Group].';
@@ -1906,17 +1907,19 @@ draw() - USEFUL?
 
   // Variables
   {
-    func: 'console.log',
-    parent: consoleApi,
-    category: 'Variables',
-    paletteParams: ['message'],
-    params: ['"message"']
-  },
-  {
     func: 'comment_Variables',
     block: '// Comment',
     expansion: '// ',
     category: 'Variables'
+  },
+
+  // Functions
+  {
+    func: 'console.log',
+    parent: consoleApi,
+    category: 'Functions',
+    paletteParams: ['message'],
+    params: ['"message"']
   },
 
   // Data
@@ -1926,6 +1929,13 @@ draw() - USEFUL?
 
   // Advanced
 ];
+
+if (experiments.isEnabled(experiments.TEXT_TO_SPEECH_BLOCK)) {
+  module.exports.blocks.push({
+    ...audioApiDropletConfig.playSpeech,
+    category: 'World'
+  });
+}
 
 module.exports.categories = {
   World: {

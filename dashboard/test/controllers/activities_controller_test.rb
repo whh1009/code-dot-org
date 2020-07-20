@@ -6,10 +6,16 @@ class ActivitiesControllerTest < ActionController::TestCase
   include UsersHelper
 
   def stub_firehose
-    FirehoseClient.instance.stubs(:put_record).with do |args|
+    FirehoseClient.instance.stubs(:put_record).with do |stream, args|
       @firehose_record = args
+      @firehose_stream = stream
       true
     end
+  end
+
+  def teardown
+    @firehose_record = nil
+    @firehose_stream = nil
   end
 
   setup do
@@ -778,6 +784,7 @@ class ActivitiesControllerTest < ActionController::TestCase
     assert @firehose_record[:event], 'share_filtering_error'
     assert @firehose_record[:data_string], 'OpenURI::HTTPError: something broke'
     refute_nil @firehose_record[:data_json]["level_source_id"]
+    assert_equal :analysis, @firehose_stream
   end
 
   test 'sharing program with IO::EAGAINWaitReadable error logs' do
@@ -800,6 +807,7 @@ class ActivitiesControllerTest < ActionController::TestCase
     assert @firehose_record[:event], 'share_filtering_error'
     assert @firehose_record[:data_string], 'IO::EAGAINWaitReadable: Resource temporarily unavailable'
     refute_nil @firehose_record[:data_json]["level_source_id"]
+    assert_equal :analysis, @firehose_stream
   end
 
   test 'sharing program with swear word in Spanish rejects word' do
@@ -891,7 +899,7 @@ class ActivitiesControllerTest < ActionController::TestCase
       "lesson 'Milestone Stage 1'; level 'Level 1'; level 'Level 2'; lesson 'Milestone Stage 2'; level 'Level 3'",
       "a filename"
     )
-    script = Script.add_script({name: 'Milestone Script'}, script_dsl[0][:lesson_groups], script_dsl[0][:lessons])
+    script = Script.add_script({name: 'Milestone Script'}, script_dsl[0][:lesson_groups])
 
     last_level_in_first_stage = script.lessons.first.script_levels.last
     post :milestone,
