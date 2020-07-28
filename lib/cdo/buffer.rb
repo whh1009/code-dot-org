@@ -33,7 +33,7 @@ module Cdo
       @min_interval = min_interval
       @log = log
 
-      @scheduled_flush = Concurrent::ScheduledTask.new(0.0) {}
+      @scheduled_flush = nil
       @buffer = []
 
       @ruby_pid = $$
@@ -77,7 +77,7 @@ module Cdo
         @log.info "Flushing #{self.class}, waiting #{wait} seconds"
         schedule_flush(true)
         # Block until the pending flush is completed or timeout is reached.
-        @scheduled_flush.wait(wait.infinite? ? nil : wait)
+        @scheduled_flush&.wait(wait.infinite? ? nil : wait)
       end
     end
 
@@ -93,14 +93,16 @@ module Cdo
     # Schedule a flush in the future when the next batch is ready.
     # @param [Boolean] force flush batch even if not full.
     def schedule_flush(force = false)
-      delay = batch_ready(force)
-      if @scheduled_flush.pending?
-        @scheduled_flush.reschedule(delay)
-      else
+      if @scheduled_flush.nil?
+        delay = batch_ready(force)
         @scheduled_flush = Concurrent::ScheduledTask.execute(delay) do
           flush_batch
+          @scheduled_flush = nil
           schedule_flush unless @buffer.empty?
         end
+      elsif @scheduled_flush.pending?
+        delay = batch_ready(force)
+        @scheduled_flush.reschedule(delay)
       end
     end
 
@@ -146,7 +148,8 @@ module Cdo
     def reset_if_forked
       if $$ != @ruby_pid
         @buffer.clear
-        @scheduled_flush.cancel
+        @scheduled_flush&.cancel
+        @scheduled_flush = nil
         @ruby_pid = $$
       end
     end
