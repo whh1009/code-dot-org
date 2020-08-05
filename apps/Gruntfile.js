@@ -532,6 +532,8 @@ describe('entry tests', () => {
     'levels/_level_group': './src/sites/studio/pages/levels/_level_group.js',
     'levels/_match': './src/sites/studio/pages/levels/_match.js',
     'levels/_multi': './src/sites/studio/pages/levels/_multi.js',
+    'levels/_multi_as_sublevel':
+      './src/sites/studio/pages/levels/_multi_as_sublevel.js',
     'levels/_standalone_video':
       './src/sites/studio/pages/levels/_standalone_video.js',
     'levels/_teacher_markdown':
