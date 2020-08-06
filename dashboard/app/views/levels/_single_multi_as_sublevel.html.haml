@@ -1,5 +1,5 @@
 - content_for(:head) do
-  %script{src: webpack_asset_path('js/levels/_multi_as_sublevel.js')}
+  %script{src: webpack_asset_path('js/levels/_single_multi_as_sublevel.js')}
 
 -# inhibit brakeman warning about unescaped model attribute - comes from static data in database, level.properties does not contain XSS attacks
 - data = brakeman_no_warn(level.properties)

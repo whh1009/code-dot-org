@@ -2,4 +2,4 @@
   %script{src: webpack_asset_path('js/levels/_evaluation_multi.js')}
 
 // This partial was renamed; use it even though it's not a sublevel here
-= render partial: 'levels/multi_as_sublevel', locals: {standalone: true, level: @level, last_attempt: @last_attempt, tight_layout: false }
+= render partial: 'levels/single_multi_as_sublevel', locals: {standalone: true, level: @level, last_attempt: @last_attempt, tight_layout: false }
