@@ -43,6 +43,10 @@ git git_path do
     notifies :run, "execute[build-cdo]", :delayed
   end
 
+  if node['cdo-secrets']
+    notifies :reload, 'ohai[reload_secrets]', :immediately
+  end
+
   user node[:user]
   group node[:user]
 end

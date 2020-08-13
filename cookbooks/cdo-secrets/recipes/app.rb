@@ -8,12 +8,10 @@
 # end
 
 # Install gem dependencies used by Cdo::Secrets.
-chef_gem 'aws-sdk-secretsmanager'
-chef_gem 'activesupport'
+chef_gem('aws-sdk-secretsmanager') {compile_time true}
+chef_gem('activesupport') {compile_time true}
 
-ruby_block 'CDO config' do
-  block do
-    ENV['BUNDLE_GEMFILE'] = '' # Disable Bundler
-    require "#{node['cdo-repository']['git_path']}/deployment"
-  end
+ohai 'reload_secrets' do
+  action :nothing
+  plugin 'cdo_secrets'
 end
