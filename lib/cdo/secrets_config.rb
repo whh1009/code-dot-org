@@ -45,7 +45,7 @@ module Cdo
     private
 
     # Stores a reference to a secret so it can be resolved later.
-    Secret = Struct.new(:key) do
+    Secret = Struct.new(:key, :value) do
       def to_s
         "${#{key}}"
       end
@@ -57,8 +57,13 @@ module Cdo
     # Processes `Secret` references in the provided config hash.
     def process_secrets!(config)
       return if config.nil?
-      config.select {|_, v| v.is_a?(Secret)}.each do |key, secret|
-        secret.key ||= SecretsConfig.secret_path(env, key)
+      config.each do |key, value|
+        secret_path = SecretsConfig.secret_path(env, key)
+        if value.is_a?(Hash) && value.delete('secret')
+          value = config[key] = Secret.new(secret_path, value)
+        end
+        next unless value.is_a?(Secret)
+        value.key ||= secret_path
       end
     end
 
@@ -69,7 +74,10 @@ module Cdo
         Cdo::Secrets.new(logger: log)
       end
 
-      table.select {|_k, v| v.to_s.match(SECRET_REGEX)}.each do |key, value|
+      table.each do |key, value|
+        next unless value.is_a?(Secret) ||
+          (value.is_a?(String) && value.match?(SECRET_REGEX))
+
         cdo_secrets.required(*value.to_s.scan(SECRET_REGEX).flatten)
         table[key] = Cdo.lazy do
           value.is_a?(Secret) ?

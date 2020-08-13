@@ -1,5 +1,7 @@
 require 'cdo/config'
 require 'cdo/secrets_config'
+require 'cdo/config_schema'
+require 'cdo/dynamic_config'
 
 ####################################################################################################
 ##
@@ -8,7 +10,10 @@ require 'cdo/secrets_config'
 ##########
 module Cdo
   class Impl < Config
-    prepend SecretsConfig
+    include ConfigSchema
+    include SecretsConfig
+    include DynamicConfig
+
     include Singleton
     @slog = nil
 

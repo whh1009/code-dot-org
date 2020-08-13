@@ -47,4 +47,5 @@ CDO properties are not really needed for the following use-cases (though they ha
 See also:
 - `DCDO` and `Gatekeeper` properties are similar to CDO,
 but are managed through an admin interface and can be updated while the application is running.
-- [secrets.md](secrets.md) - documents the `!Secret` tag used for configuring application secrets.
+- [secrets.md](secrets.md) - documents the `!Secret` flag used for configuring application secrets.
+- [dynamic.md](dynamic.md) - documents the `dynamic` flag used for configuring dynamic variables.
