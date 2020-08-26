@@ -18,7 +18,7 @@ function sprites() {
     console.warn('No sprites available');
     return [['sprites missing', 'null']];
   }
-  return animationList.orderedKeys.map(key => {
+  const val = animationList.orderedKeys.map(key => {
     const animation = animationList.propsByKey[key];
     if (animation.sourceUrl) {
       return [animation.sourceUrl, `"${animation.name}"`];
@@ -31,6 +31,34 @@ function sprites() {
       return [url, `"${animation.name}"`];
     }
   });
+  console.log(val);
+  return val;
+}
+function backgrounds() {
+  const val = [
+    [
+      'https://studio.code.org/blockly/media/skins/studio/background_cave.png',
+      '"https://studio.code.org/blockly/media/skins/studio/background_cave.png"'
+    ],
+    [
+      'https://studio.code.org/api/v1/animation-library/04L4sdTODkNZF1OHf4qO_I.Al3QP43wA/category_backgrounds/city.png',
+      '"https://studio.code.org/api/v1/animation-library/04L4sdTODkNZF1OHf4qO_I.Al3QP43wA/category_backgrounds/city.png"'
+    ],
+    [
+      'https://studio.code.org/api/v1/animation-library/UieRK0NBKD3xVHtSJxcUTAuhzLM1D_Hq/category_backgrounds/continuous_grass.png',
+      '"https://studio.code.org/api/v1/animation-library/UieRK0NBKD3xVHtSJxcUTAuhzLM1D_Hq/category_backgrounds/continuous_grass.png"'
+    ],
+    [
+      'https://studio.code.org/blockly/media/skins/studio/background.png',
+      '"https://studio.code.org/blockly/media/skins/studio/background.png"'
+    ],
+    [
+      'https://studio.code.org/blockly/media/skins/studio/background_desert.png',
+      '"https://studio.code.org/blockly/media/skins/studio/background_desert.png"'
+    ],
+    ['undefined', 'none']
+  ];
+  return val;
 }
 
 // This color palette is limited to colors which have different hues, therefore
@@ -186,6 +214,19 @@ const customInputTypes = {
         .appendTitle(inputConfig.label)
         .appendTitle(
           new Blockly.FieldImageDropdown(sprites, 32, 32, buttons),
+          inputConfig.name
+        );
+    },
+    generateCode(block, arg) {
+      return block.getTitleValue(arg.name);
+    }
+  },
+  backgroundPicker: {
+    addInput(blockly, block, inputConfig, currentInputRow) {
+      currentInputRow
+        .appendTitle(inputConfig.label)
+        .appendTitle(
+          new Blockly.FieldImageDropdown(backgrounds, 32, 32),
           inputConfig.name
         );
     },

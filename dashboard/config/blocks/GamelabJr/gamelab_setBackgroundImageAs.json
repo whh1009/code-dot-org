@@ -1,0 +1,18 @@
+{
+  "category": "",
+  "config": {
+    "color": [
+      240,
+      0.45,
+      0.65
+    ],
+    "func": "setBackgroundImageAs",
+    "blockText": "set background image as {IMG}",
+    "args": [
+      {
+        "name": "IMG",
+        "customInput": "backgroundPicker"
+      }
+    ]
+  }
+}

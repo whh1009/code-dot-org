@@ -224,6 +224,9 @@ export const commands = {
   setBackgroundImage(img) {
     worldCommands.setBackgroundImage.apply(this, [img]);
   },
+  setBackgroundImageAs(img) {
+    worldCommands.setBackgroundImage.apply(this, [img]);
+  },
   showTitleScreen(title, subtitle) {
     worldCommands.showTitleScreen(title, subtitle);
   },
