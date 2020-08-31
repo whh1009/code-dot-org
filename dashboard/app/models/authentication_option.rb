@@ -48,6 +48,7 @@ class AuthenticationOption < ApplicationRecord
     TWITTER = 'twitter',
     WINDOWS_LIVE = 'windowslive',
     MICROSOFT = 'microsoft_v2_auth',
+    LTI = 'lti_lti_development'
   ].freeze
 
   CREDENTIAL_TYPES = [

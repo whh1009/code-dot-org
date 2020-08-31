@@ -35,6 +35,7 @@ module LtiHelper
     consumer_key = params[:oauth_consumer_key]
     lti_credentials = CDO.lti_credentials || {}
     consumer_secret = lti_credentials[consumer_key]
+    puts lti_credentials
     if consumer_secret.blank?
       redirect_to new_user_registration_path,
         alert: "Sorry, invalid consumer_key [#{consumer_key}]"
@@ -42,6 +43,7 @@ module LtiHelper
     end
 
     provider = IMS::LTI::ToolProvider.new(consumer_key, consumer_secret, params)
+    puts request
     if provider.valid_request?(request)
       if params[:oauth_timestamp].blank?
         redirect_to new_user_registration_path,
