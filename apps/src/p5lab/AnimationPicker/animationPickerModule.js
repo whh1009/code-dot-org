@@ -231,11 +231,7 @@ export function pickLibraryAnimation(animation) {
   return (dispatch, getState) => {
     const goal = getState().animationPicker.goal;
     if (goal === Goal.NEW_ANIMATION) {
-      if (getState().animationPicker.isBackground) {
-        console.log('new background', animation);
-      } else {
-        dispatch(addLibraryAnimation(animation));
-      }
+      dispatch(addLibraryAnimation(animation));
     } else if (goal === Goal.NEW_FRAME) {
       dispatch(appendLibraryFrames(animation));
     }

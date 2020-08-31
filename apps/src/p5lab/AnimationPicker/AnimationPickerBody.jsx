@@ -58,7 +58,7 @@ export default class AnimationPickerBody extends React.Component {
   constructor(props) {
     super(props);
     if (this.props.isBackground) {
-      const categoryQuery = 'vehicles';
+      const categoryQuery = 'backgrounds';
       const currentPage = 0;
       const {results, pageCount} = this.searchAssetsWrapper(currentPage, {
         categoryQuery
@@ -123,7 +123,7 @@ export default class AnimationPickerBody extends React.Component {
     });
     if (!this.props.isBackground) {
       results = results.filter(
-        animation => !animation.categories.includes('vehicles')
+        animation => !animation.categories.includes('backgrounds')
       );
     }
     this.setState({searchQuery, currentPage, results, pageCount});
@@ -152,7 +152,7 @@ export default class AnimationPickerBody extends React.Component {
     const categories = Object.keys(this.props.libraryManifest.categories || []);
     categories.push('all');
     return categories
-      .filter(category => category !== 'vehicles')
+      .filter(category => category !== 'backgrounds')
       .map(category => (
         <AnimationPickerListItem
           key={category}

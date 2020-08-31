@@ -236,6 +236,7 @@ P5Lab.prototype.init = function(config) {
   this.level.softButtons = this.level.softButtons || [];
   if (this.level.useDefaultSprites) {
     this.startAnimations = defaultSprites;
+    console.log(defaultSprites);
   } else if (
     this.level.startAnimations &&
     this.level.startAnimations.length > 0
@@ -440,7 +441,7 @@ P5Lab.prototype.init = function(config) {
     config.initialAnimationList && !config.embed && !config.hasContainedLevels
       ? config.initialAnimationList
       : this.startAnimations;
-
+  console.log(initialAnimationList);
   getStore().dispatch(
     setInitialAnimationList(
       initialAnimationList,

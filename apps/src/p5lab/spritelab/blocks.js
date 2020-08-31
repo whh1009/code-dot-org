@@ -15,7 +15,6 @@ import {
 } from '../AnimationPicker/animationPickerModule';
 import i18n from '@cdo/locale';
 import spritelabMsg from '@cdo/spritelab/locale';
-import {backgrounds} from './backgrounds.json';
 
 function sprites() {
   const animationList = getStore().getState().animationList;
@@ -23,29 +22,53 @@ function sprites() {
     console.warn('No sprites available');
     return [['sprites missing', 'null']];
   }
-  return animationList.orderedKeys.map(key => {
-    const animation = animationList.propsByKey[key];
-    if (animation.sourceUrl) {
-      return [animation.sourceUrl, `"${animation.name}"`];
-    } else {
-      const url = animationSourceUrl(
-        key,
-        animation,
-        getStore().getState().pageConstants.channelId
+  return animationList.orderedKeys
+    .filter(key => {
+      const animation = animationList.propsByKey[key];
+      return !(
+        animation.categories && animation.categories.includes('backgrounds')
       );
-      return [url, `"${animation.name}"`];
-    }
-  });
+    })
+    .map(key => {
+      const animation = animationList.propsByKey[key];
+      if (animation.sourceUrl) {
+        return [animation.sourceUrl, `"${animation.name}"`];
+      } else {
+        const url = animationSourceUrl(
+          key,
+          animation,
+          getStore().getState().pageConstants.channelId
+        );
+        return [url, `"${animation.name}"`];
+      }
+    });
 }
 function backgroundList() {
-  let allBackgrounds = [];
-  backgrounds.forEach(background => {
-    allBackgrounds.push([
-      `https://studio.code.org${background.sourceUrl}`,
-      `"${background.legacyParam}"`
-    ]);
-  });
-  return allBackgrounds;
+  const animationList = getStore().getState().animationList;
+  if (!animationList || animationList.orderedKeys.length === 0) {
+    console.warn('No sprites available');
+    return [['sprites missing', 'null']];
+  }
+  return animationList.orderedKeys
+    .filter(key => {
+      const animation = animationList.propsByKey[key];
+      return (
+        animation.categories && animation.categories.includes('backgrounds')
+      );
+    })
+    .map(key => {
+      const animation = animationList.propsByKey[key];
+      if (animation.sourceUrl) {
+        return [animation.sourceUrl, `"${animation.name}"`];
+      } else {
+        const url = animationSourceUrl(
+          key,
+          animation,
+          getStore().getState().pageConstants.channelId
+        );
+        return [url, `"${animation.name}"`];
+      }
+    });
 }
 
 // This color palette is limited to colors which have different hues, therefore
