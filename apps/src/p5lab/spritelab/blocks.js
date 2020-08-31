@@ -8,9 +8,14 @@ import {APP_HEIGHT, P5LabInterfaceMode} from '../constants';
 import {TOOLBOX_EDIT_MODE} from '../../constants';
 import {animationSourceUrl} from '../animationListModule';
 import {changeInterfaceMode} from '../actions';
-import {Goal, show} from '../AnimationPicker/animationPickerModule';
+import {
+  Goal,
+  show,
+  showBackground
+} from '../AnimationPicker/animationPickerModule';
 import i18n from '@cdo/locale';
 import spritelabMsg from '@cdo/spritelab/locale';
+import {backgrounds} from './backgrounds.json';
 
 function sprites() {
   const animationList = getStore().getState().animationList;
@@ -18,7 +23,7 @@ function sprites() {
     console.warn('No sprites available');
     return [['sprites missing', 'null']];
   }
-  const val = animationList.orderedKeys.map(key => {
+  return animationList.orderedKeys.map(key => {
     const animation = animationList.propsByKey[key];
     if (animation.sourceUrl) {
       return [animation.sourceUrl, `"${animation.name}"`];
@@ -31,34 +36,16 @@ function sprites() {
       return [url, `"${animation.name}"`];
     }
   });
-  console.log(val);
-  return val;
 }
-function backgrounds() {
-  const val = [
-    [
-      'https://studio.code.org/blockly/media/skins/studio/background_cave.png',
-      '"https://studio.code.org/blockly/media/skins/studio/background_cave.png"'
-    ],
-    [
-      'https://studio.code.org/api/v1/animation-library/04L4sdTODkNZF1OHf4qO_I.Al3QP43wA/category_backgrounds/city.png',
-      '"https://studio.code.org/api/v1/animation-library/04L4sdTODkNZF1OHf4qO_I.Al3QP43wA/category_backgrounds/city.png"'
-    ],
-    [
-      'https://studio.code.org/api/v1/animation-library/UieRK0NBKD3xVHtSJxcUTAuhzLM1D_Hq/category_backgrounds/continuous_grass.png',
-      '"https://studio.code.org/api/v1/animation-library/UieRK0NBKD3xVHtSJxcUTAuhzLM1D_Hq/category_backgrounds/continuous_grass.png"'
-    ],
-    [
-      'https://studio.code.org/blockly/media/skins/studio/background.png',
-      '"https://studio.code.org/blockly/media/skins/studio/background.png"'
-    ],
-    [
-      'https://studio.code.org/blockly/media/skins/studio/background_desert.png',
-      '"https://studio.code.org/blockly/media/skins/studio/background_desert.png"'
-    ],
-    ['undefined', 'none']
-  ];
-  return val;
+function backgroundList() {
+  let allBackgrounds = [];
+  backgrounds.forEach(background => {
+    allBackgrounds.push([
+      `https://studio.code.org${background.sourceUrl}`,
+      `"${background.legacyParam}"`
+    ]);
+  });
+  return allBackgrounds;
 }
 
 // This color palette is limited to colors which have different hues, therefore
@@ -223,10 +210,24 @@ const customInputTypes = {
   },
   backgroundPicker: {
     addInput(blockly, block, inputConfig, currentInputRow) {
+      let buttons;
+      if (
+        getStore().getState().pageConstants &&
+        getStore().getState().pageConstants.showAnimationMode
+      ) {
+        buttons = [
+          {
+            text: i18n.more(),
+            action: () => {
+              getStore().dispatch(showBackground(Goal.NEW_ANIMATION));
+            }
+          }
+        ];
+      }
       currentInputRow
         .appendTitle(inputConfig.label)
         .appendTitle(
-          new Blockly.FieldImageDropdown(backgrounds, 32, 32),
+          new Blockly.FieldImageDropdown(backgroundList, 40, 40, buttons),
           inputConfig.name
         );
     },

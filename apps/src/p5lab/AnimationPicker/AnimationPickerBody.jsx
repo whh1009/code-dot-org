@@ -46,7 +46,8 @@ export default class AnimationPickerBody extends React.Component {
     playAnimations: PropTypes.bool.isRequired,
     libraryManifest: PropTypes.object.isRequired,
     hideUploadOption: PropTypes.bool.isRequired,
-    hideAnimationNames: PropTypes.bool.isRequired
+    hideAnimationNames: PropTypes.bool.isRequired,
+    isBackground: PropTypes.bool.isRequired
   };
 
   state = {
@@ -54,6 +55,23 @@ export default class AnimationPickerBody extends React.Component {
     categoryQuery: '',
     currentPage: 0
   };
+  constructor(props) {
+    super(props);
+    if (this.props.isBackground) {
+      const categoryQuery = 'vehicles';
+      const currentPage = 0;
+      const {results, pageCount} = this.searchAssetsWrapper(currentPage, {
+        categoryQuery
+      });
+      this.state = {
+        categoryQuery,
+        currentPage,
+        results,
+        pageCount,
+        searchQuery: ''
+      };
+    }
+  }
 
   searchAssetsWrapper = (page, config = {}) => {
     let {searchQuery, categoryQuery, libraryManifest} = config;
@@ -100,9 +118,14 @@ export default class AnimationPickerBody extends React.Component {
 
   onSearchQueryChange = searchQuery => {
     const currentPage = 0;
-    const {results, pageCount} = this.searchAssetsWrapper(currentPage, {
+    let {results, pageCount} = this.searchAssetsWrapper(currentPage, {
       searchQuery
     });
+    if (!this.props.isBackground) {
+      results = results.filter(
+        animation => !animation.categories.includes('vehicles')
+      );
+    }
     this.setState({searchQuery, currentPage, results, pageCount});
   };
 
@@ -128,18 +151,20 @@ export default class AnimationPickerBody extends React.Component {
   animationCategoriesRendering() {
     const categories = Object.keys(this.props.libraryManifest.categories || []);
     categories.push('all');
-    return categories.map(category => (
-      <AnimationPickerListItem
-        key={category}
-        label={
-          msg[`animationCategory_${category}`]
-            ? msg[`animationCategory_${category}`]()
-            : category
-        }
-        category={category}
-        onClick={this.onCategoryChange}
-      />
-    ));
+    return categories
+      .filter(category => category !== 'vehicles')
+      .map(category => (
+        <AnimationPickerListItem
+          key={category}
+          label={
+            msg[`animationCategory_${category}`]
+              ? msg[`animationCategory_${category}`]()
+              : category
+          }
+          category={category}
+          onClick={this.onCategoryChange}
+        />
+      ));
   }
 
   animationItemsRendering(animations) {
@@ -180,12 +205,14 @@ export default class AnimationPickerBody extends React.Component {
           <div style={animationPickerStyles.navigation}>
             {categoryQuery !== '' && (
               <div style={animationPickerStyles.breadCrumbs}>
-                <span
-                  onClick={this.onClearCategories}
-                  style={animationPickerStyles.allAnimations}
-                >
-                  {'All categories > '}
-                </span>
+                {!this.props.isBackground && (
+                  <span
+                    onClick={this.onClearCategories}
+                    style={animationPickerStyles.allAnimations}
+                  >
+                    {'All categories > '}
+                  </span>
+                )}
                 <span>{msg[`animationCategory_${categoryQuery}`]()}</span>
               </div>
             )}
@@ -203,7 +230,7 @@ export default class AnimationPickerBody extends React.Component {
               </div>
             )}
           {((searchQuery === '' && categoryQuery === '') ||
-            results.length === 0) && (
+            (results.length === 0 && !this.props.isBackground)) && (
             <div>
               <AnimationPickerListItem
                 label={msg.animationPicker_drawYourOwn()}
