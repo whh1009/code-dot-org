@@ -69,12 +69,13 @@ module LtiHelper
         #   uid is required for LTI sign-on
         #   age is required for User::TYPE_STUDENT
         #
+        puts params.inspect
         pvd_id     = "lti_#{consumer_key}"
         uid        = params[:user_id] || ""
         age        = params[:custom_age]
         full_name  = params[:lis_person_name_full]
         full_name  = "Lti #{uid.first}" if full_name.blank?
-        email      = SecureRandom.uuid + "@code.org"
+        email      = params[:lis_person_contact_email_primary]
 
         user_type  = lti_role_to_user_type(params[:roles])
         age = 21 if user_type == User::TYPE_TEACHER
