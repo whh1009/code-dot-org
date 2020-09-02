@@ -35,7 +35,6 @@ module LtiHelper
     consumer_key = params[:oauth_consumer_key]
     lti_credentials = CDO.lti_credentials || {}
     consumer_secret = lti_credentials[consumer_key]
-    puts lti_credentials
     if consumer_secret.blank?
       redirect_to new_user_registration_path,
         alert: "Sorry, invalid consumer_key [#{consumer_key}]"
@@ -43,7 +42,6 @@ module LtiHelper
     end
 
     provider = IMS::LTI::ToolProvider.new(consumer_key, consumer_secret, params)
-    puts request
     if provider.valid_request?(request)
       if params[:oauth_timestamp].blank?
         redirect_to new_user_registration_path,
@@ -69,7 +67,6 @@ module LtiHelper
         #   uid is required for LTI sign-on
         #   age is required for User::TYPE_STUDENT
         #
-        puts params.inspect
         pvd_id     = "lti_#{consumer_key}"
         uid        = params[:user_id] || ""
         age        = params[:custom_age]
@@ -85,9 +82,9 @@ module LtiHelper
             alert: lti_param_missing_msg("user_id")
           return
         end
-        if age.blank?
+        if email.blank?
           redirect_to new_user_registration_path,
-            alert: lti_param_missing_msg("custom_age")
+            alert: lti_param_missing_msg("email")
           return
         end
 
@@ -102,7 +99,6 @@ module LtiHelper
           user.user_type = user_type
 
           user.save
-
           User.uncached do
             user = User.find_by_email_or_hashed_email(email)
           end
