@@ -440,6 +440,7 @@ P5Lab.prototype.init = function(config) {
     config.initialAnimationList && !config.embed && !config.hasContainedLevels
       ? config.initialAnimationList
       : this.startAnimations;
+
   getStore().dispatch(
     setInitialAnimationList(
       initialAnimationList,

@@ -57,7 +57,7 @@ class P5LabView extends React.Component {
     this.props.onMount();
     const locale = window.appOptions.locale;
     const app = this.props.spriteLab ? 'spritelab' : 'gamelab';
-    // pull it from the local env instead
+    // temporarily pull from local env for testing purposes
     if (app === 'spritelab') {
       this.setState({
         libraryManifest: require('./customSpritelabCostumeLibrary.json')
