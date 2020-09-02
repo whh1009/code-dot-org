@@ -46,6 +46,7 @@ class AnimationPicker extends React.Component {
     // Provided via Redux
     visible: PropTypes.bool.isRequired,
     isBackground: PropTypes.bool,
+    isSpriteLab: PropTypes.bool,
     uploadInProgress: PropTypes.bool.isRequired,
     uploadError: PropTypes.string,
     is13Plus: PropTypes.bool,
@@ -79,6 +80,7 @@ class AnimationPicker extends React.Component {
         hideUploadOption={this.props.hideUploadOption}
         hideAnimationNames={this.props.hideAnimationNames}
         isBackground={this.props.isBackground}
+        isSpriteLab={this.props.isSpriteLab}
       />
     );
   }
@@ -120,6 +122,7 @@ export default connect(
   state => ({
     visible: state.animationPicker.visible,
     isBackground: state.animationPicker.isBackground,
+    isSpriteLab: state.animationPicker.isSpriteLab,
     uploadInProgress: state.animationPicker.uploadInProgress,
     uploadError: state.animationPicker.uploadError,
     is13Plus: state.pageConstants.is13Plus,

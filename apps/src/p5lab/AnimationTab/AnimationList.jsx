@@ -35,11 +35,12 @@ class AnimationList extends React.Component {
   };
 
   render() {
+    console.log(this.props.spriteLab);
     let addAnimation = (
       <NewListItem
         key="new_animation"
         label={this.props.spriteLab ? i18n.newCostume() : i18n.newAnimation()}
-        onClick={this.props.onNewItemClick}
+        onClick={() => this.props.onNewItemClick(this.props.spriteLab)}
       />
     );
     return (
@@ -66,8 +67,8 @@ export default connect(
     spriteLab: state.pageConstants.isBlockly
   }),
   dispatch => ({
-    onNewItemClick() {
-      dispatch(show(Goal.NEW_ANIMATION));
+    onNewItemClick(isSpriteLab) {
+      dispatch(show(Goal.NEW_ANIMATION, isSpriteLab));
     }
   })
 )(AnimationList);

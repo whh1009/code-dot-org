@@ -44,7 +44,8 @@ export default function reducer(state, action) {
         return _.assign({}, initialState, {
           visible: true,
           goal: action.goal,
-          isBackground: false
+          isBackground: false,
+          isSpriteLab: action.isSpriteLab
         });
       }
       return state;
@@ -86,11 +87,11 @@ export default function reducer(state, action) {
  * @returns {{type: string, goal: AnimationPicker.Goal }}
  * @throws {TypeError} if a valid goal is not provided
  */
-export function show(goal) {
+export function show(goal, isSpriteLab) {
   if ([Goal.NEW_ANIMATION, Goal.NEW_FRAME].indexOf(goal) === -1) {
     throw new TypeError('Must provide a valid goal');
   }
-  return {type: SHOW, goal: goal};
+  return {type: SHOW, goal: goal, isSpriteLab: isSpriteLab};
 }
 
 export function showBackground(goal) {

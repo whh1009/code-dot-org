@@ -355,7 +355,6 @@ export function setInitialAnimationList(
     console.error('Unable to load animations:', err);
     return;
   }
-  console.log(serializedAnimationList);
   return dispatch => {
     dispatch({
       type: SET_INITIAL_ANIMATION_LIST,

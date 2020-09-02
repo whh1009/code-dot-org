@@ -47,7 +47,8 @@ export default class AnimationPickerBody extends React.Component {
     libraryManifest: PropTypes.object.isRequired,
     hideUploadOption: PropTypes.bool.isRequired,
     hideAnimationNames: PropTypes.bool.isRequired,
-    isBackground: PropTypes.bool.isRequired
+    isBackground: PropTypes.bool.isRequired,
+    isSpriteLab: PropTypes.bool.isRequired
   };
 
   state = {
@@ -121,7 +122,7 @@ export default class AnimationPickerBody extends React.Component {
     let {results, pageCount} = this.searchAssetsWrapper(currentPage, {
       searchQuery
     });
-    if (!this.props.isBackground) {
+    if (!this.props.isBackground && this.props.isSpriteLab) {
       results = results.filter(
         animation => !animation.categories.includes('backgrounds')
       );
@@ -151,20 +152,34 @@ export default class AnimationPickerBody extends React.Component {
   animationCategoriesRendering() {
     const categories = Object.keys(this.props.libraryManifest.categories || []);
     categories.push('all');
-    return categories
-      .filter(category => category !== 'backgrounds')
-      .map(category => (
-        <AnimationPickerListItem
-          key={category}
-          label={
-            msg[`animationCategory_${category}`]
-              ? msg[`animationCategory_${category}`]()
-              : category
-          }
-          category={category}
-          onClick={this.onCategoryChange}
-        />
-      ));
+    if (this.props.isSpriteLab) {
+      return categories
+        .filter(category => category !== 'backgrounds')
+        .map(category => (
+          <AnimationPickerListItem
+            key={category}
+            label={
+              msg[`animationCategory_${category}`]
+                ? msg[`animationCategory_${category}`]()
+                : category
+            }
+            category={category}
+            onClick={this.onCategoryChange}
+          />
+        ));
+    }
+    return categories.map(category => (
+      <AnimationPickerListItem
+        key={category}
+        label={
+          msg[`animationCategory_${category}`]
+            ? msg[`animationCategory_${category}`]()
+            : category
+        }
+        category={category}
+        onClick={this.onCategoryChange}
+      />
+    ));
   }
 
   animationItemsRendering(animations) {
