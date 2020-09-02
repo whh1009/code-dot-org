@@ -175,6 +175,7 @@ export default class AnimationPickerBody extends React.Component {
         animationProps={animationProps}
         onClick={this.props.onPickLibraryAnimation.bind(this, animationProps)}
         playAnimations={this.props.playAnimations}
+        showBorder={!this.props.isBackground}
       />
     ));
   }

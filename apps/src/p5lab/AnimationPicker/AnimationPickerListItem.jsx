@@ -29,6 +29,17 @@ const styles = {
       borderColor: color.purple
     }
   },
+  thumbnailNoBorder: {
+    height: THUMBNAIL_SIZE,
+    borderStyle: 'solid',
+    borderColor: color.white,
+    borderWidth: THUMBNAIL_BORDER_WIDTH,
+    borderRadius: 12,
+    cursor: 'pointer',
+    ':hover': {
+      borderColor: color.purple
+    }
+  },
   thumbnailIcon: {
     color: color.white,
     backgroundColor: color.purple,
@@ -64,7 +75,8 @@ class AnimationPickerListItem extends React.Component {
     label: PropTypes.string,
     onClick: PropTypes.func,
     playAnimations: PropTypes.bool,
-    category: PropTypes.string
+    category: PropTypes.string,
+    showBorder: PropTypes.bool
   };
 
   state = {
@@ -75,7 +87,7 @@ class AnimationPickerListItem extends React.Component {
     const rootStyle = [styles.root, !this.props.label && styles.noLabel];
 
     const thumbnailStyle = [
-      styles.thumbnail,
+      this.props.showBorder ? styles.thumbnail : styles.thumbnailNoBorder,
       this.props.icon && styles.thumbnailIcon,
       this.props.animationProps && {
         display: this.state.loaded ? 'block' : 'none'

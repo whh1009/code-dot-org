@@ -63,6 +63,7 @@ export const commands = {
     if (typeof location === 'function') {
       location = location();
     }
+    console.log('making a sprite');
     var sprite = this.createSprite(location.x, location.y);
     sprite.direction = 0;
     sprite.baseScale = 1;
