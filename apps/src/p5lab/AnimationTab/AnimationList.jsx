@@ -35,7 +35,6 @@ class AnimationList extends React.Component {
   };
 
   render() {
-    console.log(this.props.spriteLab);
     let addAnimation = (
       <NewListItem
         key="new_animation"
