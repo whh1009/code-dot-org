@@ -24,6 +24,7 @@ import {
 } from '@cdo/apps/templates/sectionProgress/multiGridConstants';
 import i18n from '@cdo/locale';
 import SectionProgressNameCell from '@cdo/apps/templates/sectionProgress/SectionProgressNameCell';
+import { levelsByLesson } from '../../../code-studio/progressRedux';
 
 const ARROW_PADDING = 60;
 // Only show arrow next to lesson numbers if column is larger than a single small bubble and it's margin.
@@ -223,6 +224,12 @@ class VirtualizedDetailView extends Component {
 
     const student = section.students[studentStartIndex];
 
+    // TODO: Updating the students list from the Manage Students tab should
+    // update the section in redux.
+    if (!levelsByLesson[student.id]) {
+      return;
+    }
+
     return (
       <div className={progressStyles.Cell} key={key} style={style}>
         {stageIdIndex < 0 && (
@@ -250,9 +257,10 @@ class VirtualizedDetailView extends Component {
   };
 
   render() {
-    const {section, scriptData, lessonOfInterest, onScroll} = this.props;
+    const {levelsByLesson, section, scriptData, lessonOfInterest, onScroll} = this.props;
     // Add 2 to account for the 2 header rows
-    const rowCount = section.students.length + 2;
+    const rowCount = Object.keys(levelsByLesson).length + 2;
+    // const rowCount = section.students.length + 2;
     // Add 1 to account for the student name column
     const columnCount = scriptData.stages.length + 1;
     // Calculate height based on the number of rows
