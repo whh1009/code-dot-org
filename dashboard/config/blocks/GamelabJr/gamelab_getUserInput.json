@@ -1,0 +1,11 @@
+{
+  "category": "Sprites",
+  "config": {
+    "func": "getUserInput",
+    "blockText": "answer",
+    "returnType": "String",
+    "extraArgs": [
+      "extraArgs"
+    ]
+  }
+}

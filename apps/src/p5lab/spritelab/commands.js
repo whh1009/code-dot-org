@@ -133,6 +133,10 @@ export const commands = {
     eventCommands.keyPressed(condition, key, callback);
   },
 
+  onUserInput(callback) {
+    eventCommands.onUserInput(callback);
+  },
+
   spriteClicked(condition, spriteArg, callback) {
     eventCommands.spriteClicked(condition, spriteArg, callback);
   },
@@ -212,6 +216,10 @@ export const commands = {
     return worldCommands.getTime.apply(this, [unit]);
   },
 
+  getUserInput(extraArgs) {
+    return extraArgs.answer;
+  },
+
   hideTitleScreen() {
     worldCommands.hideTitleScreen();
   },
@@ -226,6 +234,11 @@ export const commands = {
   setBackgroundImage(img) {
     worldCommands.setBackgroundImage.apply(this, [img]);
   },
+
+  setQuestion(question) {
+    worldCommands.setQuestion(question);
+  },
+
   showTitleScreen(title, subtitle) {
     worldCommands.showTitleScreen(title, subtitle);
   },

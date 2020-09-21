@@ -1,0 +1,13 @@
+{
+  "category": "",
+  "config": {
+    "func": "setQuestion",
+    "blockText": "set question {QUESTION}",
+    "args": [
+      {
+        "name": "QUESTION",
+        "type": "String"
+      }
+    ]
+  }
+}

@@ -2,6 +2,7 @@ var spriteId = 0;
 var nativeSpriteMap = {};
 var inputEvents = [];
 var behaviors = [];
+var userInputCallbacks = [];
 
 export var background;
 export var title = '';
@@ -12,6 +13,7 @@ export function reset() {
   nativeSpriteMap = {};
   inputEvents = [];
   behaviors = [];
+  userInputCallbacks = [];
   background = 'white';
   title = subtitle = '';
 }
@@ -147,6 +149,14 @@ function enforceUniqueSpriteName(name) {
  */
 export function deleteSprite(spriteId) {
   delete nativeSpriteMap[spriteId];
+}
+
+export function addUserInputCallback(callback) {
+  userInputCallbacks.push(callback);
+}
+
+export function onUserInputSubmit(input) {
+  userInputCallbacks.forEach(func => func({answer: input}));
 }
 
 export function addEvent(type, args, callback) {

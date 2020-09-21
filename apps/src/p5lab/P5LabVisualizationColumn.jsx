@@ -20,6 +20,7 @@ import i18n from '@cdo/locale';
 import {toggleGridOverlay} from './actions';
 import GridOverlay from './gamelab/GridOverlay';
 import TextConsole from './spritelab/TextConsole';
+import SpritelabInput from './spritelab/SpritelabInput';
 import {
   cancelLocationSelection,
   selectLocation,
@@ -54,7 +55,8 @@ class P5LabVisualizationColumn extends React.Component {
     cancelPicker: PropTypes.func.isRequired,
     selectPicker: PropTypes.func.isRequired,
     updatePicker: PropTypes.func.isRequired,
-    consoleMessages: PropTypes.array.isRequired
+    consoleMessages: PropTypes.array.isRequired,
+    question: PropTypes.string.isRequired
   };
 
   // Cache app-space mouse coordinates, which we get from the
@@ -179,6 +181,8 @@ class P5LabVisualizationColumn extends React.Component {
           </VisualizationOverlay>
         </ProtectedVisualizationDiv>
         <TextConsole consoleMessages={this.props.consoleMessages} />
+        <SpritelabInput question={this.props.question} />
+
         <GameButtons>
           <ArrowButtons />
 
@@ -217,7 +221,8 @@ export default connect(
     awaitingContainedResponse: state.runState.awaitingContainedResponse,
     showGrid: state.gridOverlay,
     pickingLocation: isPickingLocation(state.locationPicker),
-    consoleMessages: state.textConsole
+    consoleMessages: state.textConsole,
+    question: state.spritelabInput || ''
   }),
   dispatch => ({
     toggleShowGrid: mode => dispatch(toggleGridOverlay(mode)),
