@@ -4,6 +4,7 @@ import CdoFieldDropdown from '@cdo/apps/blocklyAddons/cdoFieldDropdown';
 import CdoInput from '@cdo/apps/blocklyAddons/cdoInput';
 import CdoPathObject from '@cdo/apps/blocklyAddons/cdoPathObject';
 import CdoTheme from '@cdo/apps/blocklyAddons/cdoTheme';
+import CdoTrashcan from '@cdo/apps/blocklyAddons/CdoTrashcan';
 import CdoWorkspaceSvg from '@cdo/apps/blocklyAddons/cdoWorkspaceSvg';
 
 /**
@@ -110,6 +111,7 @@ function initializeBlocklyWrapper(blocklyInstance) {
   blocklyWrapper.blockly_.FieldDropdown = CdoFieldDropdown;
   blocklyWrapper.blockly_.Input = CdoInput;
   blocklyWrapper.geras.PathObject = CdoPathObject;
+  blocklyWrapper.blockly_.Trashcan = CdoTrashcan;
   blocklyWrapper.blockly_.WorkspaceSvg = CdoWorkspaceSvg;
 
   // These are also wrapping read only properties, but can't use wrapReadOnlyProperty
@@ -182,7 +184,8 @@ function initializeBlocklyWrapper(blocklyInstance) {
   blocklyWrapper.inject = function(container, opt_options, opt_audioPlayer) {
     const options = {
       ...opt_options,
-      theme: CdoTheme
+      theme: CdoTheme,
+      trashcan: true
     };
     blocklyWrapper.blockly_.inject(container, options);
   };
