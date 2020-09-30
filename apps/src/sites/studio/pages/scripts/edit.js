@@ -8,7 +8,7 @@ import isRtl from '@cdo/apps/code-studio/isRtlRedux';
 import getScriptData from '@cdo/apps/util/getScriptData';
 import reducers, {
   init
-} from '@cdo/apps/lib/levelbuilder/script-editor/editorRedux';
+} from '@cdo/apps/lib/levelbuilder/script-editor/scriptEditorRedux';
 import ScriptEditor from '@cdo/apps/lib/levelbuilder/script-editor/ScriptEditor';
 import {valueOr} from '@cdo/apps/utils';
 
@@ -59,7 +59,7 @@ export default function initPage(scriptEditorData) {
     ([type, link]) => ({type, link})
   );
 
-  let announcements = scriptData.script_announcements || [];
+  let announcements = scriptData.announcements || [];
 
   ReactDOM.render(
     <Provider store={store}>

@@ -16,7 +16,8 @@
 #
 # Indexes
 #
-#  index_stages_on_script_id  (script_id)
+#  index_stages_on_lesson_group_id_and_key  (lesson_group_id,key) UNIQUE
+#  index_stages_on_script_id                (script_id)
 #
 
 require 'cdo/shared_constants'
@@ -31,6 +32,7 @@ class Lesson < ActiveRecord::Base
 
   belongs_to :script, inverse_of: :lessons
   belongs_to :lesson_group
+  has_many :lesson_activities, -> {order(:position)}, dependent: :destroy
   has_many :script_levels, -> {order(:chapter)}, foreign_key: 'stage_id', dependent: :destroy
   has_many :levels, through: :script_levels
 
@@ -41,6 +43,13 @@ class Lesson < ActiveRecord::Base
 
   serialized_attrs %w(
     overview
+    student_overview
+    unplugged
+    creative_commons_license
+    assessment
+    purpose
+    preparation
+    announcements
     visible_after
   )
 
@@ -49,7 +58,6 @@ class Lesson < ActiveRecord::Base
   # by a non-lockable lesson, the third lesson will have an absolute_position of 3 but a relative_position of 1
   acts_as_list scope: :script, column: :absolute_position
 
-  #validates_uniqueness_of :name, scope: :script_id TODO: Add this back after we have moved over to new key/name systems for lesson
   validates_uniqueness_of :key, scope: :script_id
 
   include CodespanOnlyMarkdownHelper
@@ -132,7 +140,7 @@ class Lesson < ActiveRecord::Base
     relative_position.to_s
   end
 
-  def unplugged?
+  def unplugged_lesson?
     script_levels = script.script_levels.select {|sl| sl.stage_id == id}
     return false unless script_levels.first
     script_levels.first.oldest_active_level.unplugged?
@@ -144,7 +152,7 @@ class Lesson < ActiveRecord::Base
   def display_as_unplugged
     script_levels = script.script_levels.select {|sl| sl.stage_id == id}
     return false unless script_levels.first
-    script_levels.first.oldest_active_level.properties["display_as_unplugged"] == "true" || unplugged?
+    script_levels.first.oldest_active_level.properties["display_as_unplugged"] == "true" || unplugged_lesson?
   end
 
   def spelling_bee?
@@ -244,7 +252,7 @@ class Lesson < ActiveRecord::Base
         lesson_data[:finishText] = I18n.t('nav.header.finished_hoc')
       end
 
-      lesson_data[:lesson_extras_level_url] = script_stage_extras_url(script.name, stage_position: relative_position) unless unplugged?
+      lesson_data[:lesson_extras_level_url] = script_stage_extras_url(script.name, stage_position: relative_position) unless unplugged_lesson?
 
       lesson_data
     end
@@ -351,5 +359,24 @@ class Lesson < ActiveRecord::Base
     return true unless visible_after
 
     Time.parse(visible_after) <= Time.now
+  end
+
+  # Used for seeding from JSON. Returns the full set of information needed to uniquely identify this object.
+  # If the attributes of this object alone aren't sufficient, and associated objects are needed, then data from
+  # the seeding_keys of those objects should be included as well.
+  # Ideally should correspond to a unique index for this model's table.
+  # See comments on ScriptSeed.seed_from_json for more context.
+  #
+  # @param [ScriptSeed::SeedContext] seed_context - contains preloaded data to use when looking up associated objects
+  # @return [Hash<String, String] all information needed to uniquely identify this object across environments.
+  def seeding_key(seed_context)
+    my_key = {'lesson.key': key}
+
+    my_lesson_group = seed_context.lesson_groups.select {|lg| lg.id == lesson_group_id}.first
+    raise "No LessonGroup found for #{self.class}: #{my_key}, LessonGroup ID: #{lesson_group_id}" unless my_lesson_group
+    lesson_group_seeding_key = my_lesson_group.seeding_key(seed_context)
+
+    my_key.merge!(lesson_group_seeding_key) {|key, _, _| raise "Duplicate key when generating seeding_key: #{key}"}
+    my_key.stringify_keys
   end
 end

@@ -29,7 +29,8 @@ const defaultProps = {
   hasVerifiedResources: false,
   hasNumberedUnits: false,
   courseFamilies: ['CSP', 'CSD', 'CSF'],
-  versionYearOptions: ['2017', '2018', '2019']
+  versionYearOptions: ['2017', '2018', '2019'],
+  announcements: []
 };
 
 describe('CourseEditor', () => {
@@ -57,14 +58,16 @@ describe('CourseEditor', () => {
     assert.equal(wrapper.find('CourseScriptsEditor').length, 1);
     assert.equal(wrapper.find('ResourcesEditor').length, 1);
     assert.equal(wrapper.find('TeacherResourcesDropdown').length, 1);
+    assert.equal(wrapper.find('CollapsibleEditorSection').length, 4);
+    assert.equal(wrapper.find('AnnouncementsEditor').length, 1);
   });
 
   it('has correct markdown for preview of course teacher and student description', () => {
     const wrapper = createWrapper({});
-    expect(wrapper.find('MarkdownPreview').length).to.equal(2);
+    expect(wrapper.find('TextareaWithMarkdownPreview').length).to.equal(2);
     expect(
       wrapper
-        .find('MarkdownPreview')
+        .find('TextareaWithMarkdownPreview')
         .at(0)
         .prop('markdown')
     ).to.equal(
@@ -72,31 +75,12 @@ describe('CourseEditor', () => {
     );
     expect(
       wrapper
-        .find('MarkdownPreview')
+        .find('TextareaWithMarkdownPreview')
         .at(1)
         .prop('markdown')
     ).to.equal(
       '# Teacher description \n This is the course description with [link](https://studio.code.org/home) **Bold** *italics* '
     );
-
-    wrapper
-      .find('textarea[name="description_student"]')
-      .simulate('change', {target: {value: '## Title 1'}});
-    expect(
-      wrapper
-        .find('MarkdownPreview')
-        .at(0)
-        .prop('markdown')
-    ).to.equal('## Title 1');
-    wrapper
-      .find('textarea[name="description_teacher"]')
-      .simulate('change', {target: {value: '## Title 2'}});
-    expect(
-      wrapper
-        .find('MarkdownPreview')
-        .at(1)
-        .prop('markdown')
-    ).to.equal('## Title 2');
   });
 
   describe('VisibleInTeacherDashboard', () => {
