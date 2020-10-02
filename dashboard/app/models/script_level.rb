@@ -14,18 +14,24 @@
 #  named_level         :boolean
 #  bonus               :boolean
 #  activity_section_id :integer
+#  seed_key            :string(255)
 #
 # Indexes
 #
 #  index_script_levels_on_activity_section_id  (activity_section_id)
 #  index_script_levels_on_script_id            (script_id)
+#  index_script_levels_on_seed_key             (seed_key) UNIQUE
 #  index_script_levels_on_stage_id             (stage_id)
 #
 
 require 'cdo/shared_constants'
 
-# Joins a Script to a Level
-# A Script has one or more Levels, and a Level can belong to one or more Scripts
+# This is sort-of-but-not-quite a join table between Scripts and Levels; it's grown to have other functionality.
+# It corresponds to the "bubbles" in the UI which represent the levels in a lesson.
+#
+# A Script has_many ScriptLevels, and a ScriptLevel has_and_belongs_to_many Levels. However, most ScriptLevels
+# are only associated with one Level. There are some special cases where they can have multiple Levels, such as
+# with the now-deprecated variants feature.
 class ScriptLevel < ActiveRecord::Base
   include SerializedProperties
   include LevelsHelper
@@ -91,17 +97,19 @@ class ScriptLevel < ActiveRecord::Base
         position: (script_level_position += 1),
         named_level: raw_script_level[:named_level],
         bonus: raw_script_level[:bonus],
-        assessment: raw_script_level[:assessment],
-        properties: properties.with_indifferent_access
+        assessment: raw_script_level[:assessment]
       }
+      find_existing_script_level_attributes = script_level_attributes.slice(:script_id, :stage_id)
       script_level = script.script_levels.detect do |sl|
-        script_level_attributes.all? {|k, v| sl.send(k) == v} &&
-          sl.levels == levels
+        find_existing_script_level_attributes.all? {|k, v| sl.send(k) == v} &&
+          sl.levels.map(&:id).sort == levels.map(&:id).sort
       end || ScriptLevel.create!(script_level_attributes) do |sl|
         sl.levels = levels
       end
 
       script_level.assign_attributes(script_level_attributes)
+      # We must assign properties separately since otherwise, a missing property won't correctly overwrite the current value
+      script_level.properties = properties
       script_level.save! if script_level.changed?
       script_level
     end
