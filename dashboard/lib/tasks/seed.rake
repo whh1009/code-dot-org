@@ -210,6 +210,14 @@ namespace :seed do
     update_scripts(script_files: UI_TEST_SCRIPTS)
   end
 
+  timed_task scripts_json: SCRIPTS_DEPENDENCIES do
+    script_lessons_filenames = Dir.glob('config/scripts_json/**/*.script_json')
+    script_lessons_filenames.each_with_index do |filename, i|
+      puts "Seeding script #{i}: #{filename}"
+      Script.seed_from_json_file(filename)
+    end
+  end
+
   timed_task courses: :environment do
     Dir.glob(UnitGroup.file_path('**')).sort.map do |path|
       UnitGroup.load_from_path(path)
@@ -399,12 +407,14 @@ namespace :seed do
     sh('mysqldump -u root -B dashboard_test > db/ui_test_data.sql')
   end
 
-  FULL_SEED_TASKS = [:videos, :concepts, :scripts, :courses, :callouts, :school_districts, :schools, :secret_words, :secret_pictures, :ap_school_codes, :ap_cs_offerings, :ib_school_codes, :ib_cs_offerings, :state_cs_offerings, :donors, :donor_schools, :foorms, :standards].freeze
+  #FULL_SEED_TASKS = [:videos, :concepts, :scripts, :courses, :callouts, :school_districts, :schools, :secret_words, :secret_pictures, :ap_school_codes, :ap_cs_offerings, :ib_school_codes, :ib_cs_offerings, :state_cs_offerings, :donors, :donor_schools, :foorms, :standards].freeze
+  FULL_SEED_TASKS = [:videos, :concepts, :scripts_json, :courses, :callouts, :school_districts, :schools, :secret_words, :secret_pictures, :ap_school_codes, :ap_cs_offerings, :ib_school_codes, :ib_cs_offerings, :state_cs_offerings, :donors, :donor_schools, :foorms, :standards].freeze
   UI_TEST_SEED_TASKS = [:videos, :concepts, :scripts_ui_tests, :courses_ui_tests, :callouts, :school_districts, :schools, :secret_words, :secret_pictures, :donors, :donor_schools, :standards].freeze
   DEFAULT_SEED_TASKS = [:adhoc, :test].include?(rack_env) ? UI_TEST_SEED_TASKS : FULL_SEED_TASKS
 
   desc "seed the data needed for this type of environment by default"
-  timed_task default: DEFAULT_SEED_TASKS
+  #timed_task default: DEFAULT_SEED_TASKS
+  timed_task default: FULL_SEED_TASKS
   desc "seed all dashboard data"
   timed_task all: FULL_SEED_TASKS
   timed_task ui_test: UI_TEST_SEED_TASKS
