@@ -334,6 +334,8 @@ class ApiController < ApplicationController
     render json: {
       student_progress: student_progress,
       student_last_updates: student_timestamps,
+      students_status: student_progress,
+      students_last_update: student_timestamps,
       pagination: {
         total_pages: paged_students.total_pages,
         page: page,

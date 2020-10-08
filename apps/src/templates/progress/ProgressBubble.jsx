@@ -154,7 +154,7 @@ class ProgressBubble extends React.Component {
       studentLevelProgress = studentLevelProgress.pages[level.levelNumber - 1];
     }
 
-    const number = level.levelNumber;
+    const title = level.bubbleTitle;
     const url = level.url;
     const levelName = level.name || level.progressionDisplayName;
     const levelIcon = getIconForLevel(level);
@@ -162,8 +162,11 @@ class ProgressBubble extends React.Component {
     const status = studentLevelProgress.status;
 
     const disabled = this.props.disabled || levelIcon === 'lock';
-    const hideNumber =
-      level.letter || levelIcon === 'lock' || paired || level.bonus;
+    const hideTitle =
+      levelIcon === 'lock' ||
+      paired ||
+      level.bonus ||
+      (smallBubble && !isNaN(parseInt(level.bubbleTitle)));
 
     const style = {
       ...styles.main,
@@ -200,8 +203,8 @@ class ProgressBubble extends React.Component {
     const tooltipId = _.uniqueId();
     let tooltipText =
       levelName || (level.isUnplugged && i18n.unpluggedActivity()) || '';
-    if (number) {
-      tooltipText = `${number}. ${tooltipText}`;
+    if (title) {
+      tooltipText = `${title}. ${tooltipText}`;
     }
 
     const tooltip = (
@@ -249,20 +252,10 @@ class ProgressBubble extends React.Component {
                 ...(level.isConceptLevel && styles.diamondContents)
               }}
             >
-              {level.letter && (
-                <span id="test-bubble-letter"> {level.letter} </span>
-              )}
               {levelIcon === 'lock' && <FontAwesome icon="lock" />}
               {pairingIconEnabled && paired && <FontAwesome icon="users" />}
               {level.bonus && <FontAwesome icon="flag-checkered" />}
-              {!hideNumber && (
-                <span>
-                  {/*Text will not show up for smallBubble, but its presence
-                    causes bubble to be properly aligned vertically
-                    */}
-                  {smallBubble ? '' : number}
-                </span>
-              )}
+              {!hideTitle && <span>{title}</span>}
             </div>
             {levelIsAssessment && !smallBubble && !hideAssessmentIcon && (
               <SmallAssessmentIcon isDiamond={level.isConceptLevel} />

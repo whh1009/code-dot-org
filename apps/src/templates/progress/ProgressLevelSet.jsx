@@ -85,9 +85,9 @@ class ProgressLevelSet extends React.Component {
       // We explicitly don't want any text in this case
       pillText = '';
     } else {
-      pillText = levels[0].levelNumber.toString();
+      pillText = levels[0].bubbleTitle;
       if (multiLevelStep) {
-        pillText += `-${levels[levels.length - 1].levelNumber}`;
+        pillText += `-${levels[levels.length - 1].bubbleTitle}`;
       }
     }
 

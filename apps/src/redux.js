@@ -37,7 +37,7 @@ if (process.env.NODE_ENV !== 'production') {
 let reduxStore;
 let globalReducers = {};
 
-if (IN_UNIT_TEST) {
+if (IN_STORYBOOK || IN_UNIT_TEST) {
   let __oldReduxStore;
   let __oldGlobalReducers;
 
@@ -128,6 +128,17 @@ export function hasReducer(key) {
  * @return {Store} Configured Redux store, ready for use.
  */
 function createStore(reducer, initialState) {
+  // console.log('ENV', process.env.NODE_ENV);
+  // if (process.env.NODE_ENV === 'development') {
+  //   console.log('development');
+  //   const react = require('react');
+  //   const whyDidYouRender = require('@welldone-software/why-did-you-render');
+  //   whyDidYouRender(react, {
+  //     trackAllPureComponents: true,
+  //     trackHooks: false
+  //   });
+  // }
+
   // You have to manually enable debugging, both to keep the logger out
   // of production bundles, and because it causes a lot of console noise and
   // makes our unit tests fail. To enable, append ?enableExperiments=reduxLogging

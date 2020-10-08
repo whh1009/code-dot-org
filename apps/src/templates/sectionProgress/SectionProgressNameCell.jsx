@@ -1,24 +1,26 @@
 import PropTypes from 'prop-types';
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React from 'react';
 import {progressStyles} from './multiGridConstants';
-import {getSelectedScriptName} from '@cdo/apps/redux/scriptSelectionRedux';
 import {tooltipIdForStudent} from './sectionProgressConstants';
 import {scriptUrlForStudent} from '@cdo/apps/templates/teacherDashboard/urlHelpers';
 import firehoseClient from '../../lib/util/firehose';
 
-class SectionProgressNameCell extends Component {
+export default class SectionProgressNameCell extends React.PureComponent {
   static propTypes = {
     name: PropTypes.string.isRequired,
     studentId: PropTypes.number.isRequired,
     sectionId: PropTypes.number.isRequired,
 
-    // Provided by redux.
     scriptName: PropTypes.string,
     scriptId: PropTypes.number
   };
 
-  recordStudentNameClick = () => {
+  constructor(props) {
+    super(props);
+    this.recordStudentNameClick = this.recordStudentNameClick.bind(this);
+  }
+
+  recordStudentNameClick() {
     firehoseClient.putRecord(
       {
         study: 'teacher_dashboard_actions',
@@ -32,7 +34,7 @@ class SectionProgressNameCell extends Component {
       },
       {includeUserId: true}
     );
-  };
+  }
 
   render() {
     const {name, studentId, sectionId, scriptName} = this.props;
@@ -60,9 +62,3 @@ class SectionProgressNameCell extends Component {
     );
   }
 }
-
-export const UnconnectedSectionProgressNameCell = SectionProgressNameCell;
-export default connect((state, ownProps) => ({
-  scriptName: getSelectedScriptName(state),
-  scriptId: state.scriptSelection.scriptId
-}))(SectionProgressNameCell);

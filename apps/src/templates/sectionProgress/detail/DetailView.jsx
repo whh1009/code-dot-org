@@ -9,6 +9,7 @@ import ProgressLegend from '@cdo/apps/templates/progress/ProgressLegend';
 import VirtualizedDetailView from './VirtualizedDetailView';
 
 class DetailView extends Component {
+  static whyDidYouRender = true;
   static propTypes = {
     section: sectionDataPropType.isRequired,
     scriptData: scriptDataPropType
@@ -26,7 +27,6 @@ class DetailView extends Component {
       <div>
         <VirtualizedDetailView
           section={section}
-          stageExtrasEnabled={section.stageExtras}
           scriptData={scriptData}
           onScroll={this.afterScroll}
         />

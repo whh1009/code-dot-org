@@ -66,6 +66,7 @@
     "@storybook/addon-info": "^3.3.15",
     "@storybook/addon-options": "^4.1.16",
     "@storybook/react": "^4.1.16",
+    "@welldone-software/why-did-you-render": "^5.0.0",
     "aws-sdk": "2.28.0",
     "babel-eslint": "^9.0.0",
     "babel-loader": "^8.0.0",

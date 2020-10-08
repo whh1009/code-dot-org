@@ -6,10 +6,7 @@ import {MultiGrid} from 'react-virtualized';
 import StudentProgressDetailCell from '@cdo/apps/templates/sectionProgress/detail/StudentProgressDetailCell';
 import FontAwesome from '@cdo/apps/templates/FontAwesome';
 import styleConstants from '../../../styleConstants';
-import {
-  getColumnWidthsForDetailView,
-  setLessonOfInterest
-} from '@cdo/apps/templates/sectionProgress/sectionProgressRedux';
+import {setLessonOfInterest} from '@cdo/apps/templates/sectionProgress/sectionProgressRedux';
 import {scriptDataPropType} from '../sectionProgressConstants';
 import {sectionDataPropType} from '@cdo/apps/redux/sectionDataRedux';
 import {studentLevelProgressType} from '@cdo/apps/templates/progress/progressTypes';
@@ -22,8 +19,11 @@ import {
   MAX_TABLE_SIZE,
   PROGRESS_BUBBLE_WIDTH,
   DIAMOND_BUBBLE_WIDTH,
+  NAME_COLUMN_WIDTH,
+  PILL_BUBBLE_WIDTH,
   tooltipIdForLessonNumber
 } from '@cdo/apps/templates/sectionProgress/multiGridConstants';
+import {SMALL_DOT_SIZE} from '@cdo/apps/templates/progress/progressStyles';
 import i18n from '@cdo/locale';
 import SectionProgressNameCell from '@cdo/apps/templates/sectionProgress/SectionProgressNameCell';
 
@@ -69,7 +69,40 @@ const styles = {
   }
 };
 
+/**
+ * Calculate the width of each column in the detail view based on types of levels
+ * @returns {Array} array of integers indicating the length of each column
+ */
+const getColumnWidthsForStages = stages => {
+  let columnLengths = [NAME_COLUMN_WIDTH];
+
+  for (let stageIndex = 0; stageIndex < stages.length; stageIndex++) {
+    const levels = stages[stageIndex].levels;
+    // Left and right padding surrounding bubbles
+    let width = 10;
+    for (let levelIndex = 0; levelIndex < levels.length; levelIndex++) {
+      if (levels[levelIndex].isUnplugged) {
+        // Pill shaped bubble
+        width = width + PILL_BUBBLE_WIDTH;
+      } else if (levels[levelIndex].is_concept_level) {
+        // Diamond shaped bubble
+        width = width + DIAMOND_BUBBLE_WIDTH;
+      } else {
+        // Circle bubble
+        width = width + PROGRESS_BUBBLE_WIDTH;
+      }
+      if (levels[levelIndex].sublevels) {
+        width =
+          width + levels[levelIndex].sublevels.length * SMALL_DOT_SIZE * 2;
+      }
+    }
+    columnLengths.push(width || 0);
+  }
+  return columnLengths;
+};
+
 class VirtualizedDetailView extends Component {
+  static whyDidYouRender = true;
   static propTypes = {
     section: sectionDataPropType.isRequired,
     scriptData: scriptDataPropType.isRequired,
@@ -78,7 +111,6 @@ class VirtualizedDetailView extends Component {
     ).isRequired,
     lessonOfInterest: PropTypes.number.isRequired,
     setLessonOfInterest: PropTypes.func.isRequired,
-    columnWidths: PropTypes.arrayOf(PropTypes.number).isRequired,
     onScroll: PropTypes.func,
     scriptName: PropTypes.string,
     scriptId: PropTypes.number
@@ -91,6 +123,7 @@ class VirtualizedDetailView extends Component {
     this.cellRenderer = this.cellRenderer.bind(this);
     this.studentCellRenderer = this.studentCellRenderer.bind(this);
     this.getColumnWidth = this.getColumnWidth.bind(this);
+    this.columnWidths = getColumnWidthsForStages(props.scriptData.stages);
   }
 
   state = {
@@ -129,7 +162,7 @@ class VirtualizedDetailView extends Component {
   }
 
   cellRenderer({columnIndex, key, rowIndex, style}) {
-    const {scriptData, columnWidths} = this.props;
+    const {scriptData} = this.props;
     // Subtract 2 to account for the 2 header rows.
     // We don't want leave off the first 2 students.
     const studentStartIndex = rowIndex - 2;
@@ -176,15 +209,15 @@ class VirtualizedDetailView extends Component {
                 stageData.relative_position
               )}
             </div>
-            {columnWidths[columnIndex] > MAX_COLUMN_WITHOUT_ARROW && (
+            {this.columnWidths[columnIndex] > MAX_COLUMN_WITHOUT_ARROW && (
               <div
                 style={{
                   ...styles.lessonLine,
-                  width: columnWidths[columnIndex] - ARROW_PADDING
+                  width: this.columnWidths[columnIndex] - ARROW_PADDING
                 }}
               />
             )}
-            {columnWidths[columnIndex] > MAX_COLUMN_WITHOUT_ARROW && (
+            {this.columnWidths[columnIndex] > MAX_COLUMN_WITHOUT_ARROW && (
               <div>
                 <i style={styles.lessonArrow} />
               </div>
@@ -257,7 +290,7 @@ class VirtualizedDetailView extends Component {
           stageId={stageIdIndex}
           stageExtrasEnabled={section.stageExtras}
           levels={stageLevels}
-          studentProgress={levelProgressByStudent[student.id] || {}}
+          studentProgress={levelProgressByStudent[student.id]}
         />
       );
     }
@@ -278,10 +311,11 @@ class VirtualizedDetailView extends Component {
   }
 
   getColumnWidth({index}) {
-    return this.props.columnWidths[index] || 0;
+    return this.columnWidths[index] || 0;
   }
 
   render() {
+    console.log('virtualized detail render');
     const {section, scriptData, lessonOfInterest, onScroll} = this.props;
     // Add 2 to account for the 2 header rows
     const rowCount = section.students.length + 2;
@@ -299,7 +333,7 @@ class VirtualizedDetailView extends Component {
         cellRenderer={this.cellRenderer}
         columnWidth={this.getColumnWidth}
         columnCount={columnCount}
-        enableFixedColumnScroll
+        enableFixedColumnScroll={true}
         rowHeight={ROW_HEIGHT}
         height={tableHeight}
         scrollToColumn={lessonOfInterest}
@@ -311,7 +345,7 @@ class VirtualizedDetailView extends Component {
         styleTopRightGrid={progressStyles.topRight}
         width={styleConstants['content-width']}
         ref={this.setDetailViewRef}
-        onScroll={onScroll}
+        onSectionRendered={onScroll}
       />
     );
   }
@@ -321,7 +355,6 @@ export const UnconnectedVirtualizedDetailView = VirtualizedDetailView;
 
 export default connect(
   state => ({
-    columnWidths: getColumnWidthsForDetailView(state),
     lessonOfInterest: state.sectionProgress.lessonOfInterest,
     levelProgressByStudent:
       state.sectionProgress.studentLevelProgressByScript[
