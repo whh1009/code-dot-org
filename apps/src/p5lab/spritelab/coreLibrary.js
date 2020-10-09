@@ -7,6 +7,7 @@ var userInputCallbacks = [];
 export var background;
 export var title = '';
 export var subtitle = '';
+export var currentQuestionName = '';
 
 export function reset() {
   spriteId = 0;
@@ -16,6 +17,7 @@ export function reset() {
   userInputCallbacks = [];
   background = 'white';
   title = subtitle = '';
+  currentQuestionName = '';
 }
 
 /**
@@ -151,12 +153,18 @@ export function deleteSprite(spriteId) {
   delete nativeSpriteMap[spriteId];
 }
 
-export function addUserInputCallback(callback) {
-  userInputCallbacks.push(callback);
+export function addUserInputCallback(questionName, callback) {
+  userInputCallbacks.push({questionName, callback});
 }
 
 export function onUserInputSubmit(input) {
-  userInputCallbacks.forEach(func => func({answer: input}));
+  console.log(input);
+  console.log(currentQuestionName);
+  userInputCallbacks.forEach(userInputInfo => {
+    if (userInputInfo.questionName === currentQuestionName) {
+      userInputInfo.callback({answer: input});
+    }
+  });
 }
 
 export function addEvent(type, args, callback) {

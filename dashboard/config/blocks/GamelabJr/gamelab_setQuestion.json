@@ -2,8 +2,13 @@
   "category": "",
   "config": {
     "func": "setQuestion",
-    "blockText": "set question {QUESTION}",
+    "blockText": "set question {FIELD} to {QUESTION}",
     "args": [
+      {
+        "name": "FIELD",
+        "type": "String",
+        "field": true
+      },
       {
         "name": "QUESTION",
         "type": "String"

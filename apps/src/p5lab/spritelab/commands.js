@@ -133,12 +133,12 @@ export const commands = {
     eventCommands.keyPressed(condition, key, callback);
   },
 
-  onUserInput(callback) {
-    eventCommands.onUserInput(callback);
-  },
-
   spriteClicked(condition, spriteArg, callback) {
     eventCommands.spriteClicked(condition, spriteArg, callback);
+  },
+
+  whenQuestionAnswered(questionName, callback) {
+    eventCommands.whenQuestionAnswered(questionName, callback);
   },
 
   // Location commands
@@ -235,8 +235,8 @@ export const commands = {
     worldCommands.setBackgroundImage.apply(this, [img]);
   },
 
-  setQuestion(question) {
-    worldCommands.setQuestion(question);
+  setQuestion(name, question) {
+    worldCommands.setQuestion(name, question);
   },
 
   showTitleScreen(title, subtitle) {

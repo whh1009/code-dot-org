@@ -36,7 +36,8 @@ export const commands = {
     }
   },
 
-  setQuestion(question) {
+  setQuestion(questionName, question) {
+    coreLibrary.currentQuestionName = questionName;
     getStore().dispatch(setQuestion(question));
   },
 

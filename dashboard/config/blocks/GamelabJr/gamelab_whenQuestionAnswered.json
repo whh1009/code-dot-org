@@ -1,0 +1,23 @@
+{
+  "category": "",
+  "config": {
+    "color": [
+      140,
+      1,
+      0.74
+    ],
+    "func": "whenQuestionAnswered",
+    "blockText": "when question {FIELD} is answered",
+    "args": [
+      {
+        "name": "FIELD",
+        "type": "String",
+        "field": true
+      }
+    ],
+    "callbackParams": [
+      "extraArgs"
+    ],
+    "eventBlock": true
+  }
+}
