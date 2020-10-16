@@ -20,9 +20,9 @@ class ScriptLevelsControllerTest < ActionController::TestCase
 
     @custom_script = create(:script, name: 'laurel', hideable_lessons: true)
     @custom_lesson_group = create(:lesson_group, script: @custom_script)
-    @custom_lesson_1 = create(:lesson, script: @custom_script, lesson_group: @custom_lesson_group, name: 'Laurel Stage 1', absolute_position: 1, relative_position: '1')
-    @custom_lesson_2 = create(:lesson, script: @custom_script, lesson_group: @custom_lesson_group, name: 'Laurel Stage 2', absolute_position: 2, relative_position: '2')
-    @custom_lesson_3 = create(:lesson, script: @custom_script, lesson_group: @custom_lesson_group, name: 'Laurel Stage 3', absolute_position: 3, relative_position: '3')
+    @custom_lesson_1 = create(:lesson, script: @custom_script, lesson_group: @custom_lesson_group, key: 'Laurel Stage 1', name: 'Laurel Stage 1', absolute_position: 1, relative_position: '1')
+    @custom_lesson_2 = create(:lesson, script: @custom_script, lesson_group: @custom_lesson_group, key: 'Laurel Stage 2', name: 'Laurel Stage 2', absolute_position: 2, relative_position: '2')
+    @custom_lesson_3 = create(:lesson, script: @custom_script, lesson_group: @custom_lesson_group, key: 'Laurel Stage 3', name: 'Laurel Stage 3', absolute_position: 3, relative_position: '3')
     @custom_s1_l1 = create(
       :script_level,
       script: @custom_script,
@@ -742,6 +742,19 @@ class ScriptLevelsControllerTest < ActionController::TestCase
     end
 
     assert_equal script_level, assigns(:script_level)
+  end
+
+  test "show with the login_required param should redirect when not logged in" do
+    script_level = Script.find_by_name('courseb-2017').script_levels.first
+
+    get :show, params: {
+      script_id: script_level.script,
+      stage_position: script_level.lesson.absolute_position,
+      id: script_level.position,
+      login_required: "true"
+    }
+
+    assert_redirected_to_sign_in
   end
 
   test "show with the reset param should reset session when not logged in" do
@@ -1486,7 +1499,7 @@ class ScriptLevelsControllerTest < ActionController::TestCase
     assert_equal [], hidden
   end
 
-  test "hidden_stage_ids for user signed in" do
+  test "hidden_stage_ids for student signed in" do
     SectionHiddenLesson.create(section_id: @section.id, stage_id: @custom_lesson_1.id)
 
     sign_in @student
@@ -1494,7 +1507,19 @@ class ScriptLevelsControllerTest < ActionController::TestCase
     assert_response :success
 
     hidden = JSON.parse(response.body)
-    assert_equal [@custom_lesson_1.id.to_s], hidden
+    assert_equal [@custom_lesson_1.id], hidden
+  end
+
+  test "hidden_stage_ids for teacher signed in" do
+    SectionHiddenLesson.create(section_id: @section.id, stage_id: @custom_lesson_1.id)
+
+    sign_in @teacher
+    response = get :hidden_stage_ids, params: {script_id: @script.name}
+    assert_response :success
+
+    hidden = JSON.parse(response.body)
+    expected = {@section.id.to_s => [@custom_lesson_1.id]}
+    assert_equal expected, hidden
   end
 
   def put_student_in_section(student, teacher, script)

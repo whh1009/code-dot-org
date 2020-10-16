@@ -1564,7 +1564,7 @@
           "courseC_starWars_loops1_a": "Amikor BB-8 áthalad a fémdarabon, automatikusan felszedi."
         },
         "courseC_starWars_loops1_2019": {
-          "courseC_starWars_loops1_a": "Amikor BB-8 áthalad a fémdarabon, automatikusan felszedi."
+          "courseC_starWars_loops1_a": "Amikor BB-8 egy fémdarab fölé gördül, automatikusan felszedi azt."
         },
         "courseC_starWars_loops1_2020": {
           "courseC_starWars_loops1_a": "Amikor BB-8 áthalad a fémdarabon, automatikusan felszedi."
@@ -1742,6 +1742,9 @@
         },
         "courseE_bee_functions7": {
           "courseE_bee_functions7_b": "Ne feledd, hogy a kódod a zöld blokkon belül építheted.\n\n![](https://images.code.org/8fe1fae5caf4ede3a9c9bd9f26940cde-image-1467996837459.gif)"
+        },
+        "2-3 Artist Debugging 8": {
+          "2-3_Artist_Debugging_8_a": "Hányszor ismétlődött meg az alakzatom?\nHányszor _kellett volna_ megismétlődnie az alakzatnak?\nHol tudod ezt módosítani a programban?"
         }
       }
     }
