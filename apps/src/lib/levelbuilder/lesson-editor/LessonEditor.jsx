@@ -64,7 +64,7 @@ export default class LessonEditor extends Component {
     } = this.props;
     return (
       <div style={styles.editor}>
-        <h1>Editing Lesson named "{displayName}"</h1>
+        <h1>Editing Lesson "{displayName}"</h1>
         <label>
           Title
           <input name="name" defaultValue={displayName} style={styles.input} />
