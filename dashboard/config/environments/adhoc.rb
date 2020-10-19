@@ -15,7 +15,7 @@ Dashboard::Application.configure do
 
   # Disable full error reports for profiling/load-testing, due to memory leak:
   # https://github.com/rails/rails/issues/27273
-  config.consider_all_requests_local = false
+  config.consider_all_requests_local = true
 
   config.action_controller.perform_caching = true
   config.public_file_server.enabled = true
@@ -31,7 +31,7 @@ Dashboard::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Log condensed lines to syslog for centralized logging.
-  config.lograge.enabled = true
+  config.lograge.enabled = false
   config.lograge.formatter = Lograge::Formatters::Cee.new
   require 'syslog/logger'
   config.logger = Syslog::Logger.new 'dashboard', Syslog::LOG_LOCAL0
