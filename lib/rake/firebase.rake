@@ -14,7 +14,7 @@ namespace :firebase do
 
   desc 'Uploads compiled security rules to firebase from the apps package.'
   task :upload_rules do
-    if CDO.firebase_name
+    if CDO.firebase_name && !rack_env?(:adhoc)
       ChatClient.log 'Uploading security rules to firebase...'
       Dir.chdir(dashboard_dir) do
         if rack_env?(:development) && !`readlink public/blockly`.include?('apps/build/package')
@@ -35,7 +35,7 @@ namespace :firebase do
 
   desc 'Sets config in the firebase database from CDO config params.'
   task :set_config do
-    if CDO.firebase_name
+    if CDO.firebase_name && !rack_env?(:adhoc)
       ChatClient.log 'Setting firebase configuration parameters...'
       Dir.chdir(apps_dir) do
         url = "https://#{CDO.firebase_name}.firebaseio.com/v3/config.json?auth=#{CDO.firebase_secret}"
