@@ -18277,3 +18277,195 @@ en:
           description_audience: ''
           description_short: 'Use Sprite Lab to program a simulation out of a virus outbreak. '
           description: 'Use Sprite Lab to program a simulation out of a virus outbreak. '
+        tesstest:
+          lessons:
+            Lesson 5:
+              name: Lesson 5
+            Lesson 3:
+              name: Lesson 3
+            Lesson 1:
+              name: Lesson 1
+            Lesson 2:
+              name: Lesson 2
+            Lesson 4:
+              name: Lesson 4
+            Lesson 7:
+              name: Lesson 7
+            Lesson 8:
+              name: Lesson 8
+            Lesson 9:
+              name: Lesson 9
+          lesson_groups:
+            lessonGroup-2:
+              display_name: Lesson Group 2
+              big_questions: This is a Big Question.
+              description: Eget dolor morbi non arcu risus quis varius quam. Sit amet mattis vulputate enim nulla aliquet porttitor lacus. Id velit ut tortor pretium viverra suspendisse potenti nullam ac.
+            lessonGroup-3:
+              display_name: Lesson Group
+              big_questions: Here is a big question.
+              description: Etiam non quam lacus suspendisse faucibus interdum. Ipsum dolor sit amet consectetur adipiscing.
+            lessonGroup-4:
+              display_name: Lesson Group 3
+              big_questions: Big Question here?
+              description: 'Morbi blandit cursus risus at ultrices mi tempus. Ornare arcu dui vivamus arcu felis bibendum ut. Sagittis vitae et leo duis ut diam quam nulla porttitor. Ipsum consequat nisl vel pretium lectus quam. '
+          title: Computer Science Discoveries Tess Test 1
+          description_audience: Middle School
+          description_short: 'Test Course '
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor aliquam nulla facilisi cras fermentum odio. Fringilla est ullamcorper eget nulla. Arcu risus quis varius quam quisque. Mauris rhoncus aenean vel elit scelerisque mauris pellentesque. Vulputate enim nulla aliquet porttitor. Ullamcorper dignissim cras tincidunt lobortis. Et ligula ullamcorper malesuada proin. Amet nisl suscipit adipiscing bibendum est ultricies integer quis auctor. Pellentesque habitant morbi tristique senectus et. Eget mi proin sed libero. Et magnis dis parturient montes nascetur ridiculus mus. Volutpat consequat mauris nunc congue nisi vitae. At ultrices mi tempus imperdiet nulla malesuada pellentesque. Vitae auctor eu augue ut lectus. '
+        dani-csp4-20:
+          lessons:
+            Variables Explore:
+              name: Variables Explore
+            Variables Investigate:
+              name: Variables Investigate
+            Variables Practice:
+              name: Variables Practice
+            Variables Make:
+              name: Variables Make
+            Conditionals Explore:
+              name: Conditionals Explore
+            Conditionals Investigate:
+              name: Conditionals Investigate
+            Conditionals Practice:
+              name: Conditionals Practice
+            Conditionals Make:
+              name: Conditionals Make
+            Functions Explore / Investigate:
+              name: Functions Explore / Investigate
+            Functions Practice:
+              name: Functions Practice
+            Functions Make:
+              name: Functions Make
+            Project - Part 1:
+              name: Project - Part 1
+            Project - Part 2:
+              name: Project - Part 2
+            Project - Part 3:
+              name: Project - Part 3
+            Assessment Day:
+              name: Assessment Day
+          lesson_groups:
+            lessonGroup-2:
+              display_name: Variables
+            lessonGroup-3:
+              display_name: Conditionals
+            lessonGroup-4:
+              display_name: Functions
+            lessonGroup-5:
+              display_name: Project
+          title: ''
+          description_audience: ''
+          description_short: ''
+          description: ''
+        coursea-2020-new:
+          lessons:
+            Safety in My Online Neighborhood:
+              name: Safety in My Online Neighborhood
+            'translation missing: en-US.data.script.name.coursea-2020-new.lessons.Safety in My Online Neighborhood.name':
+              name: 'translation missing: en-US.data.script.name.coursea-2020-new.lessons.Safety in My Online Neighborhood.name'
+            ? 'translation missing: en-US.data.script.name.coursea-2020-new.lessons.translation missing: en-US.data.script.name.coursea-2020-new.lessons.Safety in My Online Neighborhood.name.name'
+            : name: 'translation missing: en-US.data.script.name.coursea-2020-new.lessons.translation missing: en-US.data.script.name.coursea-2020-new.lessons.Safety in My Online Neighborhood.name.name'
+          lesson_groups:
+            lessonGroup-2:
+              display_name: Content
+          title: ''
+          description_audience: everyone
+          description_short: short desc
+          description: long desc
+        tessscript:
+          lessons: {}
+          lesson_groups: {}
+        csd2-2020-bethany:
+          lessons:
+            Exploring Web Pages:
+              name: Exploring Web Pages
+            Intro to HTML:
+              name: Intro to HTML
+            Headings:
+              name: Headings
+            'Mini-Projec: HTML Web Page':
+              name: 'Mini-Projec: HTML Web Page'
+            Digital Footprint:
+              name: Digital Footprint
+            Styling Text with CSS:
+              name: Styling Text with CSS
+            'Mini-Project: Your Personal Style':
+              name: 'Mini-Project: Your Personal Style'
+            Intellectual Property:
+              name: Intellectual Property
+            Using Images:
+              name: Using Images
+            Websites for Expression:
+              name: Websites for Expression
+            Styling Elements with CSS:
+              name: Styling Elements with CSS
+            Your Web Page - Prepare:
+              name: Your Web Page - Prepare
+            Project - Personal Web Page:
+              name: Project - Personal Web Page
+            Websites for a Purpose:
+              name: Websites for a Purpose
+            'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Exploring Web Pages.name':
+              name: 'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Exploring Web Pages.name'
+            'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Intro to HTML.name':
+              name: 'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Intro to HTML.name'
+            'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Headings.name':
+              name: 'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Headings.name'
+            'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Mini-Projec: HTML Web Page.name':
+              name: 'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Mini-Projec: HTML Web Page.name'
+            'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Digital Footprint.name':
+              name: 'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Digital Footprint.name'
+            'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Styling Text with CSS.name':
+              name: 'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Styling Text with CSS.name'
+            'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Mini-Project: Your Personal Style.name':
+              name: 'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Mini-Project: Your Personal Style.name'
+            'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Intellectual Property.name':
+              name: 'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Intellectual Property.name'
+            'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Using Images.name':
+              name: 'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Using Images.name'
+            'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Websites for Expression.name':
+              name: 'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Websites for Expression.name'
+            'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Styling Elements with CSS.name':
+              name: 'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Styling Elements with CSS.name'
+            'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Your Web Page - Prepare.name':
+              name: 'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Your Web Page - Prepare.name'
+            'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Project - Personal Web Page.name':
+              name: 'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Project - Personal Web Page.name'
+            'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Websites for a Purpose.name':
+              name: 'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Websites for a Purpose.name'
+          lesson_groups:
+            lessonGroup-2:
+              display_name: Content
+            lessonGroup-3:
+              display_name: Content
+          title: Bethany CSD2 2020
+          description_audience: ''
+          description_short: Learn to build your own web site in Web Lab.
+          description: " In Unit 2, you’ll learn how to create and share the content on your own web pages. After deciding what content you want to share with the world, you’ll learn how to structure and style your pages using HTML and CSS. You’ll also practice valuable programming skills such as debugging, using resources, and teamwork."
+        tesstest3:
+          lessons:
+            Lesson 1:
+              name: Lesson 1
+            Lesson 2:
+              name: Lesson 2
+            Lesson 3:
+              name: Lesson 3
+            Lesson Group 4:
+              name: Lesson Group 4
+            Lesson Group 5:
+              name: Lesson Group 5
+            Lesson Group 6:
+              name: Lesson Group 6
+          lesson_groups:
+            lessonGroup-2:
+              display_name: Lesson Group 1
+              big_questions: Big question
+              description: Here is lesson group 1
+            lessonGroup-3:
+              display_name: Lesson Group2
+              big_questions: Big Question
+              description: Lesson Group 2
+          title: Computer Science Discoveries Tess Test 2
+          description_audience: Middle School
+          description_short: 'Test Course '
+          description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
