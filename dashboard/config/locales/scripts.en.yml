@@ -18280,38 +18280,38 @@ en:
         tesstest:
           lessons:
             Lesson 5:
-              name: Lesson 5
+              name: 'translation missing: en-US.data.script.name.tesstest.lessons.Lesson 5.name'
             Lesson 3:
-              name: Lesson 3
+              name: 'translation missing: en-US.data.script.name.tesstest.lessons.Lesson 3.name'
             Lesson 1:
-              name: Lesson 1
+              name: 'translation missing: en-US.data.script.name.tesstest.lessons.Lesson 1.name'
             Lesson 2:
-              name: Lesson 2
+              name: 'translation missing: en-US.data.script.name.tesstest.lessons.Lesson 2.name'
             Lesson 4:
-              name: Lesson 4
+              name: 'translation missing: en-US.data.script.name.tesstest.lessons.Lesson 4.name'
             Lesson 7:
-              name: Lesson 7
+              name: 'translation missing: en-US.data.script.name.tesstest.lessons.Lesson 7.name'
             Lesson 8:
-              name: Lesson 8
+              name: 'translation missing: en-US.data.script.name.tesstest.lessons.Lesson 8.name'
             Lesson 9:
-              name: Lesson 9
+              name: 'translation missing: en-US.data.script.name.tesstest.lessons.Lesson 9.name'
           lesson_groups:
             lessonGroup-2:
-              display_name: Lesson Group 2
+              display_name: Content
               big_questions: This is a Big Question.
               description: Eget dolor morbi non arcu risus quis varius quam. Sit amet mattis vulputate enim nulla aliquet porttitor lacus. Id velit ut tortor pretium viverra suspendisse potenti nullam ac.
             lessonGroup-3:
-              display_name: Lesson Group
+              display_name: Content
               big_questions: Here is a big question.
               description: Etiam non quam lacus suspendisse faucibus interdum. Ipsum dolor sit amet consectetur adipiscing.
             lessonGroup-4:
-              display_name: Lesson Group 3
+              display_name: Content
               big_questions: Big Question here?
               description: 'Morbi blandit cursus risus at ultrices mi tempus. Ornare arcu dui vivamus arcu felis bibendum ut. Sagittis vitae et leo duis ut diam quam nulla porttitor. Ipsum consequat nisl vel pretium lectus quam. '
-          title: Computer Science Discoveries Tess Test 1
-          description_audience: Middle School
-          description_short: 'Test Course '
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor aliquam nulla facilisi cras fermentum odio. Fringilla est ullamcorper eget nulla. Arcu risus quis varius quam quisque. Mauris rhoncus aenean vel elit scelerisque mauris pellentesque. Vulputate enim nulla aliquet porttitor. Ullamcorper dignissim cras tincidunt lobortis. Et ligula ullamcorper malesuada proin. Amet nisl suscipit adipiscing bibendum est ultricies integer quis auctor. Pellentesque habitant morbi tristique senectus et. Eget mi proin sed libero. Et magnis dis parturient montes nascetur ridiculus mus. Volutpat consequat mauris nunc congue nisi vitae. At ultrices mi tempus imperdiet nulla malesuada pellentesque. Vitae auctor eu augue ut lectus. '
+          title: ''
+          description_audience: ''
+          description_short: ''
+          description: ''
         dani-csp4-20:
           lessons:
             Variables Explore:
@@ -18469,3 +18469,12 @@ en:
           description_audience: Middle School
           description_short: 'Test Course '
           description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        tsstest4:
+          lessons:
+            lesson-1:
+              name: Lesson
+          lesson_groups: {}
+          title: Computer Science Discoveries Tess Test 4
+          description_audience: ''
+          description_short: ''
+          description: "\r\nLOREM IPSUM GENERATOR\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
