@@ -5,19 +5,20 @@ require Rails.root.join('config/environments/staging')
 
 Dashboard::Application.configure do
   # Code is not reloaded between requests.
-  config.cache_classes = true
+  config.cache_classes = false
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both thread web servers
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
-  config.eager_load = true
+  config.eager_load = false
 
   # Disable full error reports for profiling/load-testing, due to memory leak:
   # https://github.com/rails/rails/issues/27273
   config.consider_all_requests_local = true
 
-  config.action_controller.perform_caching = true
+  config.action_controller.perform_caching = false
+  
   config.public_file_server.enabled = true
   config.public_file_server.headers = {'Cache-Control' => "public, max-age=86400, s-maxage=43200"}
 
@@ -39,4 +40,7 @@ Dashboard::Application.configure do
   # Show mail previews (rails/mailers).
   # See http://edgeguides.rubyonrails.org/action_mailer_basics.html#previewing-emails
   config.action_mailer.show_previews = true
+
+  # temporarily disable Rails.cache on adhoc
+  config.cache_store = :null_store
 end
