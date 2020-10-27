@@ -18478,3 +18478,42 @@ en:
           description_audience: ''
           description_short: ''
           description: "\r\nLOREM IPSUM GENERATOR\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        dave:
+          lessons:
+            Lesson One:
+              name: 'translation missing: en-US.data.script.name.dave.lessons.Lesson One.name'
+          lesson_groups: {}
+          title: My Script
+          description_audience: my audience
+          description_short: my short description
+          description: "my long description\r\n"
+        dave-2:
+          lessons:
+            lesson-1:
+              name: Lesson A
+            lesson-2:
+              name: Lesson B
+            lesson-3:
+              name: Lesson C
+          lesson_groups:
+            lessonGroup-2:
+              display_name: Group One
+              big_questions: Question One
+              description: Description One
+            lessonGroup-3:
+              display_name: Group Two
+              big_questions: Question Two
+              description: Description Two
+          title: Dave Script Six
+          description_audience: My Audience
+          description_short: My Short Description
+          description: My Long Description
+        testtess:
+          lessons:
+            lesson-1:
+              name: Lesson1
+          lesson_groups: {}
+          title: Test - Hour of Code
+          description_audience: Middle School
+          description_short: Short Activities for CS Ed Week
+          description: "The Hour of Code is a global movement reaching tens of millions of students in 180+ countries. Anyone, anywhere can organize an Hour of Code event. One-hour tutorials are available in over 30 languages. No experience needed. Ages 4 to 104.\r\n"
