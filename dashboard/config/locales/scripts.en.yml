@@ -18511,9 +18511,123 @@ en:
         testtess:
           lessons:
             lesson-1:
-              name: Lesson1
+              name: Dance Party
           lesson_groups: {}
           title: Test - Hour of Code
           description_audience: Middle School
           description_short: Short Activities for CS Ed Week
           description: "The Hour of Code is a global movement reaching tens of millions of students in 180+ countries. Anyone, anywhere can organize an Hour of Code event. One-hour tutorials are available in over 30 languages. No experience needed. Ages 4 to 104.\r\n"
+        testcsf2021-2022:
+          lessons: {}
+          lesson_groups: {}
+          title: Course D (2020)
+          description_audience: 'Ages: 7-11'
+          description_short: Learn about conditional statements. Create your own art, games, and even a dance party.
+          description: Students develop their understanding of loops, conditionals, and events. Beyond coding, students learn about digital citizenship.
+        testcsfd:
+          lessons: {}
+          lesson_groups: {}
+          title: Course D (2020)
+          description_audience: 'Ages: 7-11'
+          description_short: Learn about conditional statements. Create your own art, games, and even a dance party.
+          description: Students develop their understanding of loops, conditionals, and events. Beyond coding, students learn about digital citizenship.
+        test1csfd:
+          lessons:
+            lesson-1:
+              name: Conditionals with Cards
+            lesson-2:
+              name: If/Else with Bee
+            lesson-3:
+              name: While Loops in Farmer
+            lesson-4:
+              name: Until Loops in Maze
+            lesson-5:
+              name: Harvesting with Conditionals
+            lesson-6:
+              name: Loops in Ice Age
+            lesson-7:
+              name: Drawing Shapes with Loops
+            lesson-8:
+              name: Nested Loops in Maze
+            lesson-9:
+              name: Binary Images
+            lesson-10:
+              name: Binary Images with Artist
+          lesson_groups:
+            lessonGroup-2:
+              display_name: Conditionals
+            lessonGroup-3:
+              display_name: Loops
+            lessonGroup-4:
+              display_name: Binary
+          title: Course D (2020)
+          description_audience: 'Ages: 7-11'
+          description_short: Learn about conditional statements. Create your own art, games, and even a dance party.
+          description: Students develop their understanding of loops, conditionals, and events. Beyond coding, students learn about digital citizenship.
+        testcsd:
+          lessons:
+            lesson-1:
+              name: Programming for Entertainment
+            lesson-2:
+              name: Plotting Shapes
+            lesson-3:
+              name: Drawing in Game Lab
+            lesson-4:
+              name: Shapes and Parameters
+            lesson-5:
+              name: Variables
+            lesson-6:
+              name: Random Numbers
+            lesson-7:
+              name: Sprites
+            lesson-8:
+              name: Sprite Properties
+            lesson-9:
+              name: Text
+            lesson-10:
+              name: 'Mini-Project: Captioned Scenes'
+            lesson-11:
+              name: The Draw Loop
+            lesson-12:
+              name: Sprite Movement
+            lesson-13:
+              name: 'Mini-Project: Animation'
+            lesson-14:
+              name: Conditionals
+            lesson-15:
+              name: Keyboard Input
+            lesson-16:
+              name: Mouse Input
+            lesson-17:
+              name: Project - Interactive Card
+            lesson-18:
+              name: Velocity
+            lesson-19:
+              name: Collision Detection
+            lesson-20:
+              name: 'Mini-Project: Side Scroller'
+            lesson-21:
+              name: Complex Sprite Movement
+            lesson-22:
+              name: Collisions
+            lesson-23:
+              name: 'Mini-Project: Flyer Game'
+            lesson-24:
+              name: Functions
+            lesson-25:
+              name: Game Design Process
+            lesson-26:
+              name: Using the Game Design Process
+            lesson-27:
+              name: Project - Design a Game
+            lesson-28:
+              name: Post-Project Test
+          lesson_groups:
+            lessonGroup-2:
+              display_name: Images and Animations
+            lessonGroup-3:
+              display_name: Building Games
+          title: CSD Unit 3 - Interactive Animations and Games ('20-'21)
+          description_audience: ''
+          description_short: " Learn to program animations, interactive art, and games in Game Lab."
+          description: " In Unit 3, you’ll build on your coding experience as you program animations, interactive art, and games in Game Lab. The unit starts off with simple shapes and builds up to more sophisticated sprite-based games, using the same programming concepts and the design process computer scientists use daily. In the final project, you’ll develop a personalized, interactive program."
