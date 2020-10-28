@@ -100,7 +100,7 @@ class ScriptsController < ApplicationController
   end
 
   def edit
-    beta = params[:beta].present?
+    beta = true
     if @script.script_levels.any?(&:has_experiment?)
       beta = false
       beta_warning = "The beta Script Editor is not available, because it does not support level variants with experiments."
@@ -110,8 +110,8 @@ class ScriptsController < ApplicationController
       script: @script ? @script.summarize_for_script_edit : {},
       has_course: @script&.unit_groups&.any?,
       i18n: @script ? @script.summarize_i18n_for_edit : {},
-      beta: true,
-      betaWarning: false,
+      beta: beta,
+      betaWarning: beta_warning,
       levelKeyList: beta && Level.key_list,
       lessonLevelData: @script_file,
       locales: options_for_locale_select,
