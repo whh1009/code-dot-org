@@ -21,6 +21,18 @@
         background-color: #3e8e41;
         transform: translateY(4px);
       }
+
+      .blinking{
+        animation:blinkingText 1.2s infinite;
+      }
+
+      @keyframes blinkingText{
+        0%{     color: #000;    }
+        49%{    color: #000; }
+        60%{    color: transparent; }
+        99%{    color:transparent;  }
+        100%{   color: #000;    }
+      }
     </style>
 </head>
 <body>
@@ -35,9 +47,11 @@
     <li><a href="/s/oceans/stage/1/puzzle/7">Puzzle 7</a></li>
     <li><a href="/s/oceans/stage/1/puzzle/8">Puzzle 8</a></li>
   </ul>
-  <button type="button" class="button" id="offline-button" onclick="downloadAssets()">
+  <button type="button" id="offline-button" class="button" onclick="downloadAssets()">
     Make Oceans tutorial available offline
   </button>
+  <span id="download-status" class="blinking" style="visibility:hidden"><i>Downloading...</i></span>
+  <p id="online-status"></p>
 
   <script>
     async function downloadAssets() {
@@ -123,10 +137,21 @@
       let cacheName = "oceans-app-v3";
       const cache = await caches.open(cacheName);
       console.log("=====Downloading more assets...=====");
+      document.getElementById("download-status").style.visibility = "visible";
+
       await cache.addAll(resourcesToAdd);
+
+      document.getElementById("download-status").style.visibility = "hidden";
       console.log("=====Assets downloaded!=====");
       alert("Ready to go offline!");
     }
+
+    function updateOnlineStatus() {
+      document.getElementById('online-status').textContent = "You are " + (navigator.onLine ? "ONLINE" : "OFFLINE");
+    }
+
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
 
     window.addEventListener('load', () => {
       if ("serviceWorker" in navigator) {
