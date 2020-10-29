@@ -5,7 +5,7 @@ import _ from 'lodash';
 import {getCurrentScriptData} from '../sectionProgressRedux';
 import {scriptDataPropType} from '../sectionProgressConstants';
 import SummaryViewLegend from './SummaryViewLegend';
-import VirtualizedSummaryView from './VirtualizedSummaryView';
+import StudentProgressSummaryTable from './StudentProgressSummaryTable';
 import {sectionDataPropType} from '@cdo/apps/redux/sectionDataRedux';
 
 class SummaryView extends Component {
@@ -24,12 +24,12 @@ class SummaryView extends Component {
 
     return (
       <div>
-        <VirtualizedSummaryView
+        <StudentProgressSummaryTable
           section={section}
           scriptData={scriptData}
           onScroll={this.afterScroll}
         />
-        <SummaryViewLegend showCSFProgressBox={scriptData.csf} />
+        {/* <SummaryViewLegend showCSFProgressBox={scriptData.csf} /> */}
       </div>
     );
   }
