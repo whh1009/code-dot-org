@@ -1222,6 +1222,8 @@ en:
               name: Contained Levels
             ML Fish:
               name: ML Fish
+            AI Lab:
+              name: AI Lab
         algebraPD2b:
           title: Computer Science in Algebra PD
           description: 'Phase 2 Online: Blended Summer Study'
@@ -18646,3 +18648,12 @@ en:
           description_audience: ''
           description_short: ''
           description: "<h1> This is the test </h1>\r\nHow does this look?"
+        apps-for-good:
+          lessons:
+            Build an App for Good:
+              name: Build an App for Good
+          lesson_groups: {}
+          title: Apps for Good
+          description_audience: ''
+          description_short: ''
+          description: ''
