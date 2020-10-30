@@ -8,6 +8,8 @@ And /^I press dropdown number (\d+)$/ do |n|
     # Safari has an issue detecting SVG elements as interactive.
     # Click mouse in element location using Actions API as a workaround.
     @browser.action.move_to(text).click.perform
+  elsif @browser.browser == :internet_explorer
+    text.find_element(:xpath, '../*[last()]').click
   else
     google_blockly? ? text.click : text.find_element(:xpath, '../*[last()]').click
   end
