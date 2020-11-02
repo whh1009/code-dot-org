@@ -8,7 +8,7 @@ import SummaryViewLegend from './SummaryViewLegend';
 import StudentProgressSummaryTable from './StudentProgressSummaryTable';
 import {sectionDataPropType} from '@cdo/apps/redux/sectionDataRedux';
 
-class SummaryView extends Component {
+class SummaryViewStory extends Component {
   static propTypes = {
     section: sectionDataPropType.isRequired,
     scriptData: scriptDataPropType
@@ -29,15 +29,15 @@ class SummaryView extends Component {
           scriptData={scriptData}
           onScroll={this.afterScroll}
         />
-        <SummaryViewLegend showCSFProgressBox={scriptData.csf} />
+        {/* <SummaryViewLegend showCSFProgressBox={scriptData.csf} /> */}
       </div>
     );
   }
 }
 
-export const UnconnectedSummaryView = SummaryView;
+export const UnconnectedSummaryView = SummaryViewStory;
 
 export default connect(state => ({
   section: state.sectionData.section,
   scriptData: getCurrentScriptData(state)
-}))(SummaryView);
+}))(SummaryViewStory);

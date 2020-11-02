@@ -1,4 +1,9 @@
-import {registerReducers, createStoreWithReducers} from '@cdo/apps/redux';
+import {
+  registerReducers,
+  createStoreWithReducers,
+  restoreRedux,
+  stubRedux
+} from '@cdo/apps/redux';
 import sectionData, {setSection} from '@cdo/apps/redux/sectionDataRedux';
 import sectionProgress, {
   addDataByScript
@@ -19,7 +24,9 @@ export function createStore() {
   for (let i = 0; i < 200; i++) {
     section.students.push({id: i, name: 'Student' + i});
   }
-  registerReducers({sectionProgress, sectionData, scriptSelection});
+  try {
+    registerReducers({sectionProgress, sectionData, scriptSelection});
+  } catch {}
   const store = createStoreWithReducers();
   store.dispatch(setSection(section));
   store.dispatch(setValidScripts([scriptData], [scriptData.id], [], section));

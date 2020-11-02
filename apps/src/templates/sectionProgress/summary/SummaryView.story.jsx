@@ -1,5 +1,5 @@
 import React from 'react';
-import SummaryView from './SummaryView';
+import SummaryViewStory from './SummaryViewStory';
 import {Provider} from 'react-redux';
 import {createStore} from '../sectionProgressTestHelpers';
 
@@ -10,9 +10,11 @@ export default storybook => {
       name: 'SummaryView',
       story: () => {
         return (
-          <Provider store={store}>
-            <SummaryView />
-          </Provider>
+          <div className="main" style={{width: 970, display: 'block'}}>
+            <Provider store={store}>
+              <SummaryViewStory />
+            </Provider>
+          </div>
         );
       }
     }

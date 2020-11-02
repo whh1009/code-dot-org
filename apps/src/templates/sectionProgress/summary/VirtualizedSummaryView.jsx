@@ -200,7 +200,7 @@ class VirtualizedSummaryView extends Component {
           style={progressStyles.multigrid}
           styleBottomLeftGrid={progressStyles.bottomLeft}
           styleTopLeftGrid={progressStyles.topLeft}
-          styleTopRightGrid={progressStyles.topRight}
+          // styleTopRightGrid={progressStyles.topRight}
           width={styleConstants['content-width']}
           onScroll={onScroll}
         />

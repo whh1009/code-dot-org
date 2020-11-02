@@ -354,7 +354,11 @@ describe('entry tests', () => {
             'build/package/css/publicKeyCryptography.css',
             'style/publicKeyCryptography/publicKeyCryptography.scss'
           ],
-          ['build/package/css/foorm.css', 'style/code-studio/foorm.scss']
+          ['build/package/css/foorm.css', 'style/code-studio/foorm.scss'],
+          [
+            'build/package/css/progress-tables.css',
+            'style/dashboard/progress-tables.scss'
+          ]
         ].concat(
           appsToBuild.map(function(app) {
             return [

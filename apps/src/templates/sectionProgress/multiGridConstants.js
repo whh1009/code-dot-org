@@ -1,4 +1,5 @@
 import color from '../../util/color';
+import styleConstants from '../../styleConstants';
 
 export const ROW_HEIGHT = 42;
 export const LAST_ROW_MARGIN_HEIGHT = 18;
@@ -8,52 +9,73 @@ export const PROGRESS_BUBBLE_WIDTH = 38;
 export const DIAMOND_BUBBLE_WIDTH = 38;
 export const PILL_BUBBLE_WIDTH = 180;
 export const MIN_COLUMN_WIDTH = 39;
+export const PROGRESS_TABLE_WIDTH =
+  styleConstants['content-width'] - NAME_COLUMN_WIDTH;
 
 export const progressStyles = {
+  main: {},
+  header: {
+    height: ROW_HEIGHT,
+    padding: 0,
+    backgroundColor: color.table_header,
+    borderBottom: '2px solid',
+    borderColor: color.border_gray
+  },
+  nameColumn: {
+    borderRight: `2px solid ${color.border_gray}`
+  },
+  row: {
+    height: ROW_HEIGHT
+  },
   lessonHeading: {
     fontFamily: '"Gotham 5r", sans-serif',
     fontSize: 14,
     color: color.charcoal,
-    paddingLeft: 8
+    padding: '0px 0px 0px 8px'
   },
   lessonLabelContainer: {
     borderBottom: '2px solid',
-    borderColor: color.border_gray,
-    height: 44,
-    display: 'flex',
-    alignItems: 'center'
+    borderColor: color.border_gray
+    // height: 44
+    // display: 'flex',
+    // alignItems: 'center'
   },
   // For 'hover' to be applied, you should wrap the component using this style in Radium.
   lessonNumberHeading: {
-    paddingTop: 9,
-    paddingBotton: 9,
-    paddingLeft: 11,
-    paddingRight: 11,
+    // paddingTop: 9,
+    // paddingBotton: 9,
+    // paddingLeft: 11,
+    // paddingRight: 11,
     fontFamily: '"Gotham 5r", sans-serif',
     ':hover': {
       cursor: 'pointer'
     },
     textAlign: 'center',
-    height: '100%'
+    height: '100%',
+    color: 'initial',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   lessonOfInterest: {
     backgroundColor: color.teal,
     color: color.white,
     fontSize: 18,
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 10,
-    paddingRight: 10,
+    // paddingTop: 10,
+    // paddingBottom: 10,
+    // paddingLeft: 10,
+    // paddingRight: 10,
     textAlign: 'center'
   },
   multigrid: {
     border: '1px solid',
-    borderColor: color.border_gray,
-    padding: 0
+    borderColor: color.border_gray
+    // padding: 0
   },
   bottomLeft: {
     borderRight: '2px solid',
-    borderColor: color.border_gray
+    borderColor: color.border_gray,
+    borderCollapse: 'unset'
   },
   topLeft: {
     borderBottom: '2px solid',
