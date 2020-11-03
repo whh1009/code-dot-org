@@ -129,6 +129,8 @@ module ScriptSeed
       # as just another set of objects to import allows us to handle it with the same pattern as the other models.
       seed_context.levels = seed_context.script_levels.map(&:levels).flatten
       import_levels_script_levels(levels_script_levels_data, seed_context)
+
+      CourseOffering.add_course_offering(seed_context.script)
       seed_context.script
     end
   end
@@ -233,7 +235,7 @@ module ScriptSeed
   def self.destroy_outdated_objects(model_class, all_objects, imported_objects, seed_context)
     objects_to_keep_by_seeding_key = imported_objects.index_by {|o| o.seeding_key(seed_context)}
     should_keep = all_objects.group_by {|o| objects_to_keep_by_seeding_key.include?(o.seeding_key(seed_context))}
-    model_class.destroy(should_keep[false]) if should_keep.include?(false)
+    model_class.destroy(should_keep[false].pluck(:id)) if should_keep.include?(false)
     should_keep[true]
   end
 
