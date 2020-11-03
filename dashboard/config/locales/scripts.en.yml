@@ -18408,9 +18408,9 @@ en:
             Websites for a Purpose:
               name: Websites for a Purpose
             'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Exploring Web Pages.name':
-              name: 'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Exploring Web Pages.name'
+              name: Exploring Web Pages
             'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Intro to HTML.name':
-              name: 'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Intro to HTML.name'
+              name: Intro to HTML
             'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Headings.name':
               name: 'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Headings.name'
             'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Mini-Projec: HTML Web Page.name':
@@ -18657,3 +18657,152 @@ en:
           description_audience: ''
           description_short: ''
           description: ''
+        tesstestunit:
+          lessons: {}
+          lesson_groups: {}
+          title: ''
+          description_audience: ''
+          description_short: ''
+          description: ''
+        hannahcsp:
+          lessons:
+            lesson-1:
+              name: Variables Explore
+            lesson-2:
+              name: Variables Investigate
+          lesson_groups: {}
+          title: Hannah CSP
+          description_audience: ''
+          description_short: ''
+          description: ''
+        ken:
+          lessons:
+            lesson-1:
+              name: Black and White Images
+            lesson-2:
+              name: Lossless Compression
+            lesson-3:
+              name: Lossy Compression
+          lesson_groups:
+            lessonGroup-2:
+              display_name: Ramp Up
+          title: Ken Course A
+          description_audience: ''
+          description_short: ''
+          description: ''
+        csd-testing-dan:
+          lessons:
+            lesson-1:
+              name: 'Lesson 1: Adventures in CSD!'
+            lesson-2:
+              name: 'Lesson 2: The Plot Thickens!'
+          lesson_groups: {}
+          title: CSD Testing [Dan]
+          description_audience: Everyone!
+          description_short: ''
+          description: "# Description!\r\n\r\nThis is a description. Oh boy!"
+        amycsf:
+          lessons: {}
+          lesson_groups: {}
+        james-coursed-2020:
+          lessons:
+            lesson-1:
+              name: Loops in Ice Age
+            lesson-2:
+              name: Drawing Shapes with Loops
+            lesson-3:
+              name: Nested Loops in Maze
+            lesson-4:
+              name: Conditional with Cards
+            lesson-5:
+              name: If/Else with Bee
+            lesson-6:
+              name: While Loops in Farmer
+            lesson-7:
+              name: Unti Loops in Maze
+            lesson-8:
+              name: Harvesting with Conditionals
+          lesson_groups:
+            lessonGroup-2:
+              display_name: Loops
+            lessonGroup-3:
+              display_name: Conditionals
+          title: Course D
+          description_audience: ''
+          description_short: ''
+          description: "Course D was created for students who read at roughly a third grade level. Angles and mathematical concepts are introduced with helpful videos and hints.\r\n\r\nThe course begins with a review of the concepts found in Courses A, B, and C. This review helps introduce or refresh basic ideas such as repeat loops and events. Students will develop their understanding of algorithms, nested loops, while loops, conditionals, and events. Lessons on digital citizenship are also included. This course is crafted to build a strong foundation of basic concepts before opening up to a wide range of new and exciting topics."
+        amy123:
+          lessons:
+            lesson-1:
+              name: Sequencing in the Maze
+            lesson-2:
+              name: Drawing with Loops
+            lesson-3:
+              name: Conditionals with Minecraft
+            lesson-4:
+              name: Alien Dance Party with Sprite Lab
+            lesson-5:
+              name: Conditionals with the Farmer
+            lesson-6:
+              name: Simon Says
+            lesson-7:
+              name: Swimming Fish with Sprite Lab
+            lesson-8:
+              name: Private and Personal Information
+            lesson-9:
+              name: About Me with Sprite Lab
+            lesson-10:
+              name: 'Lesson 10: Digital Sharing'
+            lesson-11:
+              name: Nested Loops in Maze
+            lesson-12:
+              name: Fancy Shapes using Nested Loops
+          lesson_groups:
+            lessonGroup-2:
+              display_name: Ramp up
+            lessonGroup-3:
+              display_name: Sprites
+            lessonGroup-4:
+              display_name: Digital Citizenship
+            lessonGroup-5:
+              display_name: 'Nested Loops '
+          title: Amy Course E
+          description_audience: ''
+          description_short: ''
+          description: ''
+        mike-ai:
+          lessons:
+            lesson-1:
+              name: AI for Oceans
+          lesson_groups: {}
+          title: ''
+          description_audience: ''
+          description_short: Learn how AI and machine learning can be used to address world problems.
+          description: Learn how AI and machine learning can be used to address world problems.
+        csp9-dave:
+          lessons:
+            lesson-1:
+              name: Learning From Data
+            lesson-2:
+              name: Exploring One Column
+            lesson-3:
+              name: Filtering and Cleaning Data
+            lesson-4:
+              name: Exploring Two Columns
+            lesson-5:
+              name: Big Data, Crowdsourcing, and Machine Learning
+            lesson-6:
+              name: Machine Learning and Bias
+            lesson-7:
+              name: Project - Tell a Data Story - Part 1
+            lesson-8:
+              name: Project - Tell a Data Story - Part 2
+            lesson-9:
+              name: 'Lesson 9: Assessment Day'
+          lesson_groups:
+            lessonGroup-2:
+              display_name: 'Unit 9: Data'
+          title: CSP Unit 9 - Data ('21-'22) - Dave
+          description_audience: ''
+          description_short: Explore and visualize datasets from a wide variety of topics as you hunt for patterns and try to learn more about the world around you.
+          description: 'In this unit learn how data analysis helps turn raw data into useful information about the world. Learn how to use data visualization to find patterns inside of data sets and learn how this data analysis process is being used in contexts like open data or machine learning to help make decisions or learn more about our world. In the unit project you''ll analyze a dataset of your choosing and present your findings. '
