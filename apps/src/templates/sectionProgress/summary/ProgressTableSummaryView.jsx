@@ -4,8 +4,6 @@ import * as Sticky from 'reactabular-sticky';
 import * as Virtualized from 'reactabular-virtualized';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import {connect} from 'react-redux';
-import styleConstants from '../../../styleConstants';
 import {jumpToLessonDetails} from '@cdo/apps/templates/sectionProgress/sectionProgressRedux';
 import {scriptDataPropType} from '../sectionProgressConstants';
 import {
@@ -15,17 +13,8 @@ import {
 import {sectionDataPropType} from '@cdo/apps/redux/sectionDataRedux';
 import StudentProgressSummaryCell from './StudentProgressSummaryCell';
 import SectionProgressLessonNumberCell from '@cdo/apps/templates/sectionProgress/SectionProgressLessonNumberCell';
-import color from '../../../util/color';
-import {
-  progressStyles,
-  ROW_HEIGHT,
-  LAST_ROW_MARGIN_HEIGHT,
-  NAME_COLUMN_WIDTH,
-  MAX_TABLE_SIZE,
-  PROGRESS_TABLE_WIDTH,
-  tooltipIdForLessonNumber
-} from '@cdo/apps/templates/sectionProgress/multiGridConstants';
-import i18n from '@cdo/locale';
+import {tooltipIdForLessonNumber} from '@cdo/apps/templates/sectionProgress/multiGridConstants';
+import progressTableStyles from '../progressTableStyles.scss';
 
 export default class ProgressTableSummaryView extends React.Component {
   static propTypes = {
@@ -49,7 +38,7 @@ export default class ProgressTableSummaryView extends React.Component {
     this.scrollDelegate = scrollDelegate;
   }
 
-  lessonNumberFormatter(value, {rowData, columnIndex, rowIndex, property}) {
+  lessonNumberFormatter(_, {columnIndex}) {
     const stageData = this.props.scriptData.stages[columnIndex];
     return (
       <SectionProgressLessonNumberCell
@@ -64,7 +53,7 @@ export default class ProgressTableSummaryView extends React.Component {
     );
   }
 
-  progressCellFormatter(value, {rowData, columnIndex, rowIndex, property}) {
+  progressCellFormatter(_, {rowData, columnIndex}) {
     const stageData = this.props.scriptData.stages[columnIndex];
     const statusCounts = summarizeProgressInStage(
       this.props.levelProgressByStudent[rowData.id],
@@ -76,7 +65,6 @@ export default class ProgressTableSummaryView extends React.Component {
         studentId={rowData.id}
         statusCounts={statusCounts}
         assessmentStage={assessmentStage}
-        style={progressStyles.summaryCell}
         onSelectDetailView={() =>
           this.props.jumpToLessonDetails(stageData.position)
         }
@@ -86,54 +74,20 @@ export default class ProgressTableSummaryView extends React.Component {
 
   render() {
     const columnWidth =
-      PROGRESS_TABLE_WIDTH / this.props.scriptData.stages.length;
-    const headerStyle = {
-      style: {
-        ...progressStyles.header
-      }
-    };
+      progressTableStyles.CONTENT_VIEW_WIDTH /
+      this.props.scriptData.stages.length;
 
-    const tableBodyStyle = {
-      // maxWidth: secondTableWidth,
-      ...progressStyles.main,
-      maxHeight: MAX_TABLE_SIZE,
-      overflow: 'auto'
-    };
-
-    // console.log('firstTableWidth=', firstTableWidth);
-    const tableStyle = {
-      // width: secondTableWidth,
-      ...progressStyles.multigrid,
-      clear: 'none',
-      // position: 'absolute', // make the fixed header fail
-      top: 0,
-      left: NAME_COLUMN_WIDTH,
-      display: 'inline-block',
-      zIndex: 1
-    };
-    // filling columns
     const columns = [];
-    this.props.scriptData.stages.forEach((stage, index) => {
+    this.props.scriptData.stages.forEach(_ => {
       columns.push({
-        props: {
-          style: {
-            width: columnWidth
-          }
-        },
-        header: {
-          formatters: [this.lessonNumberFormatter],
-          transforms: [() => headerStyle]
-        },
-        cell: {
-          formatters: [this.progressCellFormatter]
-        }
+        props: {style: {width: columnWidth}},
+        header: {formatters: [this.lessonNumberFormatter]},
+        cell: {formatters: [this.progressCellFormatter]}
       });
     });
 
     return (
       <Table.Provider
-        style={tableStyle}
-        width={PROGRESS_TABLE_WIDTH}
         renderers={{
           body: {
             wrapper: Virtualized.BodyWrapper,
@@ -150,8 +104,10 @@ export default class ProgressTableSummaryView extends React.Component {
           rows={this.props.section.students}
           rowKey={'id'}
           onScroll={this.props.onScroll}
-          // height={MAX_TABLE_SIZE}
-          style={tableBodyStyle}
+          style={{
+            overflow: 'auto',
+            maxHeight: parseInt(progressTableStyles.MAX_BODY_HEIGHT)
+          }}
           ref={r => (this.body = r && r.getRef())}
           tableHeader={this.header}
         />

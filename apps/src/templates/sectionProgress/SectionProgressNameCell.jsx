@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {progressStyles} from './multiGridConstants';
 import {tooltipIdForStudent} from './sectionProgressConstants';
 import {scriptUrlForStudent} from '@cdo/apps/templates/teacherDashboard/urlHelpers';
 import firehoseClient from '../../lib/util/firehose';
@@ -42,18 +41,9 @@ export default class SectionProgressNameCell extends React.PureComponent {
     const tooltipId = tooltipIdForStudent(studentId);
 
     return (
-      <div
-        style={progressStyles.nameCell}
-        data-tip
-        data-for={tooltipId}
-        aria-describedby={tooltipId}
-      >
+      <div data-tip data-for={tooltipId} aria-describedby={tooltipId}>
         {studentUrl && (
-          <a
-            href={studentUrl}
-            style={progressStyles.link}
-            onClick={this.recordStudentNameClick}
-          >
+          <a href={studentUrl} onClick={this.recordStudentNameClick}>
             {name}
           </a>
         )}
