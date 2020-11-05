@@ -97,7 +97,7 @@ export const progressStyles = {
     fontSize: 20
   },
   unpluggedIcon: {
-    width: PILL_BUBBLE_WIDTH,
+    // width: PILL_BUBBLE_WIDTH,
     textAlign: 'center',
     color: color.charcoal,
     fontSize: 20,

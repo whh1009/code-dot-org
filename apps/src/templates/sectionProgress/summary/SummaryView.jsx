@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import ReactTooltip from 'react-tooltip';
 import _ from 'lodash';
-import {getCurrentScriptData} from '../sectionProgressRedux';
+import {
+  getCurrentScriptData,
+  jumpToLessonDetails
+} from '@cdo/apps/templates/sectionProgress/sectionProgressRedux';
+
 import {scriptDataPropType} from '../sectionProgressConstants';
 import SummaryViewLegend from './SummaryViewLegend';
 import {SummaryViewContainer} from '../ProgressTableContainer';
@@ -17,7 +21,8 @@ class SummaryView extends React.Component {
     lessonOfInterest: PropTypes.number.isRequired,
     levelProgressByStudent: PropTypes.objectOf(
       PropTypes.objectOf(studentLevelProgressType)
-    )
+    ),
+    jumpToLessonDetails: PropTypes.func.isRequired
   };
 
   // Re-attaches mouse handlers on tooltip targets to tooltips.  Called
@@ -26,33 +31,10 @@ class SummaryView extends React.Component {
   afterScroll = _.debounce(ReactTooltip.rebuild, 10);
 
   render() {
-    const {
-      section,
-      scriptData,
-      lessonOfInterest,
-      levelProgressByStudent
-    } = this.props;
-    // const studentList = (
-    //   <ProgressTableStudentList
-    //     {...this.props}
-    //     // section={section}
-    //     // scriptData={scriptData}
-    //     // lessonOfInterest={lessonOfInterest}
-    //   />
-    // );
-    // const contentView = (
-    //   <ProgressTableSummaryView
-    //     {...this.props}
-    //     // section={section}
-    //     // scriptData={scriptData}
-    //     // lessonOfInterest={lessonOfInterest}
-    //     // levelProgressByStudent={levelProgressByStudent}
-    //   />
-    // );
     return (
       <div>
         <SummaryViewContainer {...this.props} />
-        <SummaryViewLegend showCSFProgressBox={scriptData.csf} />
+        <SummaryViewLegend showCSFProgressBox={this.props.scriptData.csf} />
       </div>
     );
   }
@@ -71,8 +53,8 @@ export default connect(
       ]
   }),
   dispatch => ({
-    jumpToLessonDetails(lessonOfInterest) {
-      dispatch(jumpToLessonDetails(lessonOfInterest));
+    onClickLesson(lessonPosition) {
+      dispatch(jumpToLessonDetails(lessonPosition));
     }
   })
 )(SummaryView);

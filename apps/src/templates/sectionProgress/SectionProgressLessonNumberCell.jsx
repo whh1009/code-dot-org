@@ -1,55 +1,77 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import Radium from 'radium';
-import {progressStyles} from './multiGridConstants';
 import FontAwesome from '../FontAwesome';
+import color from '../../util/color';
 
-class SectionProgressLessonNumberCell extends Component {
+const styles = {
+  container: {
+    fontFamily: '"Gotham 5r", sans-serif',
+    color: color.charcoal,
+    ':hover': {
+      cursor: 'pointer'
+    },
+    textAlign: 'center',
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '0px 10px'
+  },
+  highlight: {
+    backgroundColor: color.teal,
+    color: color.white,
+    fontSize: 18
+  },
+  line: {
+    display: 'inline-block',
+    width: '100%',
+    height: 0,
+    border: '1px solid ',
+    margin: '0px -7px 0px 4px'
+  },
+  arrow: {
+    display: 'inline-block',
+    borderStyle: 'solid',
+    borderWidth: '0px 2px 2px 0px',
+    width: 6,
+    height: 6,
+    transform: 'rotate(-45deg)',
+    WebkitTransform: 'rotate(-45deg)'
+  }
+};
+
+export default class SectionProgressLessonNumberCell extends Component {
   static propTypes = {
-    // Sequence number counting all stage types in order
-    position: PropTypes.number.isRequired,
-    // Sequence number which counts lockable and non-lockable stages separately,
-    // explained further in Stage#summarize
-    relativePosition: PropTypes.number.isRequired,
+    number: PropTypes.number.isRequired,
     lockable: PropTypes.bool.isRequired,
-    lessonOfInterest: PropTypes.number.isRequired,
+    highlighted: PropTypes.bool.isRequired,
     tooltipId: PropTypes.string.isRequired,
-    onSelectDetailView: PropTypes.func.isRequired
+    onClick: PropTypes.func.isRequired,
+    includeArrow: PropTypes.bool
   };
 
   render() {
     const {
-      position,
-      relativePosition,
+      number,
       lockable,
-      lessonOfInterest,
-      tooltipId
+      highlighted,
+      includeArrow,
+      tooltipId,
+      onClick
     } = this.props;
 
-    let cellStyle = progressStyles.lessonNumberHeading;
-    if (position === lessonOfInterest) {
-      cellStyle = {
-        ...cellStyle,
-        ...progressStyles.lessonOfInterest
-      };
-    }
-
+    const highlightStyle = highlighted ? styles.highlight : {};
     return (
       <div
-        style={cellStyle}
-        onClick={this.props.onSelectDetailView}
+        style={{...styles.container, ...highlightStyle}}
+        onClick={onClick}
         data-tip
         data-for={tooltipId}
       >
-        {lockable ? <FontAwesome icon="lock" /> : relativePosition}
+        {lockable ? <FontAwesome icon="lock" /> : number}
+        {includeArrow && <span style={styles.line} />}
+        {includeArrow && <span style={styles.arrow} />}
       </div>
     );
   }
 }
-
-export const UnconnectedSectionProgressLessonNumberCell = SectionProgressLessonNumberCell;
-
-export default connect(state => ({
-  lessonOfInterest: state.sectionProgress.lessonOfInterest
-}))(Radium(SectionProgressLessonNumberCell));

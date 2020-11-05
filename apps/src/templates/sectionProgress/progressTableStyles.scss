@@ -30,6 +30,7 @@ div.progress-table {
     background-color: $background_gray;
   }
   div.student-list {
+    vertical-align: top;
     display: inline-block;
   }
   .student-list {
@@ -57,8 +58,29 @@ div.progress-table {
   div.content-view {
     display: inline-block;
     width: $content-view-width;
-    top: 0px;
-    left: $student-list-width;
+  }
+  .content-view {
+    thead,
+    tbody {
+      max-width: $content-view-width;
+    }
+    th,
+    td {
+      min-width: 40px;
+      padding: 0px;
+    }
+    td {
+      border-right: 1px solid;
+      border-color: $border-gray;
+    }
+    .lesson-icon-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+      color: $charcoal;
+      font-size: 20px;
+    }
   }
 }
 

@@ -105,7 +105,7 @@ const styles = {
     whiteSpace: 'nowrap'
   },
   cell: {
-    padding: '1px 4px'
+    padding: '0px 4px'
   }
 };
 
@@ -113,7 +113,6 @@ export default class StudentProgressDetailCell extends Component {
   static whyDidYouRender = true;
   static propTypes = {
     studentId: PropTypes.number.isRequired,
-    stageId: PropTypes.number.isRequired,
     sectionId: PropTypes.number.isRequired,
     levels: PropTypes.arrayOf(levelType).isRequired,
     studentProgress: PropTypes.objectOf(studentLevelProgressType).isRequired,

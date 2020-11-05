@@ -96,6 +96,7 @@ export function loadScript(scriptId, sectionId) {
     getStore().dispatch(addDataByScript(sectionProgress));
     getStore().dispatch(finishLoadingProgress());
     getStore().dispatch(finishRefreshingProgress());
+    console.log('scriptData', sectionProgress.scriptDataByScript);
 
     if (sectionProgress.scriptDataByScript[scriptId].hasStandards) {
       getStore().dispatch(fetchStandardsCoveredForScript(scriptId));

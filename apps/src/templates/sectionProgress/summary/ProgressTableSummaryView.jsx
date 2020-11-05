@@ -3,9 +3,8 @@ import * as Table from 'reactabular-table';
 import * as Sticky from 'reactabular-sticky';
 import * as Virtualized from 'reactabular-virtualized';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
-import {jumpToLessonDetails} from '@cdo/apps/templates/sectionProgress/sectionProgressRedux';
 import {scriptDataPropType} from '../sectionProgressConstants';
+import {studentLevelProgressType} from '@cdo/apps/templates/progress/progressTypes';
 import {
   summarizeProgressInStage,
   stageIsAllAssessment
@@ -21,9 +20,11 @@ export default class ProgressTableSummaryView extends React.Component {
     section: sectionDataPropType.isRequired,
     scriptData: scriptDataPropType.isRequired,
     lessonOfInterest: PropTypes.number.isRequired,
-    levelProgressByStudent: PropTypes.object,
+    levelProgressByStudent: PropTypes.objectOf(
+      PropTypes.objectOf(studentLevelProgressType)
+    ).isRequired,
     onScroll: PropTypes.func.isRequired,
-    jumpToLessonDetails: PropTypes.func.isRequired
+    onClickLesson: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -34,21 +35,15 @@ export default class ProgressTableSummaryView extends React.Component {
     this.body = null;
   }
 
-  setScrollDelegate(scrollDelegate) {
-    this.scrollDelegate = scrollDelegate;
-  }
-
   lessonNumberFormatter(_, {columnIndex}) {
     const stageData = this.props.scriptData.stages[columnIndex];
     return (
       <SectionProgressLessonNumberCell
-        position={stageData.position}
-        relativePosition={stageData.relative_position}
+        number={stageData.relative_position}
         lockable={stageData.lockable}
+        highlighted={stageData.position === this.props.lessonOfInterest}
         tooltipId={tooltipIdForLessonNumber(columnIndex + 1)}
-        onSelectDetailView={() =>
-          this.props.jumpToLessonDetails(stageData.position)
-        }
+        onClick={() => this.props.onClickLesson(stageData.position)}
       />
     );
   }
@@ -65,9 +60,7 @@ export default class ProgressTableSummaryView extends React.Component {
         studentId={rowData.id}
         statusCounts={statusCounts}
         assessmentStage={assessmentStage}
-        onSelectDetailView={() =>
-          this.props.jumpToLessonDetails(stageData.position)
-        }
+        onSelectDetailView={() => this.props.onClickLesson(stageData.position)}
       />
     );
   }
@@ -88,6 +81,7 @@ export default class ProgressTableSummaryView extends React.Component {
 
     return (
       <Table.Provider
+        className="summary-view"
         renderers={{
           body: {
             wrapper: Virtualized.BodyWrapper,
@@ -97,6 +91,7 @@ export default class ProgressTableSummaryView extends React.Component {
         columns={columns}
       >
         <Sticky.Header
+          style={{overflow: 'hidden'}}
           ref={r => (this.header = r && r.getRef())}
           tableBody={this.body}
         />

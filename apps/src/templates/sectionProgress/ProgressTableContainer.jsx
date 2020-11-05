@@ -1,6 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import ProgressTableSummaryView from './summary/ProgressTableSummaryView';
+import ProgressTableDetailView from './detail/ProgressTableDetailView';
 import ProgressTableStudentList from './ProgressTableStudentList';
 import i18n from '@cdo/locale';
 
@@ -17,6 +18,12 @@ export const SummaryViewContainer = synchronized(
   [i18n.lesson()]
 );
 
+export const DetailViewContainer = synchronized(
+  ProgressTableStudentList,
+  ProgressTableDetailView,
+  [i18n.lesson(), i18n.levelType()]
+);
+
 function synchronized(StudentList, ContentView, studentHeaders) {
   class Synchronized extends React.Component {
     constructor(props) {
@@ -28,11 +35,13 @@ function synchronized(StudentList, ContentView, studentHeaders) {
     }
 
     onScroll(e) {
+      console.log('scroll');
       this.studentList.body.scrollTop = e.target.scrollTop;
       this.contentView.header.scrollLeft = e.target.scrollLeft;
     }
 
     render() {
+      console.log('render');
       // const {columns, rows, maxWidth} = this.props;
       // let {numOfFirstFixedColumns} = this.props;
       // if (!numOfFirstFixedColumns) {
@@ -47,7 +56,7 @@ function synchronized(StudentList, ContentView, studentHeaders) {
       // const secondTableScrollWidth = getColumnsTotalWidth(remainingColumns);
       // const isSecondTableOverflowX = secondTableScrollWidth > secondTableWidth;
       // this.needTweakLastColumns = columns.length && isSecondTableOverflowX;
-
+      console.log('jump2', this.props.jumpToLessonDetails);
       return (
         <div className="progress-table">
           <div className="student-list">
