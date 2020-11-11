@@ -129,7 +129,7 @@ class UnitCard extends Component {
     s.push(t);
     if (lesson.levels) {
       lesson.levels.forEach(level => {
-        s = s.concat(this.serializeLevel(level.ids[0], level));
+        s = s.concat(this.serializeLevel(level));
       });
     }
     s.push('');
@@ -143,13 +143,12 @@ class UnitCard extends Component {
    * level information here behind the scenes because it allows us to
    * continue to use ScriptDSl for the time being until we are ready
    * to move on to our future system.
-   * @param id
    * @param level
    * @return {string}
    */
-  serializeLevel = (id, level) => {
+  serializeLevel = level => {
     const s = [];
-    const key = this.props.levelKeyList[id];
+    const key = this.props.levelKeyList[level.id];
     if (/^blockly:/.test(key)) {
       if (level.skin) {
         s.push(`skin '${escape(level.skin)}'`);

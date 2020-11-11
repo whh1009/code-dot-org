@@ -12,6 +12,7 @@ import reducers, {
 } from '@cdo/apps/lib/levelbuilder/script-editor/scriptEditorRedux';
 import ScriptEditor from '@cdo/apps/lib/levelbuilder/script-editor/ScriptEditor';
 import {valueOr} from '@cdo/apps/utils';
+import {LevelKind} from '@cdo/apps/util/sharedConstants';
 
 export default function initPage(scriptEditorData) {
   const scriptData = scriptEditorData.script;
@@ -42,13 +43,16 @@ export default function initPage(scriptEditorData) {
            * continue to use ScriptDSl for the time being until we are ready
            * to move on to our future system.
            */
-          // Only include the first level of an assessment (uid ending with "_0").
+          // Only include the first level of an assessment (levelNumber === 1).
           levels: lesson.levels
-            .filter(level => !level.uid || /_0$/.test(level.uid))
+            .filter(
+              level =>
+                level.kind !== LevelKind.assessment || level.levelNumber > 1
+            )
             .map(level => ({
               position: level.position,
               activeId: level.activeId,
-              ids: level.ids.slice(),
+              id: level.id,
               kind: level.kind,
               skin: level.skin,
               videoKey: level.videoKey,

@@ -235,7 +235,7 @@ export const progressionsFromLevels = levels => {
  */
 export const processedLevel = (level, isSublevel = false) => {
   return {
-    id: isSublevel ? level.level_id : level.activeId,
+    id: isSublevel ? level.level_id : level.id,
     url: level.url,
     name: level.name,
     progression: level.progression,
