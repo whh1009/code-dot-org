@@ -4,10 +4,8 @@ import i18n from '@cdo/locale';
 import SafeMarkdown from '@cdo/apps/templates/SafeMarkdown';
 import {pegasus} from '@cdo/apps/lib/util/urlHelpers';
 import {connect} from 'react-redux';
-import {
-  getCurrentScriptData,
-  scriptDataPropType
-} from '@cdo/apps/templates/sectionProgress/sectionProgressRedux';
+import {getCurrentScriptData} from '@cdo/apps/templates/sectionProgress/sectionProgressRedux';
+import {scriptDataPropType} from '../sectionProgressConstants';
 import {
   getSelectedScriptFriendlyName,
   getSelectedScriptDescription,
@@ -22,13 +20,12 @@ import {
   setTeacherCommentForReport,
   lessonsByStandard
 } from './sectionStandardsProgressRedux';
-import StandardsLegendForPrint from './StandardsLegendForPrint';
+import StandardsLegend from './StandardsLegend';
 import StandardsReportCurrentCourseInfo from './StandardsReportCurrentCourseInfo';
 import StandardsReportHeader from './StandardsReportHeader';
 import color from '@cdo/apps/util/color';
 import _ from 'lodash';
-import {getStandardsCoveredForScript} from '@cdo/apps/templates/sectionProgress/standards/sectionStandardsProgressRedux';
-import {loadScript} from '../sectionProgressRedux';
+import {loadScript} from '../sectionProgressLoader';
 import PrintReportButton from './PrintReportButton';
 import {cstaStandardsURL} from './standardsConstants';
 import FontAwesome from '@cdo/apps/templates/FontAwesome';
@@ -64,7 +61,6 @@ class StandardsReport extends Component {
   static propTypes = {
     //redux
     scriptId: PropTypes.number,
-    loadScript: PropTypes.func.isRequired,
     section: sectionDataPropType.isRequired,
     scriptFriendlyName: PropTypes.string.isRequired,
     scriptData: scriptDataPropType,
@@ -75,7 +71,6 @@ class StandardsReport extends Component {
     numStudentsInSection: PropTypes.number,
     numLessonsCompleted: PropTypes.number,
     numLessonsInUnit: PropTypes.number,
-    getStandardsCoveredForScript: PropTypes.func.isRequired,
     setTeacherCommentForReport: PropTypes.func.isRequired,
     setScriptId: PropTypes.func.isRequired,
     lessonsByStandard: PropTypes.object
@@ -88,8 +83,7 @@ class StandardsReport extends Component {
     const scriptIdFromTD =
       window.opener.teacherDashboardStoreInformation.scriptId;
     this.props.setScriptId(scriptIdFromTD);
-    this.props.loadScript(scriptIdFromTD);
-    this.props.getStandardsCoveredForScript(scriptIdFromTD);
+    loadScript(scriptIdFromTD, this.props.section.id);
   }
 
   getLinkToOverview() {
@@ -166,14 +160,6 @@ class StandardsReport extends Component {
                   </div>
                 )}
                 <h2 style={styles.headerColor}>
-                  {i18n.CSTAStandardsPracticed()}
-                </h2>
-                <StandardsProgressTable
-                  style={styles.table}
-                  isViewingReport={true}
-                />
-                <StandardsLegendForPrint />
-                <h2 style={styles.headerColor}>
                   {i18n.standardsHowToForPrint()}
                 </h2>
                 <SafeMarkdown
@@ -185,11 +171,19 @@ class StandardsReport extends Component {
                   })}
                 />
                 <h2 style={styles.headerColor}>
+                  {i18n.CSTAStandardsPracticed()}
+                </h2>
+                <StandardsProgressTable
+                  style={styles.table}
+                  isViewingReport={true}
+                />
+                <StandardsLegend />
+                <h2 style={styles.headerColor}>
                   {i18n.standardsGetInvolved()}
                 </h2>
                 <SafeMarkdown
                   markdown={i18n.standardsGetInvolvedDetailsForPrint({
-                    adminLink: pegasus('/administrator'),
+                    adminLink: pegasus('/administrators'),
                     parentLink: pegasus('/help'),
                     teacherLink: '/courses'
                   })}
@@ -227,12 +221,6 @@ export default connect(
     lessonsByStandard: lessonsByStandard(state)
   }),
   dispatch => ({
-    loadScript(scriptId) {
-      dispatch(loadScript(scriptId));
-    },
-    getStandardsCoveredForScript(scriptId) {
-      dispatch(getStandardsCoveredForScript(scriptId));
-    },
     setTeacherCommentForReport(comment) {
       dispatch(setTeacherCommentForReport(comment));
     },

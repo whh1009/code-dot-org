@@ -56,18 +56,21 @@ export default class GDPRDialog extends Component {
             href={pegasus('/privacy')}
             className="ui-test-gdpr-dialog-privacy-link"
             target="_blank"
+            rel="noopener noreferrer"
           >
             {i18n.gdprDialogSeePrivacyPolicy()}.
           </a>
         </div>
         <DialogFooter>
           <Button
+            __useDeprecatedTag
             text={i18n.gdprDialogLogout()}
             href={logOutUrl}
             color={Button.ButtonColor.gray}
             className="ui-test-gdpr-dialog-logout"
           />
           <Button
+            __useDeprecatedTag
             text={i18n.gdprDialogYes()}
             onClick={this.handleYesClick}
             color={Button.ButtonColor.orange}

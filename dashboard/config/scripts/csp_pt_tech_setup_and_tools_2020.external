@@ -1,149 +1,143 @@
 name 'csp-pt-tech-setup-and-tools_2020'
-editor_experiment ''
-markdown <<MARKDOWN
-# Tech Setup and Tools for the AP Performance Tasks
-
-## Background
-
-You need to setup your AP Digital Portfolio to officially submit your performance tasks and to sign up for the exam. There are also several tools you should be familiar with in order to create the necessary PDF documents and Video screen captures that you need to submit.
-
-## Resources and Quick Links
-
-**UPDATE WITH INFO ON SETTING UP DIGITAL PORTFOLIO FOR 20-21**
-
-* xxx
-* xxx
-
-* [Code Print](https://bakerfranke.github.io/codePrint/) - useful tool for preparing PDF of code for Create PT
-
----
-
-## AP Digital Portfolio Setup
-
-*Goal: Students should be aware of the Digital Portfolio and how to access it. They should know what's there and be familiar with the basic mechanics of uploading and submitting their projects.*
-
-*If your students have not done this yet, they will need to register themselves with AP digital portfolio in order to upload their projects.*
-
-#### Follow College Board Instructions to Setup Portfolio
-
-* Here is the [Student Guide for the digital portfolio] **UPDATE WITH STUDENT GUIDE FOR 20-21** . Follow these instructions to get setup.
-
-The digital portfolio and guide contains a few helpful other things students should know about such as:
-
-* Guidance about how to create a PDF
-* Templates for the written prompts
-* Ways to save drafts of written responses on the site and come back to it
-
----
-
-## Written Responses
-
-### Making PDFs for Written Responses
-
-You are required to make a PDF of your written responses to prompts. It's recommended that you use the College Board templates for filling out your responses. At some point you will have your written responses in a word processing document such as Microsoft Word, Google Docs, or Pages.
-
-*What follows is copied from the [AP Student Guide for the digital portfolio]* **UPDATE WITH STUDENT GUIDE FOR 20-21**
-
-#### How to make a PDF 
-
-* Recent versions of applications like: Word, PowerPoint, Pages, and Google Docs, have built-in features that allow you to save or export your file as a PDF. Instructions are provided below.
-* If your software does not have a PDF option, visit the Adobe site and learn more about whether Acrobat from Adobe Systems can convert your document to PDF.
-* You are responsible for ensuring that your file is properly formatted and readable. After you have created your PDF, be sure to check it by opening and reviewing your PDF in Adobe Reader, a free application that can be downloaded from the Adobe site. 
-
-**Microsoft Office (Word, PowerPoint)**
-
-* In Word, Powerpoint, and other Microsoft Office programs you will “Save as PDF.” Visit the Microsoft Office support page for more information about “Save as PDF.”  To save a Word or Powerpoint document as PDF:
-	* Open your Word or Powerpoint document.
-    * From the top menu select “File,” and select “Save As.”
-    * In the dialog window, go to the drop-down menu for “Save as type,” and select “PDF.”
-    * Click “Save.”
- 
-**Google Docs**
-
-* In Google Docs, you will “Download as” PDF. Visit the Google support page for more information on “Download a file.”  To download a Google Doc as a PDF:
-* Open your Google doc
-    * From the top menu select “File,” and select “Download as,” and select “PDF
-Document (.pdf)”
-
-
-**Pages**
-
-* In Pages, you will “Export to” PDF. Visit the Apple support page for more information or
-follow the steps below:
-
-   * Open your Pages document.
-   * From the top menu select “File,” and select “Export to,” and select “PDF.”
-   * In the dialogue window select “Best,” image quality.
-   * Choose a destination for the export and click “Export.”
-
----
-
-## Program Code
-
-### Making PDF of Program Code
-
-You need to make a PDF of your code.
-
-* Our recommendation: Use [CodePrint](https://bakerfranke.github.io/codePrint/) - a tool for doing everything from the browser.
-
-	* Note: For the 20-21 exam and following, you no longer need to put rectangles or ovals around code segments. 
-    
-* Or: Copy/Paste Code into a Word (or Google) document and export as a PDF.
-
-#### Details: how to make a pdf of your code
-
-**Step 1** - copy your code in App Lab
-
- * Switch App Lab into text mode
- * Select all the code(highlight all with your mouse or Ctrl+A)
- * Copy it (Edit -> Copy, or Ctrl+C)
-
-**Step 2** - paste the code into a page or doc for printing
-
-* **If using [CodePrint](https://bakerfranke.github.io/codePrint/)**
-    
-    * If you can print a PDF from the browser, this should be all you need.
-    * You can take screenshots of the code segments, including line numbers, for the appropriate sections in the Written Response. 
-
-* **Other options**
-
- * **Option: Github Gist** -- [GitHub Gist](https://gist.github.com) is a tool designed to let you quickly share code.  We can use it to quickly print as well.
-   
-    * Go to [GitHub Gist](https://gist.github.com)
-    * Paste your code into the code area (the large open area with line numbers)
-    * Optional: In the filename box type `.js` -- this forces the box to recognize the code as javascript
-    * Click "Create Secret Gist" - this will save the code to a new page anonymously
-    * From your Browser choose "File -> Print" and use your computer's option to print to PDF.
-
- * **Option: use a word processor Google docs or MS Word**
-   
-    * This option is fine but you won't get line numbers next to your code which can be convenient.
-    * If you choose this option you should add your annotations (rectangle and circle) here in the word processor.
-
----
-
-## Video
-
-### Making a Video Screen Capture
-
-Students are required to make at least one video that is a "Screen capture" of themselves using the program they wrote for the Create PT.
-
-#### How To Make a Screencast
-
-If you have not made any screencapture videos in class to this point students may ask how to do it.
-You will need to use 3rd party screen capture software. We recommend investigating options that will work for your school's software requirements. Here are two options:
-    
-  * Online/Web: [Screencast-o-matic](https://screencast-o-matic.com) (may require download depending on browser/plugins)
-  * Windows / Mac: [Snagit from Techsmith](https://www.techsmith.com/screen-capture.html) (requires download and signing up for a free trial)
-
-
-MARKDOWN
-
-teacher_markdown <<MARKDOWN
-**For the Teacher**
-
-* Here is the [AP Digital Portfolio: Teacher User Guide for AP Computer Science Principles](https://apcentral.collegeboard.org/pdf/computer-science-principles-digital-portfolio-teacher-guide.pdf)
-* You will need to follow these instructions to setup your class and to approve students
-
-* The Video screen capture requires using 3rd party software. We recommend investigating options that will work for your school's software requirements. 
-MARKDOWN
+encrypted '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
+kgMjK6XMzy1iCXkSIh7kzbwGNSSkzWaZ5YtKKoNPWso6osXlyB5FRLtbqNk8
+Ud8KXVvo5M+HstgO+H1cS8LjHHvwnABRIqMacMgAO1qW2Zpu6dspNF62nTk0
+XnF+cmME3hAJSTYuqMBP7KBex3rVwSgXb760NSKnh9lcEkyN7IgUBK0cqcep
+pQMXbutc3I1+NAjcM32hkxPu1C3TP95uWAGeTYKWmhyEw/IrhFqXuAKco2d0
+PJnOqq13wjq4NTiODpQK332y8TTkhwwyjDO0A0Amw739otb4dzXzMMCmJAAB
+StkAmIJOlBTnM8aAIm2A9jwvVAx4BuM1BXwAwJYAiVgPiIYKM45Zavj3oyiO
+QxUxY3Tu9+XlxCfJEIStIN2w8Btz16F6bNras3K7hckkVPmcEPA+4i2y/aiH
+crIeATA2l3+JMbLhAZ3qs+jGwkX6tqrdrd1ATHXuRORafWqNhH5H52Qf2dTw
+eap+isXn+QyiWOKFktT50Cgkqx/e/d04qt/U6zEFSkL5ASb0gmVHhwINcx3H
+4Zu+B+RX/1cTl7fYdb4J54lWrVye9aY0j2o2Dw4W//mJ1/8i8Rfq5fDOiabA
+EOjKIjV0e2ya88rDv6h3WIIPBhJnGlqRe/4p4Fjyt5UOcD0mokCh07BJTA2F
+9DjeIgzxfqYCEPyC0N9/8TpHXSLYoLCPPdqEMlru6RQt+osGmAO0nNeXs3iA
+VeTX2m6RW8ssK04/0co+cTVBzEPQmpgvIMaM3FO25VF+qf2htiryROjrL8jx
+he5Czx4fVM8ghllO7SoMyn2U1Zo59CduHza9yPdEhHQytqKs7kD7t6WG+oMB
+WgOeDAccqoNRwaJa07j1O2OQ73P9q4lnq/fjef4xMUlVj2I0A+NPUNDf7scq
+vKOPQzDj9Erv/NrRxnoYh9QHsjBeOKBwKEPzMxYyHRVxvWOxmkwdd2Xfh7NZ
+s7qal0yobI+df5S/SEVUJgUUMT84Yoc5vb04XTkuTRcrboL5TPg3Y6JIH2dR
+Y9B7SFir/1bycKT6p0rNn4JOoO2+E8tHHGaxqcNv/6KbbOJoEJpovgMFQlrm
+do3MzjW0RBdJ8ZUU9Wwow/7JqMmGObLEN/Ejnt31fauS6AZOIr2OAY/akUHe
+j+8EwuCUWogGXIvcj7RnmfWUjIYfxTXjFab2w3yYCX6OLMckTAjp7Wj8D6o3
+DIcAuQ==
+'
