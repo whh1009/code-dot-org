@@ -18810,3 +18810,13 @@ en:
           description_audience: ''
           description_short: Explore and visualize datasets from a wide variety of topics as you hunt for patterns and try to learn more about the world around you.
           description: 'In this unit learn how data analysis helps turn raw data into useful information about the world. Learn how to use data visualization to find patterns inside of data sets and learn how this data analysis process is being used in contexts like open data or machine learning to help make decisions or learn more about our world. In the unit project you''ll analyze a dataset of your choosing and present your findings. '
+        2021drafting:
+          lessons:
+            Sprite Lab:
+              name: Sprite Lab Blocks
+          lesson_groups:
+            Toolbox Levels:
+              display_name: Toolbox Levels
+          title: Planning script for CI and CSF 2021
+          description_audience: Internal
+          description_short: Internal
