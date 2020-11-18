@@ -154,7 +154,7 @@ class ProgressBubble extends React.Component {
       studentLevelProgress = studentLevelProgress.pages[level.levelNumber - 1];
     }
 
-    const title = level.bubbleTitle;
+    const title = level.bubbleTitle || level.levelNumber;
     const url = level.url;
     const levelName = level.name || level.progressionDisplayName;
     const levelIcon = getIconForLevel(level);

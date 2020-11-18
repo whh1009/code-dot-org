@@ -14,6 +14,8 @@ import scriptSelection, {
 import {LevelStatus} from '@cdo/apps/util/sharedConstants';
 import {TestResults} from '@cdo/apps/constants';
 
+const STUDENT_COUNT = 3;
+
 export function createStore() {
   const section = {
     id: 11,
@@ -21,7 +23,7 @@ export function createStore() {
     students: [],
     stageExtras: false
   };
-  for (let i = 0; i < 200; i++) {
+  for (let i = 0; i < STUDENT_COUNT; i++) {
     section.students.push({id: i, name: 'Student' + i});
   }
   try {
@@ -92,6 +94,42 @@ const scriptData = {
   title: "CSD Unit 3 - Interactive Animations and Games ('20-'21)",
   path: '//localhost-studio.code.org:3000/s/csd3-2020',
   stages: [
+    {
+      script_id: 162,
+      script_name: 'coursea-2020',
+      num_script_lessons: 12,
+      id: 722,
+      position: 0,
+      relative_position: 0,
+      name: 'Safety in My Online Neighborhood',
+      key: 'Safety in My Online Neighborhood',
+      assessment: null,
+      title: 'Lesson 1: Safety in My Online Neighborhood',
+      lesson_group_display_name: 'Digital Citizenship',
+      lockable: false,
+      levels: [
+        {
+          id: 16231,
+          url:
+            'http://localhost-studio.code.org:3000/s/coursea-2020/stage/1/puzzle/1',
+          kind: 'puzzle',
+          icon: 'fa-file-text',
+          isUnplugged: true,
+          levelNumber: 1,
+          isConceptLevel: true,
+          bonus: null
+        }
+      ],
+      description_student: 'Learn how to go places safely online.',
+      description_teacher:
+        '{: style="padding:10px 0"}This lesson was originally created by .The power of the internet allows students to experience and visit places they might not be able to see in person. But, just like traveling in the real world, it\'s important to be safe when traveling online. On this virtual field trip, kids can practice staying safe on online adventures.',
+      unplugged: true,
+      lesson_plan_html_url: 'https://curriculum.code.org/csf-20/coursea/1',
+      lesson_plan_pdf_url:
+        '//localhost.code.org:3000/curriculum/coursea-2020/1/Teacher.pdf',
+      lesson_extras_level_url:
+        'http://localhost-studio.code.org:3000/s/coursea-2020/stage/1/extras'
+    },
     {
       script_id: 162,
       script_name: 'csd3-2020',

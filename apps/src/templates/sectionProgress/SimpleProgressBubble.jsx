@@ -8,9 +8,10 @@ import {
   SMALL_DIAMOND_SIZE,
   levelProgressStyle,
   hoverStyle
-} from './progressStyles';
+} from '../progress/progressStyles';
 import color from '@cdo/apps/util/color';
 import firehoseClient from '@cdo/apps/lib/util/firehose';
+import {LevelStatus} from '@cdo/apps/util/sharedConstants';
 
 const styles = {
   main: {
@@ -39,6 +40,23 @@ const styles = {
     transform: 'rotate(45deg)',
     marginTop: 6,
     marginBottom: 6
+  },
+  mySmall: {
+    display: 'inline-block',
+    width: 12,
+    height: 12,
+    borderRadius: 12,
+    lineHeight: '12px',
+    borderColor: color.lighter_gray,
+    borderStyle: 'solid',
+    fontSize: 12,
+    fontFamily: '"Gotham 5r", sans-serif',
+    backgroundColor: color.white,
+    margin: 3,
+    paddingRight: 1,
+    paddingBottom: 1,
+    textAlign: 'center',
+    verticalAlign: 'middle'
   },
   small: {
     width: SMALL_DOT_SIZE,
@@ -73,6 +91,7 @@ const styles = {
 export default class SimpleProgressBubble extends React.PureComponent {
   static propTypes = {
     levelStatus: PropTypes.string,
+    levelKind: PropTypes.string,
     disabled: PropTypes.bool.isRequired,
     smallBubble: PropTypes.bool,
     bonus: PropTypes.bool,
@@ -98,9 +117,30 @@ export default class SimpleProgressBubble extends React.PureComponent {
     );
   }
 
+  renderSmallBubble() {
+    const {levelStatus, levelKind, disabled, title, url} = this.props;
+    return (
+      <div>
+        <div
+          style={{
+            ...styles.mySmall,
+            ...levelProgressStyle(levelStatus, levelKind, disabled)
+          }}
+        >
+          {title}
+          {/* <span>{this.props.title}</span> */}
+        </div>
+      </div>
+    );
+  }
+
   render() {
+    if (this.props.smallBubble) {
+      return this.renderSmallBubble();
+    }
     const {
       levelStatus,
+      levelKind,
       smallBubble,
       disabled,
       bonus,
@@ -110,16 +150,19 @@ export default class SimpleProgressBubble extends React.PureComponent {
       url
     } = this.props;
 
+    const locked = levelStatus === LevelStatus.locked;
     const style = {
       ...styles.main,
       ...(!disabled && hoverStyle),
       ...(smallBubble && styles.small),
       ...(concept && (smallBubble ? styles.smallDiamond : styles.largeDiamond)),
-      ...levelProgressStyle(levelStatus, disabled),
+      ...levelProgressStyle(levelStatus, levelKind, disabled),
       ...(disabled && bonus && styles.disabledStageExtras)
     };
 
-    const content = paired ? (
+    const content = locked ? (
+      <FontAwesome icon="lock" />
+    ) : paired ? (
       <FontAwesome icon="users" />
     ) : bonus ? (
       <FontAwesome icon="flag-checkered" />
@@ -133,23 +176,26 @@ export default class SimpleProgressBubble extends React.PureComponent {
     // Outer div here is used to make sure our bubbles all take up equivalent
     // amounts of space, whether they're diamonds or circles
     let bubble = (
-      <div
-        style={{
-          // two pixels on each side for border, 2 pixels on each side for margin
-          width: width,
-          display: 'flex',
-          justifyContent: 'center'
-        }}
-      >
-        <div style={style} className="uitest-bubble">
-          <div
-            style={{
-              fontSize: paired || bonus ? 14 : 16,
-              ...styles.contents,
-              ...(concept && styles.diamondContents)
-            }}
-          >
-            {content}
+      <div>
+        {/* {smallBubble && this.renderSmallBubble()} */}
+        <div
+          style={{
+            // two pixels on each side for border, 2 pixels on each side for margin
+            width: width,
+            display: 'flex',
+            justifyContent: 'center'
+          }}
+        >
+          <div style={style} className="uitest-bubble">
+            <div
+              style={{
+                fontSize: paired || bonus ? 14 : 16,
+                ...styles.contents,
+                ...(concept && styles.diamondContents)
+              }}
+            >
+              {content}
+            </div>
           </div>
         </div>
       </div>
@@ -161,7 +207,7 @@ export default class SimpleProgressBubble extends React.PureComponent {
     return (
       <a
         href={url}
-        style={{textDecoration: 'none'}}
+        style={{textDecoration: 'none', display: 'inline-block'}}
         className="uitest-ProgressBubble"
         onClick={this.recordProgressTabProgressBubbleClick}
       >

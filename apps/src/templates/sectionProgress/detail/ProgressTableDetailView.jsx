@@ -13,7 +13,10 @@ import {sectionDataPropType} from '@cdo/apps/redux/sectionDataRedux';
 import StudentProgressDetailCell from '@cdo/apps/templates/sectionProgress/detail/StudentProgressDetailCell';
 import SectionProgressLessonNumberCell from '@cdo/apps/templates/sectionProgress/SectionProgressLessonNumberCell';
 import progressTableStyles from '../progressTableStyles.scss';
-import {tooltipIdForLessonNumber} from '@cdo/apps/templates/sectionProgress/multiGridConstants';
+import {
+  progressStyles,
+  tooltipIdForLessonNumber
+} from '@cdo/apps/templates/sectionProgress/multiGridConstants';
 import color from '../../../util/color';
 import FontAwesome from '@cdo/apps/templates/FontAwesome';
 
@@ -24,6 +27,21 @@ const styles = {
   dummyProgress: {
     height: 0,
     opacity: 0
+  },
+  bubbleSetContainer: {
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
+  bubbleSetBackground: {
+    height: 10,
+    backgroundColor: color.lighter_gray,
+    position: 'absolute',
+    left: 10,
+    right: 10
+    // dot size, plus borders, plus margin, minus our height of "background"
+    // top: (progressStyles.DOT_SIZE + 4 + 6 - 10) / 2
   }
 };
 
@@ -123,19 +141,22 @@ export default class ProgressTableDetailView extends React.Component {
 
   renderDetailCell(student, levels, progress) {
     return (
-      <StudentProgressDetailCell
-        studentId={student.id}
-        sectionId={this.props.section.id}
-        stageExtrasEnabled={this.props.section.stageExtras}
-        levels={levels}
-        studentProgress={progress}
-      />
+      <div style={styles.bubbleSetContainer}>
+        <div style={styles.bubbleSetBackground} />
+        <StudentProgressDetailCell
+          studentId={student.id}
+          sectionId={this.props.section.id}
+          stageExtrasEnabled={this.props.section.stageExtras}
+          levels={levels}
+          studentProgress={progress}
+        />
+      </div>
     );
   }
 
   // i = 1;
   detailCellFormatter(_, {rowData, columnIndex}) {
-    console.log('col', columnIndex);
+    // console.log('col', columnIndex);
     // debugger;
     const {levelProgressByStudent, scriptData} = this.props;
     const stageLevels = scriptData.stages[columnIndex].levels;

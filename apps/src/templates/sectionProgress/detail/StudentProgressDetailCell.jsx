@@ -5,7 +5,7 @@ import {
   studentLevelProgressType
 } from '@cdo/apps/templates/progress/progressTypes';
 import i18n from '@cdo/locale';
-import SimpleProgressBubble from '@cdo/apps/templates/progress/SimpleProgressBubble';
+import SimpleProgressBubble from '@cdo/apps/templates/sectionProgress/SimpleProgressBubble';
 import * as progressStyles from '@cdo/apps/templates/progress/progressStyles';
 import color from '@cdo/apps/util/color';
 import _ from 'lodash';
@@ -14,19 +14,6 @@ const bubbleSetStyles = {
   main: {
     position: 'relative',
     display: 'inline-block'
-  },
-  withBackground: {
-    display: 'inline-block',
-    position: 'relative'
-  },
-  background: {
-    height: 10,
-    backgroundColor: color.lighter_gray,
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    // dot size, plus borders, plus margin, minus our height of "background"
-    top: (progressStyles.DOT_SIZE + 4 + 6 - 10) / 2
   },
   backgroundDiamond: {
     top: (progressStyles.DIAMOND_DOT_SIZE + 4 + 12 - 10) / 2
@@ -45,7 +32,10 @@ const bubbleSetStyles = {
     right: 15
   },
   container: {
-    position: 'relative'
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-around'
   },
   diamondContainer: {
     // Height needed only by IE to get diamonds to line up properly
@@ -144,6 +134,7 @@ export default class StudentProgressDetailCell extends Component {
 
     return (
       <a
+        key={level.id}
         href={url}
         style={{textDecoration: 'none'}}
         className="uitest-ProgressPill"
@@ -168,76 +159,64 @@ export default class StudentProgressDetailCell extends Component {
     if (level.isUnplugged && !isSublevel) {
       return this.renderUnplugged(level, status);
     }
-    const conceptStyle =
-      (level.isConceptLevel && bubbleSetStyles.backgroundDiamond) || {};
-    const subStyle = (isSublevel && bubbleSetStyles.backgroundSublevel) || {};
-    const unpluggedStyle =
-      (level.isUnplugged && bubbleSetStyles.backgroundPill) || {};
-    const firstSyle =
-      (!isSublevel && index === 0 && bubbleSetStyles.backgroundFirst) || {};
-    const lastStyle =
-      (!level.sublevels &&
-        index === levels.length - 1 &&
-        bubbleSetStyles.backgroundLast) ||
-      {};
     const unpluggedContainer =
       (level.isUnplugged && bubbleSetStyles.pillContainer) || {};
     const conceptContainer =
       (level.isConceptLevel && bubbleSetStyles.diamondContainer) || {};
     return (
-      <div style={bubbleSetStyles.withBackground} key={index}>
-        <div
-          style={{
-            ...bubbleSetStyles.background,
-            ...conceptStyle,
-            ...subStyle,
-            ...unpluggedStyle,
-            ...firstSyle,
-            ...lastStyle
-          }}
+      <div
+        key={`${level.id}_${level.levelNumber}`}
+        style={{
+          // ...bubbleSetStyles.container,
+          ...unpluggedContainer,
+          ...conceptContainer
+        }}
+      >
+        <SimpleProgressBubble
+          levelStatus={status}
+          levelKind={level.kind}
+          disabled={!!level.bonus && !stageExtrasEnabled}
+          smallBubble={isSublevel}
+          bonus={level.bonus}
+          paired={paired}
+          concept={level.isConceptLevel}
+          title={level.bubbleTitle}
+          url={this.buildBubbleUrl(level)}
         />
-        <div
-          style={{
-            ...bubbleSetStyles.container,
-            ...unpluggedContainer,
-            ...conceptContainer
-          }}
-        >
-          <SimpleProgressBubble
-            levelStatus={status}
-            disabled={!!level.bonus && !stageExtrasEnabled}
-            smallBubble={isSublevel}
-            bonus={level.bonus}
-            paired={paired}
-            concept={level.isConceptLevel}
-            title={level.bubbleTitle}
-            url={this.buildBubbleUrl(level)}
-          />
-        </div>
+        {level.sublevels &&
+          level.sublevels.map((sublevel, index) => {
+            const subProgress = studentProgress[sublevel.id];
+            const subStatus = subProgress && subProgress.status;
+            return (
+              <SimpleProgressBubble
+                key={sublevel.id}
+                levelStatus={subStatus}
+                disabled={!!level.bonus && !stageExtrasEnabled}
+                smallBubble={true}
+                bonus={sublevel.bonus}
+                concept={sublevel.isConceptLevel}
+                title={sublevel.bubbleTitle}
+                url={this.buildBubbleUrl(sublevel)}
+              />
+            );
+          })}
       </div>
+      // </div>
     );
   };
 
   render() {
     return (
       <div
-        style={{...styles.cell, ...styles.bubbles, ...bubbleSetStyles.main}}
+        style={{
+          ...styles.cell,
+          ...styles.bubbles,
+          ...bubbleSetStyles.container
+        }}
         className="uitest-detail-cell"
       >
         {this.props.levels.map((level, index) => {
-          return (
-            <span key={index}>
-              {this.renderBubble(level, index, false)}
-              {level.sublevels &&
-                level.sublevels.map((sublevel, index) => {
-                  return (
-                    <span key={index}>
-                      {this.renderBubble(sublevel, index, true)}
-                    </span>
-                  );
-                })}
-            </span>
-          );
+          return this.renderBubble(level, index, false);
         })}
       </div>
     );
