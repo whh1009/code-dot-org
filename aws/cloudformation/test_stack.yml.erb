@@ -10,8 +10,8 @@ Parameters:
     Type: String
     Default: t3.large
   ImageId:
-    Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
-    Default: '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
+    Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
+    Default: /aws/service/canonical/ubuntu/server/18.04/stable/current/amd64/hvm/ebs-gp2/ami-id
 Resources:
   # Stack-specific IAM permissions applied to both daemon and frontends.
   CDOPolicy:
@@ -28,7 +28,16 @@ Resources:
 <%=
   component 'ami',
     ami: ami,
-    frontend_device_name: '/dev/xvda',
     frontend_policies: [Ref: 'CDOPolicy'],
-    ssh_key_name: SSH_KEY_NAME
+    ssh_key_name: SSH_KEY_NAME,
+    build_ami: <<~SH
+      apt-get update
+      apt-get -y install awscli
+
+      INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+      STACK=${AWS::StackName}
+      RESOURCE_ID=AMICreate#{ami}
+      STATUS=SUCCESS
+      REGION=${AWS::Region}
+    SH
 -%>
