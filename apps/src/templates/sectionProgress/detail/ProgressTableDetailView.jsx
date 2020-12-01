@@ -10,7 +10,9 @@ import {
   levelProgressWithStatus
 } from '@cdo/apps/templates/progress/progressHelpers';
 import {sectionDataPropType} from '@cdo/apps/redux/sectionDataRedux';
-import StudentProgressDetailCell from '@cdo/apps/templates/sectionProgress/detail/StudentProgressDetailCell';
+import StudentProgressDetailCell, {
+  widthForLevels
+} from '@cdo/apps/templates/sectionProgress/detail/StudentProgressDetailCell';
 import SectionProgressLessonNumberCell from '@cdo/apps/templates/sectionProgress/SectionProgressLessonNumberCell';
 import progressTableStyles from '../progressTableStyles.scss';
 import {
@@ -19,6 +21,7 @@ import {
 } from '@cdo/apps/templates/sectionProgress/multiGridConstants';
 import color from '../../../util/color';
 import FontAwesome from '@cdo/apps/templates/FontAwesome';
+import * as bubbleSizes from '@cdo/apps/templates/sectionProgress/SimpleProgressBubble';
 
 const styles = {
   headerContainer: {
@@ -102,27 +105,28 @@ export default class ProgressTableDetailView extends React.Component {
     const stageData = this.props.scriptData.stages[columnIndex];
     return (
       <div>
-        <span className="lesson-icon-header">
+        <span className="lesson-icon-header cell-content">
           {stageData.levels.map((level, i) => {
+            const width = bubbleSizes.BIG_CONTAINER; // + (level.sublevels || []).length * 23; //bubbleSizes.SMALL_SIZE;
             return (
-              <span key={i}>
-                <FontAwesome icon={getIconForLevel(level, true)} />
-                {level.sublevels &&
-                  level.sublevels.map((sublevel, i) => {
-                    return (
-                      <span
-                        className="filler"
-                        key={i}
-                        style={{
-                          width: 17,
-                          display: 'inline-block',
-                          color: color.background_gray
-                        }}
-                      >
-                        .
-                      </span>
-                    );
-                  })}
+              <span key={`${level.id}_${level.levelNumber}`}>
+                <span
+                  style={{
+                    width: width,
+                    display: 'inline-block',
+                    textAlign: 'center'
+                  }}
+                >
+                  <FontAwesome icon={getIconForLevel(level, true)} />
+                </span>
+                {level.sublevels && (
+                  <span
+                    style={{
+                      display: 'inline-block',
+                      width: level.sublevels.length * 23
+                    }}
+                  />
+                )}
               </span>
             );
           })}
@@ -141,16 +145,16 @@ export default class ProgressTableDetailView extends React.Component {
 
   renderDetailCell(student, levels, progress) {
     return (
-      <div style={styles.bubbleSetContainer}>
-        <div style={styles.bubbleSetBackground} />
-        <StudentProgressDetailCell
-          studentId={student.id}
-          sectionId={this.props.section.id}
-          stageExtrasEnabled={this.props.section.stageExtras}
-          levels={levels}
-          studentProgress={progress}
-        />
-      </div>
+      // <div style={styles.bubbleSetContainer}>
+      //   <div style={styles.bubbleSetBackground} />
+      <StudentProgressDetailCell
+        studentId={student.id}
+        sectionId={this.props.section.id}
+        stageExtrasEnabled={this.props.section.stageExtras}
+        levels={levels}
+        studentProgress={progress}
+      />
+      // </div>
     );
   }
 
@@ -173,7 +177,10 @@ export default class ProgressTableDetailView extends React.Component {
     const levelHeaders = [];
     const columns = [];
     this.props.scriptData.stages.forEach((stage, index) => {
-      columns.push({cell: {formatters: [this.detailCellFormatter]}});
+      columns.push({
+        // props: {style: {width: widthForLevels(stage.levels)}},
+        cell: {formatters: [this.detailCellFormatter]}
+      });
       lessonHeaders.push({header: {formatters: [this.lessonNumberFormatter]}});
       levelHeaders.push({header: {formatters: [this.levelTypeFormatter]}});
     });

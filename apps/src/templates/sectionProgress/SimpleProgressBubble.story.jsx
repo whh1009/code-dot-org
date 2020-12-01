@@ -5,6 +5,7 @@ import {LevelKind, LevelStatus} from '@cdo/apps/util/sharedConstants';
 import color from '@cdo/apps/util/color';
 
 const statuses = [
+  LevelStatus.locked,
   LevelStatus.not_tried,
   LevelStatus.attempted,
   LevelStatus.passed,
@@ -43,35 +44,7 @@ export default storybook => {
   storybook
     .storiesOf('SectionProgress/SimpleProgressBubble', module)
     .addStoryTable(
-      [
-        {
-          name: 'small bubbles',
-          story: () =>
-            wrapMultiple([
-              <SimpleProgressBubble
-                levelStatus={LevelStatus.perfect}
-                disabled={false}
-                smallBubble={true}
-                title={'a'}
-                url={'/foo/bar'}
-              />,
-              <SimpleProgressBubble
-                levelStatus={LevelStatus.attempted}
-                disabled={false}
-                smallBubble={true}
-                title={'b'}
-                url={'/foo/bar'}
-              />,
-              <SimpleProgressBubble
-                levelStatus={LevelStatus.not_tried}
-                disabled={false}
-                smallBubble={true}
-                title={'c'}
-                url={'/foo/bar'}
-              />
-            ])
-        }
-      ]
+      []
         .concat(
           statuses.map(status => ({
             name: `regular bubble status: ${status}`,
@@ -118,35 +91,68 @@ export default storybook => {
               )
           }))
         )
+        .concat(
+          statuses.slice(1).map(status => ({
+            name: `paired bubble status: ${status}`,
+            story: () =>
+              wrapped(
+                <SimpleProgressBubble
+                  levelStatus={status}
+                  levelKind={LevelKind.level}
+                  disabled={status === LevelStatus.locked}
+                  title={'3'}
+                  url={'/foo/bar'}
+                  paired={true}
+                />
+              )
+          }))
+        )
+        .concat(
+          statuses.map(status => ({
+            name: `bonus bubble status: ${status}`,
+            story: () =>
+              wrapped(
+                <SimpleProgressBubble
+                  levelStatus={status}
+                  levelKind={LevelKind.level}
+                  disabled={status === LevelStatus.locked}
+                  title={'3'}
+                  url={'/foo/bar'}
+                  bonus={true}
+                />
+              )
+          }))
+        )
         .concat([
           {
             name: 'small bubbles',
             story: () =>
-              wrapped(
-                <div>
-                  <SimpleProgressBubble
-                    levelStatus={LevelStatus.perfect}
-                    disabled={false}
-                    smallBubble={true}
-                    title={'a'}
-                    url={'/foo/bar'}
-                  />
-                  <SimpleProgressBubble
-                    levelStatus={LevelStatus.attempted}
-                    disabled={false}
-                    smallBubble={true}
-                    title={'b'}
-                    url={'/foo/bar'}
-                  />
-                  <SimpleProgressBubble
-                    levelStatus={LevelStatus.not_tried}
-                    disabled={false}
-                    smallBubble={true}
-                    title={'c'}
-                    url={'/foo/bar'}
-                  />
-                </div>
-              )
+              wrapMultiple([
+                <SimpleProgressBubble
+                  levelStatus={LevelStatus.perfect}
+                  disabled={false}
+                  smallBubble={true}
+                  title={'a'}
+                  url={'/foo/bar'}
+                  key={1}
+                />,
+                <SimpleProgressBubble
+                  levelStatus={LevelStatus.attempted}
+                  disabled={false}
+                  smallBubble={true}
+                  title={'b'}
+                  url={'/foo/bar'}
+                  key={2}
+                />,
+                <SimpleProgressBubble
+                  levelStatus={LevelStatus.not_tried}
+                  disabled={false}
+                  smallBubble={true}
+                  title={'c'}
+                  url={'/foo/bar'}
+                  key={3}
+                />
+              ])
           }
           //   {
           //     name: 'bubble with no url',

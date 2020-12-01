@@ -5,6 +5,7 @@ $row-height: 42px;
 $max-height: 680px;
 $student-list-width: 170px;
 $content-view-width: $content-width - $student-list-width;
+$cell-padding: 4px;
 
 div.progress-table {
   display: block;
@@ -76,10 +77,13 @@ div.progress-table {
     .lesson-icon-header {
       display: flex;
       align-items: center;
-      justify-content: space-around;
-      width: 100%;
+      justify-content: center;
+      // width: 100%;
       color: $charcoal;
       font-size: 20px;
+    }
+    .cell-content {
+      padding: 0px $cell-padding;
     }
   }
 }
@@ -87,4 +91,5 @@ div.progress-table {
 :export {
   MAX_BODY_HEIGHT: $max-height / 1px;
   CONTENT_VIEW_WIDTH: $content-view-width / 1px;
+  CELL_PADDING: $cell-padding / 1px;
 }

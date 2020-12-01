@@ -35,13 +35,11 @@ function synchronized(StudentList, ContentView, studentHeaders) {
     }
 
     onScroll(e) {
-      console.log('scroll');
       this.studentList.body.scrollTop = e.target.scrollTop;
       this.contentView.header.scrollLeft = e.target.scrollLeft;
     }
 
     render() {
-      console.log('render');
       // const {columns, rows, maxWidth} = this.props;
       // let {numOfFirstFixedColumns} = this.props;
       // if (!numOfFirstFixedColumns) {
@@ -56,7 +54,7 @@ function synchronized(StudentList, ContentView, studentHeaders) {
       // const secondTableScrollWidth = getColumnsTotalWidth(remainingColumns);
       // const isSecondTableOverflowX = secondTableScrollWidth > secondTableWidth;
       // this.needTweakLastColumns = columns.length && isSecondTableOverflowX;
-      console.log('jump2', this.props.jumpToLessonDetails);
+
       return (
         <div className="progress-table">
           <div className="student-list">

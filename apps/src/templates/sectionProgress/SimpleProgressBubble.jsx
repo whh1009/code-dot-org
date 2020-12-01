@@ -1,32 +1,45 @@
 import React from 'react';
+import Radium from 'radium';
 import PropTypes from 'prop-types';
 import FontAwesome from '@cdo/apps/templates/FontAwesome';
-import {
-  DOT_SIZE,
-  DIAMOND_DOT_SIZE,
-  SMALL_DOT_SIZE,
-  SMALL_DIAMOND_SIZE,
-  levelProgressStyle,
-  hoverStyle
-} from '../progress/progressStyles';
+import * as progressStyles from '../progress/progressStyles';
 import color from '@cdo/apps/util/color';
 import firehoseClient from '@cdo/apps/lib/util/firehose';
 import {LevelStatus} from '@cdo/apps/util/sharedConstants';
 
+const BIG_SIZE = 30;
+
+// Hard-coded container size to ensure all big bubbles have the same width
+// regardless of shape (circle vs. diamond).
+// Two pixels on each side for margin, plus 2 x border width
+export const BIG_CONTAINER =
+  BIG_SIZE + 4 + 2 * progressStyles.BUBBLE_BORDER_WIDTH;
+
+const SMALL_SIZE = 12;
+const SMALL_MARGIN = 3;
+const SMALL_PAD = 1;
+export const SMALL_CONTAINER =
+  SMALL_SIZE +
+  2 * SMALL_MARGIN +
+  SMALL_PAD +
+  2 * progressStyles.BUBBLE_BORDER_WIDTH;
+
 const styles = {
+  container: {
+    ...progressStyles.flex,
+    width: BIG_CONTAINER
+  },
   main: {
+    ...progressStyles.flex,
     boxSizing: 'content-box',
     fontFamily: '"Gotham 5r", sans-serif',
-    width: DOT_SIZE,
-    height: DOT_SIZE,
-    borderRadius: DOT_SIZE,
+    width: BIG_SIZE,
+    height: BIG_SIZE,
+    borderRadius: BIG_SIZE,
     borderStyle: 'solid',
     borderColor: color.lighter_gray,
     fontSize: 16,
     letterSpacing: -0.11,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
     transition:
       'background-color .2s ease-out, border-color .2s ease-out, color .2s ease-out',
     marginTop: 3,
@@ -34,45 +47,25 @@ const styles = {
     position: 'relative'
   },
   largeDiamond: {
-    width: DIAMOND_DOT_SIZE,
-    height: DIAMOND_DOT_SIZE,
+    width: progressStyles.DIAMOND_DOT_SIZE,
+    height: progressStyles.DIAMOND_DOT_SIZE,
     borderRadius: 4,
     transform: 'rotate(45deg)',
     marginTop: 6,
     marginBottom: 6
   },
-  mySmall: {
+  small: {
     display: 'inline-block',
-    width: 12,
-    height: 12,
-    borderRadius: 12,
+    width: SMALL_SIZE,
+    height: SMALL_SIZE,
+    borderRadius: SMALL_SIZE,
     lineHeight: '12px',
-    borderColor: color.lighter_gray,
-    borderStyle: 'solid',
     fontSize: 12,
-    fontFamily: '"Gotham 5r", sans-serif',
-    backgroundColor: color.white,
-    margin: 3,
-    paddingRight: 1,
-    paddingBottom: 1,
+    margin: SMALL_MARGIN,
+    paddingRight: SMALL_PAD,
+    paddingBottom: SMALL_PAD,
     textAlign: 'center',
     verticalAlign: 'middle'
-  },
-  small: {
-    width: SMALL_DOT_SIZE,
-    height: SMALL_DOT_SIZE,
-    borderRadius: SMALL_DOT_SIZE,
-    fontSize: 0,
-    alignItems: 'none'
-  },
-  smallDiamond: {
-    width: SMALL_DIAMOND_SIZE,
-    height: SMALL_DIAMOND_SIZE,
-    borderRadius: 2,
-    fontSize: 0,
-    transform: 'rotate(45deg)',
-    marginLeft: 1,
-    marginRight: 1
   },
   contents: {
     whiteSpace: 'nowrap',
@@ -82,13 +75,17 @@ const styles = {
     // undo the rotation from the parent
     transform: 'rotate(-45deg)'
   },
-  disabledStageExtras: {
+  bonusDisabled: {
     backgroundColor: color.lighter_gray,
     color: color.white
+  },
+  link: {
+    textDecoration: 'none',
+    display: 'inline-block'
   }
 };
 
-export default class SimpleProgressBubble extends React.PureComponent {
+class SimpleProgressBubble extends React.PureComponent {
   static propTypes = {
     levelStatus: PropTypes.string,
     levelKind: PropTypes.string,
@@ -98,7 +95,7 @@ export default class SimpleProgressBubble extends React.PureComponent {
     paired: PropTypes.bool,
     concept: PropTypes.bool,
     title: PropTypes.string,
-    url: PropTypes.string
+    url: PropTypes.string.isRequired
   };
 
   constructor(props) {
@@ -117,50 +114,36 @@ export default class SimpleProgressBubble extends React.PureComponent {
     );
   }
 
+  mainStyle() {
+    const {levelStatus, levelKind, disabled} = this.props;
+    return {
+      ...styles.main,
+      ...(!disabled && progressStyles.hoverStyle),
+      ...progressStyles.levelProgressStyle(levelStatus, levelKind, disabled)
+    };
+  }
+
+  bigStyle() {
+    const {disabled, bonus, concept} = this.props;
+    return {
+      ...(concept && styles.largeDiamond),
+      ...(disabled && bonus && styles.bonusDisabled)
+    };
+  }
+
   renderSmallBubble() {
-    const {levelStatus, levelKind, disabled, title, url} = this.props;
+    const {title} = this.props;
     return (
       <div>
-        <div
-          style={{
-            ...styles.mySmall,
-            ...levelProgressStyle(levelStatus, levelKind, disabled)
-          }}
-        >
-          {title}
-          {/* <span>{this.props.title}</span> */}
-        </div>
+        <div style={{...this.mainStyle(), ...styles.small}}>{title}</div>
       </div>
     );
   }
 
-  render() {
-    if (this.props.smallBubble) {
-      return this.renderSmallBubble();
-    }
-    const {
-      levelStatus,
-      levelKind,
-      smallBubble,
-      disabled,
-      bonus,
-      paired,
-      concept,
-      title,
-      url
-    } = this.props;
-
+  content() {
+    const {levelStatus, bonus, paired, title} = this.props;
     const locked = levelStatus === LevelStatus.locked;
-    const style = {
-      ...styles.main,
-      ...(!disabled && hoverStyle),
-      ...(smallBubble && styles.small),
-      ...(concept && (smallBubble ? styles.smallDiamond : styles.largeDiamond)),
-      ...levelProgressStyle(levelStatus, levelKind, disabled),
-      ...(disabled && bonus && styles.disabledStageExtras)
-    };
-
-    const content = locked ? (
+    return locked ? (
       <FontAwesome icon="lock" />
     ) : paired ? (
       <FontAwesome icon="users" />
@@ -169,50 +152,52 @@ export default class SimpleProgressBubble extends React.PureComponent {
     ) : (
       <span>{(title && title) || ''}</span>
     );
+  }
 
-    // Two pixels on each side for border, 2 pixels on each side for margin.
-    const width = (smallBubble ? SMALL_DOT_SIZE : DOT_SIZE) + 8;
+  renderBigBubble() {
+    const {
+      levelStatus,
+      levelKind,
+      disabled,
+      bonus,
+      paired,
+      concept
+    } = this.props;
 
-    // Outer div here is used to make sure our bubbles all take up equivalent
-    // amounts of space, whether they're diamonds or circles
-    let bubble = (
-      <div>
-        {/* {smallBubble && this.renderSmallBubble()} */}
-        <div
-          style={{
-            // two pixels on each side for border, 2 pixels on each side for margin
-            width: width,
-            display: 'flex',
-            justifyContent: 'center'
-          }}
-        >
-          <div style={style} className="uitest-bubble">
-            <div
-              style={{
-                fontSize: paired || bonus ? 14 : 16,
-                ...styles.contents,
-                ...(concept && styles.diamondContents)
-              }}
-            >
-              {content}
-            </div>
+    const style = {...this.mainStyle(), ...this.bigStyle()};
+    return (
+      <div style={styles.container}>
+        <div style={style} className="uitest-bubble">
+          <div
+            style={{
+              fontSize: paired || bonus ? 14 : 16,
+              ...styles.contents,
+              ...(concept && styles.diamondContents),
+              ...progressStyles.flex
+              // margin: '3px 0px'
+            }}
+          >
+            {this.content()}
           </div>
         </div>
       </div>
     );
-    if (!url) {
-      return bubble;
-    }
+  }
 
+  render() {
     return (
       <a
-        href={url}
-        style={{textDecoration: 'none', display: 'inline-block'}}
+        href={this.props.url}
+        style={styles.link}
         className="uitest-ProgressBubble"
-        onClick={this.recordProgressTabProgressBubbleClick}
+        onClick={this.recordBubbleClick}
       >
-        {bubble}
+        {this.props.smallBubble
+          ? this.renderSmallBubble()
+          : this.renderBigBubble()}
       </a>
     );
   }
 }
+
+export default Radium(SimpleProgressBubble);

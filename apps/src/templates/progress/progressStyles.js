@@ -5,6 +5,16 @@ export const DOT_SIZE = 30;
 export const DIAMOND_DOT_SIZE = 22;
 export const SMALL_DOT_SIZE = 9;
 export const SMALL_DIAMOND_SIZE = 6;
+export const BUBBLE_BORDER_WIDTH = 2;
+
+export const flex = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center'
+};
+
+export const flexAround = {...flex, justifyContent: 'space-around'};
+export const flexBetween = {...flex, justifyContent: 'space-between'};
 
 // Style used when hovering
 export const hoverStyle = {
@@ -67,7 +77,7 @@ const statusStyle = {
  */
 export const levelProgressStyle = (levelStatus, levelKind, disabled) => {
   let style = {
-    borderWidth: 2,
+    borderWidth: BUBBLE_BORDER_WIDTH,
     color: color.charcoal,
     backgroundColor: color.level_not_tried
   };

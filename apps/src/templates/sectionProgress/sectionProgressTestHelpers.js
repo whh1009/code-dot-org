@@ -37,18 +37,21 @@ export function createStore() {
 }
 
 function buildSectionProgress(students) {
-  const lastUpdates = {};
+  const lastUpdates = {[scriptData.id]: {}};
   const progress = {};
 
   students.forEach(student => {
-    lastUpdates[student.id] = {};
+    lastUpdates[scriptData.id][student.id] = Date.now();
     progress[student.id] = {};
   });
   scriptData.stages.forEach(stage => {
     stage.levels.forEach(level => {
       students.forEach(student => {
-        lastUpdates[student.id][level.id] = Date.now();
         progress[student.id][level.id] = randomProgress();
+        level.sublevels &&
+          level.sublevels.forEach(sublevel => {
+            progress[student.id][sublevel.id] = randomProgress();
+          });
       });
     });
   });

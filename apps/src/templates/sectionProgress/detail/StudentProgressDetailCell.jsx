@@ -5,7 +5,7 @@ import {
   studentLevelProgressType
 } from '@cdo/apps/templates/progress/progressTypes';
 import i18n from '@cdo/locale';
-import SimpleProgressBubble from '@cdo/apps/templates/sectionProgress/SimpleProgressBubble';
+import SimpleProgressBubble, * as bubbleSizes from '@cdo/apps/templates/sectionProgress/SimpleProgressBubble';
 import * as progressStyles from '@cdo/apps/templates/progress/progressStyles';
 import color from '@cdo/apps/util/color';
 import _ from 'lodash';
@@ -35,7 +35,7 @@ const bubbleSetStyles = {
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'space-around'
+    justifyContent: 'space-between'
   },
   diamondContainer: {
     // Height needed only by IE to get diamonds to line up properly
@@ -95,10 +95,24 @@ const styles = {
     whiteSpace: 'nowrap'
   },
   cell: {
-    padding: '0px 4px'
+    // padding: '0px 4px'
+  },
+  background: {
+    height: 10,
+    backgroundColor: color.lighter_gray,
+    position: 'absolute',
+    left: 10,
+    right: 10
   }
 };
 
+export const widthForLevels = levels => {
+  return levels.reduce((widthSum, level) => {
+    widthSum +=
+      bubbleSizes.BIG_CONTAINER + level.sublevels &&
+      level.sublevels.length * bubbleSizes.SMALL_CONTAINER;
+  }, 0);
+};
 export default class StudentProgressDetailCell extends Component {
   static whyDidYouRender = true;
   static propTypes = {
@@ -118,10 +132,7 @@ export default class StudentProgressDetailCell extends Component {
       return null;
     }
     const {studentId, sectionId} = this.props;
-    const url = new URL(level.url);
-    url.searchParams.append('section_id', sectionId);
-    url.searchParams.append('user_id', studentId);
-    return url.toString();
+    return `${level.url}?section_id=${sectionId}&user_id=${studentId}`;
   }
 
   renderUnplugged(level, status) {
@@ -151,24 +162,44 @@ export default class StudentProgressDetailCell extends Component {
     );
   }
 
+  renderSublevels(level) {
+    return (
+      <div style={bubbleSetStyles.main}>
+        {level.sublevels.map(sublevel => {
+          const subProgress = this.props.studentProgress[sublevel.id];
+          const subStatus = subProgress && subProgress.status;
+          return (
+            <SimpleProgressBubble
+              key={sublevel.id}
+              levelStatus={subStatus}
+              disabled={!!level.bonus && !stageExtrasEnabled}
+              smallBubble={true}
+              bonus={sublevel.bonus}
+              concept={sublevel.isConceptLevel}
+              title={sublevel.bubbleTitle}
+              url={this.buildBubbleUrl(sublevel)}
+            />
+          );
+        })}
+      </div>
+    );
+  }
+
   renderBubble = (level, index, isSublevel) => {
-    const {levels, studentProgress, stageExtrasEnabled} = this.props;
+    const {studentProgress, stageExtrasEnabled} = this.props;
     const levelProgress = studentProgress[level.id];
     const status = levelProgress && levelProgress.status;
     const paired = levelProgress && levelProgress.paired;
     if (level.isUnplugged && !isSublevel) {
       return this.renderUnplugged(level, status);
     }
-    const unpluggedContainer =
-      (level.isUnplugged && bubbleSetStyles.pillContainer) || {};
     const conceptContainer =
       (level.isConceptLevel && bubbleSetStyles.diamondContainer) || {};
     return (
       <div
         key={`${level.id}_${level.levelNumber}`}
         style={{
-          // ...bubbleSetStyles.container,
-          ...unpluggedContainer,
+          ...bubbleSetStyles.container,
           ...conceptContainer
         }}
       >
@@ -183,23 +214,7 @@ export default class StudentProgressDetailCell extends Component {
           title={level.bubbleTitle}
           url={this.buildBubbleUrl(level)}
         />
-        {level.sublevels &&
-          level.sublevels.map((sublevel, index) => {
-            const subProgress = studentProgress[sublevel.id];
-            const subStatus = subProgress && subProgress.status;
-            return (
-              <SimpleProgressBubble
-                key={sublevel.id}
-                levelStatus={subStatus}
-                disabled={!!level.bonus && !stageExtrasEnabled}
-                smallBubble={true}
-                bonus={sublevel.bonus}
-                concept={sublevel.isConceptLevel}
-                title={sublevel.bubbleTitle}
-                url={this.buildBubbleUrl(sublevel)}
-              />
-            );
-          })}
+        {level.sublevels && this.renderSublevels(level)}
       </div>
       // </div>
     );
@@ -209,12 +224,13 @@ export default class StudentProgressDetailCell extends Component {
     return (
       <div
         style={{
-          ...styles.cell,
+          // ...styles.cell,
           ...styles.bubbles,
           ...bubbleSetStyles.container
         }}
-        className="uitest-detail-cell"
+        className="uitest-detail-cell cell-content"
       >
+        <div style={styles.background} />
         {this.props.levels.map((level, index) => {
           return this.renderBubble(level, index, false);
         })}
