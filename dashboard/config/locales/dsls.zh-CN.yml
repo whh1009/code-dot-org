@@ -7362,6 +7362,7 @@ zh-CN:
 
           ##资料
           * [铝箔船](https://docs.google.com/document/d/1C5RMzH0811r8e2XdVbWV-GANm3uIar2_N8hI9jqX2rk/export?format=pdf) - 活动指导 (微软版(https://docs.google.com/document/d/1C5RMzH0811r8e2XdVbWV-GANm3uIar2_N8hI9jqX2rk/export?format=doc), [谷歌文档](https://docs.google.com/document/d/1C5RMzH0811r8e2XdVbWV-GANm3uIar2_N8hI9jqX2rk/copy))
+        title: 计算机科学发现学生课前问卷
       csd-pulse-check-survey-1-levelgroup U1Ch2:
         title: 计算机科学发现快速问卷！
       csd-pulse-check-survey-1-levelgroup U1Ch2_2018:
@@ -7575,3 +7576,119 @@ zh-CN:
       courseExpress_EOC_2020:
         display_name: 结课项目
         description: 你已经完成了本课程！点击以创建项目。
+      CSD Interactive Animations and Games Post-Project Test:
+        title: 互动动画和游戏 项目后测试
+      CSD Physical Computing Post-Project Test:
+        title: 物理计算 项目后测试
+      CSD User Centered Design Post-Project Test:
+        title: 以用户为中心的设计：项目后测试
+      CSD Web Development Post-Project Test:
+        title: 网页开发 项目后测试
+      csd-post-survey-2017-levelgroup:
+        title: 计算机科学发现期末学生调查
+      csd-post-survey-2017-levelgroup_2018:
+        title: 计算机科学发现期末学生调查
+      csd-post-survey-2018-markdown-with-link-to-survey:
+        markdown: |+
+          # 计算机科学发现课后问卷
+
+          **你的输入和反馈对我们非常重要！** 我们会用它来：
+
+          * 改进课程
+          * 了解你的体验
+          * 告诉我们今后想要学习的主题
+
+          非常感谢花时间来帮助计算机科学发现变得更好！
+
+          <a class="btn btn-large btn-success" href="/s/csd-post-survey/stage/1/puzzle/1/page/1" target="top">点击这里完成计算机科学发现课后问卷！！！</a>
+
+          (在新窗口中打开)
+
+          <br>
+
+
+
+
+
+      csd-post-survey-intro-2019:
+        markdown: |+
+          # 计算机科学发现 课后问卷
+
+          **您的输入和反馈对我们非常重要！** 这些反馈会用来：
+
+          * 了解您的体验
+          * 改进课程
+
+          感谢花时间来帮助计算机科学原理变得更好！
+
+      csd-post-survey-levelgroup_2019:
+        title: 计算机科学发现期末学生调查
+      OPD-K5 CS Tips_copy:
+        markdown: |-
+          #使用这个在线课程
+
+          在你完成这个课程是，你会对计算机科学基础会给予你的知识给有了解。
+
+          假如你发现你自己有问题，下面的资料也许能帮助你探索并帮你了解这个课程。你可以随时回到这个界面！
+
+          ---
+
+          ##知识模块
+          这个课程的主页如下。这个界面是分解成四个**知识模块**的。这折射了计算机科学课程是如何撰写的。
+
+          ![](https://images.code.org/5227343bf74975b4678e42b50fdcd085-image-1573235429162.50.02 AM.png)
+          ##课程
+
+          每个单元是由**课程**构成的，每个课程表示了不同的主题和想法。
+
+          ##等级（气泡）
+          每个阶段是由等级构成的，等级的标注看起来像气泡。**钻石**表示了视频，文本或是问题。有一些**圆圈**是一些需要你完成的在线难题，这些难题是一个让你联系编程概念的地方。其他的**圆圈**是用来回答开放性问题的，开放性问题会要求你提交一个答案，往后再返回更改。气泡的颜色会随着你的进程更改。在这个在线专业建设性课程你将会看到以下的几种气泡：
+          <br/>
+
+          <img src ="https://images.code.org/8b3fcfcf0120bed0dc34c014f1f81071-image-1548976153188.png" />
+
+          <br/>
+      CSD U1 Test:
+        title: 计算机和解决问题 项目后测试
+      CSD U5 test:
+        title: 数据和社会 项目后测试
+      Unit 1 Lesson 1 Overview:
+        markdown: |
+          #概述
+          班级作业是组队设计一个能装尽可能多硬币的铝箔船。当课程最后，小组回顾他们的活动经历、以及与解决的问题建立的联系时，他们就会主动完成剩下的课程。
+
+          ##资料
+          * [铝箔船](https://docs.google.com/document/d/1C5RMzH0811r8e2XdVbWV-GANm3uIar2_N8hI9jqX2rk/export?format=pdf) - 活动指导 (微软版(https://docs.google.com/document/d/1C5RMzH0811r8e2XdVbWV-GANm3uIar2_N8hI9jqX2rk/export?format=doc), [谷歌文档](https://docs.google.com/document/d/1C5RMzH0811r8e2XdVbWV-GANm3uIar2_N8hI9jqX2rk/copy))
+      csd-pre-survey-2017-levelgroup_2018:
+        title: 计算机科学发现学生课前问卷
+      csd-pre-survey-levelgroup_2019:
+        title: 计算机科学发现学生课前问卷
+      outbreak_story:
+        content1: 描述
+      outbreak_story2:
+        content1: 描述
+      OPD-K5 Participation_copy:
+        markdown: |
+          # 计划你的课程
+
+          在你开始上课之前，先花点时间想一想你的学习需求、目标以及在网上自学的经验--如果这是你第一次参与网上课程，这一步尤为重要！
+
+          ## 参与课前调研
+
+          我们希望让你尽可能多地从这次专业培训中获益。因此，我们邀请你参与填写<a href="https://form.jotform.com/93175711692159?user_id=<user_id/>" target="blank">这份简短的问卷</a>。该问卷将询问你参与本次课程希望达成的目标，让我们对你有一些了解从而向你提供更好的支持和帮助。
+
+          <a class="btn btn-large btn-primary" href="https://form.jotform.com/93175711692159?user_id=<user_id/>" target="blank">T参与课前调研</a>
+
+          ## 按你的节奏来
+
+          自定义进度的在线课程旨在让你对课程有全面的掌控，并能自由控制学习进度。 ** 虽然我们针对每个学习阶段给出了参考时长，你仍可按照自己的时间和进度来完成整个课程。**如果你发现在某个阶段花费了更多或更少的时间，请不要担心！ 我们的主要目的是让你在玩得开心的同时掌握一些基础知识，并以最适合你的方式将所学内容应用到课堂实践中。
+
+          ## 随时得到帮助
+
+          如果你在课程中遇到困难，请前往 <a href="http://support.code.org" target="blank">support.code.org</a>，并查看 <a href="https://forum.code.org/" target="blank">我们的社区论坛</a>。你有可能在那里找到问题的答案。如果你没能找到答案或仍然被问题困扰，发邮件到 <a href="mailto:support@code.org" target="blank">support@code.org</a> ，Code.org 的工作人员会尽快给你回复。
+
+          我们强烈推荐另一种获得帮助的方式，是与一个同伴或一个小组一起学习这个在线课程！
+
+          ##找到适合你的学习方式
+
+          最后，在线学习并不适合所有人。本课程没有配备教师或内置机制能让你与其他学习者进行实时交流。如果您发现自己需要更多一对一的关注，或者你在有真实合作参与的线下课堂上学习效果更好，推荐你参与我们的<a href="http://code.org/professional-development-workshops" target="blank">面对面专业发展研讨会</a>。

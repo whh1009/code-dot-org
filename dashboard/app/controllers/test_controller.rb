@@ -80,19 +80,42 @@ class TestController < ApplicationController
       relative_position: 1,
       absolute_position: 1
     )
-    script_level = lesson.script_levels.create(
+    activity = lesson.lesson_activities.create(
+      position: 1,
+      key: SecureRandom.uuid
+    )
+    section = activity.activity_sections.create(
+      position: 1,
+      key: SecureRandom.uuid
+    )
+    script_level = section.script_levels.create(
       script: script,
+      lesson: lesson,
       chapter: 1,
-      position: 1
+      position: 1,
+      activity_section_position: 1
     )
     level = Level.find_by_name('Applab test')
     script_level.levels.push(level)
     render json: {script_name: script.name, lesson_id: lesson.id}
   end
 
+  # invalidate the specified script from the script cache, so that it will be
+  # reloaded from the DB the next time it is requested.
+  def invalidate_script
+    Script.remove_from_cache(params[:script_name])
+    head :ok
+  end
+
   def destroy_script
     script = Script.find_by!(name: params[:script_name])
     script.destroy
+    head :ok
+  end
+
+  def destroy_level
+    level = Level.find(params[:id])
+    level.destroy
     head :ok
   end
 end

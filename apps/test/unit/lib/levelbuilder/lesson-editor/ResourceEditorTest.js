@@ -1,14 +1,21 @@
 import React from 'react';
 import {shallow} from 'enzyme';
+import sinon from 'sinon';
 import {expect} from '../../../../util/reconfiguredChai';
-import ResourcesEditor from '@cdo/apps/lib/levelbuilder/lesson-editor/ResourcesEditor';
+import {UnconnectedResourcesEditor as ResourcesEditor} from '@cdo/apps/lib/levelbuilder/lesson-editor/ResourcesEditor';
 import resourceTestData from './resourceTestData';
 
 describe('ResourcesEditor', () => {
-  let defaultProps;
+  let defaultProps, addResource, editResource, removeResource;
   beforeEach(() => {
+    addResource = sinon.spy();
+    editResource = sinon.spy();
+    removeResource = sinon.spy();
     defaultProps = {
-      resources: resourceTestData
+      resources: resourceTestData,
+      addResource,
+      editResource,
+      removeResource
     };
   });
 
@@ -27,19 +34,27 @@ describe('ResourcesEditor', () => {
       .first()
       .parent();
     removeResourceButton.simulate('mouseDown');
-    expect(wrapper.find('tr').length).to.equal(numResources - 1);
+    expect(removeResource).to.have.been.calledOnce;
   });
 
   it('can add a resource', () => {
     const wrapper = shallow(<ResourcesEditor {...defaultProps} />);
-    const numResources = wrapper.find('tr').length;
     wrapper.instance().addResource({
-      resource: {
-        key: 'added-resource',
-        name: 'name of resource',
-        url: 'fake.fake'
-      }
+      key: 'added-resource',
+      name: 'name of resource',
+      url: 'fake.fake',
+      properties: {}
     });
-    expect(wrapper.find('tr').length).to.equal(numResources + 1);
+    expect(addResource).to.have.been.calledOnce;
+  });
+
+  it('can add a resource', () => {
+    const wrapper = shallow(<ResourcesEditor {...defaultProps} />);
+    wrapper.instance().saveEditResource({
+      key: resourceTestData[0].key,
+      name: 'edited resource',
+      url: 'edited url'
+    });
+    expect(editResource).to.have.been.calledOnce;
   });
 });

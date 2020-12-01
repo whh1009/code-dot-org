@@ -19,6 +19,7 @@ fr:
         hoc_category_name: Heure de Code
         math_category_name: Math
         research_studies_category_name: Études de Recherche
+        other_category_name: Autre
       name:
         course1:
           title: Cours 1
@@ -13101,7 +13102,7 @@ fr:
         dance:
           title: Soirée Dansante (2018)
           description_short: Avec Katy Perry, Madonna, J. Balvin, Sia, Keith Urban,
-            Ciara, et 25 autres !
+            Ciara, et 25 autres artistes !
           description: Codez votre propre Soirée Dansante à partager avec vos amis
             !
           lessons:
@@ -23691,3 +23692,11 @@ fr:
               name: Cours B
             CS Discoveries:
               name: Découvertes de l'Informatique
+        ml-playground:
+          lessons:
+            AI for Oceans:
+              name: IA pour les Océans
+            intro:
+              name: Introduction
+            visualizing:
+              name: Visualiser les Données

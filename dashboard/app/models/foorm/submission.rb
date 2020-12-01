@@ -10,7 +10,7 @@
 #  updated_at   :datetime         not null
 #
 
-class Foorm::Submission < ActiveRecord::Base
+class Foorm::Submission < ApplicationRecord
   has_one :workshop_metadata, class_name: 'Pd::WorkshopSurveyFoormSubmission', foreign_key: :foorm_submission_id
   has_one :misc_survey, foreign_key: :foorm_submission_id
 
@@ -86,6 +86,7 @@ class Foorm::Submission < ActiveRecord::Base
     return {} if workshop_metadata.nil? || workshop_metadata.facilitator_specific?
 
     {
+      'created_at' => created_at,
       'user_id' => workshop_metadata.user&.id,
       'pd_workshop_id' => workshop_metadata.pd_workshop&.id,
       'pd_session_id' => workshop_metadata.pd_session&.id

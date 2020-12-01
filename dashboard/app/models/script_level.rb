@@ -33,7 +33,7 @@ require 'cdo/shared_constants'
 # A Script has_many ScriptLevels, and a ScriptLevel has_and_belongs_to_many Levels. However, most ScriptLevels
 # are only associated with one Level. There are some special cases where they can have multiple Levels, such as
 # with the now-deprecated variants feature.
-class ScriptLevel < ActiveRecord::Base
+class ScriptLevel < ApplicationRecord
   include SerializedProperties
   include LevelsHelper
   include SharedConstants
@@ -354,7 +354,7 @@ class ScriptLevel < ActiveRecord::Base
     build_script_level_path(self)
   end
 
-  def summarize(include_prev_next=true)
+  def summarize(include_prev_next=true, for_edit: false)
     kind =
       if level.unplugged?
         LEVEL_KIND.unplugged
@@ -370,12 +370,6 @@ class ScriptLevel < ActiveRecord::Base
       ids.concat(l.contained_levels.map(&:id))
     end
 
-    # Levelbuilders can select if External/
-    # Markdown levels should display as Unplugged.
-    display_as_unplugged =
-      level.unplugged? ||
-      level.properties["display_as_unplugged"] == "true"
-
     summary = {
       ids: ids,
       activeId: oldest_active_level.id,
@@ -387,7 +381,7 @@ class ScriptLevel < ActiveRecord::Base
       url: build_script_level_url(self),
       freePlay: level.try(:free_play) == "true",
       bonus: bonus,
-      display_as_unplugged: display_as_unplugged
+      display_as_unplugged: level.display_as_unplugged?
     }
 
     if progression
@@ -404,7 +398,7 @@ class ScriptLevel < ActiveRecord::Base
       summary[:sublevels] = level.summarize_sublevels(script_level: self)
     end
 
-    if Rails.application.config.levelbuilder_mode
+    if for_edit
       summary[:key] = level.key
       summary[:skin] = level.try(:skin)
       summary[:videoKey] = level.video_key
@@ -442,9 +436,24 @@ class ScriptLevel < ActiveRecord::Base
     summary
   end
 
-  def summarize_for_edit
+  def summarize_for_lesson_show
     summary = summarize
     summary[:id] = id
+    summary[:levels] = levels.map do |level|
+      {
+        name: level.name,
+        id: level.id,
+        icon: level.icon,
+        isConceptLevel: level.concept_level?
+      }
+    end
+    summary
+  end
+
+  def summarize_for_lesson_edit
+    summary = summarize(for_edit: true)
+    summary[:id] = id
+    summary[:activitySectionPosition] = activity_section_position
     summary[:levels] = levels.map do |level|
       {
         id: level.id,
@@ -646,5 +655,19 @@ class ScriptLevel < ActiveRecord::Base
       raise "No levels found for #{inspect}" if my_levels.nil_or_empty?
     end
     my_levels.sort_by(&:id).map(&:key)
+  end
+
+  # @param [Array<Hash>] levels_data - Array of hashes each representing a level
+  def update_levels(levels_data)
+    levels = levels_data.map do |level_data|
+      Level.find(level_data['id'])
+    end
+
+    # Script levels containing anonymous levels must be assessments.
+    if levels.any? {|l| l.properties["anonymous"] == "true"}
+      self.assessment = true
+      save! if changed?
+    end
+    self.levels = levels
   end
 end

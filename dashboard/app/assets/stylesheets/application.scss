@@ -60,6 +60,10 @@ body.pin_bottom {
   left: 0;
 }
 
+body.oceans-blue {
+  background-color: $oceans_deep_blue;
+}
+
 h1 {
   font-family: $gotham-extra-bold;
   font-weight: normal;
@@ -444,7 +448,7 @@ img.video_thumbnail {
 }
 
 /* This styling helps to push the footer to the bottom of a page. */
-$footer_height: 165px;
+$footer_height: 270px;
 $footer_padding-top: 20px;
 $footer_padding-bottom: 20px;
 $footer_fullheight: $footer_height + $footer_padding-top + $footer_padding-bottom;
@@ -480,6 +484,10 @@ html, body {
   }
   a:hover {
     text-decoration: underline;
+  }
+  .powered-by-aws {
+    width: 100%;
+    margin-top: 12px;
   }
   select {
     width: auto;
@@ -758,6 +766,11 @@ $small-footer-standard-width: 400px;
   height: 24px;
 }
 
+.oceans-blue .small-footer-base {
+  background-color: initial;
+  border-top: initial;
+}
+
 .header_separator {
   padding-left: 2px;
   margin-bottom: -18px;
@@ -889,6 +902,7 @@ $default-modal-width: 640px;
 .video-player-rounded-corners {
   border-radius: 10px;
   border-width: 0;
+  overflow: hidden;
 }
 
 .video-player-full-width {
@@ -903,52 +917,6 @@ $default-modal-width: 640px;
   position: relative;
   // Specifically supports 16x9 aspect ratio
   padding-top: 56.25%;
-}
-
-@media screen and (max-height: 1330px) {
-  .standalone-video-full-width {
-    max-width: 1973px;
-  }
-}
-@media screen and (max-height: 1240px) {
-  .standalone-video-full-width {
-    max-width: 1813px;
-  }
-}
-@media screen and (max-height: 1150px) {
-  .standalone-video-full-width {
-    max-width: 1653px;
-  }
-}
-@media screen and (max-height: 1060px) {
-  .standalone-video-full-width {
-    max-width: 1493px;
-  }
-}
-@media screen and (max-height: 970px) {
-  .standalone-video-full-width {
-    max-width: 1333px;
-  }
-}
-@media screen and (max-height: 880px) {
-  .standalone-video-full-width {
-    max-width: 1173px;
-  }
-}
-@media screen and (max-height: 790px) {
-  .standalone-video-full-width {
-    max-width: 1013px;
-  }
-}
-@media screen and (max-height: 700px) {
-  .standalone-video-full-width {
-    max-width: 853px;
-  }
-}
-@media screen and (max-height: 610px) {
-  .standalone-video-full-width {
-    max-width: 693px;
-  }
 }
 
 .buttons-right-aligned {
@@ -1239,6 +1207,18 @@ input.header_input {
   padding: 5px;
 }
 
+.oceans-blue {
+  #codeApp {
+    .loading {
+      background: image-url("spinner-big-oceans-blue.gif") no-repeat center center;
+    }
+
+    .slow_load {
+      color: $white;
+    }
+  }
+}
+
 #codeApp {
   position: relative;
 
@@ -1427,6 +1407,37 @@ body.iframe_embed_app_and_code {
 
 .x-close {
   @include close-button($cornerOffset: -20px);
+}
+
+.open-link {
+  $startWidth: 61px;
+  $startHeight: 59px;
+  $cornerOffset: -20px;
+  $growth: 3px;
+  $movement: 1px;
+
+  position: absolute;
+  cursor: pointer;
+  z-index: 1;
+  background: image-url("open_button.png") no-repeat center center;
+  background-size: 100% auto;
+
+  top: $cornerOffset;
+  right: -30px + $startWidth;
+  width: $startWidth;
+  height: $startHeight;
+  &:hover {
+    width: $startWidth + $growth;
+    height: $startHeight + $growth;
+  }
+}
+.open-link > a {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
 }
 
 .qtip-content {
@@ -1962,6 +1973,20 @@ a.download-video {
 
     #gdpr-section {
       flex-wrap: wrap;
+      .checkbox {
+        label {
+          align-items: baseline;
+          input[type=checkbox] {
+            align-self: auto;
+          }
+        }
+      }
+      #gdpr-label {
+        margin: 0 10px;
+        span {
+          padding: 0;
+        }
+      }
     }
   }
 }
@@ -2391,7 +2416,7 @@ a.download-video {
 
 .standalone-video {
   width: 853px;
-  margin: 25px auto 0 auto;
+  margin: 10px auto 0 auto;
 
   .video-link, .slides-link, #fallback-player-caption-dialog-link {
     display: inline-block;
@@ -3620,3 +3645,5 @@ html[dir=rtl] {
     padding: 0 34px;
   }
 }
+
+@import "NpsSurveyBlock";

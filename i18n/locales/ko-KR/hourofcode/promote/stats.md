@@ -30,7 +30,7 @@ title: 안내문과 유용한 통계
 
 #### 왜 중요한가요?
 
-기술은 지구상의 모든 산업을 바꾸고 있습니다. 2015년 미국에서 코딩 기술을 높이 평가하는 예술과 디자인을 포함하여 각종 직업군에 7백만 개의 일자리 비워있습니다. 하지만 미국 학교의 55 퍼센트는 컴퓨터 과학을 가르치지 않습니다. 이제 우리가 21세기를 따라 잡을 시간입니다. 우리는 우리의 학생들이 성인이 되었을 때 무슨 일을 할지 상관 없이 다시 말해 그들이 제약 또는 사업, 정치, 예술 등 어느 분야로 진출하든, 기술 구축 방식을 아는 것은 그들에게 자신감과 경쟁력을 준다는 사실을 잘 알고있습니다. <br /> <br />
+기술은 지구상의 모든 산업을 바꾸고 있습니다. 2015년 미국에서 코딩 기술을 높이 평가하는 예술과 디자인을 포함하여 각종 직업군에 7백만 개의 일자리 비워있습니다. But 53 percent of schools in the U.S. don't teach computer science. 이제 우리가 21세기를 따라 잡을 시간입니다. 우리는 우리의 학생들이 성인이 되었을 때 무슨 일을 할지 상관 없이 다시 말해 그들이 제약 또는 사업, 정치, 예술 등 어느 분야로 진출하든, 기술 구축 방식을 아는 것은 그들에게 자신감과 경쟁력을 준다는 사실을 잘 알고있습니다. <br /> <br />
 
 #### 자료에서 활용할 수 있는 인용문
 
@@ -38,9 +38,9 @@ Code.org의 창시자이자 CEO인 Hadi Partovi는 "아워오브코드는 코드
 
 #### Code.org 소개
 
-Code.org는 소외된 그룹의 어린 여성과 학생에 의한 컴퓨터 과학 참여 확대와 증가를 위해 일하는 미국의 501c3 조항에 의한 비영리 조직입니다. 이 조직의 비전은 각 학교의 각 학생이 컴퓨터 프로그래밍을 배울 기회를 갖는 것입니다. 2013년 출범 후, Code.org는 아워오브코드 캠페인을 조직했습니다. 1억명 이상의 학생에게 최신 컴퓨터 과학을 소개하고 컴퓨터 과학 프로그램 확장을 위해 전국적으로 70개 공립학교 학군과 파트너십을 맺었습니다. Code.org is supported by philanthropic donations from corporations, foundations and generous individuals, including Microsoft, Facebook, Infosys Foundation USA, Amazon, and others. For more information, please visit: [code.org]({{ codeorg_link }}).
+Code.org는 소외된 그룹의 어린 여성과 학생에 의한 컴퓨터 과학 참여 확대와 증가를 위해 일하는 미국의 501c3 조항에 의한 비영리 조직입니다. 이 조직의 비전은 각 학교의 각 학생이 컴퓨터 프로그래밍을 배울 기회를 갖는 것입니다. 2013년 출범 후, Code.org는 아워오브코드 캠페인을 조직했습니다. 1억명 이상의 학생에게 최신 컴퓨터 과학을 소개하고 컴퓨터 과학 프로그램 확장을 위해 전국적으로 70개 공립학교 학군과 파트너십을 맺었습니다. Code.org는 Microsoft, Facebook, Infosys Foundation USA, Amazon 등을 포함하여 기업과 재단, 개인의 기부금으로 후원되고 있습니다. 더 자새한 정보는 [code.org]({{ codeorg_link }})를 방문하십시오.
 
-## Share these on social media and in emails
+## 소셜 미디어와 이메일로 공유하세요.
 
 [![이미지](/images/social-media/fit-250/social-1.png)](/images/social-media/social-1.png)&nbsp;&nbsp;&nbsp;&nbsp; [![이미지](/images/social-media/fit-250/social-2.png)](/images/social-media/social-2.png)&nbsp;&nbsp;&nbsp;&nbsp; [![이미지](/images/social-media/fit-250/social-3.png)](/images/social-media/social-3.png)&nbsp;&nbsp;&nbsp;&nbsp;
 

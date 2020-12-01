@@ -2297,7 +2297,7 @@ fr-FR:
     Avec Katy Perry, Madonna, J. Balvin, Sia, Keith Urban, Ciara, et 25 autres !
   hoc_overview_dance_2019_subtitle: Code une Soirée Dansante à partager avec tes amis.
     Avec Katy Perry, Shawn Mendes, Panic ! At The Disco, Lil Nas X, Jonas Brothers,
-    Nicki Minaj, et 34 autres !
+    Nicki Minaj, et 34 autres artistes !
   hoc_overview_title: Activités Hour of Code de Code.org
   hoc_overview_subtitle: <a href="https://hourofcode.com">Hour of Code</a> est un
     mouvement mondial qui touche des dizaines de millions d'étudiants dans plus de
@@ -2520,3 +2520,4 @@ fr-FR:
     2](%{dance_extras_2018_link}) qui datent de l'année dernière.
   homepage_slot_text_title_at_home: Apprendre à la maison
   page_not_available_button: Retourner à la page d’accueil
+  footer_powered_by_aws: Fourni par Amazon Web Services

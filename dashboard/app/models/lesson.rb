@@ -24,7 +24,7 @@ require 'cdo/shared_constants'
 
 # Ordered partitioning of script levels within a script
 # (Intended to replace most of the functionality in Game, due to the need for multiple app types within a single Lesson)
-class Lesson < ActiveRecord::Base
+class Lesson < ApplicationRecord
   include LevelsHelper
   include SharedConstants
   include Rails.application.routes.url_helpers
@@ -36,6 +36,7 @@ class Lesson < ActiveRecord::Base
   has_many :script_levels, -> {order(:chapter)}, foreign_key: 'stage_id', dependent: :destroy
   has_many :levels, through: :script_levels
   has_and_belongs_to_many :resources, join_table: :lessons_resources
+  has_many :objectives, dependent: :destroy
 
   has_one :plc_learning_module, class_name: 'Plc::LearningModule', inverse_of: :lesson, foreign_key: 'stage_id', dependent: :destroy
   has_and_belongs_to_many :standards, foreign_key: 'stage_id'
@@ -66,7 +67,6 @@ class Lesson < ActiveRecord::Base
   def self.add_lessons(script, lesson_group, raw_lessons, counters, new_suffix, editor_experiment)
     script.lessons.reload
     raw_lessons.map do |raw_lesson|
-      Lesson.prevent_empty_lesson(raw_lesson)
       Lesson.prevent_blank_display_name(raw_lesson)
       Lesson.prevent_changing_stable_i18n_key(script, raw_lesson)
 
@@ -112,10 +112,6 @@ class Lesson < ActiveRecord::Base
     if raw_lesson[:name].blank?
       raise "Expect all lessons to have display names. The following lesson does not have a display name: #{raw_lesson[:key]}"
     end
-  end
-
-  def self.prevent_empty_lesson(raw_lesson)
-    raise "Lessons must have at least one level in them.  Lesson: #{raw_lesson[:name]}." if raw_lesson[:script_levels].empty?
   end
 
   # Go through all the script levels for this lesson, except the last one,
@@ -210,7 +206,7 @@ class Lesson < ActiveRecord::Base
     CDO.code_org_url "/curriculum/#{script.name}/#{relative_position}"
   end
 
-  def summarize(include_bonus_levels = false)
+  def summarize(include_bonus_levels = false, for_edit: false)
     lesson_summary = Rails.cache.fetch("#{cache_key}/lesson_summary/#{I18n.locale}/#{include_bonus_levels}") do
       cached_levels = include_bonus_levels ? cached_script_levels : cached_script_levels.reject(&:bonus)
 
@@ -227,7 +223,7 @@ class Lesson < ActiveRecord::Base
         title: localized_title,
         lesson_group_display_name: lesson_group&.localized_display_name,
         lockable: !!lockable,
-        levels: cached_levels.map {|l| l.summarize(false)},
+        levels: cached_levels.map {|sl| sl.summarize(false, for_edit: for_edit)},
         description_student: render_codespan_only_markdown(I18n.t("data.script.name.#{script.name}.lessons.#{key}.description_student", default: '')),
         description_teacher: render_codespan_only_markdown(I18n.t("data.script.name.#{script.name}.lessons.#{key}.description_teacher", default: '')),
         unplugged: display_as_unplugged # TODO: Update to use unplugged property
@@ -240,7 +236,7 @@ class Lesson < ActiveRecord::Base
       # The last level in a lesson might be a long assessment, so add extra information
       # related to that.  This might include information for additional pages if it
       # happens to be a multi-page long assessment.
-      if last_script_level.long_assessment?
+      if last_script_level&.long_assessment?
         last_level_summary = lesson_data[:levels].last
         extra_levels = ScriptLevel.summarize_extra_puzzle_pages(last_level_summary)
         lesson_data[:levels] += extra_levels
@@ -271,9 +267,10 @@ class Lesson < ActiveRecord::Base
   # TODO: [PLAT-369] trim down to only include those fields needed on the
   # script edit page
   def summarize_for_script_edit
-    summary = summarize.dup
+    summary = summarize(for_edit: true).dup
     # Do not let script name override lesson name when there is only one lesson
-    summary[:name] = I18n.t("data.script.name.#{script.name}.lessons.#{key}.name")
+    summary[:name] = name
+    summary[:lesson_group_display_name] = lesson_group&.display_name
     summary.freeze
   end
 
@@ -289,6 +286,7 @@ class Lesson < ActiveRecord::Base
   # the client.
   def summarize_for_lesson_edit
     {
+      id: id,
       name: name,
       overview: overview,
       studentOverview: student_overview,
@@ -299,8 +297,38 @@ class Lesson < ActiveRecord::Base
       purpose: purpose,
       preparation: preparation,
       announcements: announcements,
-      activities: lesson_activities.map(&:summarize_for_edit),
-      resources: resources
+      activities: lesson_activities.map(&:summarize_for_lesson_edit),
+      resources: resources.map(&:summarize_for_lesson_edit),
+      objectives: objectives.map(&:summarize_for_edit),
+      courseVersionId: lesson_group.script.course_version&.id
+    }
+  end
+
+  def summarize_for_lesson_show(user)
+    {
+      unit: script.summarize_for_lesson_show,
+      position: relative_position,
+      lockable: lockable,
+      key: key,
+      displayName: localized_name,
+      overview: overview || '',
+      announcements: announcements,
+      purpose: purpose || '',
+      preparation: preparation || '',
+      activities: lesson_activities.map(&:summarize_for_lesson_show),
+      resources: resources_for_lesson_plan(user&.authorized_teacher?),
+      objectives: objectives.map(&:summarize_for_lesson_show),
+      is_teacher: user&.teacher?
+    }
+  end
+
+  def summarize_for_lesson_dropdown
+    {
+      key: key,
+      displayName: localized_name,
+      link: lesson_path(id: id),
+      position: relative_position,
+      lockable: lockable
     }
   end
 
@@ -417,6 +445,22 @@ class Lesson < ActiveRecord::Base
       lesson_activity.update_activity_sections(activity['activitySections'])
       lesson_activity
     end
+
+    # It's too messy to keep track of all 3 position values for scripts during
+    # this update, so just set activity_section_position as the source of truth
+    # and then fix chapter and position values after.
+    script.fix_script_level_positions
+  end
+
+  def update_objectives(objectives)
+    return unless objectives
+
+    self.objectives = objectives.map do |objective|
+      persisted_objective = objective['id'].blank? ? Objective.new : Objective.find(objective['id'])
+      persisted_objective.description = objective['description']
+      persisted_objective.save!
+      persisted_objective
+    end
   end
 
   # Used for seeding from JSON. Returns the full set of information needed to uniquely identify this object.
@@ -494,7 +538,7 @@ class Lesson < ActiveRecord::Base
     # and course offering. In the future, when curriulum_umbrella moves to
     # CourseOffering, this implementation will need to change to be more like
     # related_lessons.
-    lessons = Lesson.includes(:script).
+    lessons = Lesson.eager_load(script: :course_version).
       where("scripts.properties -> '$.curriculum_umbrella' = ?", script.curriculum_umbrella).
       where(key: key).
       order("scripts.properties -> '$.version_year'", 'scripts.name')
@@ -505,12 +549,24 @@ class Lesson < ActiveRecord::Base
   def summarize_related_lessons
     related_lessons.map do |lesson|
       {
-        scriptName: lesson.script.name,
+        scriptTitle: lesson.script.localized_title,
+        versionYear: lesson.script.get_course_version.version_year,
         lockable: lesson.lockable,
         relativePosition: lesson.relative_position,
-        lessonEditUrl: edit_lesson_path(id: lesson.id)
+        id: lesson.id,
+        editUrl: edit_lesson_path(id: lesson.id)
       }
     end
+  end
+
+  def resources_for_lesson_plan(verified_teacher)
+    grouped_resources = resources.map(&:summarize_for_lesson_plan).group_by {|r| r[:audience]}
+    if verified_teacher && grouped_resources.key?('Verified Teacher')
+      grouped_resources['Teacher'] ||= []
+      grouped_resources['Teacher'] += grouped_resources['Verified Teacher']
+    end
+    grouped_resources.delete('Verified Teacher')
+    grouped_resources
   end
 
   private
@@ -521,13 +577,13 @@ class Lesson < ActiveRecord::Base
   def fetch_activity(activity)
     if activity['id']
       lesson_activity = lesson_activities.find(activity['id'])
-      raise "LessonActivity id #{activity['id']} not found in Lesson id #{id}" unless lesson_activity
-      return lesson_activity
+      return lesson_activity if lesson_activity
+      raise ActiveRecord::RecordNotFound.new("LessonActivity id #{activity['id']} not found in Lesson id #{id}")
     end
 
     lesson_activities.create(
       position: activity['position'],
-      seeding_key: SecureRandom.uuid
+      key: SecureRandom.uuid
     )
   end
 end

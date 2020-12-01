@@ -30,7 +30,7 @@
 #  index_pd_workshops_on_regional_partner_id  (regional_partner_id)
 #
 
-class Pd::Workshop < ActiveRecord::Base
+class Pd::Workshop < ApplicationRecord
   include Pd::WorkshopConstants
   include SerializedProperties
   include Pd::WorkshopSurveyConstants
@@ -797,7 +797,7 @@ class Pd::Workshop < ActiveRecord::Base
 
   # whether we will show the scholarship dropdown
   def scholarship_workshop?
-    csf? || local_summer?
+    csf? || local_summer? || ACADEMIC_YEAR_WORKSHOP_SUBJECTS.include?(subject)
   end
 
   def pre_survey?

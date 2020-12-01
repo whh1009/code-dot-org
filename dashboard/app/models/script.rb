@@ -30,7 +30,7 @@ require 'ruby-progressbar'
 TEXT_RESPONSE_TYPES = [TextMatch, FreeResponse]
 
 # A sequence of Levels
-class Script < ActiveRecord::Base
+class Script < ApplicationRecord
   include ScriptConstants
   include SharedConstants
   include Rails.application.routes.url_helpers
@@ -151,6 +151,8 @@ class Script < ActiveRecord::Base
     curriculum_umbrella
     tts
     is_course
+    background
+    show_calendar
   )
 
   def self.twenty_hour_script
@@ -241,14 +243,14 @@ class Script < ActiveRecord::Base
   end
 
   class << self
-    private
-
     def all_scripts
       all_scripts = Rails.cache.fetch('valid_scripts/all') do
         Script.all.to_a
       end
       all_scripts.freeze
     end
+
+    private
 
     def visible_scripts
       visible_scripts = Rails.cache.fetch('valid_scripts/valid') do
@@ -477,6 +479,10 @@ class Script < ActiveRecord::Base
       # Populate cache on miss.
       script_family_cache[family_name] = Script.get_family_without_cache(family_name)
     end
+  end
+
+  def self.remove_from_cache(script_name)
+    script_cache.delete(script_name) if script_cache
   end
 
   def self.get_script_family_redirect_for_user(family_name, user: nil, locale: 'en-US')
@@ -983,6 +989,33 @@ class Script < ActiveRecord::Base
     end
   end
 
+  # Script levels unfortunately have 3 position values:
+  # 1. chapter: position within the Script
+  # 2. position: position within the Lesson
+  # 3. activity_section_position: position within the ActivitySection.
+  # This method uses activity_section_position as the source of truth to set the
+  # values of position and chapter on all script levels in the script.
+  def fix_script_level_positions
+    reload
+    if script_levels.reject(&:activity_section).any?
+      raise "cannot fix position of legacy script levels"
+    end
+
+    chapter = 0
+    lessons.each do |lesson|
+      position = 0
+      lesson.lesson_activities.each do |activity|
+        activity.activity_sections.each do |section|
+          section.script_levels.each do |sl|
+            sl.chapter = (chapter += 1)
+            sl.position = (position += 1)
+            sl.save!
+          end
+        end
+      end
+    end
+  end
+
   # Clone this script, appending a dash and the suffix to the name of this
   # script. Also clone all the levels in the script, appending an underscore and
   # the suffix to the name of each level. Mark the new script as hidden, and
@@ -1246,7 +1279,6 @@ class Script < ActiveRecord::Base
       has_verified_resources: has_verified_resources?,
       has_lesson_plan: has_lesson_plan?,
       curriculum_path: curriculum_path,
-      script_announcements: announcements, #TODO: (dmcavoy) Remove after Sept 25 2020
       announcements: announcements,
       age_13_required: logged_out_age_13_required?,
       show_course_unit_version_warning: !unit_group&.has_dismissed_version_warning?(user) && has_older_course_progress,
@@ -1264,7 +1296,10 @@ class Script < ActiveRecord::Base
       assigned_section_id: assigned_section_id,
       hasStandards: has_standards_associations?,
       tts: tts?,
-      is_course: is_course?
+      is_course: is_course?,
+      background: background,
+      updatedAt: updated_at,
+      scriptPath: script_path(self)
     }
 
     #TODO: lessons should be summarized through lesson groups in the future
@@ -1307,6 +1342,14 @@ class Script < ActiveRecord::Base
       isHocScript: hoc?,
       student_detail_progress_view: student_detail_progress_view?,
       age_13_required: logged_out_age_13_required?
+    }
+  end
+
+  def summarize_for_lesson_show
+    {
+      displayName: localized_title,
+      link: link,
+      lessons: lessons.map(&:summarize_for_lesson_dropdown)
     }
   end
 
@@ -1435,6 +1478,7 @@ class Script < ActiveRecord::Base
       :pilot_experiment,
       :editor_experiment,
       :curriculum_umbrella,
+      :background,
     ]
     boolean_keys = [
       :has_verified_resources,

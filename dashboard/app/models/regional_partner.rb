@@ -22,7 +22,7 @@
 
 require 'state_abbr'
 
-class RegionalPartner < ActiveRecord::Base
+class RegionalPartner < ApplicationRecord
   acts_as_paranoid # Use deleted_at column instead of deleting rows.
 
   has_many :regional_partner_program_managers
@@ -31,7 +31,7 @@ class RegionalPartner < ActiveRecord::Base
     through: :regional_partner_program_managers
 
   has_many :pd_workshops_organized, class_name: 'Pd::Workshop', through: :regional_partner_program_managers
-  has_many :mappings, -> {order :state, :zip_code}, class_name: Pd::RegionalPartnerMapping, dependent: :destroy
+  has_many :mappings, -> {order :state, :zip_code}, class_name: 'Pd::RegionalPartnerMapping', dependent: :destroy
 
   has_many :pd_workshops, class_name: 'Pd::Workshop', foreign_key: 'regional_partner_id'
 
