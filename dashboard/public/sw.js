@@ -29,13 +29,13 @@ self.addEventListener("fetch", event => {
   );
 });
 
-self.addEventListener("activate", event => {
-  event.waitUntil(
-    (async () => {
-      if ("navigationPreload" in self.registration) {
-        await self.registration.navigationPreload.enable();
-      }
-    })()
-  );
-  self.clients.claim();
-});
+// self.addEventListener("activate", event => {
+//   event.waitUntil(
+//     (async () => {
+//       if ("navigationPreload" in self.registration) {
+//         await self.registration.navigationPreload.enable();
+//       }
+//     })()
+//   );
+//   self.clients.claim();
+// });

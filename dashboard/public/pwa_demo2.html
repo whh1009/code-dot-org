@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+      window.addEventListener('load', () => {
+        if ("serviceWorker" in navigator) {
+          console.log("=====Found serviceWorker=====");
+
+          navigator.serviceWorker.register("/blockly/js/service-worker.js")
+            .then(registration => {
+              console.log("=====SW is registered, scope is", registration.scope, "=====");
+              console.log(registration);
+            })
+            .catch(
+              error => console.error(error)
+            );
+        } else {
+          console.log("=====No serviceWorker=====");
+        }
+      });
+    </script>
+</body>
+</html>
