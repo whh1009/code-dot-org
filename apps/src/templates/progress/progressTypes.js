@@ -7,6 +7,7 @@ export const studentType = PropTypes.shape({
 
 export const levelType = PropTypes.shape({
   status: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   url: PropTypes.string,
   name: PropTypes.string,
   icon: PropTypes.string,
