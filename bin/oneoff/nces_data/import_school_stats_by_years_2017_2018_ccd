@@ -54,8 +54,9 @@ COMMUNITY_TYPE_MAP = {
 }.freeze
 
 # @param unsanitized [String, nil] the unsanitized string
-# @returns [String, nil] the sanitized version of the string, with newlines stripped and double
-#   quotations escaped. Returns nil on nil input
+# @returns [String, nil] the sanitized version of the string,
+# removing equal signs and double quotes. Primary use case for this are
+# IDs with leading 0s, which are stored as "=01234" in the raw CSV.
 def sanitize_string_for_db(unsanitized)
   unsanitized&.tr('="', '')
 end
