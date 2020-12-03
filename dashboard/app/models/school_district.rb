@@ -76,6 +76,7 @@ class SchoolDistrict < ApplicationRecord
         end
       end
 
+      # Should we switch this to run with district updates too?
       CDO.log.info "Seeding 2017-2018 school district data"
       import_options_1718 = {col_sep: ",", headers: true, quote_char: "\x00"}
       AWS::S3.seed_from_file('cdo-nces', "2017-2018/ccd/ccd_lea_029_1718_w_0a_03302018.csv") do |filename|
@@ -89,12 +90,26 @@ class SchoolDistrict < ApplicationRecord
           }
         end
       end
+
+      CDO.log.info "Seeding 2018-2019 school district data"
+      import_options_1819 = {col_sep: ",", headers: true, quote_char: "\x00"}
+      AWS::S3.seed_from_file('cdo-nces', "2018-2019/ccd/ELSI_csv_export_637423414304008909966.csv") do |filename|
+        SchoolDistrict.merge_from_csv(filename, import_options_1819) do |row|
+          {
+            id:    row['Agency ID - NCES Assigned [District] Latest available year'].tr('"=', '').to_i,
+            name:  row['Agency Name'].upcase,
+            city:  row['Location City [District] 2018-19'].to_s.upcase.presence,
+            state: row['Location State Abbr [District] 2018-19'].strip.to_s.upcase.presence,
+            zip:   row['Location ZIP [District] 2018-19'].tr('"=', '')
+          }
+        end
+      end
     end
   end
 
-  def self.dry_seed_s3_object(bucket, filepath, import_options, &test)
+  def self.dry_seed_s3_object(bucket, filepath, import_options, &block)
     AWS::S3.seed_from_file(bucket, filepath, true) do |filename|
-      SchoolDistrict.merge_from_csv(filename, import_options, true, true, &test)
+      SchoolDistrict.merge_from_csv(filename, import_options, true, true, &block)
     end
     CDO.log.info "This is a dry run. No data is written to the database."
   end
