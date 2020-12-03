@@ -46,6 +46,69 @@ class SchoolStatsByYear < ApplicationRecord
 
   belongs_to :school
 
+  def self.seed_from_s3
+    CDO.log.info "Seeding 2018-2019 public and charter school demographic data."
+    # Originally from xyzfillthisin
+    AWS::S3.seed_from_file('cdo-nces', "2018-2019/ccd/xyz.csv") do |filename|
+      merge_from_csv(filename, {col_sep: ",", headers: true}, true) do |row|
+        {
+          school_id:          row['NCESSCH'].to_i.to_s,
+          school_year:        '2018-2019',
+
+          # Grades offered
+          grades_offered_lo:  row['GSLO'],
+          grades_offered_hi:  row['GSHI'],
+          grade_pk_offered:   row['G_PK_OFFERED'] == 'Yes',
+          grade_kg_offered:   row['G_KG_OFFERED'] == 'Yes',
+          grade_01_offered:   row['G_1_OFFERED'] == 'Yes',
+          grade_02_offered:   row['G_2_OFFERED'] == 'Yes',
+          grade_03_offered:   row['G_3_OFFERED'] == 'Yes',
+          grade_04_offered:   row['G_4_OFFERED'] == 'Yes',
+          grade_05_offered:   row['G_5_OFFERED'] == 'Yes',
+          grade_06_offered:   row['G_6_OFFERED'] == 'Yes',
+          grade_07_offered:   row['G_7_OFFERED'] == 'Yes',
+          grade_08_offered:   row['G_8_OFFERED'] == 'Yes',
+          grade_09_offered:   row['G_9_OFFERED'] == 'Yes',
+          grade_10_offered:   row['G_10_OFFERED'] == 'Yes',
+          grade_11_offered:   row['G_11_OFFERED'] == 'Yes',
+          grade_12_offered:   row['G_12_OFFERED'] == 'Yes',
+          grade_13_offered:   row['G_13_OFFERED'] == 'Yes',
+
+          # Student body race breakdown
+          # students_total:     row['Total Students All Grades (Excludes AE) [Public School] 2017-18'].presence.try {|v| v.to_i <= 0 ? nil : v.to_i},
+          # student_am_count:   row['American Indian/Alaska Native Students [Public School] 2017-18'].presence.try {|v| v.to_i < 0 ? nil : v.to_i},
+          # student_as_count:   row['Asian or Asian/Pacific Islander Students [Public School] 2017-18'].presence.try {|v| v.to_i < 0 ? nil : v.to_i},
+          # student_hi_count:   row['Hispanic Students [Public School] 2017-18'].presence.try {|v| v.to_i < 0 ? nil : v.to_i},
+          # student_bl_count:   row['Black Students [Public School] 2017-18'].presence.try {|v| v.to_i < 0 ? nil : v.to_i},
+          # student_wh_count:   row['White Students [Public School] 2017-18'].presence.try {|v| v.to_i < 0 ? nil : v.to_i},
+          # student_hp_count:   row['Hawaiian Nat./Pacific Isl. Students [Public School] 2017-18'].presence.try {|v| v.to_i < 0 ? nil : v.to_i},
+          # student_tr_count:   row['Two or More Races Students [Public School] 2017-18'].presence.try {|v| v.to_i < 0 ? nil : v.to_i},
+          #
+          # # Other school demographics
+          # title_i_status:     TITLE_I_MAP[row['Title I School Status [Public School] 2017-18']],
+          # frl_eligible_total: row['Free and Reduced Lunch Students [Public School] 2017-18'].presence.try {|v| v.to_i < 0 ? nil : v.to_i},
+          # community_type:     COMMUNITY_TYPE_MAP[row['Urban-centric Locale [Public School] 2017-18']],
+          # virtual_status:     VIRTUAL_SCHOOL_MAP[row['Virtual School Status [Public School] 2017-18']]
+        }
+      end
+    end
+
+    CDO.log.info "Seeding 2018-2019 public and charter school virtual and title I status."
+    # Originally from xyzfillthisin
+    AWS::S3.seed_from_file('cdo-nces', "2018-2019/ccd/xyz.csv") do |filename|
+      merge_from_csv(filename, {col_sep: ",", headers: true}, true) do |row|
+        {
+          school_id:          row['NCESSCH'].to_i.to_s,
+          school_year:        '2018-2019',
+
+          # Other school demographics
+          title_i_status:     'yes',
+          virtual_status:     'no'
+        }
+      end
+    end
+  end
+
   # Loads/merges the data from a CSV into the table.
   # Requires a block to parse the row.
   # @param filename [String] The CSV file name.
