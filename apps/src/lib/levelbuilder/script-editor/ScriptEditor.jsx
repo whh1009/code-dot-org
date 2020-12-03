@@ -95,6 +95,7 @@ class ScriptEditor extends React.Component {
     initialTts: PropTypes.bool,
     hasCourse: PropTypes.bool,
     initialIsCourse: PropTypes.bool,
+    initialIsMigrated: PropTypes.bool,
 
     // from redux
     lessonGroups: PropTypes.arrayOf(lessonGroupShape).isRequired,
@@ -218,7 +219,7 @@ class ScriptEditor extends React.Component {
       family_name: this.state.familyName,
       is_course: this.state.isCourse,
       description: this.state.description,
-      announcements: this.state.announcements,
+      announcements: JSON.stringify(this.state.announcements),
       visible_to_teachers: !this.state.hidden,
       is_stable: this.state.isStable,
       login_required: this.state.loginRequired,
@@ -251,7 +252,8 @@ class ScriptEditor extends React.Component {
       description_audience: this.state.descriptionAudience,
       description_short: this.state.descriptionShort,
       resourceLinks: this.state.teacherResources.map(resource => resource.link),
-      resourceTypes: this.state.teacherResources.map(resource => resource.type)
+      resourceTypes: this.state.teacherResources.map(resource => resource.type),
+      is_migrated: this.props.initialIsMigrated
     };
 
     if (this.state.hasImportedLessonDescriptions) {
@@ -405,6 +407,11 @@ class ScriptEditor extends React.Component {
           </label>
           <label>
             Supported locales
+            <HelpTip>
+              <p>
+                A list of other locales supported by this script besides en-US.
+              </p>
+            </HelpTip>
             <p>
               <span>
                 {'Select additional locales supported by this script. Select '}
