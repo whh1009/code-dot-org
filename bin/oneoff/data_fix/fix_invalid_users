@@ -52,14 +52,12 @@ User.where(username: nil).where.not(provider: nil).find_in_batches do |user_batc
       usernames_generated += 1
       user.username = UserHelpers.generate_username(User.with_deleted, user.name)
       CDO.log.info "Generated username: id=#{user.id} username=#{user.username}"
-      user.save!
+      user.save! if options[:actually_update]
     rescue Exception => e
       generate_username_errors += 1
       CDO.log.error e
     end
   end
-
-  raise ActiveRecord::Rollback unless options[:actually_update]
 end
 
 # Address issue 2 (malformed data)
@@ -71,14 +69,12 @@ User.where(provider: nil).find_in_batches do |user_batch|
     user_batch.each do |user|
       users_destroyed += 1
       CDO.log.info "Destroying user: id=#{user.id}"
-      user.destroy
+      user.destroy if options[:actually_update]
     rescue Exception => e
       destroy_user_errors += 1
       CDO.log.error e
     end
   end
-
-  raise ActiveRecord::Rollback unless options[:actually_update]
 end
 
 CDO.log.info "Script completed"
