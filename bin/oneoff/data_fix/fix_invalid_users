@@ -10,7 +10,20 @@ require_relative '../../../dashboard/config/environment'
 # only in v2020-12-02.0 which was in production from about 12/2/20 2:00pm PST to
 # 12/3/20 noon PST.
 #
-# TODO: Write more here
+# Rows were invalid in two ways:
+# 1. The user created an account with valid data. In this case, only the username
+#    field was missing.
+# 2. The user created an account with invalid data. In this case, many fields were
+#    missing and invalid data was stored in the users table.
+#
+# Issue 1 is handled in the first section of the script. Here, we call the
+# generate_username method on any user record that does not have a username
+#
+# Issue 2 is handled in the second section of the script. Here, we delete any
+# user record that has invalid data. In many cases, students will not be able
+# to access these accounts. For a small number of cases (n=25), students have
+# accessed these accounts. For the students who successfully joined a section
+# (n=9), we will reach out to the teacher to explain the situation.
 #
 
 CDO.log = Logger.new(STDOUT)
@@ -22,17 +35,18 @@ OptionParser.new do |opts|
   opts.on('-u', '--actually-update', 'Actually perform the update.') do
     options[:actually_update] = true
   end
-  opts.on('-h', '--help', 'Prints this help') do
+  opts.on('-h', '--help', 'Add -u to perform the update.') do
     puts opts
     exit
   end
 end.parse!
 CDO.log.info "Called with options: #{options}"
 
+# Address issue 1 (no username)
 usernames_generated = 0
 generate_username_errors = 0
 # User.where("id > 71826397 AND id < 71929059 AND provider IS NOT NULL AND username IS NULL").find_in_batches do |user_batch|
-User.where("provider IS NOT NULL AND username IS NULL").find_in_batches do |user_batch|
+User.where(username: nil).where.not(provider: nil).find_in_batches do |user_batch|
   ActiveRecord::Base.transaction do
     user_batch.each do |user|
       usernames_generated += 1
@@ -48,10 +62,11 @@ User.where("provider IS NOT NULL AND username IS NULL").find_in_batches do |user
   raise ActiveRecord::Rollback unless options[:actually_update]
 end
 
+# Address issue 2 (malformed data)
 users_destroyed = 0
 destroy_user_errors = 0
 # User.where("id > 71826397 AND id < 71929059 AND provider IS NULL").find_in_batches do |user_batch|
-User.where("provider IS NULL").find_in_batches do |user_batch|
+User.where(provider: nil).find_in_batches do |user_batch|
   ActiveRecord::Base.transaction do
     user_batch.each do |user|
       users_destroyed += 1
