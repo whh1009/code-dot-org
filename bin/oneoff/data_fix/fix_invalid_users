@@ -1,0 +1,71 @@
+#!/usr/bin/env ruby
+
+require_relative '../../../dashboard/config/environment'
+
+# This script fixes invalid user rows that were added to the database as a result
+# of a bug in https://github.com/code-dot-org/code-dot-org/pull/38026.
+# Briefly, there was a bug in that PR that caused user accounts created using the
+# join section endpoint (FollowersController#student_register) to be incomplete
+# or invalid (i.e. does not pass rails User model validation).  The bug was present
+# only in v2020-12-02.0 which was in production from about 12/2/20 2:00pm PST to
+# 12/3/20 noon PST.
+#
+# TODO: Write more here
+#
+
+CDO.log = Logger.new(STDOUT)
+ActiveRecord::Base.record_timestamps = false
+
+options = {actually_update: false}
+OptionParser.new do |opts|
+  opts.banner = "Usage: #{File.basename(__FILE__)} [options]"
+  opts.on('-u', '--actually-update', 'Actually perform the update.') do
+    options[:actually_update] = true
+  end
+  opts.on('-h', '--help', 'Prints this help') do
+    puts opts
+    exit
+  end
+end.parse!
+CDO.log.info "Called with options: #{options}"
+
+usernames_generated = 0
+generate_username_errors = 0
+# User.where("id > 71826397 AND id < 71929059 AND provider IS NOT NULL AND username IS NULL").find_in_batches do |user_batch|
+User.where("provider IS NOT NULL AND username IS NULL").find_in_batches do |user_batch|
+  ActiveRecord::Base.transaction do
+    user_batch.each do |user|
+      usernames_generated += 1
+      user.username = UserHelpers.generate_username(User.with_deleted, user.name)
+      CDO.log.info "Generated username: id=#{user.id} username=#{user.username}"
+      user.save!
+    rescue Exception => e
+      generate_username_errors += 1
+      CDO.log.error e
+    end
+  end
+
+  raise ActiveRecord::Rollback unless options[:actually_update]
+end
+
+users_destroyed = 0
+destroy_user_errors = 0
+# User.where("id > 71826397 AND id < 71929059 AND provider IS NULL").find_in_batches do |user_batch|
+User.where("provider IS NULL").find_in_batches do |user_batch|
+  ActiveRecord::Base.transaction do
+    user_batch.each do |user|
+      users_destroyed += 1
+      CDO.log.info "Destroying user: id=#{user.id}"
+      user.destroy
+    rescue Exception => e
+      destroy_user_errors += 1
+      CDO.log.error e
+    end
+  end
+
+  raise ActiveRecord::Rollback unless options[:actually_update]
+end
+
+CDO.log.info "Script completed"
+CDO.log.info "Generated #{usernames_generated} usernames with #{generate_username_errors} errors"
+CDO.log.info "Destroyed #{users_destroyed} users with #{destroy_user_errors} errors"
