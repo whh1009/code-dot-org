@@ -10,7 +10,7 @@ module Cdo
     # @param [Integer] limit - Number of requests allowed over period.
     # @param [Integer] period - Period of time in seconds.
     # @returns [Boolean] Whether or not the request should be throttled.
-    def throttle(cache_key, limit, period)
+    def self.throttle(cache_key, limit, period)
       full_key = CACHE_PREFIX + cache_key.to_s
       value = CDO.shared_cache.read(full_key) || empty_value
       now = Time.now.utc
@@ -30,9 +30,7 @@ module Cdo
       should_throttle
     end
 
-    private
-
-    def empty_value
+    def self.empty_value
       {
         throttled_until: nil,
         request_timestamps: []
