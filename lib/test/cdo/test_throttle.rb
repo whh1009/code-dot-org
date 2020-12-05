@@ -7,18 +7,14 @@ class ThrottleTest < Minitest::Test
     CDO.shared_cache.clear
   end
 
-  def throttle_time
-    Cdo::Throttle::THROTTLE_TIME
-  end
-
   def test_throttle_with_limit_1
     Timecop.freeze
     refute Cdo::Throttle.throttle("my_key", 1, 2) # 1/1 reqs per 2s - not throttled
     Timecop.travel(Time.now.utc + 1)
     assert Cdo::Throttle.throttle("my_key", 1, 2) # 2/1 reqs per 2s - throttled
-    Timecop.travel(Time.now.utc + throttle_time - 1)
+    Timecop.travel(Time.now.utc + Cdo::Throttle.throttle_time - 1)
     assert Cdo::Throttle.throttle("my_key", 1, 2) # still throttled
-    Timecop.travel(Time.now.utc + throttle_time)
+    Timecop.travel(Time.now.utc + Cdo::Throttle.throttle_time)
     refute Cdo::Throttle.throttle("my_key", 1, 2) # 1/1 reqs per 2s after waiting - not throttled anymore
     Timecop.travel(Time.now.utc + 1)
     assert Cdo::Throttle.throttle("my_key", 1, 2) # 2/1 reqs per 2s - throttled again
@@ -31,7 +27,7 @@ class ThrottleTest < Minitest::Test
     refute Cdo::Throttle.throttle("my_key", 2, 2) # 2/2 reqs per 2s - not throttled
     Timecop.travel(Time.now.utc + 0.5)
     assert Cdo::Throttle.throttle("my_key", 2, 2) # 3/2 reqs per 2s - throttled
-    Timecop.travel(Time.now.utc + throttle_time)
+    Timecop.travel(Time.now.utc + Cdo::Throttle.throttle_time)
     refute Cdo::Throttle.throttle("my_key", 2, 2) # 1/2 reqs per 2s after waiting - not throttled anymore
     Timecop.travel(Time.now.utc + 1)
     refute Cdo::Throttle.throttle("my_key", 2, 2) # 2/2 reqs per 2s - not throttled
