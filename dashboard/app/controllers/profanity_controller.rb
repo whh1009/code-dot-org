@@ -3,13 +3,16 @@ require 'cdo/honeybadger'
 class ProfanityController < ApplicationController
   include ProfanityHelper
 
-  # TODO: what should these values be?
+  # Allowed number of unique requests per minute before that client is throttled.
+  # These values are fallbacks for DCDO-configured values used below.
   REQUEST_LIMIT_PER_MIN_DEFAULT = 100
   REQUEST_LIMIT_PER_MIN_IP = 1000
 
   # POST /profanity/find
   # Detects profanity within the given text (+ optional locale). This endpoint is throttled because it
   # uses a paid third-party service (Webpurify) but needs to be accessed by unauthenticated users.
+  # Throttling is done per-user when possible (via current_user.id or session.id) and falls back to
+  # IP otherwise.
   # @param [String] params[:text] String to test
   # @param [String] params[:locale] Locale to test in. Optional. Uses request locale if not provided.
   # @returns [Array<String>|nil] Profane words within the given string
@@ -18,7 +21,6 @@ class ProfanityController < ApplicationController
     # Only throttle by IP if no user or session ID is available.
     throttle_ip = id.blank?
     id ||= request.ip
-    # TODO: what should these values be?
     limit = throttle_ip ?
       DCDO.get('profanity_request_limit_per_min_ip', REQUEST_LIMIT_PER_MIN_IP) :
       DCDO.get('profanity_request_limit_per_min_default', REQUEST_LIMIT_PER_MIN_DEFAULT)
