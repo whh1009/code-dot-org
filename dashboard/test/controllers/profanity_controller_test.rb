@@ -13,7 +13,7 @@ class ProfanityControllerTest < ActionController::TestCase
 
   test 'find: returns profanities using user id' do
     ProfanityHelper.expects(:throttled_find_profanities).once.
-      with(@profane_text, @locale, @user.id, ProfanityController::THROTTLE_LIMIT_DEFAULT, 60).
+      with(@profane_text, @locale, @user.id, ProfanityController::REQUEST_LIMIT_PER_MIN_DEFAULT, 60).
       yields(@expected_profanities)
     post :find, params: {text: @profane_text, locale: @locale}
     assert_response :success
@@ -23,7 +23,7 @@ class ProfanityControllerTest < ActionController::TestCase
   test 'find: returns profanities using session id if no user id' do
     sign_out(@user)
     ProfanityHelper.expects(:throttled_find_profanities).once.
-      with(@profane_text, @locale, session.id, ProfanityController::THROTTLE_LIMIT_DEFAULT, 60).
+      with(@profane_text, @locale, session.id, ProfanityController::REQUEST_LIMIT_PER_MIN_DEFAULT, 60).
       yields(@expected_profanities)
     post :find, params: {text: @profane_text, locale: @locale}
     assert_response :success
@@ -34,7 +34,7 @@ class ProfanityControllerTest < ActionController::TestCase
     sign_out(@user)
     session.expects(:id).once.returns(nil)
     ProfanityHelper.expects(:throttled_find_profanities).once.
-      with(@profane_text, @locale, @request.ip, ProfanityController::THROTTLE_LIMIT_IP, 60).
+      with(@profane_text, @locale, @request.ip, ProfanityController::REQUEST_LIMIT_PER_MIN_IP, 60).
       yields(@expected_profanities)
     post :find, params: {text: @profane_text, locale: @locale}
     assert_response :success

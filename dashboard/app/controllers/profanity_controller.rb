@@ -4,8 +4,8 @@ class ProfanityController < ApplicationController
   include ProfanityHelper
 
   # TODO: what should these values be?
-  THROTTLE_LIMIT_DEFAULT = 2
-  THROTTLE_LIMIT_IP = 10
+  REQUEST_LIMIT_PER_MIN_DEFAULT = 100
+  REQUEST_LIMIT_PER_MIN_IP = 1000
 
   # POST /profanity/find
   # Detects profanity within the given text (+ optional locale). This endpoint is throttled because it
@@ -20,8 +20,8 @@ class ProfanityController < ApplicationController
     id ||= request.ip
     # TODO: what should these values be?
     limit = throttle_ip ?
-      DCDO.get('profanity_throttle_limit_per_min_ip', THROTTLE_LIMIT_IP) :
-      DCDO.get('profanity_throttle_limit_per_min_default', THROTTLE_LIMIT_DEFAULT)
+      DCDO.get('profanity_request_limit_per_min_ip', REQUEST_LIMIT_PER_MIN_IP) :
+      DCDO.get('profanity_request_limit_per_min_default', REQUEST_LIMIT_PER_MIN_DEFAULT)
     period = 60
 
     ProfanityHelper.throttled_find_profanities(params[:text], locale, id, limit, period) do |profanities|
