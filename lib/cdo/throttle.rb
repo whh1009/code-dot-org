@@ -5,16 +5,13 @@ module Cdo
   module Throttle
     CACHE_PREFIX = "cdo_throttle/".freeze
 
-    # Once and ID has been throttled, this value determines how long it will stay throttled.
-    def self.throttle_time
-      DCDO.get('throttle_time_default', 10) # TODO: what should this value be?
-    end
-
     # @param [String] id - Unique identifier to throttle on.
     # @param [Integer] limit - Number of requests allowed over period.
     # @param [Integer] period - Period of time in seconds.
+    # @param [Integer] throttle_for - How long id should stay throttled. Optional.
+    # Defaults to Cdo::Throttle.throttle_time.
     # @returns [Boolean] Whether or not the request should be throttled.
-    def self.throttle(id, limit, period)
+    def self.throttle(id, limit, period, throttle_for = throttle_time)
       full_key = CACHE_PREFIX + id.to_s
       value = CDO.shared_cache.read(full_key) || empty_value
       now = Time.now.utc
@@ -27,7 +24,7 @@ module Cdo
         earliest = now - period
         value[:request_timestamps].select! {|timestamp| timestamp >= earliest}
         should_throttle = value[:request_timestamps].size > limit
-        value[:throttled_until] = now + throttle_time if should_throttle
+        value[:throttled_until] = now + throttle_for if should_throttle
       end
 
       CDO.shared_cache.write(full_key, value)
@@ -39,6 +36,10 @@ module Cdo
         throttled_until: nil,
         request_timestamps: []
       }
+    end
+
+    def self.throttle_time
+      DCDO.get('throttle_time_default', 60)
     end
   end
 end
