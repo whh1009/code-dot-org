@@ -1,0 +1,19 @@
+{
+  "name": "kid_43_sitting",
+  "aliases": [
+    "people",
+    "kid",
+    "child",
+    "sitting"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 180,
+    "y": 274
+  },
+  "looping": true,
+  "frameDelay": 2
+}

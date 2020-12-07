@@ -1,0 +1,19 @@
+{
+  "name": "emoji_24",
+  "aliases": [
+    "emoji",
+    "monkey",
+    "shy",
+    "quiet"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 388,
+    "y": 344
+  },
+  "looping": true,
+  "frameDelay": 2
+}

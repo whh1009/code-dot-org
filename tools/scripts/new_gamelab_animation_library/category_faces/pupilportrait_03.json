@@ -1,0 +1,22 @@
+{
+  "name": "pupilportrait_03",
+  "aliases": [
+    "character",
+    "boy",
+    "profile",
+    "kid",
+    "latin",
+    "latinx",
+    "hispanic"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 282,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

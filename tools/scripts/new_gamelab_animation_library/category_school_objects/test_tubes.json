@@ -1,0 +1,20 @@
+{
+  "name": "test_tubes",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "test",
+    "tubes"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 118,
+    "y": 89
+  },
+  "looping": true,
+  "frameDelay": 2
+}

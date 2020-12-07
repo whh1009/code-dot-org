@@ -1,0 +1,19 @@
+{
+  "name": "pen",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "pen"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 42,
+    "y": 74
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,22 @@
+{
+  "name": "sports_volleyball",
+  "aliases": [
+    "background",
+    "sports",
+    "volleyball",
+    "orange",
+    "blue",
+    "sport",
+    "court"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 363
+  },
+  "looping": true,
+  "frameDelay": 2
+}

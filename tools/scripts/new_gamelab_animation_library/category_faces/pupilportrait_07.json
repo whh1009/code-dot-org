@@ -1,0 +1,21 @@
+{
+  "name": "pupilportrait_07",
+  "aliases": [
+    "character",
+    "girl",
+    "profile",
+    "kid",
+    "glasses",
+    "white"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 316,
+    "y": 383
+  },
+  "looping": true,
+  "frameDelay": 2
+}

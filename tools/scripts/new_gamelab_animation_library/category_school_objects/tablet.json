@@ -1,0 +1,19 @@
+{
+  "name": "tablet",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "tablet"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 84,
+    "y": 98
+  },
+  "looping": true,
+  "frameDelay": 2
+}

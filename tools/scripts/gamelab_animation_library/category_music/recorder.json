@@ -1,0 +1,17 @@
+{
+  "name": "recorder",
+  "aliases": [
+    "music",
+    "recorder"
+  ],
+  "categories": [
+    "music"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 30,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

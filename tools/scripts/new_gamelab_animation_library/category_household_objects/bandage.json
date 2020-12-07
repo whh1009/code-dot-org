@@ -1,0 +1,18 @@
+{
+  "name": "bandage",
+  "aliases": [
+    "house",
+    "home",
+    "bandage"
+  ],
+  "categories": [
+    "household_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 91,
+    "y": 93
+  },
+  "looping": true,
+  "frameDelay": 2
+}

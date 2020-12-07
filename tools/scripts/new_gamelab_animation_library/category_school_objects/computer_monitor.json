@@ -1,0 +1,20 @@
+{
+  "name": "computer_monitor",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "computer",
+    "monitor"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 136,
+    "y": 129
+  },
+  "looping": true,
+  "frameDelay": 2
+}

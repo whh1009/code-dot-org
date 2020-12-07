@@ -1,0 +1,19 @@
+{
+  "name": "black_girltails",
+  "aliases": [
+    "character",
+    "girl",
+    "black",
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 132,
+    "y": 383
+  },
+  "looping": true,
+  "frameDelay": 2
+}

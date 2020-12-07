@@ -1,0 +1,17 @@
+{
+  "name": "nail",
+  "aliases": [
+    "tools",
+    "nail"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 52,
+    "y": 68
+  },
+  "looping": true,
+  "frameDelay": 2
+}

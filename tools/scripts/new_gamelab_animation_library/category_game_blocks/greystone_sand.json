@@ -1,0 +1,20 @@
+{
+  "name": "greystone_sand",
+  "aliases": [
+    "game",
+    "blocks",
+    "grey",
+    "stone",
+    "sand"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

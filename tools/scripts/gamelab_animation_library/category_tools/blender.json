@@ -1,0 +1,17 @@
+{
+  "name": "blender",
+  "aliases": [
+    "tools",
+    "blender"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 89,
+    "y": 136
+  },
+  "looping": true,
+  "frameDelay": 2
+}

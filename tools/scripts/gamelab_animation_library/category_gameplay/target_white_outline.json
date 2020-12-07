@@ -1,0 +1,19 @@
+{
+  "name": "target_white_outline",
+  "aliases": [
+    "board",
+    "game",
+    "target",
+    "white"
+  ],
+  "categories": [
+    "board_games_and_cards"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 142,
+    "y": 142
+  },
+  "looping": true,
+  "frameDelay": 2
+}

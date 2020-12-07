@@ -1,0 +1,18 @@
+{
+  "name": "pepper",
+  "aliases": [
+    "house",
+    "home",
+    "pepper"
+  ],
+  "categories": [
+    "household_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 47,
+    "y": 95
+  },
+  "looping": true,
+  "frameDelay": 2
+}

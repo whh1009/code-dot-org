@@ -1,0 +1,18 @@
+{
+  "name": "commercial_18",
+  "aliases": [
+    "building",
+    "apartment",
+    "commercial"
+  ],
+  "categories": [
+    "buildings"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 252,
+    "y": 262
+  },
+  "looping": true,
+  "frameDelay": 2
+}

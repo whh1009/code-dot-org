@@ -1,0 +1,19 @@
+{
+  "name": "kid_16_walking",
+  "aliases": [
+    "people",
+    "kid",
+    "child",
+    "walking"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 175,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

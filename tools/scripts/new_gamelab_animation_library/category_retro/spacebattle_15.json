@@ -1,0 +1,20 @@
+{
+  "name": "spacebattle_15",
+  "aliases": [
+    "gameicon",
+    "health",
+    "heart",
+    "empty",
+    "blank"
+  ],
+  "categories": [
+    "retro"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 167,
+    "y": 143
+  },
+  "looping": true,
+  "frameDelay": 2
+}

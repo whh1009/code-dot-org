@@ -1,0 +1,21 @@
+{
+  "name": "latinx_girlbob",
+  "aliases": [
+    "character",
+    "girl",
+    "latin",
+    "latinx",
+    "hispanic",
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 140,
+    "y": 398
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "parrot",
+  "aliases": [
+    "animal",
+    "parrot"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 256,
+    "y": 257
+  },
+  "looping": true,
+  "frameDelay": 2
+}

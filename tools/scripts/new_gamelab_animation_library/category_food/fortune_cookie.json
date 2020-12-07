@@ -1,0 +1,17 @@
+{
+  "name": "fortune_cookie",
+  "aliases": [
+    "food",
+    "fortunecookie"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 377,
+    "y": 398
+  },
+  "looping": true,
+  "frameDelay": 2
+}

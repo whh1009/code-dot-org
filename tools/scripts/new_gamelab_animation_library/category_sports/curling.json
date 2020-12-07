@@ -1,0 +1,17 @@
+{
+  "name": "curling",
+  "aliases": [
+    "sports",
+    "curling"
+  ],
+  "categories": [
+    "sports"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 393,
+    "y": 306
+  },
+  "looping": true,
+  "frameDelay": 2
+}

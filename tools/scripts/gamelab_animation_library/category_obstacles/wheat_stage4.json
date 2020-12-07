@@ -1,0 +1,19 @@
+{
+  "name": "wheat_stage4",
+  "aliases": [
+    "game",
+    "block",
+    "wheat",
+    "stage4"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

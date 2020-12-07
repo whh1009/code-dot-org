@@ -1,0 +1,19 @@
+{
+  "name": "book",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "book"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 109,
+    "y": 125
+  },
+  "looping": true,
+  "frameDelay": 2
+}

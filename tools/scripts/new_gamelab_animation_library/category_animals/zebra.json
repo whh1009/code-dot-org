@@ -1,0 +1,17 @@
+{
+  "name": "zebra",
+  "aliases": [
+    "animal",
+    "zebra"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 252,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "textGetReady",
+  "aliases": [
+    "button",
+    "text",
+    "get",
+    "ready"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 73
+  },
+  "looping": true,
+  "frameDelay": 2
+}

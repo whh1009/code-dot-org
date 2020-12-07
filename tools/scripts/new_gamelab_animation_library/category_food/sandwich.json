@@ -1,0 +1,17 @@
+{
+  "name": "sandwich",
+  "aliases": [
+    "food",
+    "sandwich"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 378,
+    "y": 331
+  },
+  "looping": true,
+  "frameDelay": 2
+}

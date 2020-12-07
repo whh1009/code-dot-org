@@ -1,0 +1,23 @@
+{
+  "name": "fish_silver",
+  "aliases": [
+    "animal",
+    "fish",
+    "aquatic",
+    "underwater",
+    "ocean",
+    "silver",
+    "grey",
+    "gray"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

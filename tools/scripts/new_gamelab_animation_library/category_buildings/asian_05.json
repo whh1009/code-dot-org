@@ -1,0 +1,17 @@
+{
+  "name": "asian_05",
+  "aliases": [
+    "building",
+    "palace"
+  ],
+  "categories": [
+    "buildings"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 290,
+    "y": 273
+  },
+  "looping": true,
+  "frameDelay": 2
+}

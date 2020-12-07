@@ -1,0 +1,19 @@
+{
+  "name": "spacebattle_09",
+  "aliases": [
+    "spaceship",
+    "starfighter",
+    "starship",
+    "spacecraft"
+  ],
+  "categories": [
+    "retro"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 304,
+    "y": 226
+  },
+  "looping": true,
+  "frameDelay": 2
+}

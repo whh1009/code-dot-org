@@ -1,0 +1,20 @@
+{
+  "name": "hijab_03",
+  "aliases": [
+    "character",
+    "girl",
+    "hijab",
+    "muslim",
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 157,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

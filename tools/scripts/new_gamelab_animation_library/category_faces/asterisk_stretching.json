@@ -1,0 +1,17 @@
+{
+  "name": "asterisk_stretching",
+  "aliases": [
+    "face",
+    "asterisk"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 8,
+  "frameSize": {
+    "x": 144,
+    "y": 144
+  },
+  "looping": true,
+  "frameDelay": 2
+}

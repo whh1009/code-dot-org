@@ -1,0 +1,19 @@
+{
+  "name": "teen_01",
+  "aliases": [
+    "character",
+    "girl",
+    null,
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 129,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

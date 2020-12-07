@@ -1,0 +1,20 @@
+{
+  "name": "casts_01",
+  "aliases": [
+    "kid",
+    "cast",
+    "disabled",
+    "injury",
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 136,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

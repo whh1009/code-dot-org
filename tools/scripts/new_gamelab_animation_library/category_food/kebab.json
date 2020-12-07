@@ -1,0 +1,16 @@
+{
+  "name": "kebab",
+  "aliases": [
+    "food"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 369,
+    "y": 369
+  },
+  "looping": true,
+  "frameDelay": 2
+}

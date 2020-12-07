@@ -1,0 +1,17 @@
+{
+  "name": "bunny2_walk1",
+  "aliases": [
+    "animal",
+    "bunny"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 2,
+  "frameSize": {
+    "x": 152,
+    "y": 193
+  },
+  "looping": true,
+  "frameDelay": 2
+}

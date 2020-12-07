@@ -1,0 +1,19 @@
+{
+  "name": "sword_diamond",
+  "aliases": [
+    "tools",
+    "sword",
+    "diamond",
+    "game"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

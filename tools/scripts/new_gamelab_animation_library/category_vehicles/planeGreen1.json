@@ -1,0 +1,19 @@
+{
+  "name": "planeGreen1",
+  "aliases": [
+    "vehicle",
+    "plane",
+    "green",
+    "airplane"
+  ],
+  "categories": [
+    "vehicles"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 88,
+    "y": 73
+  },
+  "looping": true,
+  "frameDelay": 2
+}

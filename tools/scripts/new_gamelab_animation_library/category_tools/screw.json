@@ -1,0 +1,17 @@
+{
+  "name": "screw",
+  "aliases": [
+    "tools",
+    "screw"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 48,
+    "y": 62
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,20 @@
+{
+  "name": "elephant_square",
+  "aliases": [
+    "animal",
+    "elephant",
+    "grey",
+    "gray",
+    "square"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 256,
+    "y": 256
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "spike_bot",
+  "aliases": [
+    "spike",
+    "robot"
+  ],
+  "categories": [
+    "robots"
+  ],
+  "frameCount": 2,
+  "frameSize": {
+    "x": 116,
+    "y": 157
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "cello",
+  "aliases": [
+    "music",
+    "cello"
+  ],
+  "categories": [
+    "music"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 91,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

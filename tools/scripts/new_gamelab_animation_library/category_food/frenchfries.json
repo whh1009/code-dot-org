@@ -1,0 +1,19 @@
+{
+  "name": "frenchfries",
+  "aliases": [
+    "food",
+    "fries",
+    "frenchfries",
+    "fastfood"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 334,
+    "y": 366
+  },
+  "looping": true,
+  "frameDelay": 2
+}

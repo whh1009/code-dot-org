@@ -1,0 +1,18 @@
+{
+  "name": "mushroom_red",
+  "aliases": [
+    "food",
+    "mushroom",
+    "red"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 81,
+    "y": 99
+  },
+  "looping": true,
+  "frameDelay": 2
+}

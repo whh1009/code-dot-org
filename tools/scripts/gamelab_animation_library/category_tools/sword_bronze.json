@@ -1,0 +1,19 @@
+{
+  "name": "sword_bronze",
+  "aliases": [
+    "tools",
+    "sword",
+    "bronze",
+    "game"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

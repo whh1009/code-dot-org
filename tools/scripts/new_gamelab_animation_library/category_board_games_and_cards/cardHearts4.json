@@ -1,0 +1,20 @@
+{
+  "name": "cardHearts4",
+  "aliases": [
+    "game",
+    "card",
+    "hearts",
+    "4",
+    "four"
+  ],
+  "categories": [
+    "board_games_and_cards"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 140,
+    "y": 190
+  },
+  "looping": true,
+  "frameDelay": 2
+}

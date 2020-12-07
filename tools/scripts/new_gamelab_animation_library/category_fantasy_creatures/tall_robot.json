@@ -1,0 +1,18 @@
+{
+  "name": "tall_robot",
+  "aliases": [
+    "fantasy",
+    "tall",
+    "robot"
+  ],
+  "categories": [
+    "fantasy_creatures"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 204,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

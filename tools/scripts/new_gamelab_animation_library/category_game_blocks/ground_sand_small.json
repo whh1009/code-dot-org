@@ -1,0 +1,19 @@
+{
+  "name": "ground_sand_small",
+  "aliases": [
+    "game",
+    "blocks",
+    "ground",
+    "sand"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 201,
+    "y": 100
+  },
+  "looping": true,
+  "frameDelay": 2
+}

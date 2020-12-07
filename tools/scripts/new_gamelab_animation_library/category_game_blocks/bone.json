@@ -1,0 +1,18 @@
+{
+  "name": "bone",
+  "aliases": [
+    "game",
+    "blocks",
+    "bone"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 81,
+    "y": 119
+  },
+  "looping": true,
+  "frameDelay": 2
+}

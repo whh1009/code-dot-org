@@ -1,0 +1,17 @@
+{
+  "name": "microphone",
+  "aliases": [
+    "tools",
+    "microphone"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 59,
+    "y": 116
+  },
+  "looping": true,
+  "frameDelay": 2
+}

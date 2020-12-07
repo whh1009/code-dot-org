@@ -1,0 +1,21 @@
+{
+  "name": "computer_tower_dark",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "computer",
+    "tower",
+    "dark"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 98,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,22 @@
+{
+  "name": "powerupYellow_shield",
+  "aliases": [
+    "game",
+    "blocks",
+    "game",
+    "block",
+    "powerup",
+    "yellow",
+    "shield"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 34,
+    "y": 33
+  },
+  "looping": true,
+  "frameDelay": 2
+}

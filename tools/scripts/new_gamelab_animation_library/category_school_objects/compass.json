@@ -1,0 +1,19 @@
+{
+  "name": "compass",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "compass"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 105,
+    "y": 79
+  },
+  "looping": true,
+  "frameDelay": 2
+}

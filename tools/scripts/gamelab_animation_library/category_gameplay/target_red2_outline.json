@@ -1,0 +1,19 @@
+{
+  "name": "target_red2_outline",
+  "aliases": [
+    "board",
+    "game",
+    "target",
+    "red"
+  ],
+  "categories": [
+    "board_games_and_cards"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 142,
+    "y": 142
+  },
+  "looping": true,
+  "frameDelay": 2
+}

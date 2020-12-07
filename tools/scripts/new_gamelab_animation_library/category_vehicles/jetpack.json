@@ -1,0 +1,17 @@
+{
+  "name": "jetpack",
+  "aliases": [
+    "vehicle",
+    "jetpack"
+  ],
+  "categories": [
+    "vehicles"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 133,
+    "y": 160
+  },
+  "looping": true,
+  "frameDelay": 2
+}

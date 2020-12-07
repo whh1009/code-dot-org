@@ -1,0 +1,17 @@
+{
+  "name": "hippo",
+  "aliases": [
+    "animal",
+    "hippo"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 264,
+    "y": 264
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,18 @@
+{
+  "name": "kid_30_side",
+  "aliases": [
+    "people",
+    "kid",
+    "child"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 204,
+    "y": 343
+  },
+  "looping": true,
+  "frameDelay": 2
+}

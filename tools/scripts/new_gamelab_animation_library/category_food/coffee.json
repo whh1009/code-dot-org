@@ -1,0 +1,17 @@
+{
+  "name": "coffee",
+  "aliases": [
+    "food",
+    "coffee"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 117,
+    "y": 113
+  },
+  "looping": true,
+  "frameDelay": 2
+}

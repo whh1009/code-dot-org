@@ -1,0 +1,19 @@
+{
+  "name": "chickenleg",
+  "aliases": [
+    "food",
+    "turkey",
+    "chicken",
+    "drumstick"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 393,
+    "y": 393
+  },
+  "looping": true,
+  "frameDelay": 2
+}

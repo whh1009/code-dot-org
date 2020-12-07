@@ -1,0 +1,20 @@
+{
+  "name": "robot_10",
+  "aliases": [
+    "robot",
+    "character",
+    "scifi",
+    "toy",
+    "pink"
+  ],
+  "categories": [
+    "robots"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 292,
+    "y": 394
+  },
+  "looping": true,
+  "frameDelay": 2
+}

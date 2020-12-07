@@ -1,0 +1,21 @@
+{
+  "name": "teen_17",
+  "aliases": [
+    "character",
+    "girl",
+    "kid",
+    "glasses",
+    "white",
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 140,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

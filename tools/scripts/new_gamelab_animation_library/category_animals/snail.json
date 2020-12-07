@@ -1,0 +1,17 @@
+{
+  "name": "snail",
+  "aliases": [
+    "animal",
+    "snail"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 2,
+  "frameSize": {
+    "x": 62,
+    "y": 42
+  },
+  "looping": true,
+  "frameDelay": 2
+}

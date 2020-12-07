@@ -1,0 +1,19 @@
+{
+  "name": "kid_16_waving",
+  "aliases": [
+    "people",
+    "kid",
+    "child",
+    "waving"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 222,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

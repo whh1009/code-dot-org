@@ -1,0 +1,20 @@
+{
+  "name": "emoji_02",
+  "aliases": [
+    "emoji",
+    "sleep",
+    "sleepy",
+    "Z",
+    "face"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 326,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

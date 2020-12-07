@@ -1,0 +1,20 @@
+{
+  "name": "stone_browniron",
+  "aliases": [
+    "game",
+    "blocks",
+    "stone",
+    "brown",
+    "iron"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

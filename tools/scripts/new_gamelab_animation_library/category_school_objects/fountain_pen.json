@@ -1,0 +1,20 @@
+{
+  "name": "fountain_pen",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "fountain",
+    "pen"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 59,
+    "y": 130
+  },
+  "looping": true,
+  "frameDelay": 2
+}

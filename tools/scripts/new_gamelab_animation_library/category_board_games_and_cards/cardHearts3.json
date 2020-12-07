@@ -1,0 +1,20 @@
+{
+  "name": "cardHearts3",
+  "aliases": [
+    "game",
+    "card",
+    "hearts",
+    "3",
+    "three"
+  ],
+  "categories": [
+    "board_games_and_cards"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 140,
+    "y": 190
+  },
+  "looping": true,
+  "frameDelay": 2
+}

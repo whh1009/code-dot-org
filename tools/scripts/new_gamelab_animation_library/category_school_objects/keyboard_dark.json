@@ -1,0 +1,20 @@
+{
+  "name": "keyboard_dark",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "keyboard",
+    "dark"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 129,
+    "y": 40
+  },
+  "looping": true,
+  "frameDelay": 2
+}

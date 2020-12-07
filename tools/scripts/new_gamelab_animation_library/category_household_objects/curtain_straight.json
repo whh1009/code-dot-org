@@ -1,0 +1,19 @@
+{
+  "name": "curtain_straight",
+  "aliases": [
+    "house",
+    "home",
+    "curtain",
+    "straight"
+  ],
+  "categories": [
+    "household_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 256,
+    "y": 80
+  },
+  "looping": true,
+  "frameDelay": 2
+}

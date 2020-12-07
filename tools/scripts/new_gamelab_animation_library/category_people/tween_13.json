@@ -1,0 +1,19 @@
+{
+  "name": "tween_13",
+  "aliases": [
+    "character",
+    "girl",
+    null,
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 136,
+    "y": 386
+  },
+  "looping": true,
+  "frameDelay": 2
+}

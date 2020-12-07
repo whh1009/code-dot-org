@@ -1,0 +1,19 @@
+{
+  "name": "bell",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "bell"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 85,
+    "y": 100
+  },
+  "looping": true,
+  "frameDelay": 2
+}

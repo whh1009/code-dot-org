@@ -1,0 +1,18 @@
+{
+  "name": "wallet",
+  "aliases": [
+    "house",
+    "home",
+    "wallet"
+  ],
+  "categories": [
+    "household_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 98,
+    "y": 102
+  },
+  "looping": true,
+  "frameDelay": 2
+}

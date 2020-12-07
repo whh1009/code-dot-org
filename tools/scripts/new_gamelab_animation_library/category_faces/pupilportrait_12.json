@@ -1,0 +1,20 @@
+{
+  "name": "pupilportrait_12",
+  "aliases": [
+    "character",
+    "girl",
+    "profile",
+    "black",
+    "kid"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 390,
+    "y": 379
+  },
+  "looping": true,
+  "frameDelay": 2
+}

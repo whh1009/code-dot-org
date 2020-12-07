@@ -1,0 +1,20 @@
+{
+  "name": "teen_18",
+  "aliases": [
+    "character",
+    "girl",
+    null,
+    "kid",
+    "asian"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 124,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

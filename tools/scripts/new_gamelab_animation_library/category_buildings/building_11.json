@@ -1,0 +1,18 @@
+{
+  "name": "building_11",
+  "aliases": [
+    "building",
+    "house",
+    "home"
+  ],
+  "categories": [
+    "buildings"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 305
+  },
+  "looping": true,
+  "frameDelay": 2
+}

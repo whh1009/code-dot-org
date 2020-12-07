@@ -1,0 +1,19 @@
+{
+  "name": "playerShip3_orange",
+  "aliases": [
+    "vehicle",
+    "player",
+    "ship",
+    "orange"
+  ],
+  "categories": [
+    "vehicles"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 98,
+    "y": 75
+  },
+  "looping": true,
+  "frameDelay": 2
+}

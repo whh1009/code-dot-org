@@ -1,0 +1,21 @@
+{
+  "name": "wide_screen_monitor",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "wide",
+    "screen",
+    "monitor"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 163,
+    "y": 131
+  },
+  "looping": true,
+  "frameDelay": 2
+}

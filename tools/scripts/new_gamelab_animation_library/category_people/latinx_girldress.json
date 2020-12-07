@@ -1,0 +1,21 @@
+{
+  "name": "latinx_girldress",
+  "aliases": [
+    "character",
+    "girl",
+    "kid",
+    "latin",
+    "latinx",
+    "hispanic"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 132,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

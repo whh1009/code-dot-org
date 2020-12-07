@@ -1,0 +1,19 @@
+{
+  "name": "emoji_25",
+  "aliases": [
+    "emoji",
+    "scream",
+    "gasp",
+    "surprise"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 300,
+    "y": 330
+  },
+  "looping": true,
+  "frameDelay": 2
+}

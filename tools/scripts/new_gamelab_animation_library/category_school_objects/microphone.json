@@ -1,0 +1,19 @@
+{
+  "name": "microphone",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "microphone"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 59,
+    "y": 116
+  },
+  "looping": true,
+  "frameDelay": 2
+}

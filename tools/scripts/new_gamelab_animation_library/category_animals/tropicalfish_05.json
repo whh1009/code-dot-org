@@ -1,0 +1,18 @@
+{
+  "name": "tropicalfish_05",
+  "aliases": [
+    "fish",
+    "tropical",
+    "underwater"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 399,
+    "y": 362
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "crutch",
+  "aliases": [
+    "tools",
+    "crutch"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 125,
+    "y": 194
+  },
+  "looping": true,
+  "frameDelay": 2
+}

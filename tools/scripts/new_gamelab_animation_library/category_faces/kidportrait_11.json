@@ -1,0 +1,22 @@
+{
+  "name": "kidportrait_11",
+  "aliases": [
+    "character",
+    "girl",
+    "profile",
+    "kid",
+    "latin",
+    "latinx",
+    "hispanic"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 264,
+    "y": 362
+  },
+  "looping": true,
+  "frameDelay": 2
+}

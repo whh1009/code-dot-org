@@ -1,0 +1,17 @@
+{
+  "name": "commercial_11",
+  "aliases": [
+    "building",
+    "hospital"
+  ],
+  "categories": [
+    "buildings"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 270,
+    "y": 206
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,21 @@
+{
+  "name": "sports_hockey",
+  "aliases": [
+    "background",
+    "hockey",
+    "ice",
+    "white",
+    "sport",
+    "sports"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 374
+  },
+  "looping": true,
+  "frameDelay": 2
+}

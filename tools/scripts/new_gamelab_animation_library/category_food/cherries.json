@@ -1,0 +1,19 @@
+{
+  "name": "cherries",
+  "aliases": [
+    "food",
+    "fruit",
+    "cherry",
+    "cherries"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 344,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

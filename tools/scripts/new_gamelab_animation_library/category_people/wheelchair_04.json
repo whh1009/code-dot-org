@@ -1,0 +1,22 @@
+{
+  "name": "wheelchair_04",
+  "aliases": [
+    "character",
+    "boy",
+    "wheelchair",
+    "injured",
+    "disabled",
+    "black",
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 177,
+    "y": 398
+  },
+  "looping": true,
+  "frameDelay": 2
+}

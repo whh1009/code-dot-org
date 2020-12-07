@@ -1,0 +1,22 @@
+{
+  "name": "retroship_06",
+  "aliases": [
+    "spaceship",
+    "starfighter",
+    "starship",
+    "spacecraft",
+    "alien",
+    "aliens",
+    "space"
+  ],
+  "categories": [
+    "retro"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 391,
+    "y": 362
+  },
+  "looping": true,
+  "frameDelay": 2
+}

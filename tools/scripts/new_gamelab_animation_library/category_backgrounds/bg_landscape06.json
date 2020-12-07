@@ -1,0 +1,20 @@
+{
+  "name": "bg_landscape06",
+  "aliases": [
+    "background",
+    "trees",
+    "spring",
+    "green",
+    "garden"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

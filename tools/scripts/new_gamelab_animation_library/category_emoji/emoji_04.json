@@ -1,0 +1,19 @@
+{
+  "name": "emoji_04",
+  "aliases": [
+    "emoji",
+    "face",
+    "smile",
+    "yum"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 300,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

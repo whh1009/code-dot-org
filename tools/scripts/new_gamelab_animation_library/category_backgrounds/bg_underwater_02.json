@@ -1,0 +1,21 @@
+{
+  "name": "bg_underwater_02",
+  "aliases": [
+    "underwater",
+    "background",
+    "blue",
+    "ocean",
+    "sea",
+    "water"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 395
+  },
+  "looping": true,
+  "frameDelay": 2
+}

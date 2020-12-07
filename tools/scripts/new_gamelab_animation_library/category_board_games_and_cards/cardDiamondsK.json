@@ -1,0 +1,19 @@
+{
+  "name": "cardDiamondsK",
+  "aliases": [
+    "game",
+    "card",
+    "diamonds",
+    "king"
+  ],
+  "categories": [
+    "board_games_and_cards"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 140,
+    "y": 190
+  },
+  "looping": true,
+  "frameDelay": 2
+}

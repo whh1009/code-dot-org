@@ -1,0 +1,19 @@
+{
+  "name": "ramen",
+  "aliases": [
+    "food",
+    "ramen",
+    "noodles",
+    "soup"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 389,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

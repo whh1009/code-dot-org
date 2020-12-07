@@ -1,0 +1,17 @@
+{
+  "name": "pancakes",
+  "aliases": [
+    "food",
+    "pancakes"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 399,
+    "y": 313
+  },
+  "looping": true,
+  "frameDelay": 2
+}

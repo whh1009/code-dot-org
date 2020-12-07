@@ -1,0 +1,17 @@
+{
+  "name": "kangaroo",
+  "aliases": [
+    "animal",
+    "kangaroo"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 255,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

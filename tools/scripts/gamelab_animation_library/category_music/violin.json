@@ -1,0 +1,17 @@
+{
+  "name": "violin",
+  "aliases": [
+    "music",
+    "violin"
+  ],
+  "categories": [
+    "music"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 300,
+    "y": 145
+  },
+  "looping": true,
+  "frameDelay": 2
+}

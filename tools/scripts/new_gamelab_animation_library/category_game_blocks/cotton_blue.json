@@ -1,0 +1,19 @@
+{
+  "name": "cotton_blue",
+  "aliases": [
+    "game",
+    "blocks",
+    "cotton",
+    "blue"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

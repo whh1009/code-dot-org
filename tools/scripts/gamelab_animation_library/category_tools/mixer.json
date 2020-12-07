@@ -1,0 +1,17 @@
+{
+  "name": "mixer",
+  "aliases": [
+    "tools",
+    "mixer"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 132,
+    "y": 109
+  },
+  "looping": true,
+  "frameDelay": 2
+}

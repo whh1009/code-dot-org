@@ -1,0 +1,19 @@
+{
+  "name": "bg_landscape08",
+  "aliases": [
+    "background",
+    "snow",
+    "trees",
+    "blue"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

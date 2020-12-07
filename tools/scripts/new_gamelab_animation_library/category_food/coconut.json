@@ -1,0 +1,17 @@
+{
+  "name": "coconut",
+  "aliases": [
+    "food",
+    "coconut"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 377,
+    "y": 373
+  },
+  "looping": true,
+  "frameDelay": 2
+}

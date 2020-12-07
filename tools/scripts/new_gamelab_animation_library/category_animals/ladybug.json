@@ -1,0 +1,19 @@
+{
+  "name": "ladybug",
+  "aliases": [
+    "animal",
+    "ladybug",
+    "insect",
+    "bug"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 2,
+  "frameSize": {
+    "x": 63,
+    "y": 36
+  },
+  "looping": true,
+  "frameDelay": 2
+}

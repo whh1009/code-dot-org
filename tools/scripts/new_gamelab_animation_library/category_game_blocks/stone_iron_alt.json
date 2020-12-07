@@ -1,0 +1,19 @@
+{
+  "name": "stone_iron_alt",
+  "aliases": [
+    "game",
+    "blocks",
+    "stone",
+    "iron"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "lifes",
+  "aliases": [
+    "animal",
+    "lifes"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 52,
+    "y": 71
+  },
+  "looping": true,
+  "frameDelay": 2
+}

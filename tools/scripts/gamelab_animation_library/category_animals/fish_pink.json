@@ -1,0 +1,21 @@
+{
+  "name": "fish_pink",
+  "aliases": [
+    "animal",
+    "fish",
+    "aquatic",
+    "underwater",
+    "ocean",
+    "pink"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 2,
+  "frameSize": {
+    "x": 67,
+    "y": 47
+  },
+  "looping": true,
+  "frameDelay": 2
+}

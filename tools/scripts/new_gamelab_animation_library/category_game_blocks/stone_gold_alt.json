@@ -1,0 +1,19 @@
+{
+  "name": "stone_gold_alt",
+  "aliases": [
+    "game",
+    "blocks",
+    "stone",
+    "gold"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

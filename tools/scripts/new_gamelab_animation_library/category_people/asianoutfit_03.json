@@ -1,0 +1,19 @@
+{
+  "name": "asianoutfit_03",
+  "aliases": [
+    "character",
+    "girl",
+    "asian",
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 104,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

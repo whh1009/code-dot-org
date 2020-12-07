@@ -1,0 +1,22 @@
+{
+  "name": "bg_landscape16",
+  "aliases": [
+    "background",
+    "snow",
+    "landscape",
+    "evergreen",
+    "clouds",
+    "blue",
+    "green"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

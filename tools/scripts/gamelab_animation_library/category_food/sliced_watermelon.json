@@ -1,0 +1,17 @@
+{
+  "name": "sliced_watermelon",
+  "aliases": [
+    "food",
+    "watermelon"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 300,
+    "y": 240
+  },
+  "looping": true,
+  "frameDelay": 2
+}

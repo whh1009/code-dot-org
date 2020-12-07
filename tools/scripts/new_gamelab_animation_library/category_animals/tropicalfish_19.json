@@ -1,0 +1,18 @@
+{
+  "name": "tropicalfish_19",
+  "aliases": [
+    "fish",
+    "tropical",
+    "blue"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 229
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "emoji_21",
+  "aliases": [
+    "emoji",
+    "puke",
+    "vomit",
+    "sick"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 300,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

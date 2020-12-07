@@ -1,0 +1,17 @@
+{
+  "name": "green_robot",
+  "aliases": [
+    "green",
+    "robot"
+  ],
+  "categories": [
+    "robots"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 497,
+    "y": 840
+  },
+  "looping": true,
+  "frameDelay": 2
+}

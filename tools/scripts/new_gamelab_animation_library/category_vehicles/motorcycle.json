@@ -1,0 +1,17 @@
+{
+  "name": "motorcycle",
+  "aliases": [
+    "vehicle",
+    "motorcycle"
+  ],
+  "categories": [
+    "vehicles"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 71,
+    "y": 131
+  },
+  "looping": true,
+  "frameDelay": 2
+}

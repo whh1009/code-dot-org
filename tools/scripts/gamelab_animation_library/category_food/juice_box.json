@@ -1,0 +1,18 @@
+{
+  "name": "juice_box",
+  "aliases": [
+    "food",
+    "juice",
+    "box"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 208,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

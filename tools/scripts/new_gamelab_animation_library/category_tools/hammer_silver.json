@@ -1,0 +1,19 @@
+{
+  "name": "hammer_silver",
+  "aliases": [
+    "tools",
+    "hammer",
+    "silver",
+    "game"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,18 @@
+{
+  "name": "fish_cooked",
+  "aliases": [
+    "food",
+    "fish",
+    "cooked"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

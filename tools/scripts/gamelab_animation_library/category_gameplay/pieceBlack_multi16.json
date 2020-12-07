@@ -1,0 +1,19 @@
+{
+  "name": "pieceBlack_multi16",
+  "aliases": [
+    "game",
+    "board",
+    "piece",
+    "black"
+  ],
+  "categories": [
+    "board_games_and_cards"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 64,
+    "y": 64
+  },
+  "looping": true,
+  "frameDelay": 2
+}

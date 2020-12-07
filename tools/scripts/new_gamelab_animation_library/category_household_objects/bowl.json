@@ -1,0 +1,18 @@
+{
+  "name": "bowl",
+  "aliases": [
+    "house",
+    "home",
+    "bowl"
+  ],
+  "categories": [
+    "household_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 124,
+    "y": 82
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,18 @@
+{
+  "name": "spike_bot_walk",
+  "aliases": [
+    "spike",
+    "robot",
+    "walk"
+  ],
+  "categories": [
+    "robots"
+  ],
+  "frameCount": 2,
+  "frameSize": {
+    "x": 122,
+    "y": 161
+  },
+  "looping": true,
+  "frameDelay": 2
+}

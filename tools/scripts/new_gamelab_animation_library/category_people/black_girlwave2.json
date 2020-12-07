@@ -1,0 +1,19 @@
+{
+  "name": "black_girlwave2",
+  "aliases": [
+    "character",
+    "girl",
+    "black",
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 167,
+    "y": 378
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "flask",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "flask"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 60,
+    "y": 112
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "suitcase",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "suitcase"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 113,
+    "y": 202
+  },
+  "looping": true,
+  "frameDelay": 2
+}

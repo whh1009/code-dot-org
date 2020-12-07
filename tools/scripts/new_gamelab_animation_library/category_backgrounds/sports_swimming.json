@@ -1,0 +1,24 @@
+{
+  "name": "sports_swimming",
+  "aliases": [
+    "background",
+    "sports",
+    "sport",
+    "swimming",
+    "lanes",
+    "blue",
+    "water",
+    "swim",
+    "lanes"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 396
+  },
+  "looping": true,
+  "frameDelay": 2
+}

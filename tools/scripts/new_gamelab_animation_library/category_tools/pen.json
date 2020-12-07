@@ -1,0 +1,17 @@
+{
+  "name": "pen",
+  "aliases": [
+    "tools",
+    "pen"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 42,
+    "y": 74
+  },
+  "looping": true,
+  "frameDelay": 2
+}

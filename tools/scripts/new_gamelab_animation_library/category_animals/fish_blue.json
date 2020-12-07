@@ -1,0 +1,20 @@
+{
+  "name": "fish_blue",
+  "aliases": [
+    "animal",
+    "fish",
+    "blue",
+    "underwater",
+    "ocean"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 2,
+  "frameSize": {
+    "x": 127,
+    "y": 96
+  },
+  "looping": true,
+  "frameDelay": 2
+}

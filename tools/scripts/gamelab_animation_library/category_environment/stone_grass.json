@@ -1,0 +1,19 @@
+{
+  "name": "stone_grass",
+  "aliases": [
+    "game",
+    "blocks",
+    "stone",
+    "grass"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,16 @@
+{
+  "name": "spook",
+  "aliases": [
+    "spoon"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 145,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

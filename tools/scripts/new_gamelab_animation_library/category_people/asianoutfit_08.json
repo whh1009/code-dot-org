@@ -1,0 +1,20 @@
+{
+  "name": "asianoutfit_08",
+  "aliases": [
+    "character",
+    "boy",
+    "profile",
+    "asian",
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 165,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

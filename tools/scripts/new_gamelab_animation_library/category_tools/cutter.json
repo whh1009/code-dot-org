@@ -1,0 +1,17 @@
+{
+  "name": "cutter",
+  "aliases": [
+    "tools",
+    "cutter"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 70,
+    "y": 119
+  },
+  "looping": true,
+  "frameDelay": 2
+}

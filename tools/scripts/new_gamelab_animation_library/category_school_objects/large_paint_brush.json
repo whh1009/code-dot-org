@@ -1,0 +1,21 @@
+{
+  "name": "large_paint_brush",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "large",
+    "paint",
+    "brush"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 75,
+    "y": 113
+  },
+  "looping": true,
+  "frameDelay": 2
+}

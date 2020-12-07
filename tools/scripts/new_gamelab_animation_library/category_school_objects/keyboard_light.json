@@ -1,0 +1,20 @@
+{
+  "name": "keyboard_light",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "keyboard",
+    "light"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 152,
+    "y": 40
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "bubble",
+  "aliases": [
+    "aquatic",
+    "bubble"
+  ],
+  "categories": [
+    "aquatic_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 211,
+    "y": 215
+  },
+  "looping": true,
+  "frameDelay": 2
+}

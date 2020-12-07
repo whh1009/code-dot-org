@@ -1,0 +1,19 @@
+{
+  "name": "potato",
+  "aliases": [
+    "potato",
+    "food",
+    "produce",
+    "spud"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 395,
+    "y": 335
+  },
+  "looping": true,
+  "frameDelay": 2
+}

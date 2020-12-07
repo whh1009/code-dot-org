@@ -1,0 +1,21 @@
+{
+  "name": "do_not_disturb",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "do",
+    "not",
+    "disturb"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 73,
+    "y": 132
+  },
+  "looping": true,
+  "frameDelay": 2
+}

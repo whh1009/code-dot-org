@@ -1,0 +1,18 @@
+{
+  "name": "car_blue",
+  "aliases": [
+    "vehicle",
+    "car",
+    "blue"
+  ],
+  "categories": [
+    "vehicles"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 71,
+    "y": 131
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,18 @@
+{
+  "name": "sweetbun",
+  "aliases": [
+    "food",
+    "dumpling",
+    "bun"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 398,
+    "y": 295
+  },
+  "looping": true,
+  "frameDelay": 2
+}

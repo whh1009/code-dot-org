@@ -1,0 +1,19 @@
+{
+  "name": "salad",
+  "aliases": [
+    "food",
+    "salad",
+    "greens",
+    "lettuce"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 379,
+    "y": 334
+  },
+  "looping": true,
+  "frameDelay": 2
+}

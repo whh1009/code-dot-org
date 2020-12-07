@@ -1,0 +1,22 @@
+{
+  "name": "kidportrait_14",
+  "aliases": [
+    "character",
+    "boy",
+    "profile",
+    "kid",
+    "latin",
+    "latinx",
+    "hispanic"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 264,
+    "y": 375
+  },
+  "looping": true,
+  "frameDelay": 2
+}

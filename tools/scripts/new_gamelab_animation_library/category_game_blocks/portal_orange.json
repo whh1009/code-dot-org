@@ -1,0 +1,19 @@
+{
+  "name": "portal_orange",
+  "aliases": [
+    "game",
+    "blocks",
+    "portal",
+    "orange"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 230,
+    "y": 82
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "commercial_08",
+  "aliases": [
+    "building",
+    "cafe"
+  ],
+  "categories": [
+    "buildings"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 350,
+    "y": 212
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "shell_08",
+  "aliases": [
+    "underwater",
+    "shell",
+    "blue",
+    "snail"
+  ],
+  "categories": [
+    "aquatic_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 277
+  },
+  "looping": true,
+  "frameDelay": 2
+}

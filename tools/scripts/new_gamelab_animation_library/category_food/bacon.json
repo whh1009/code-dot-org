@@ -1,0 +1,17 @@
+{
+  "name": "bacon",
+  "aliases": [
+    "food",
+    "bacon"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 389,
+    "y": 379
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "building_09",
+  "aliases": [
+    "building",
+    "house",
+    "home",
+    "school"
+  ],
+  "categories": [
+    "buildings"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 288
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,18 @@
+{
+  "name": "enemyGreen1",
+  "aliases": [
+    "vehicle",
+    "enemy",
+    "green"
+  ],
+  "categories": [
+    "vehicles"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 93,
+    "y": 84
+  },
+  "looping": true,
+  "frameDelay": 2
+}

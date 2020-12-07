@@ -1,0 +1,18 @@
+{
+  "name": "tropicalfish_04",
+  "aliases": [
+    "fish",
+    "tropical",
+    "goldfish"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 324
+  },
+  "looping": true,
+  "frameDelay": 2
+}

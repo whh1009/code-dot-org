@@ -1,0 +1,18 @@
+{
+  "name": "treble-clef",
+  "aliases": [
+    "music",
+    "treble",
+    "clef"
+  ],
+  "categories": [
+    "music"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 212,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

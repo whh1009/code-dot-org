@@ -1,0 +1,22 @@
+{
+  "name": "tween_11",
+  "aliases": [
+    "character",
+    "boy",
+    "profile",
+    "latin",
+    "latinx",
+    "hispanic",
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 174,
+    "y": 396
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "spacebattle_16",
+  "aliases": [
+    "gameicon",
+    "heart",
+    "life",
+    "hitpoints"
+  ],
+  "categories": [
+    "retro"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 167,
+    "y": 143
+  },
+  "looping": true,
+  "frameDelay": 2
+}

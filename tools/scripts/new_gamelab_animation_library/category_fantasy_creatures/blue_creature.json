@@ -1,0 +1,18 @@
+{
+  "name": "blue_creature",
+  "aliases": [
+    "fantasy",
+    "blue",
+    "creature"
+  ],
+  "categories": [
+    "fantasy_creatures"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 697,
+    "y": 604
+  },
+  "looping": true,
+  "frameDelay": 2
+}

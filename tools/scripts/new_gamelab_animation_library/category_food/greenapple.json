@@ -1,0 +1,19 @@
+{
+  "name": "greenapple",
+  "aliases": [
+    "food",
+    "fruit",
+    "greenapple",
+    "apple"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 333,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

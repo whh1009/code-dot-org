@@ -1,0 +1,17 @@
+{
+  "name": "grapes",
+  "aliases": [
+    "food",
+    "grapes"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 300,
+    "y": 155
+  },
+  "looping": true,
+  "frameDelay": 2
+}

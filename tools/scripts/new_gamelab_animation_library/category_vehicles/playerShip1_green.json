@@ -1,0 +1,19 @@
+{
+  "name": "playerShip1_green",
+  "aliases": [
+    "vehicle",
+    "player",
+    "ship",
+    "green"
+  ],
+  "categories": [
+    "vehicles"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 99,
+    "y": 75
+  },
+  "looping": true,
+  "frameDelay": 2
+}

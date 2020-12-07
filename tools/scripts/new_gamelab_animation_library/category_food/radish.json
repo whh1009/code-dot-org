@@ -1,0 +1,17 @@
+{
+  "name": "radish",
+  "aliases": [
+    "food",
+    "radish"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 464,
+    "y": 800
+  },
+  "looping": true,
+  "frameDelay": 2
+}

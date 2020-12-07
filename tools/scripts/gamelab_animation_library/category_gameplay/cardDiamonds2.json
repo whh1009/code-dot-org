@@ -1,0 +1,20 @@
+{
+  "name": "cardDiamonds2",
+  "aliases": [
+    "game",
+    "card",
+    "diamonds",
+    "2",
+    "two"
+  ],
+  "categories": [
+    "board_games_and_cards"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 140,
+    "y": 190
+  },
+  "looping": true,
+  "frameDelay": 2
+}

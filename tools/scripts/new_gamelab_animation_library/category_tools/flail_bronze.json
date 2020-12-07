@@ -1,0 +1,19 @@
+{
+  "name": "flail_bronze",
+  "aliases": [
+    "tools",
+    "flail",
+    "bronze",
+    "game"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

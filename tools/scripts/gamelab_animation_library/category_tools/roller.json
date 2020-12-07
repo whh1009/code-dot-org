@@ -1,0 +1,17 @@
+{
+  "name": "roller",
+  "aliases": [
+    "tools",
+    "roller"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 100,
+    "y": 158
+  },
+  "looping": true,
+  "frameDelay": 2
+}

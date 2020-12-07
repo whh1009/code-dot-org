@@ -1,0 +1,21 @@
+{
+  "name": "latinx_girlwave",
+  "aliases": [
+    "character",
+    "girl",
+    "latin",
+    "latinx",
+    "hispanic",
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 157,
+    "y": 392
+  },
+  "looping": true,
+  "frameDelay": 2
+}

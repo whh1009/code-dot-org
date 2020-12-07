@@ -1,0 +1,19 @@
+{
+  "name": "joy_stick",
+  "aliases": [
+    "house",
+    "home",
+    "joy",
+    "stick"
+  ],
+  "categories": [
+    "household_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 62,
+    "y": 99
+  },
+  "looping": true,
+  "frameDelay": 2
+}

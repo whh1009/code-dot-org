@@ -1,0 +1,17 @@
+{
+  "name": "trowel",
+  "aliases": [
+    "tools",
+    "trowel"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 96,
+    "y": 84
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,20 @@
+{
+  "name": "emoji_23",
+  "aliases": [
+    "emoji",
+    "monkey",
+    "hands",
+    "ears",
+    "deaf"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 380,
+    "y": 320
+  },
+  "looping": true,
+  "frameDelay": 2
+}

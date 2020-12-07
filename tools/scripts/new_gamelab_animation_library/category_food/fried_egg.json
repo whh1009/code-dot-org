@@ -1,0 +1,19 @@
+{
+  "name": "fried_egg",
+  "aliases": [
+    "food",
+    "egg",
+    "friedegg",
+    "pan"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 399,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

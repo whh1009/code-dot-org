@@ -1,0 +1,19 @@
+{
+  "name": "emoji_16",
+  "aliases": [
+    "emoji",
+    "cool",
+    "sunglasses",
+    "smileyface"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 304,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

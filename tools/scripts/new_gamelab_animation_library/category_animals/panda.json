@@ -1,0 +1,17 @@
+{
+  "name": "panda",
+  "aliases": [
+    "animal",
+    "panda"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 304,
+    "y": 257
+  },
+  "looping": true,
+  "frameDelay": 2
+}

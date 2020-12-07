@@ -1,0 +1,18 @@
+{
+  "name": "emoji_32",
+  "aliases": [
+    "emoji",
+    "hangten",
+    "hands"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 344,
+    "y": 308
+  },
+  "looping": true,
+  "frameDelay": 2
+}

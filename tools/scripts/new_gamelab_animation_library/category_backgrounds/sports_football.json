@@ -1,0 +1,21 @@
+{
+  "name": "sports_football",
+  "aliases": [
+    "green",
+    "background",
+    "footballfield",
+    "green",
+    "sports",
+    "sport"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

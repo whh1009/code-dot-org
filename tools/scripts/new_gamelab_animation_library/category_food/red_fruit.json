@@ -1,0 +1,17 @@
+{
+  "name": "red_fruit",
+  "aliases": [
+    "food",
+    "fruit"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 366,
+    "y": 390
+  },
+  "looping": true,
+  "frameDelay": 2
+}

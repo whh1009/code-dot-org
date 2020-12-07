@@ -1,0 +1,19 @@
+{
+  "name": "sushi",
+  "aliases": [
+    "food",
+    "sushi",
+    "sashimi",
+    "tuna"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 378,
+    "y": 378
+  },
+  "looping": true,
+  "frameDelay": 2
+}

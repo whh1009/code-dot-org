@@ -1,0 +1,18 @@
+{
+  "name": "target_colored",
+  "aliases": [
+    "board",
+    "game",
+    "target"
+  ],
+  "categories": [
+    "board_games_and_cards"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

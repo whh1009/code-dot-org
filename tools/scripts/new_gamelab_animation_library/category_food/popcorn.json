@@ -1,0 +1,17 @@
+{
+  "name": "popcorn",
+  "aliases": [
+    "food",
+    "popcorn"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 363,
+    "y": 377
+  },
+  "looping": true,
+  "frameDelay": 2
+}

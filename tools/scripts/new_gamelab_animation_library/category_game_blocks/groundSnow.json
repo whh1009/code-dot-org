@@ -1,0 +1,19 @@
+{
+  "name": "groundSnow",
+  "aliases": [
+    "game",
+    "block",
+    "ground",
+    "snow"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 808,
+    "y": 71
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "mitt",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "mitt"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 113,
+    "y": 118
+  },
+  "looping": true,
+  "frameDelay": 2
+}

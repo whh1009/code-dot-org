@@ -1,0 +1,17 @@
+{
+  "name": "cucumber",
+  "aliases": [
+    "food",
+    "cucumber"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 408,
+    "y": 571
+  },
+  "looping": true,
+  "frameDelay": 2
+}

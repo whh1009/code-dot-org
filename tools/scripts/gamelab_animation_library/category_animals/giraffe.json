@@ -1,0 +1,17 @@
+{
+  "name": "giraffe",
+  "aliases": [
+    "animal",
+    "giraffe"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 306,
+    "y": 322
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,22 @@
+{
+  "name": "latinx_boyglasses",
+  "aliases": [
+    "character",
+    "boy",
+    "profile",
+    "kid",
+    "latin",
+    "latinx",
+    "hispanic"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 119,
+    "y": 384
+  },
+  "looping": true,
+  "frameDelay": 2
+}

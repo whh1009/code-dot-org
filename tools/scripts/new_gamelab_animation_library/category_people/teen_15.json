@@ -1,0 +1,20 @@
+{
+  "name": "teen_15",
+  "aliases": [
+    "character",
+    "boy",
+    "profile",
+    null,
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 398
+  },
+  "looping": true,
+  "frameDelay": 2
+}

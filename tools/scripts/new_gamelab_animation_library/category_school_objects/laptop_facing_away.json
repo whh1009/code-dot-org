@@ -1,0 +1,21 @@
+{
+  "name": "laptop_facing_away",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "laptop",
+    "facing",
+    "away"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 174,
+    "y": 99
+  },
+  "looping": true,
+  "frameDelay": 2
+}

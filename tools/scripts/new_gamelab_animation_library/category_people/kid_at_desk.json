@@ -1,0 +1,19 @@
+{
+  "name": "kid_at_desk",
+  "aliases": [
+    "people",
+    "kid",
+    "child",
+    "desk"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 346,
+    "y": 349
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "soccer_bw",
+  "aliases": [
+    "sports",
+    "ball",
+    "soccer",
+    "football"
+  ],
+  "categories": [
+    "sports"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 393,
+    "y": 394
+  },
+  "looping": true,
+  "frameDelay": 2
+}

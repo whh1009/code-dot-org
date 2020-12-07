@@ -1,0 +1,22 @@
+{
+  "name": "retroaliens_22",
+  "aliases": [
+    "spaceship",
+    "starfighter",
+    "starship",
+    "spacecraft",
+    "alien",
+    "aliens",
+    "space"
+  ],
+  "categories": [
+    "retro"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 356
+  },
+  "looping": true,
+  "frameDelay": 2
+}

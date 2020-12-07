@@ -1,0 +1,19 @@
+{
+  "name": "mochi",
+  "aliases": [
+    "food",
+    "mochi",
+    "icecream",
+    "dessert"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 371,
+    "y": 371
+  },
+  "looping": true,
+  "frameDelay": 2
+}

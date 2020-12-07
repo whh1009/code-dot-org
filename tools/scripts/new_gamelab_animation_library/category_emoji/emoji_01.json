@@ -1,0 +1,17 @@
+{
+  "name": "emoji_01",
+  "aliases": [
+    "emoji",
+    "sad"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 300,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

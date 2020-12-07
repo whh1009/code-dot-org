@@ -1,0 +1,18 @@
+{
+  "name": "gray_robot_2",
+  "aliases": [
+    "gray",
+    "grey",
+    "robot"
+  ],
+  "categories": [
+    "robots"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 475,
+    "y": 837
+  },
+  "looping": true,
+  "frameDelay": 2
+}

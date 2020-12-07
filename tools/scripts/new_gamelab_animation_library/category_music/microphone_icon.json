@@ -1,0 +1,18 @@
+{
+  "name": "microphone_icon",
+  "aliases": [
+    "music",
+    "microphone",
+    "icon"
+  ],
+  "categories": [
+    "music"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 97,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

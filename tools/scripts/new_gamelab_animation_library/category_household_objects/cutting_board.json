@@ -1,0 +1,19 @@
+{
+  "name": "cutting_board",
+  "aliases": [
+    "house",
+    "home",
+    "cutting",
+    "board"
+  ],
+  "categories": [
+    "household_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 145,
+    "y": 147
+  },
+  "looping": true,
+  "frameDelay": 2
+}

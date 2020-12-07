@@ -1,0 +1,19 @@
+{
+  "name": "cotton_red",
+  "aliases": [
+    "game",
+    "blocks",
+    "cotton",
+    "red"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

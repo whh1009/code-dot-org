@@ -1,0 +1,17 @@
+{
+  "name": "pig",
+  "aliases": [
+    "animal",
+    "pig"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 288,
+    "y": 257
+  },
+  "looping": true,
+  "frameDelay": 2
+}

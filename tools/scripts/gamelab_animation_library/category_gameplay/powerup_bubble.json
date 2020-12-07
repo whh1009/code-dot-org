@@ -1,0 +1,19 @@
+{
+  "name": "powerup_bubble",
+  "aliases": [
+    "game",
+    "blocks",
+    "powerup",
+    "bubble"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 71,
+    "y": 70
+  },
+  "looping": true,
+  "frameDelay": 2
+}

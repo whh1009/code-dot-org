@@ -1,0 +1,19 @@
+{
+  "name": "shortcake",
+  "aliases": [
+    "food",
+    "cake",
+    "birthdaycake",
+    "cheesecake"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 399,
+    "y": 381
+  },
+  "looping": true,
+  "frameDelay": 2
+}

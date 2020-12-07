@@ -1,0 +1,17 @@
+{
+  "name": "pliers",
+  "aliases": [
+    "tools",
+    "pliers"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 76,
+    "y": 104
+  },
+  "looping": true,
+  "frameDelay": 2
+}

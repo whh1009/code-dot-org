@@ -1,0 +1,17 @@
+{
+  "name": "microscope",
+  "aliases": [
+    "tools",
+    "microscope"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 110,
+    "y": 138
+  },
+  "looping": true,
+  "frameDelay": 2
+}

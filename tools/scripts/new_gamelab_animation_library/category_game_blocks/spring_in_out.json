@@ -1,0 +1,20 @@
+{
+  "name": "spring_in_out",
+  "aliases": [
+    "game",
+    "block",
+    "spring",
+    "in",
+    "out"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 3,
+  "frameSize": {
+    "x": 147,
+    "y": 112
+  },
+  "looping": true,
+  "frameDelay": 2
+}

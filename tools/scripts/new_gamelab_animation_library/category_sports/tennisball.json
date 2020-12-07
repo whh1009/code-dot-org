@@ -1,0 +1,19 @@
+{
+  "name": "tennisball",
+  "aliases": [
+    "sports",
+    "ball",
+    "tennis",
+    "tennisball"
+  ],
+  "categories": [
+    "sports"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 393,
+    "y": 394
+  },
+  "looping": true,
+  "frameDelay": 2
+}

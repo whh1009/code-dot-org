@@ -1,0 +1,18 @@
+{
+  "name": "spacebattle_13",
+  "aliases": [
+    "gameicon",
+    "live",
+    "life"
+  ],
+  "categories": [
+    "retro"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 167,
+    "y": 119
+  },
+  "looping": true,
+  "frameDelay": 2
+}

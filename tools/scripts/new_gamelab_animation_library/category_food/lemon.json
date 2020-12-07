@@ -1,0 +1,19 @@
+{
+  "name": "lemon",
+  "aliases": [
+    "food",
+    "fruit",
+    "lemon",
+    "citrus"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 399,
+    "y": 387
+  },
+  "looping": true,
+  "frameDelay": 2
+}

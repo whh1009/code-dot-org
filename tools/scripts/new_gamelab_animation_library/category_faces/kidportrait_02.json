@@ -1,0 +1,19 @@
+{
+  "name": "kidportrait_02",
+  "aliases": [
+    "character",
+    "boy",
+    "profile",
+    "kid"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 264,
+    "y": 362
+  },
+  "looping": true,
+  "frameDelay": 2
+}

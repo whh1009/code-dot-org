@@ -1,0 +1,19 @@
+{
+  "name": "game_controller",
+  "aliases": [
+    "house",
+    "home",
+    "game",
+    "controller"
+  ],
+  "categories": [
+    "household_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 94,
+    "y": 57
+  },
+  "looping": true,
+  "frameDelay": 2
+}

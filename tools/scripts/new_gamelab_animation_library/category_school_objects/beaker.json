@@ -1,0 +1,19 @@
+{
+  "name": "beaker",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "beaker"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 72,
+    "y": 86
+  },
+  "looping": true,
+  "frameDelay": 2
+}

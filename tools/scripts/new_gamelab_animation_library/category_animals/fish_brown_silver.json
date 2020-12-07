@@ -1,0 +1,24 @@
+{
+  "name": "fish_brown_silver",
+  "aliases": [
+    "animal",
+    "fish",
+    "aquatic",
+    "underwater",
+    "ocean",
+    "silver",
+    "grey",
+    "gray",
+    "brown"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 2,
+  "frameSize": {
+    "x": 130,
+    "y": 130
+  },
+  "looping": true,
+  "frameDelay": 2
+}

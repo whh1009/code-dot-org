@@ -1,0 +1,17 @@
+{
+  "name": "bunny1_hurt",
+  "aliases": [
+    "animal",
+    "bunny"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 150,
+    "y": 174
+  },
+  "looping": true,
+  "frameDelay": 2
+}

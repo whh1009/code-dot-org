@@ -1,0 +1,17 @@
+{
+  "name": "orange",
+  "aliases": [
+    "food",
+    "orange"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 300,
+    "y": 296
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,20 @@
+{
+  "name": "tween_10",
+  "aliases": [
+    "character",
+    "boy",
+    "profile",
+    null,
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 126,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

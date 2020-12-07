@@ -1,0 +1,17 @@
+{
+  "name": "blue_robot_1",
+  "aliases": [
+    "blue",
+    "robot"
+  ],
+  "categories": [
+    "robots"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 512,
+    "y": 866
+  },
+  "looping": true,
+  "frameDelay": 2
+}

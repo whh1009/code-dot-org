@@ -1,0 +1,19 @@
+{
+  "name": "elephant",
+  "aliases": [
+    "animal",
+    "elepahnt",
+    "gray",
+    "grey"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 348,
+    "y": 282
+  },
+  "looping": true,
+  "frameDelay": 2
+}

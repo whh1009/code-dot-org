@@ -1,0 +1,17 @@
+{
+  "name": "onion",
+  "aliases": [
+    "food",
+    "onion"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 300,
+    "y": 191
+  },
+  "looping": true,
+  "frameDelay": 2
+}

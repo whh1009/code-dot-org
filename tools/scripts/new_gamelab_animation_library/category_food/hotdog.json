@@ -1,0 +1,19 @@
+{
+  "name": "hotdog",
+  "aliases": [
+    "food",
+    "hotdog",
+    "hotdog",
+    "concession"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 365,
+    "y": 365
+  },
+  "looping": true,
+  "frameDelay": 2
+}

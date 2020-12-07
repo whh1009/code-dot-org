@@ -1,0 +1,19 @@
+{
+  "name": "water_glass",
+  "aliases": [
+    "house",
+    "home",
+    "water",
+    "glass"
+  ],
+  "categories": [
+    "household_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 55,
+    "y": 84
+  },
+  "looping": true,
+  "frameDelay": 2
+}

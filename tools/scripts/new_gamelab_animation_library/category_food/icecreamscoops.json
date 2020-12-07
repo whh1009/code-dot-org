@@ -1,0 +1,17 @@
+{
+  "name": "icecreamscoops",
+  "aliases": [
+    "food",
+    "icecream"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 341,
+    "y": 395
+  },
+  "looping": true,
+  "frameDelay": 2
+}

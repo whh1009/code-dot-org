@@ -1,0 +1,22 @@
+{
+  "name": "bg_landscape10",
+  "aliases": [
+    "underwater",
+    "background",
+    "blue",
+    "ocean",
+    "sea",
+    "water",
+    "waves"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 385
+  },
+  "looping": true,
+  "frameDelay": 2
+}

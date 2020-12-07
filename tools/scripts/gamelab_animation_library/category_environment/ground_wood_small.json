@@ -1,0 +1,19 @@
+{
+  "name": "ground_wood_small",
+  "aliases": [
+    "game",
+    "blocks",
+    "ground",
+    "wood"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 200,
+    "y": 100
+  },
+  "looping": true,
+  "frameDelay": 2
+}

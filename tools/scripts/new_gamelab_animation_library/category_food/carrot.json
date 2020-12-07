@@ -1,0 +1,21 @@
+{
+  "name": "carrot",
+  "aliases": [
+    "food",
+    "fruit",
+    "orange",
+    "carrot",
+    "produce",
+    "garden"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 389,
+    "y": 383
+  },
+  "looping": true,
+  "frameDelay": 2
+}

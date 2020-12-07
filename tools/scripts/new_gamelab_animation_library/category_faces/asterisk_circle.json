@@ -1,0 +1,17 @@
+{
+  "name": "asterisk_circle",
+  "aliases": [
+    "face",
+    "asterisk"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 9,
+  "frameSize": {
+    "x": 132,
+    "y": 126
+  },
+  "looping": true,
+  "frameDelay": 2
+}

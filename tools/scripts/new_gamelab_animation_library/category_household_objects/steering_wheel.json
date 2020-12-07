@@ -1,0 +1,19 @@
+{
+  "name": "steering_wheel",
+  "aliases": [
+    "house",
+    "home",
+    "steering",
+    "wheel"
+  ],
+  "categories": [
+    "household_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 130,
+    "y": 130
+  },
+  "looping": true,
+  "frameDelay": 2
+}

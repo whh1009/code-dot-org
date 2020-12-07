@@ -1,0 +1,16 @@
+{
+  "name": "soap",
+  "aliases": [
+    "soap"
+  ],
+  "categories": [
+    "household_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 382,
+    "y": 387
+  },
+  "looping": true,
+  "frameDelay": 2
+}

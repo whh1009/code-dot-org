@@ -1,0 +1,18 @@
+{
+  "name": "spring",
+  "aliases": [
+    "game",
+    "block",
+    "spring"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 145,
+    "y": 77
+  },
+  "looping": true,
+  "frameDelay": 2
+}

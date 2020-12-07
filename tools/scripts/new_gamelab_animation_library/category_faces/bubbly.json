@@ -1,0 +1,17 @@
+{
+  "name": "bubbly",
+  "aliases": [
+    "face",
+    "bubble"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 4,
+  "frameSize": {
+    "x": 82,
+    "y": 130
+  },
+  "looping": true,
+  "frameDelay": 2
+}

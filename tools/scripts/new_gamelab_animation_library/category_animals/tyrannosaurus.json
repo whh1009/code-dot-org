@@ -1,0 +1,17 @@
+{
+  "name": "tyrannosaurus",
+  "aliases": [
+    "animal",
+    "tyrannosaurus"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 345,
+    "y": 364
+  },
+  "looping": true,
+  "frameDelay": 2
+}

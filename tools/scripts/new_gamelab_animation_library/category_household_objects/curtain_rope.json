@@ -1,0 +1,19 @@
+{
+  "name": "curtain_rope",
+  "aliases": [
+    "house",
+    "home",
+    "curtain",
+    "rope"
+  ],
+  "categories": [
+    "household_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 40,
+    "y": 21
+  },
+  "looping": true,
+  "frameDelay": 2
+}

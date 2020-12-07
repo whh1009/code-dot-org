@@ -1,0 +1,20 @@
+{
+  "name": "pupilportrait_01",
+  "aliases": [
+    "character",
+    "girl",
+    "profile",
+    "kid",
+    "ginger"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 317,
+    "y": 375
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "emoji_15",
+  "aliases": [
+    "emoji",
+    "blech",
+    "tongue",
+    "face"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 300,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

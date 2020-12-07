@@ -1,0 +1,19 @@
+{
+  "name": "briefcase",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "briefcase"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 155,
+    "y": 116
+  },
+  "looping": true,
+  "frameDelay": 2
+}

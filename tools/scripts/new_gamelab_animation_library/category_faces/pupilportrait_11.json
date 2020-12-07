@@ -1,0 +1,22 @@
+{
+  "name": "pupilportrait_11",
+  "aliases": [
+    "character",
+    "boy",
+    "profile",
+    "kid",
+    "glasses",
+    "white",
+    "kid"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 282,
+    "y": 388
+  },
+  "looping": true,
+  "frameDelay": 2
+}

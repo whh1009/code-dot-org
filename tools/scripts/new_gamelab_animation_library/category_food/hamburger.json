@@ -1,0 +1,19 @@
+{
+  "name": "hamburger",
+  "aliases": [
+    "food",
+    "burger",
+    "hamburger",
+    "cheeseburger"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 390,
+    "y": 383
+  },
+  "looping": true,
+  "frameDelay": 2
+}

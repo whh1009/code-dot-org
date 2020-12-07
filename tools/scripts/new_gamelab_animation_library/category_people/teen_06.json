@@ -1,0 +1,21 @@
+{
+  "name": "teen_06",
+  "aliases": [
+    "character",
+    "boy",
+    "profile",
+    "glasses",
+    "white",
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 117,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

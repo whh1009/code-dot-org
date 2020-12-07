@@ -1,0 +1,17 @@
+{
+  "name": "piano",
+  "aliases": [
+    "music",
+    "piano"
+  ],
+  "categories": [
+    "music"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 290,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

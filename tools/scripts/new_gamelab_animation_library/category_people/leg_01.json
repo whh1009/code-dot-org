@@ -1,0 +1,20 @@
+{
+  "name": "leg_01",
+  "aliases": [
+    "character",
+    "boy",
+    "profile",
+    null,
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 127,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "asterisk_normal",
+  "aliases": [
+    "face",
+    "asterisk"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 3,
+  "frameSize": {
+    "x": 132,
+    "y": 126
+  },
+  "looping": true,
+  "frameDelay": 2
+}

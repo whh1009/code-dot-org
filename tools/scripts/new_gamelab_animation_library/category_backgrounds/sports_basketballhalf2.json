@@ -1,0 +1,22 @@
+{
+  "name": "sports_basketballhalf2",
+  "aliases": [
+    "background",
+    "basketballcourt",
+    "wood",
+    "court",
+    "sports",
+    "sport",
+    "halfcourt"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,18 @@
+{
+  "name": "knife",
+  "aliases": [
+    "house",
+    "home",
+    "knife"
+  ],
+  "categories": [
+    "household_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 20,
+    "y": 106
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,18 @@
+{
+  "name": "sun",
+  "aliases": [
+    "game",
+    "blocks",
+    "sun"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 2,
+  "frameSize": {
+    "x": 150,
+    "y": 150
+  },
+  "looping": true,
+  "frameDelay": 2
+}

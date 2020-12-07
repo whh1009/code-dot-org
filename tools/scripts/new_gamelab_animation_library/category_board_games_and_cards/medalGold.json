@@ -1,0 +1,21 @@
+{
+  "name": "medalGold",
+  "aliases": [
+    "game",
+    "board",
+    "game",
+    "board",
+    "medal",
+    "gold"
+  ],
+  "categories": [
+    "board_games_and_cards"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 114,
+    "y": 119
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,20 @@
+{
+  "name": "alienPink_walk",
+  "aliases": [
+    "fantasy",
+    "space",
+    "alien",
+    "pink",
+    "walk"
+  ],
+  "categories": [
+    "fantasy_creatures"
+  ],
+  "frameCount": 2,
+  "frameSize": {
+    "x": 72,
+    "y": 98
+  },
+  "looping": true,
+  "frameDelay": 2
+}

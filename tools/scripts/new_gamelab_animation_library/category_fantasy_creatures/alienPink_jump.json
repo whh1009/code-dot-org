@@ -1,0 +1,20 @@
+{
+  "name": "alienPink_jump",
+  "aliases": [
+    "fantasy",
+    "space",
+    "alien",
+    "pink",
+    "jump"
+  ],
+  "categories": [
+    "fantasy_creatures"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 67,
+    "y": 93
+  },
+  "looping": true,
+  "frameDelay": 2
+}

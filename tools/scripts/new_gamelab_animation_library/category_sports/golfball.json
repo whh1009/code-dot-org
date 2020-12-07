@@ -1,0 +1,19 @@
+{
+  "name": "golfball",
+  "aliases": [
+    "sports",
+    "ball",
+    "golfball",
+    "golf"
+  ],
+  "categories": [
+    "sports"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 393,
+    "y": 394
+  },
+  "looping": true,
+  "frameDelay": 2
+}

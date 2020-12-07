@@ -1,0 +1,17 @@
+{
+  "name": "dart",
+  "aliases": [
+    "sports",
+    "dart"
+  ],
+  "categories": [
+    "sports"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 393,
+    "y": 163
+  },
+  "looping": true,
+  "frameDelay": 2
+}

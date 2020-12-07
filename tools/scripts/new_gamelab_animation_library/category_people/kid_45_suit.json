@@ -1,0 +1,19 @@
+{
+  "name": "kid_45_suit",
+  "aliases": [
+    "people",
+    "kid",
+    "child",
+    "suit"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

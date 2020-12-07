@@ -1,0 +1,17 @@
+{
+  "name": "canfood",
+  "aliases": [
+    "food",
+    "can"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 267,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

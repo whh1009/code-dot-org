@@ -1,0 +1,17 @@
+{
+  "name": "spatula",
+  "aliases": [
+    "tools",
+    "spatula"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 88,
+    "y": 140
+  },
+  "looping": true,
+  "frameDelay": 2
+}

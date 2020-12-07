@@ -1,0 +1,22 @@
+{
+  "name": "kidportrait_12",
+  "aliases": [
+    "character",
+    "boy",
+    "profile",
+    "kid",
+    "glasses",
+    "white",
+    "kid"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 264,
+    "y": 363
+  },
+  "looping": true,
+  "frameDelay": 2
+}

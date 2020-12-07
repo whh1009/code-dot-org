@@ -1,0 +1,19 @@
+{
+  "name": "target_white",
+  "aliases": [
+    "board",
+    "game",
+    "target",
+    "white"
+  ],
+  "categories": [
+    "board_games_and_cards"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

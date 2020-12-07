@@ -1,0 +1,17 @@
+{
+  "name": "saxophone",
+  "aliases": [
+    "music",
+    "saxophone"
+  ],
+  "categories": [
+    "music"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 212,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

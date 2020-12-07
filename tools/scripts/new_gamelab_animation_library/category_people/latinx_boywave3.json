@@ -1,0 +1,22 @@
+{
+  "name": "latinx_boywave3",
+  "aliases": [
+    "character",
+    "boy",
+    "profile",
+    "latin",
+    "latinx",
+    "hispanic",
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 175,
+    "y": 397
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,22 @@
+{
+  "name": "pupilportrait_09",
+  "aliases": [
+    "character",
+    "girl",
+    "profile",
+    "kid",
+    "latin",
+    "latinx",
+    "hispanic"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 322,
+    "y": 385
+  },
+  "looping": true,
+  "frameDelay": 2
+}

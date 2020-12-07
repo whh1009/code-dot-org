@@ -1,0 +1,17 @@
+{
+  "name": "blueberry",
+  "aliases": [
+    "food",
+    "fruit"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 378,
+    "y": 395
+  },
+  "looping": true,
+  "frameDelay": 2
+}

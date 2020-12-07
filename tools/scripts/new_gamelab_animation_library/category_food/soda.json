@@ -1,0 +1,17 @@
+{
+  "name": "soda",
+  "aliases": [
+    "food",
+    "soda"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 186,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "powerup_bunny",
+  "aliases": [
+    "game",
+    "blocks",
+    "powerup",
+    "bunny"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 71,
+    "y": 70
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "cactus_top",
+  "aliases": [
+    "game",
+    "blocks",
+    "cactus",
+    "top"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

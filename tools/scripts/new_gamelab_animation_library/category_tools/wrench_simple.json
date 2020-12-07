@@ -1,0 +1,17 @@
+{
+  "name": "wrench_simple",
+  "aliases": [
+    "tools",
+    "wrench"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 70,
+    "y": 88
+  },
+  "looping": true,
+  "frameDelay": 2
+}

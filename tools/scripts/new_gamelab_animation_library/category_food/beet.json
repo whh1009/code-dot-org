@@ -1,0 +1,17 @@
+{
+  "name": "beet",
+  "aliases": [
+    "food",
+    "beet"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 491,
+    "y": 705
+  },
+  "looping": true,
+  "frameDelay": 2
+}

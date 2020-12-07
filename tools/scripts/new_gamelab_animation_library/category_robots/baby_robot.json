@@ -1,0 +1,17 @@
+{
+  "name": "baby_robot",
+  "aliases": [
+    "baby",
+    "robot"
+  ],
+  "categories": [
+    "robots"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 240,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

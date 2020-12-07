@@ -1,0 +1,17 @@
+{
+  "name": "asterisk_explode",
+  "aliases": [
+    "face",
+    "asterisk"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 11,
+  "frameSize": {
+    "x": 171,
+    "y": 158
+  },
+  "looping": true,
+  "frameDelay": 2
+}

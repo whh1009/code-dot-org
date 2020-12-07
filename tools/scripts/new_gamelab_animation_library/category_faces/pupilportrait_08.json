@@ -1,0 +1,19 @@
+{
+  "name": "pupilportrait_08",
+  "aliases": [
+    "character",
+    "boy",
+    "profile",
+    "kid"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 280,
+    "y": 377
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,20 @@
+{
+  "name": "tween_04",
+  "aliases": [
+    "character",
+    "boy",
+    "profile",
+    "black",
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 118,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

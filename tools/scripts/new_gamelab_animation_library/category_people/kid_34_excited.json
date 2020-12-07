@@ -1,0 +1,19 @@
+{
+  "name": "kid_34_excited",
+  "aliases": [
+    "people",
+    "kid",
+    "child",
+    "excited"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 324,
+    "y": 372
+  },
+  "looping": true,
+  "frameDelay": 2
+}

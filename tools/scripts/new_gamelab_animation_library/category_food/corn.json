@@ -1,0 +1,18 @@
+{
+  "name": "corn",
+  "aliases": [
+    "food",
+    "vegetable",
+    "corn"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 380,
+    "y": 369
+  },
+  "looping": true,
+  "frameDelay": 2
+}

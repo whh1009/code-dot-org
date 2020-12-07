@@ -1,0 +1,21 @@
+{
+  "name": "medalBronze",
+  "aliases": [
+    "game",
+    "board",
+    "game",
+    "board",
+    "medal",
+    "bronze"
+  ],
+  "categories": [
+    "board_games_and_cards"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 114,
+    "y": 119
+  },
+  "looping": true,
+  "frameDelay": 2
+}

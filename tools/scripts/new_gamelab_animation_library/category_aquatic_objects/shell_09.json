@@ -1,0 +1,19 @@
+{
+  "name": "shell_09",
+  "aliases": [
+    "underwater",
+    "shell",
+    "clam",
+    "white"
+  ],
+  "categories": [
+    "aquatic_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 250
+  },
+  "looping": true,
+  "frameDelay": 2
+}

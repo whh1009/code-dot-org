@@ -1,0 +1,19 @@
+{
+  "name": "pick_iron",
+  "aliases": [
+    "tools",
+    "pick",
+    "iron",
+    "game"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

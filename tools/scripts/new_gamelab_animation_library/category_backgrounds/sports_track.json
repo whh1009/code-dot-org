@@ -1,0 +1,23 @@
+{
+  "name": "sports_track",
+  "aliases": [
+    "background",
+    "track",
+    "trackandfield",
+    "lanes",
+    "red",
+    "brown",
+    "sport",
+    "sports"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

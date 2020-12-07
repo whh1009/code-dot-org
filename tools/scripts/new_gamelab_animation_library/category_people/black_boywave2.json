@@ -1,0 +1,20 @@
+{
+  "name": "black_boywave2",
+  "aliases": [
+    "character",
+    "boy",
+    "profile",
+    "black",
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 155,
+    "y": 391
+  },
+  "looping": true,
+  "frameDelay": 2
+}

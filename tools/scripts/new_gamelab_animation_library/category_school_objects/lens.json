@@ -1,0 +1,19 @@
+{
+  "name": "lens",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "lens"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 93,
+    "y": 117
+  },
+  "looping": true,
+  "frameDelay": 2
+}

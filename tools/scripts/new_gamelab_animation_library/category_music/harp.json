@@ -1,0 +1,17 @@
+{
+  "name": "harp",
+  "aliases": [
+    "music",
+    "harp"
+  ],
+  "categories": [
+    "music"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 114,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

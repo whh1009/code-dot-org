@@ -1,0 +1,19 @@
+{
+  "name": "monkey_token",
+  "aliases": [
+    "animal",
+    "monkey",
+    "token",
+    "round"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 284,
+    "y": 285
+  },
+  "looping": true,
+  "frameDelay": 2
+}

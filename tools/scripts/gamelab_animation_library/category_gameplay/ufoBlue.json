@@ -1,0 +1,20 @@
+{
+  "name": "ufoBlue",
+  "aliases": [
+    "vehicle",
+    "ufo",
+    "space",
+    "alien",
+    "blue"
+  ],
+  "categories": [
+    "vehicles"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 91,
+    "y": 91
+  },
+  "looping": true,
+  "frameDelay": 2
+}

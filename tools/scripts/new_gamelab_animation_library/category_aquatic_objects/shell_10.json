@@ -1,0 +1,19 @@
+{
+  "name": "shell_10",
+  "aliases": [
+    "underwater",
+    "shell",
+    "white",
+    "spikey"
+  ],
+  "categories": [
+    "aquatic_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 360
+  },
+  "looping": true,
+  "frameDelay": 2
+}

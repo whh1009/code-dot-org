@@ -1,0 +1,22 @@
+{
+  "name": "teen_03",
+  "aliases": [
+    "character",
+    "boy",
+    "profile",
+    "latin",
+    "latinx",
+    "hispanic",
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 125,
+    "y": 398
+  },
+  "looping": true,
+  "frameDelay": 2
+}

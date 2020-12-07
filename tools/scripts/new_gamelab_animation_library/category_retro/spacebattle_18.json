@@ -1,0 +1,18 @@
+{
+  "name": "spacebattle_18",
+  "aliases": [
+    "gameicon",
+    "burst",
+    "explosion"
+  ],
+  "categories": [
+    "retro"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 236,
+    "y": 237
+  },
+  "looping": true,
+  "frameDelay": 2
+}

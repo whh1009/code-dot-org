@@ -1,0 +1,18 @@
+{
+  "name": "spatula",
+  "aliases": [
+    "house",
+    "home",
+    "spatula"
+  ],
+  "categories": [
+    "household_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 88,
+    "y": 140
+  },
+  "looping": true,
+  "frameDelay": 2
+}

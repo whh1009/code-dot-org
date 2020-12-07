@@ -1,0 +1,20 @@
+{
+  "name": "ground_wood_small_broken",
+  "aliases": [
+    "game",
+    "blocks",
+    "ground",
+    "wood",
+    "broken"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 200,
+    "y": 100
+  },
+  "looping": true,
+  "frameDelay": 2
+}

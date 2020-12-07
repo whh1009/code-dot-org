@@ -1,0 +1,19 @@
+{
+  "name": "black_boybangs",
+  "aliases": [
+    "character",
+    "boy",
+    "profile",
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 125,
+    "y": 397
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "shell_07",
+  "aliases": [
+    "underwater",
+    "shell",
+    "orange",
+    "conch"
+  ],
+  "categories": [
+    "aquatic_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 358
+  },
+  "looping": true,
+  "frameDelay": 2
+}

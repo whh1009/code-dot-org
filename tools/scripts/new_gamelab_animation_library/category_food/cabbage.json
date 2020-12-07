@@ -1,0 +1,19 @@
+{
+  "name": "cabbage",
+  "aliases": [
+    "food",
+    "vegetable",
+    "greens",
+    "cabbage"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 393,
+    "y": 351
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "cheese",
+  "aliases": [
+    "food",
+    "cheese",
+    "swisscheese",
+    "mouse"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 379,
+    "y": 360
+  },
+  "looping": true,
+  "frameDelay": 2
+}

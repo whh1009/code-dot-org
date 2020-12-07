@@ -1,0 +1,19 @@
+{
+  "name": "textGameOver",
+  "aliases": [
+    "button",
+    "text",
+    "game",
+    "over"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 412,
+    "y": 78
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,20 @@
+{
+  "name": "crutches_03",
+  "aliases": [
+    "kid",
+    "crutches",
+    "disabled",
+    "injury",
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 123,
+    "y": 391
+  },
+  "looping": true,
+  "frameDelay": 2
+}

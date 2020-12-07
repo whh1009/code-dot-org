@@ -1,0 +1,18 @@
+{
+  "name": "house_04",
+  "aliases": [
+    "building",
+    "house",
+    "home"
+  ],
+  "categories": [
+    "buildings"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 275
+  },
+  "looping": true,
+  "frameDelay": 2
+}

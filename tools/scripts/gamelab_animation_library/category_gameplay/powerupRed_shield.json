@@ -1,0 +1,22 @@
+{
+  "name": "powerupRed_shield",
+  "aliases": [
+    "game",
+    "blocks",
+    "game",
+    "block",
+    "powerup",
+    "red",
+    "shield"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 34,
+    "y": 33
+  },
+  "looping": true,
+  "frameDelay": 2
+}

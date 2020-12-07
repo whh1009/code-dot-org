@@ -1,0 +1,19 @@
+{
+  "name": "cd",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "cd"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 82,
+    "y": 82
+  },
+  "looping": true,
+  "frameDelay": 2
+}

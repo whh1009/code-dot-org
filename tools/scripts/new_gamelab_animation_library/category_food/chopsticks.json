@@ -1,0 +1,17 @@
+{
+  "name": "chopsticks",
+  "aliases": [
+    "food",
+    "chopsticks"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 354,
+    "y": 387
+  },
+  "looping": true,
+  "frameDelay": 2
+}

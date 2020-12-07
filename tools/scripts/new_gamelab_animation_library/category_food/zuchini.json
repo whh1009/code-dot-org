@@ -1,0 +1,17 @@
+{
+  "name": "zuchini",
+  "aliases": [
+    "food",
+    "zuchini"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 361,
+    "y": 383
+  },
+  "looping": true,
+  "frameDelay": 2
+}

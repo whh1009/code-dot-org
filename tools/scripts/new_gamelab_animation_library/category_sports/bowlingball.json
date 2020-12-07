@@ -1,0 +1,19 @@
+{
+  "name": "bowlingball",
+  "aliases": [
+    "sports",
+    "ball",
+    "bowling",
+    "bowlingball"
+  ],
+  "categories": [
+    "sports"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 393,
+    "y": 394
+  },
+  "looping": true,
+  "frameDelay": 2
+}

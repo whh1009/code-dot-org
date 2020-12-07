@@ -1,0 +1,17 @@
+{
+  "name": "bread",
+  "aliases": [
+    "food",
+    "bread"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 293,
+    "y": 262
+  },
+  "looping": true,
+  "frameDelay": 2
+}

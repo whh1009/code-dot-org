@@ -1,0 +1,20 @@
+{
+  "name": "clip_pen",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "clip",
+    "pen"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 50,
+    "y": 74
+  },
+  "looping": true,
+  "frameDelay": 2
+}

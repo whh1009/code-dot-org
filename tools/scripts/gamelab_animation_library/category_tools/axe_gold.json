@@ -1,0 +1,19 @@
+{
+  "name": "axe_gold",
+  "aliases": [
+    "tools",
+    "axe",
+    "gold",
+    "game"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

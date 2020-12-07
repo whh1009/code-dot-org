@@ -1,0 +1,17 @@
+{
+  "name": "sander",
+  "aliases": [
+    "tools",
+    "sander"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 120,
+    "y": 110
+  },
+  "looping": true,
+  "frameDelay": 2
+}

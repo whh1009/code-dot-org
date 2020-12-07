@@ -1,0 +1,17 @@
+{
+  "name": "bunny1_jump",
+  "aliases": [
+    "animal",
+    "bunny"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 150,
+    "y": 181
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "pretzel",
+  "aliases": [
+    "snack",
+    "pretzel",
+    "food",
+    "concession"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 377,
+    "y": 278
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "box2",
+  "aliases": [
+    "face",
+    "box"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 3,
+  "frameSize": {
+    "x": 200,
+    "y": 73
+  },
+  "looping": true,
+  "frameDelay": 2
+}

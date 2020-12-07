@@ -1,0 +1,19 @@
+{
+  "name": "rockIce",
+  "aliases": [
+    "game",
+    "block",
+    "rock",
+    "ice"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 108,
+    "y": 239
+  },
+  "looping": true,
+  "frameDelay": 2
+}

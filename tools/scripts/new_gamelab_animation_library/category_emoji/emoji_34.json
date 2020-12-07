@@ -1,0 +1,17 @@
+{
+  "name": "emoji_34",
+  "aliases": [
+    "emoji",
+    "fingergun"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 312
+  },
+  "looping": true,
+  "frameDelay": 2
+}

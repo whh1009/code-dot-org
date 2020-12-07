@@ -1,0 +1,17 @@
+{
+  "name": "shovel",
+  "aliases": [
+    "tools",
+    "shovel"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 87,
+    "y": 162
+  },
+  "looping": true,
+  "frameDelay": 2
+}

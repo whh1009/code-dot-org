@@ -1,0 +1,22 @@
+{
+  "name": "tweenpupil_10",
+  "aliases": [
+    "character",
+    "boy",
+    "profile",
+    "latin",
+    "latinx",
+    "hispanic",
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 190,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

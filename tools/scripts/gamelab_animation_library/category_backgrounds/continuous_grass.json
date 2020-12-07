@@ -1,0 +1,18 @@
+{
+  "name": "continuous_grass",
+  "aliases": [
+    "background",
+    "continuous",
+    "grass"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 800,
+    "y": 398
+  },
+  "looping": true,
+  "frameDelay": 2
+}

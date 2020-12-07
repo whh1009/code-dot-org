@@ -1,0 +1,19 @@
+{
+  "name": "emoji_09",
+  "aliases": [
+    "emoji",
+    "smile",
+    "smileyface",
+    "tongue"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 300,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

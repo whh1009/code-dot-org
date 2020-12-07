@@ -1,0 +1,17 @@
+{
+  "name": "donut",
+  "aliases": [
+    "food",
+    "donut"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 395,
+    "y": 319
+  },
+  "looping": true,
+  "frameDelay": 2
+}

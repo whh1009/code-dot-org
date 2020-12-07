@@ -1,0 +1,19 @@
+{
+  "name": "headphones",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "headphones"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 106,
+    "y": 118
+  },
+  "looping": true,
+  "frameDelay": 2
+}

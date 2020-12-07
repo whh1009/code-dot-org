@@ -1,0 +1,18 @@
+{
+  "name": "money",
+  "aliases": [
+    "house",
+    "home",
+    "money"
+  ],
+  "categories": [
+    "household_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 101,
+    "y": 106
+  },
+  "looping": true,
+  "frameDelay": 2
+}

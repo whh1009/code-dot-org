@@ -1,0 +1,17 @@
+{
+  "name": "rabbit",
+  "aliases": [
+    "animal",
+    "rabbit"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 256,
+    "y": 341
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "coin_bronze",
+  "aliases": [
+    "game",
+    "board",
+    "coin",
+    "bronze"
+  ],
+  "categories": [
+    "board_games_and_cards"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 60,
+    "y": 61
+  },
+  "looping": true,
+  "frameDelay": 2
+}

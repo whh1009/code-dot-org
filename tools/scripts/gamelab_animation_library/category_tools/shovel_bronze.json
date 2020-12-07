@@ -1,0 +1,19 @@
+{
+  "name": "shovel_bronze",
+  "aliases": [
+    "tools",
+    "shovel",
+    "bronze",
+    "game"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

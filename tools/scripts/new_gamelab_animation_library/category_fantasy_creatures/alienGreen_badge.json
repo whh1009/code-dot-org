@@ -1,0 +1,20 @@
+{
+  "name": "alienGreen_badge",
+  "aliases": [
+    "game",
+    "board",
+    "alien",
+    "green",
+    "badge"
+  ],
+  "categories": [
+    "board_games_and_cards"
+  ],
+  "frameCount": 2,
+  "frameSize": {
+    "x": 49,
+    "y": 49
+  },
+  "looping": true,
+  "frameDelay": 2
+}

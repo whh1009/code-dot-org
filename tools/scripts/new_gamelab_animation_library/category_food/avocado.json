@@ -1,0 +1,17 @@
+{
+  "name": "avocado",
+  "aliases": [
+    "food",
+    "avocado"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 386,
+    "y": 368
+  },
+  "looping": true,
+  "frameDelay": 2
+}

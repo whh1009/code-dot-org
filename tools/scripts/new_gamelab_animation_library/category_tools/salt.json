@@ -1,0 +1,17 @@
+{
+  "name": "salt",
+  "aliases": [
+    "tools",
+    "salt"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 46,
+    "y": 95
+  },
+  "looping": true,
+  "frameDelay": 2
+}

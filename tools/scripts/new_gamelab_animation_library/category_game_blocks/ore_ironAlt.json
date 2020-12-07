@@ -1,0 +1,20 @@
+{
+  "name": "ore_ironAlt",
+  "aliases": [
+    "game",
+    "block",
+    "ore",
+    "iron",
+    "alt"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

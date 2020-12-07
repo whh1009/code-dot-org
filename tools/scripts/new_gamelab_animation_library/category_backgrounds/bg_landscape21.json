@@ -1,0 +1,20 @@
+{
+  "name": "bg_landscape21",
+  "aliases": [
+    "outerspace",
+    "background",
+    "landscape",
+    "planet",
+    "alien"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

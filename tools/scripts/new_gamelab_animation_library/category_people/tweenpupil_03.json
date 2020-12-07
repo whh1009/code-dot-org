@@ -1,0 +1,19 @@
+{
+  "name": "tweenpupil_03",
+  "aliases": [
+    "character",
+    "girl",
+    null,
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 138,
+    "y": 384
+  },
+  "looping": true,
+  "frameDelay": 2
+}

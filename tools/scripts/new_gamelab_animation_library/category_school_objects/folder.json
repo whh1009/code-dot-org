@@ -1,0 +1,19 @@
+{
+  "name": "folder",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "folder"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 94,
+    "y": 98
+  },
+  "looping": true,
+  "frameDelay": 2
+}

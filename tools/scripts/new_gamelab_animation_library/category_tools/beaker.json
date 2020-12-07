@@ -1,0 +1,17 @@
+{
+  "name": "beaker",
+  "aliases": [
+    "tools",
+    "beaker"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 72,
+    "y": 86
+  },
+  "looping": true,
+  "frameDelay": 2
+}

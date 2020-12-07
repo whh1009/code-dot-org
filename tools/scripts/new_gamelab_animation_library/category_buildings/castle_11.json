@@ -1,0 +1,17 @@
+{
+  "name": "castle_11",
+  "aliases": [
+    "building",
+    "castle"
+  ],
+  "categories": [
+    "buildings"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 280,
+    "y": 389
+  },
+  "looping": true,
+  "frameDelay": 2
+}

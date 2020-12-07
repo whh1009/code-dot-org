@@ -1,0 +1,20 @@
+{
+  "name": "pupilportrait_04",
+  "aliases": [
+    "character",
+    "girl",
+    "profile",
+    "asian",
+    "kid"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 342,
+    "y": 381
+  },
+  "looping": true,
+  "frameDelay": 2
+}

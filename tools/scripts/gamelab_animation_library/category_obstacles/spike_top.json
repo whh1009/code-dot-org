@@ -1,0 +1,19 @@
+{
+  "name": "spike_top",
+  "aliases": [
+    "game",
+    "block",
+    "spike",
+    "top"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 51,
+    "y": 87
+  },
+  "looping": true,
+  "frameDelay": 2
+}

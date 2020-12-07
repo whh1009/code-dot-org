@@ -1,0 +1,18 @@
+{
+  "name": "flan",
+  "aliases": [
+    "food",
+    "flan",
+    "dessert"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 399,
+    "y": 289
+  },
+  "looping": true,
+  "frameDelay": 2
+}

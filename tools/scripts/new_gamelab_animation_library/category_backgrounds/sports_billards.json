@@ -1,0 +1,20 @@
+{
+  "name": "sports_billards",
+  "aliases": [
+    "background",
+    "pool",
+    "billards",
+    "sports",
+    "sport"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

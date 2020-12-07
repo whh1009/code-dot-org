@@ -1,0 +1,19 @@
+{
+  "name": "lollipop_red",
+  "aliases": [
+    "game",
+    "block",
+    "lollipop",
+    "red"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 70,
+    "y": 70
+  },
+  "looping": true,
+  "frameDelay": 2
+}

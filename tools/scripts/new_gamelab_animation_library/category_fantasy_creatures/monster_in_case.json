@@ -1,0 +1,19 @@
+{
+  "name": "monster_in_case",
+  "aliases": [
+    "fantasy",
+    "monster",
+    "in",
+    "case"
+  ],
+  "categories": [
+    "fantasy_creatures"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 379,
+    "y": 485
+  },
+  "looping": true,
+  "frameDelay": 2
+}

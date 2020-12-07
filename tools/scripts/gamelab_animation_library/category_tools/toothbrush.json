@@ -1,0 +1,17 @@
+{
+  "name": "toothbrush",
+  "aliases": [
+    "tools",
+    "toothbrush"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 74,
+    "y": 107
+  },
+  "looping": true,
+  "frameDelay": 2
+}

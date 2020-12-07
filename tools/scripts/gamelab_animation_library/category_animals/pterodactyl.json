@@ -1,0 +1,17 @@
+{
+  "name": "pterodactyl",
+  "aliases": [
+    "animal",
+    "pterodactyl"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 300,
+    "y": 229
+  },
+  "looping": true,
+  "frameDelay": 2
+}

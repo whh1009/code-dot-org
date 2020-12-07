@@ -1,0 +1,17 @@
+{
+  "name": "egg",
+  "aliases": [
+    "food",
+    "egg"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 267,
+    "y": 377
+  },
+  "looping": true,
+  "frameDelay": 2
+}

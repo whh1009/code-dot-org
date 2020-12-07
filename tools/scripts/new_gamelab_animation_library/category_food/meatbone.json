@@ -1,0 +1,18 @@
+{
+  "name": "meatbone",
+  "aliases": [
+    "food",
+    "meat",
+    "rib"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 393,
+    "y": 394
+  },
+  "looping": true,
+  "frameDelay": 2
+}

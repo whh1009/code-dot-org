@@ -1,0 +1,17 @@
+{
+  "name": "pear",
+  "aliases": [
+    "food",
+    "pear"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 206,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

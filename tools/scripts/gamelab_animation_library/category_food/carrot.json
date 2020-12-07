@@ -1,0 +1,17 @@
+{
+  "name": "carrot",
+  "aliases": [
+    "food",
+    "carrot"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 78,
+    "y": 70
+  },
+  "looping": true,
+  "frameDelay": 2
+}

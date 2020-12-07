@@ -1,0 +1,21 @@
+{
+  "name": "tweenpupil_02",
+  "aliases": [
+    "character",
+    "boy",
+    "profile",
+    "glasses",
+    "white",
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 116,
+    "y": 386
+  },
+  "looping": true,
+  "frameDelay": 2
+}

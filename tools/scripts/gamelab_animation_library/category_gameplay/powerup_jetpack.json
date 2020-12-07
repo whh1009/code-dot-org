@@ -1,0 +1,19 @@
+{
+  "name": "powerup_jetpack",
+  "aliases": [
+    "game",
+    "blocks",
+    "powerup",
+    "jetpack"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 71,
+    "y": 70
+  },
+  "looping": true,
+  "frameDelay": 2
+}

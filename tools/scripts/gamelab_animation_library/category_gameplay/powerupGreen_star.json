@@ -1,0 +1,22 @@
+{
+  "name": "powerupGreen_star",
+  "aliases": [
+    "game",
+    "blocks",
+    "game",
+    "block",
+    "powerup",
+    "green",
+    "star"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 34,
+    "y": 33
+  },
+  "looping": true,
+  "frameDelay": 2
+}

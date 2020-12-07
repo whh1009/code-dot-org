@@ -1,0 +1,17 @@
+{
+  "name": "bunny1_ready",
+  "aliases": [
+    "animal",
+    "bunny"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 120,
+    "y": 191
+  },
+  "looping": true,
+  "frameDelay": 2
+}

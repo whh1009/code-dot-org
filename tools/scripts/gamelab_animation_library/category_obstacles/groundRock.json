@@ -1,0 +1,19 @@
+{
+  "name": "groundRock",
+  "aliases": [
+    "game",
+    "block",
+    "ground",
+    "rock"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 808,
+    "y": 71
+  },
+  "looping": true,
+  "frameDelay": 2
+}

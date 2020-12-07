@@ -1,0 +1,21 @@
+{
+  "name": "floppy_disk_light",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "floppy",
+    "disk",
+    "light"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 72,
+    "y": 65
+  },
+  "looping": true,
+  "frameDelay": 2
+}

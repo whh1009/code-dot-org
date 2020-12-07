@@ -1,0 +1,18 @@
+{
+  "name": "mushroom_brown",
+  "aliases": [
+    "food",
+    "mushroom",
+    "brown"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

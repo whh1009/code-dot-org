@@ -1,0 +1,18 @@
+{
+  "name": "kid_37",
+  "aliases": [
+    "people",
+    "kid",
+    "child"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 200,
+    "y": 247
+  },
+  "looping": true,
+  "frameDelay": 2
+}

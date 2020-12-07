@@ -1,0 +1,19 @@
+{
+  "name": "emoji_28",
+  "aliases": [
+    "emoji",
+    "purple",
+    "devil",
+    "evil"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 340,
+    "y": 312
+  },
+  "looping": true,
+  "frameDelay": 2
+}

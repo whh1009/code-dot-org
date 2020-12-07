@@ -1,0 +1,19 @@
+{
+  "name": "tweenpupil_05",
+  "aliases": [
+    "character",
+    "girl",
+    "black",
+    "kid"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 170,
+    "y": 388
+  },
+  "looping": true,
+  "frameDelay": 2
+}

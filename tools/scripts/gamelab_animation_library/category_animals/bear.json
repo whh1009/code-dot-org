@@ -1,0 +1,18 @@
+{
+  "name": "bear",
+  "aliases": [
+    "animal",
+    "bear",
+    "brown"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 254,
+    "y": 333
+  },
+  "looping": true,
+  "frameDelay": 2
+}

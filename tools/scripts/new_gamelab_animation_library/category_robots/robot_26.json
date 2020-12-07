@@ -1,0 +1,20 @@
+{
+  "name": "robot_26",
+  "aliases": [
+    "robot",
+    "character",
+    "scifi",
+    "green",
+    "copter"
+  ],
+  "categories": [
+    "robots"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 256
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,21 @@
+{
+  "name": "computer_tower_light",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "computer",
+    "tower",
+    "light"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 96,
+    "y": 135
+  },
+  "looping": true,
+  "frameDelay": 2
+}

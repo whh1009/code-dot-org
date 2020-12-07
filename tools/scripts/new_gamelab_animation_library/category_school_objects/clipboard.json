@@ -1,0 +1,19 @@
+{
+  "name": "clipboard",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "clipboard"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 98,
+    "y": 124
+  },
+  "looping": true,
+  "frameDelay": 2
+}

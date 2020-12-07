@@ -1,0 +1,17 @@
+{
+  "name": "watermelon",
+  "aliases": [
+    "food",
+    "watermelon"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 620,
+    "y": 361
+  },
+  "looping": true,
+  "frameDelay": 2
+}

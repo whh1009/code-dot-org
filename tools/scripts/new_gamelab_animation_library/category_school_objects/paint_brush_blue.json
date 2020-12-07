@@ -1,0 +1,21 @@
+{
+  "name": "paint_brush_blue",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "paint",
+    "brush",
+    "blue"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 50,
+    "y": 89
+  },
+  "looping": true,
+  "frameDelay": 2
+}

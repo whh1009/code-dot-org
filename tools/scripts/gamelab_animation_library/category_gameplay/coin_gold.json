@@ -1,0 +1,19 @@
+{
+  "name": "coin_gold",
+  "aliases": [
+    "game",
+    "board",
+    "coin",
+    "gold"
+  ],
+  "categories": [
+    "board_games_and_cards"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 61,
+    "y": 61
+  },
+  "looping": true,
+  "frameDelay": 2
+}

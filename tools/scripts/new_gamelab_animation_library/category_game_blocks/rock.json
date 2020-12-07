@@ -1,0 +1,18 @@
+{
+  "name": "rock",
+  "aliases": [
+    "game",
+    "blocks",
+    "rock"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

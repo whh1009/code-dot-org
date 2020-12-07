@@ -1,0 +1,19 @@
+{
+  "name": "curtain_top",
+  "aliases": [
+    "house",
+    "home",
+    "curtain",
+    "top"
+  ],
+  "categories": [
+    "household_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 200,
+    "y": 63
+  },
+  "looping": true,
+  "frameDelay": 2
+}

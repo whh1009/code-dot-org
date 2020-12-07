@@ -1,0 +1,17 @@
+{
+  "name": "bee",
+  "aliases": [
+    "animal",
+    "bee"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 2,
+  "frameSize": {
+    "x": 63,
+    "y": 50
+  },
+  "looping": true,
+  "frameDelay": 2
+}

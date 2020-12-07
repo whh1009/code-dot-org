@@ -1,0 +1,19 @@
+{
+  "name": "laptop",
+  "aliases": [
+    "school",
+    "work",
+    "office",
+    "laptop"
+  ],
+  "categories": [
+    "school_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 143,
+    "y": 136
+  },
+  "looping": true,
+  "frameDelay": 2
+}

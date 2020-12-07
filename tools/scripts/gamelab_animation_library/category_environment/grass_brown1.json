@@ -1,0 +1,19 @@
+{
+  "name": "grass_brown1",
+  "aliases": [
+    "game",
+    "blocks",
+    "grass",
+    "brown"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 58,
+    "y": 57
+  },
+  "looping": true,
+  "frameDelay": 2
+}

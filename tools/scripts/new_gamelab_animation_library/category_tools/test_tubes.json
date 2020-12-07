@@ -1,0 +1,18 @@
+{
+  "name": "test_tubes",
+  "aliases": [
+    "tools",
+    "test",
+    "tubes"
+  ],
+  "categories": [
+    "tools"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 118,
+    "y": 89
+  },
+  "looping": true,
+  "frameDelay": 2
+}

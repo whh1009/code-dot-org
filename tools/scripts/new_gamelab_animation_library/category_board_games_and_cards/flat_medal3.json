@@ -1,0 +1,18 @@
+{
+  "name": "flat_medal3",
+  "aliases": [
+    "game",
+    "board",
+    "medal"
+  ],
+  "categories": [
+    "board_games_and_cards"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 41,
+    "y": 74
+  },
+  "looping": true,
+  "frameDelay": 2
+}

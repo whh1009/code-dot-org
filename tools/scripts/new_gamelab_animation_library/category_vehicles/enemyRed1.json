@@ -1,0 +1,18 @@
+{
+  "name": "enemyRed1",
+  "aliases": [
+    "vehicle",
+    "enemy",
+    "red"
+  ],
+  "categories": [
+    "vehicles"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 93,
+    "y": 84
+  },
+  "looping": true,
+  "frameDelay": 2
+}

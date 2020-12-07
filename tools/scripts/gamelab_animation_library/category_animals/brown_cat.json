@@ -1,0 +1,18 @@
+{
+  "name": "brown_cat",
+  "aliases": [
+    "animal",
+    "cat",
+    "brown"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 191,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

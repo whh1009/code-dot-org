@@ -1,0 +1,22 @@
+{
+  "name": "powerupBlue_bolt",
+  "aliases": [
+    "game",
+    "blocks",
+    "game",
+    "block",
+    "powerup",
+    "blue",
+    "bolt"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 34,
+    "y": 33
+  },
+  "looping": true,
+  "frameDelay": 2
+}

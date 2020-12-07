@@ -1,0 +1,22 @@
+{
+  "name": "kidportrait_09",
+  "aliases": [
+    "character",
+    "girl",
+    "profile",
+    "kid",
+    "glasses",
+    "white",
+    "kid"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 298,
+    "y": 366
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "sun_and_rainbow",
+  "aliases": [
+    "background",
+    "sun",
+    "and",
+    "rainbow"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "burrito",
+  "aliases": [
+    "food",
+    "burrito"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 399,
+    "y": 381
+  },
+  "looping": true,
+  "frameDelay": 2
+}
