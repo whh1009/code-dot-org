@@ -1,0 +1,20 @@
+{
+  "name": "alienBlue_walk",
+  "aliases": [
+    "fantasy",
+    "space",
+    "alien",
+    "blue",
+    "walk"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 2,
+  "frameSize": {
+    "x": 69,
+    "y": 98
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "gnome",
+  "aliases": [
+    "fantasy",
+    "gnome"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 44,
+    "y": 136
+  },
+  "looping": true,
+  "frameDelay": 2
+}

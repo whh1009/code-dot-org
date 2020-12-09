@@ -1,0 +1,18 @@
+{
+  "name": "pink_monster",
+  "aliases": [
+    "fantasy",
+    "pink",
+    "monster"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 242,
+    "y": 285
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,20 @@
+{
+  "name": "alienPink_hit",
+  "aliases": [
+    "fantasy",
+    "space",
+    "alien",
+    "pink",
+    "hit"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 128,
+    "y": 256
+  },
+  "looping": true,
+  "frameDelay": 2
+}

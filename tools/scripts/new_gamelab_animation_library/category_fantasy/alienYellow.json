@@ -1,0 +1,19 @@
+{
+  "name": "alienYellow",
+  "aliases": [
+    "fantasy",
+    "space",
+    "alien",
+    "yellow"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 66,
+    "y": 82
+  },
+  "looping": true,
+  "frameDelay": 2
+}

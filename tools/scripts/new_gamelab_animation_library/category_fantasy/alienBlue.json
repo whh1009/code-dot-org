@@ -1,0 +1,19 @@
+{
+  "name": "alienBlue",
+  "aliases": [
+    "fantasy",
+    "space",
+    "alien",
+    "blue"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 66,
+    "y": 92
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,20 @@
+{
+  "name": "alienPink_climb",
+  "aliases": [
+    "fantasy",
+    "space",
+    "alien",
+    "pink",
+    "climb"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 2,
+  "frameSize": {
+    "x": 68,
+    "y": 94
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,18 @@
+{
+  "name": "wing_bot",
+  "aliases": [
+    "fantasy",
+    "wing",
+    "bot"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 8,
+  "frameSize": {
+    "x": 218,
+    "y": 128
+  },
+  "looping": true,
+  "frameDelay": 2
+}

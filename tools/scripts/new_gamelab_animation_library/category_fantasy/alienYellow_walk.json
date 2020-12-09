@@ -1,0 +1,20 @@
+{
+  "name": "alienYellow_walk",
+  "aliases": [
+    "fantasy",
+    "space",
+    "alien",
+    "yellow",
+    "walk"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 2,
+  "frameSize": {
+    "x": 72,
+    "y": 88
+  },
+  "looping": true,
+  "frameDelay": 2
+}

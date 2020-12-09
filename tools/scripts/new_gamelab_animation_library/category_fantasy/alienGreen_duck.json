@@ -1,0 +1,20 @@
+{
+  "name": "alienGreen_duck",
+  "aliases": [
+    "fantasy",
+    "space",
+    "alien",
+    "green",
+    "duck"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 69,
+    "y": 71
+  },
+  "looping": true,
+  "frameDelay": 2
+}

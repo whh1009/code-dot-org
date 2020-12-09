@@ -1,0 +1,17 @@
+{
+  "name": "ghost",
+  "aliases": [
+    "fantasy",
+    "ghost"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 51,
+    "y": 73
+  },
+  "looping": true,
+  "frameDelay": 2
+}

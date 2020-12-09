@@ -1,0 +1,18 @@
+{
+  "name": "floating_alien",
+  "aliases": [
+    "fantasy",
+    "floating",
+    "alien"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 239,
+    "y": 406
+  },
+  "looping": true,
+  "frameDelay": 2
+}

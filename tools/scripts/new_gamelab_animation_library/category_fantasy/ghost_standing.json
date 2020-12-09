@@ -1,0 +1,18 @@
+{
+  "name": "ghost_standing",
+  "aliases": [
+    "fantasy",
+    "ghost",
+    "standing"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 7,
+  "frameSize": {
+    "x": 72,
+    "y": 158
+  },
+  "looping": true,
+  "frameDelay": 2
+}
