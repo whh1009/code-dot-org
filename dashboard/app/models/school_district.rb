@@ -77,7 +77,11 @@ class SchoolDistrict < ApplicationRecord
         end
       end
 
-      # Should we switch this to run with district updates too?
+      # Note this iteration was never run with write_updates set to true,
+      # meaning that school districts that had updates in this iteration
+      # (but were not new) were not completed.
+      # That said, (presumably) most relevant updates were
+      # completed in the subsequent upload for 2018-2019.
       CDO.log.info "Seeding 2017-2018 school district data"
       import_options_1718 = {col_sep: ",", headers: true, quote_char: "\x00"}
       AWS::S3.seed_from_file('cdo-nces', "2017-2018/ccd/ccd_lea_029_1718_w_0a_03302018.csv") do |filename|
@@ -97,11 +101,12 @@ class SchoolDistrict < ApplicationRecord
       AWS::S3.seed_from_file('cdo-nces', "2018-2019/ccd/ELSI_csv_export_637423414304008909966.csv") do |filename|
         SchoolDistrict.merge_from_csv(filename, import_options_1819) do |row|
           {
-            id:    row['Agency ID - NCES Assigned [District] Latest available year'].tr('"=', '').to_i,
-            name:  row['Agency Name'].upcase,
-            city:  row['Location City [District] 2018-19'].to_s.upcase.presence,
-            state: row['Location State Abbr [District] 2018-19'].strip.to_s.upcase.presence,
-            zip:   row['Location ZIP [District] 2018-19'].tr('"=', '')
+            id:                           row['Agency ID - NCES Assigned [District] Latest available year'].tr('"=', '').to_i,
+            name:                         row['Agency Name'].upcase,
+            city:                         row['Location City [District] 2018-19'].to_s.upcase.presence,
+            state:                        row['Location State Abbr [District] 2018-19'].strip.to_s.upcase.presence,
+            zip:                          row['Location ZIP [District] 2018-19'].tr('"=', ''),
+            last_known_school_year_open:  '2018-2019'
           }
         end
       end
