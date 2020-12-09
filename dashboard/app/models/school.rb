@@ -333,19 +333,21 @@ class School < ApplicationRecord
   # @param filename [String] The CSV file name.
   # @param options [Hash] The CSV file parsing options.
   # @param write_updates [Boolean] Specify whether existing rows should be updated.  Default to true for backwards compatible with existing logic that calls this method to UPSERT schools.
-  def self.merge_from_csv(filename, options = CSV_IMPORT_OPTIONS, write_updates = true, dry_run = false)
+  def self.merge_from_csv(filename, options = CSV_IMPORT_OPTIONS, write_updates = true, is_dry_run: false)
+    schools = nil
     new_schools = []
     updated_schools = 0
+    updated_schools_attribute_frequency = {}
     unchanged_schools = 0
     duplicate_schools = []
 
     ActiveRecord::Base.transaction do
-      CSV.read(filename, options).each do |row|
+      schools = CSV.read(filename, options).each do |row|
         parsed = block_given? ? yield(row) : row.to_hash.symbolize_keys
         loaded = find_by_id(parsed[:id])
         if loaded.nil?
           begin
-            School.new(parsed).save! unless dry_run
+            School.new(parsed).save! unless is_dry_run
             new_schools << parsed
           rescue ActiveRecord::RecordNotUnique
             # NCES ID and state school ID are required to be unique,
@@ -357,7 +359,13 @@ class School < ApplicationRecord
         elsif write_updates
           loaded.assign_attributes(parsed)
           if loaded.changed?
-            loaded.update!(parsed) unless dry_run
+            loaded.update!(parsed) unless is_dry_run
+
+            loaded.changed.each do |attribute|
+              updated_schools_attribute_frequency.key?(attribute) ?
+                updated_schools_attribute_frequency[attribute] += 1 :
+                updated_schools_attribute_frequency[attribute] = 1
+            end
             updated_schools += 1
           else
             unchanged_schools += 1
@@ -366,23 +374,43 @@ class School < ApplicationRecord
       end
     end
 
-    # Make prettier?
-    CDO.log.info "School seeding: done processing #{filename}.\n"\
+    summary_message =
+      "School seeding: done processing #{filename}.\n"\
       "#{new_schools.length} new schools added.\n"\
-      "Schools added:\n"\
-      "#{new_schools.map {|school| school[:name] + ' ' + school[:id]}.join("\n")}\n"\
-      "#{duplicate_schools.length} duplicate schools skipped.\n"\
-      "Duplicate schools skipped:\n"\
-      "#{duplicate_schools.map {|school| school[:name] + ' ' + school[:id]}.join("\n")}\n"\
       "#{updated_schools} schools updated.\n"\
-      "#{unchanged_schools} schools in import with no updates.\n"
+      "#{duplicate_schools.length} duplicate schools skipped.\n"
+
+    unless new_schools.empty?
+      summary_message <<
+        "Schools added:\n"\
+        "#{new_schools.map {|school| school[:name] + ' ' + school[:id].to_s}.join("\n")}\n"
+    end
+
+    unless updated_schools_attribute_frequency.empty?
+      summary_message <<
+        "Among updated schools, these attributes were updated:\n"\
+        "#{updated_schools_attribute_frequency.sort_by {|_, v| v}.
+          reverse.
+          map {|attribute, frequency| attribute + ': ' + frequency.to_s}.join("\n")}\n"
+    end
+
+    unless duplicate_schools.empty?
+      summary_message <<
+        "Duplicate schools skipped:\n"\
+        "#{duplicate_schools.map {|school| school[:name] + ' ' + school[:id]}.join("\n")}"
+    end
+
+    CDO.log.info summary_message
+
+    schools
   end
 
-  def self.dry_seed_s3_object(bucket, filepath, import_options, &test)
+  def self.dry_seed_s3_object(bucket, filepath, import_options, &parse_row)
     AWS::S3.seed_from_file(bucket, filepath, true) do |filename|
-      merge_from_csv(filename, import_options, true, true, &test)
+      merge_from_csv(filename, import_options, true, is_dry_run: true, &parse_row)
+    ensure
+      CDO.log.info "This is a dry run. No data is written to the database."
     end
-    CDO.log.info "This is a dry run. No data is written to the database."
   end
 
   # Download the data in the table to a CSV file.
