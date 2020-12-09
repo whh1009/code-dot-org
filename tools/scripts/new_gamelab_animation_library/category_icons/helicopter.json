@@ -1,0 +1,19 @@
+{
+  "name": "helicopter",
+  "aliases": [
+    "icons",
+    "helicopter",
+    "chopper",
+    "vehicles"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 382,
+    "y": 213
+  },
+  "looping": true,
+  "frameDelay": 2
+}

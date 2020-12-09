@@ -1,0 +1,22 @@
+{
+  "name": "vdayemoji_11",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "valentines",
+    "valentine",
+    "sunglasses",
+    "heart",
+    "red"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 362,
+    "y": 336
+  },
+  "looping": true,
+  "frameDelay": 2
+}

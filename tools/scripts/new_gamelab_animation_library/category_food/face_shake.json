@@ -1,0 +1,17 @@
+{
+  "name": "face_shake",
+  "aliases": [
+    "food",
+    "shake"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 198,
+    "y": 391
+  },
+  "looping": true,
+  "frameDelay": 2
+}

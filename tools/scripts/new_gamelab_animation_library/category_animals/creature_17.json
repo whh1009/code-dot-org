@@ -1,0 +1,23 @@
+{
+  "name": "creature_17",
+  "aliases": [
+    "jelly",
+    "creature",
+    "fish",
+    "sea",
+    "ocean",
+    "underwater",
+    "orange",
+    "blowfish"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 386,
+    "y": 389
+  },
+  "looping": true,
+  "frameDelay": 2
+}

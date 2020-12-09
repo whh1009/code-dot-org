@@ -1,0 +1,18 @@
+{
+  "name": "cuteanimals_chicken",
+  "aliases": [
+    "animal",
+    "cute",
+    "chicken"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 305,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

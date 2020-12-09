@@ -1,0 +1,17 @@
+{
+  "name": "face_eggplant",
+  "aliases": [
+    "food",
+    "eggplant"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 228,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

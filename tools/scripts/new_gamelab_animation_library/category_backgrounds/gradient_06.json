@@ -1,0 +1,20 @@
+{
+  "name": "gradient_06",
+  "aliases": [
+    "background",
+    "gradient",
+    "peach",
+    "pink",
+    "yellow"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

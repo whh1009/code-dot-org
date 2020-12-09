@@ -1,0 +1,20 @@
+{
+  "name": "cuteanimals_pig1",
+  "aliases": [
+    "animal",
+    "cute",
+    "pig",
+    "piggy",
+    "piglet"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 326,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

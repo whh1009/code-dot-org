@@ -1,0 +1,17 @@
+{
+  "name": "armadillo",
+  "aliases": [
+    "animal",
+    "armadillo"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 399,
+    "y": 156
+  },
+  "looping": true,
+  "frameDelay": 2
+}

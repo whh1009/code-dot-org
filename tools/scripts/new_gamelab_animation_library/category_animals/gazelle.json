@@ -1,0 +1,17 @@
+{
+  "name": "gazelle",
+  "aliases": [
+    "animal",
+    "gazelle"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 309,
+    "y": 397
+  },
+  "looping": true,
+  "frameDelay": 2
+}

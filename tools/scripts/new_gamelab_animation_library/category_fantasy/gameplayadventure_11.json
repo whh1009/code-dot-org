@@ -1,0 +1,21 @@
+{
+  "name": "gameplayadventure_11",
+  "aliases": [
+    "RPG",
+    "gameplay",
+    "game",
+    "orange",
+    "pumpkin",
+    "creature"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 327,
+    "y": 389
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "face_chocobar",
+  "aliases": [
+    "food",
+    "chocolatebar"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 231,
+    "y": 391
+  },
+  "looping": true,
+  "frameDelay": 2
+}

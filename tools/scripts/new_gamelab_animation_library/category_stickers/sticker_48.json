@@ -1,0 +1,18 @@
+{
+  "name": "sticker_48",
+  "aliases": [
+    "sticker",
+    "party",
+    "wordbubble"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 342,
+    "y": 216
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "halloweenemoji_08",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "halloween",
+    "bat"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 350,
+    "y": 318
+  },
+  "looping": true,
+  "frameDelay": 2
+}

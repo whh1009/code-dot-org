@@ -1,0 +1,20 @@
+{
+  "name": "shell_14",
+  "aliases": [
+    "ocean",
+    "underwater",
+    "pink",
+    "shell",
+    "spotted"
+  ],
+  "categories": [
+    "aquatic_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 394,
+    "y": 389
+  },
+  "looping": true,
+  "frameDelay": 2
+}

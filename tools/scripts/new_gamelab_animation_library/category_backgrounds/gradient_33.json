@@ -1,0 +1,22 @@
+{
+  "name": "gradient_33",
+  "aliases": [
+    "background",
+    "purple",
+    "rainbow",
+    "gradient",
+    "blue",
+    "yellow",
+    "pink"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 369
+  },
+  "looping": true,
+  "frameDelay": 2
+}

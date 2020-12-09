@@ -1,0 +1,17 @@
+{
+  "name": "animalhead_snake_2",
+  "aliases": [
+    "animal",
+    "snake"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 300,
+    "y": 386
+  },
+  "looping": true,
+  "frameDelay": 2
+}

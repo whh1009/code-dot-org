@@ -1,0 +1,18 @@
+{
+  "name": "laptop",
+  "aliases": [
+    "icons",
+    "laptop",
+    "computer"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 392,
+    "y": 268
+  },
+  "looping": true,
+  "frameDelay": 2
+}

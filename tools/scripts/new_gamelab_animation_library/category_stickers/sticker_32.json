@@ -1,0 +1,17 @@
+{
+  "name": "sticker_32",
+  "aliases": [
+    "sticker",
+    "rocket"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 308,
+    "y": 278
+  },
+  "looping": true,
+  "frameDelay": 2
+}

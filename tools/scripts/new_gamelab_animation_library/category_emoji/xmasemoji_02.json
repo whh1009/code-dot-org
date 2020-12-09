@@ -1,0 +1,19 @@
+{
+  "name": "xmasemoji_02",
+  "aliases": [
+    "emoji",
+    "wink",
+    "snow",
+    "winter"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 312,
+    "y": 334
+  },
+  "looping": true,
+  "frameDelay": 2
+}

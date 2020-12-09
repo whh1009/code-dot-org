@@ -1,0 +1,22 @@
+{
+  "name": "background_landscape04",
+  "aliases": [
+    "background",
+    "cave",
+    "blue",
+    "gem",
+    "geode",
+    "rock",
+    "landscape"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 397
+  },
+  "looping": true,
+  "frameDelay": 2
+}

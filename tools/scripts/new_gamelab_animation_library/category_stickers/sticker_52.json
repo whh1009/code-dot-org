@@ -1,0 +1,18 @@
+{
+  "name": "sticker_52",
+  "aliases": [
+    "sticker",
+    "gem",
+    "diamond"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 224,
+    "y": 180
+  },
+  "looping": true,
+  "frameDelay": 2
+}

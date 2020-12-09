@@ -2,16 +2,15 @@
   "name": "cow",
   "aliases": [
     "animal",
-    "cow",
-    "farm"
+    "cow"
   ],
   "categories": [
     "animals"
   ],
   "frameCount": 1,
   "frameSize": {
-    "x": 265,
-    "y": 300
+    "x": 397,
+    "y": 308
   },
   "looping": true,
   "frameDelay": 2

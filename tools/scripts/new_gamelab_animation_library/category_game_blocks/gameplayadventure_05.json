@@ -1,0 +1,19 @@
+{
+  "name": "gameplayadventure_05",
+  "aliases": [
+    "RPG",
+    "gameplay",
+    "game",
+    "potion"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 336,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

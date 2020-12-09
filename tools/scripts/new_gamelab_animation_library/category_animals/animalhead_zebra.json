@@ -1,0 +1,17 @@
+{
+  "name": "animalhead_zebra",
+  "aliases": [
+    "animal",
+    "zebra"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 320,
+    "y": 396
+  },
+  "looping": true,
+  "frameDelay": 2
+}

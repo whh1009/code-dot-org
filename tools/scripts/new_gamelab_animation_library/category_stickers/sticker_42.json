@@ -1,0 +1,17 @@
+{
+  "name": "sticker_42",
+  "aliases": [
+    "sticker",
+    "umbrella"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 340
+  },
+  "looping": true,
+  "frameDelay": 2
+}

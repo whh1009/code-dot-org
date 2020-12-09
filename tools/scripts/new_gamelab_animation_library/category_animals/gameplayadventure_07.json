@@ -1,0 +1,21 @@
+{
+  "name": "gameplayadventure_07",
+  "aliases": [
+    "RPG",
+    "gameplay",
+    "game",
+    "blue",
+    "mouse",
+    "creature"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 234
+  },
+  "looping": true,
+  "frameDelay": 2
+}

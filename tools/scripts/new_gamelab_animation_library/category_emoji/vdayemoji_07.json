@@ -1,0 +1,18 @@
+{
+  "name": "vdayemoji_07",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "happy"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 316,
+    "y": 338
+  },
+  "looping": true,
+  "frameDelay": 2
+}

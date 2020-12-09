@@ -1,0 +1,21 @@
+{
+  "name": "gameplayweird_13",
+  "aliases": [
+    "game",
+    "gameplay",
+    "wackyfaces",
+    "sillyface",
+    "happy",
+    "green"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 389
+  },
+  "looping": true,
+  "frameDelay": 2
+}

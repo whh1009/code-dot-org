@@ -1,0 +1,17 @@
+{
+  "name": "pirhana",
+  "aliases": [
+    "animal",
+    "pirhana"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 390,
+    "y": 216
+  },
+  "looping": true,
+  "frameDelay": 2
+}

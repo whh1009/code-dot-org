@@ -1,0 +1,19 @@
+{
+  "name": "headphones",
+  "aliases": [
+    "icons",
+    "headphones",
+    "sound",
+    "mute"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 379,
+    "y": 371
+  },
+  "looping": true,
+  "frameDelay": 2
+}

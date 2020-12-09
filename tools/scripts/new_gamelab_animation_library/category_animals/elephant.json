@@ -2,17 +2,15 @@
   "name": "elephant",
   "aliases": [
     "animal",
-    "elepahnt",
-    "gray",
-    "grey"
+    "elephant"
   ],
   "categories": [
     "animals"
   ],
   "frameCount": 1,
   "frameSize": {
-    "x": 348,
-    "y": 282
+    "x": 398,
+    "y": 323
   },
   "looping": true,
   "frameDelay": 2

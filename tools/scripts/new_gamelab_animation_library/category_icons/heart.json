@@ -1,0 +1,19 @@
+{
+  "name": "heart",
+  "aliases": [
+    "icons",
+    "powerups",
+    "heart",
+    "health"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 387,
+    "y": 387
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "boxcar_11",
+  "aliases": [
+    "vehicle",
+    "car",
+    "boxcar",
+    "green"
+  ],
+  "categories": [
+    "vehicles"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 288
+  },
+  "looping": true,
+  "frameDelay": 2
+}

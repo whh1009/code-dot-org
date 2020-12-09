@@ -1,0 +1,17 @@
+{
+  "name": "bat",
+  "aliases": [
+    "animal",
+    "bat"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 217
+  },
+  "looping": true,
+  "frameDelay": 2
+}

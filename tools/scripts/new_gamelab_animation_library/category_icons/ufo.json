@@ -1,0 +1,20 @@
+{
+  "name": "ufo",
+  "aliases": [
+    "icons",
+    "space",
+    "ufo",
+    "ships",
+    "rocket"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 386,
+    "y": 267
+  },
+  "looping": true,
+  "frameDelay": 2
+}

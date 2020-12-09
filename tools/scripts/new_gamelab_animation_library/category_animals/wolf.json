@@ -1,0 +1,17 @@
+{
+  "name": "wolf",
+  "aliases": [
+    "animal",
+    "wolf"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 398,
+    "y": 266
+  },
+  "looping": true,
+  "frameDelay": 2
+}

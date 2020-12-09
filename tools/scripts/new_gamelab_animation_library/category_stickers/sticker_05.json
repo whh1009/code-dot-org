@@ -1,0 +1,17 @@
+{
+  "name": "sticker_05",
+  "aliases": [
+    "sticker",
+    "heart"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 228,
+    "y": 202
+  },
+  "looping": true,
+  "frameDelay": 2
+}

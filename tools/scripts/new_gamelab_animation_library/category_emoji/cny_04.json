@@ -1,0 +1,17 @@
+{
+  "name": "cny_04",
+  "aliases": [
+    "emoji",
+    "orange"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 292,
+    "y": 334
+  },
+  "looping": true,
+  "frameDelay": 2
+}

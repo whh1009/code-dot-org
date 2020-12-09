@@ -1,0 +1,17 @@
+{
+  "name": "sticker_16",
+  "aliases": [
+    "sticker",
+    "valentine"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 198,
+    "y": 138
+  },
+  "looping": true,
+  "frameDelay": 2
+}

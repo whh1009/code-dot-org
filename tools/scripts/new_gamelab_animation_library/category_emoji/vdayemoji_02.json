@@ -1,0 +1,17 @@
+{
+  "name": "vdayemoji_02",
+  "aliases": [
+    "emoji",
+    "candle"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 188,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

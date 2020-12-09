@@ -1,0 +1,17 @@
+{
+  "name": "animalhead_hippo",
+  "aliases": [
+    "animal",
+    "hippo"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 322,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

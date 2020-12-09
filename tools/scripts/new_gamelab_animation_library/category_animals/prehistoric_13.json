@@ -1,0 +1,19 @@
+{
+  "name": "prehistoric_13",
+  "aliases": [
+    "prehistoric",
+    "dinosaur",
+    "dodo",
+    "jungle"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 192,
+    "y": 216
+  },
+  "looping": true,
+  "frameDelay": 2
+}

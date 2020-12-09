@@ -1,0 +1,17 @@
+{
+  "name": "sticker_55",
+  "aliases": [
+    "sticker",
+    "heartbreak"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 216,
+    "y": 194
+  },
+  "looping": true,
+  "frameDelay": 2
+}

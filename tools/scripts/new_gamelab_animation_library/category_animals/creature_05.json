@@ -1,0 +1,24 @@
+{
+  "name": "creature_05",
+  "aliases": [
+    "jelly",
+    "creature",
+    "fish",
+    "sea",
+    "ocean",
+    "underwater",
+    "star",
+    "orange",
+    "starfish"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 392,
+    "y": 374
+  },
+  "looping": true,
+  "frameDelay": 2
+}

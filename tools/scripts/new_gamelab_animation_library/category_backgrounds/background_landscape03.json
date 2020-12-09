@@ -1,0 +1,21 @@
+{
+  "name": "background_landscape03",
+  "aliases": [
+    "landscape",
+    "background",
+    "sea",
+    "underwater",
+    "green",
+    "cave"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "award_trophy4",
+  "aliases": [
+    "RPG",
+    "gameplay",
+    "game",
+    "trophy"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 170,
+    "y": 398
+  },
+  "looping": true,
+  "frameDelay": 2
+}

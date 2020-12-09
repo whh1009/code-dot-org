@@ -1,0 +1,17 @@
+{
+  "name": "lynx",
+  "aliases": [
+    "animal",
+    "lynx"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 397
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,18 @@
+{
+  "name": "pizza_bacon",
+  "aliases": [
+    "food",
+    "meal",
+    "pizzabacon"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 396
+  },
+  "looping": true,
+  "frameDelay": 2
+}

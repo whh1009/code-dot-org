@@ -1,0 +1,17 @@
+{
+  "name": "face_meatbone",
+  "aliases": [
+    "food",
+    "meatbone"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 165
+  },
+  "looping": true,
+  "frameDelay": 2
+}

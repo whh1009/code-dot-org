@@ -1,0 +1,17 @@
+{
+  "name": "prehistoric_07",
+  "aliases": [
+    "jungle",
+    "hyena"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 256,
+    "y": 230
+  },
+  "looping": true,
+  "frameDelay": 2
+}

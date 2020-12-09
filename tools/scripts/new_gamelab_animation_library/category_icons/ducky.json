@@ -1,0 +1,19 @@
+{
+  "name": "ducky",
+  "aliases": [
+    "icons",
+    "ducky",
+    "animals",
+    "birds"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 395,
+    "y": 376
+  },
+  "looping": true,
+  "frameDelay": 2
+}

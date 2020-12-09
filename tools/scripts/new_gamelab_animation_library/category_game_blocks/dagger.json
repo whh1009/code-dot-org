@@ -1,0 +1,19 @@
+{
+  "name": "dagger",
+  "aliases": [
+    "RPG",
+    "gameplay",
+    "game",
+    "dagger"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 220,
+    "y": 398
+  },
+  "looping": true,
+  "frameDelay": 2
+}

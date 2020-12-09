@@ -1,0 +1,19 @@
+{
+  "name": "shield",
+  "aliases": [
+    "RPG",
+    "gameplay",
+    "game",
+    "shield"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 324,
+    "y": 398
+  },
+  "looping": true,
+  "frameDelay": 2
+}

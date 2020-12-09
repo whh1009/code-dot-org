@@ -1,0 +1,17 @@
+{
+  "name": "face_cottoncandy",
+  "aliases": [
+    "food",
+    "cottoncandy"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 216,
+    "y": 394
+  },
+  "looping": true,
+  "frameDelay": 2
+}

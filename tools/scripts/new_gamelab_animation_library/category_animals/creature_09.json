@@ -1,0 +1,23 @@
+{
+  "name": "creature_09",
+  "aliases": [
+    "jelly",
+    "creature",
+    "fish",
+    "sea",
+    "ocean",
+    "underwater",
+    "blue",
+    "octopus"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 326,
+    "y": 387
+  },
+  "looping": true,
+  "frameDelay": 2
+}

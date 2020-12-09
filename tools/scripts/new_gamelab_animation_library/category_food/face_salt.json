@@ -1,0 +1,17 @@
+{
+  "name": "face_salt",
+  "aliases": [
+    "food",
+    "salat"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 247,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,21 @@
+{
+  "name": "gameplayadventure_06",
+  "aliases": [
+    "RPG",
+    "gameplay",
+    "game",
+    "princess",
+    "queen",
+    "creature"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 271,
+    "y": 396
+  },
+  "looping": true,
+  "frameDelay": 2
+}

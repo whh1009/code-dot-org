@@ -1,0 +1,19 @@
+{
+  "name": "monster_04",
+  "aliases": [
+    "creature",
+    "monster",
+    "alien",
+    "moth"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 268,
+    "y": 368
+  },
+  "looping": true,
+  "frameDelay": 2
+}

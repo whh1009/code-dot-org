@@ -1,0 +1,21 @@
+{
+  "name": "background_landscape02",
+  "aliases": [
+    "background",
+    "lava",
+    "volcano",
+    "landscape",
+    "red",
+    "fire"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

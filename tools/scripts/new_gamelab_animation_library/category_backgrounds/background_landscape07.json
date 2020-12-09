@@ -1,0 +1,19 @@
+{
+  "name": "background_landscape07",
+  "aliases": [
+    "background",
+    "landscape",
+    "trees",
+    "sunset"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

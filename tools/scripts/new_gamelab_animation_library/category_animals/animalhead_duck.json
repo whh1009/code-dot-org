@@ -1,0 +1,17 @@
+{
+  "name": "animalhead_duck",
+  "aliases": [
+    "animal",
+    "duck"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 398,
+    "y": 348
+  },
+  "looping": true,
+  "frameDelay": 2
+}

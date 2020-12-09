@@ -1,0 +1,17 @@
+{
+  "name": "crocodile",
+  "aliases": [
+    "animal",
+    "crocodile"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 390,
+    "y": 150
+  },
+  "looping": true,
+  "frameDelay": 2
+}

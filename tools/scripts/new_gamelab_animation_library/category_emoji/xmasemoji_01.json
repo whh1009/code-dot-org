@@ -1,0 +1,21 @@
+{
+  "name": "xmasemoji_01",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "christmas",
+    "winter",
+    "snowman",
+    "frosty"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 282,
+    "y": 386
+  },
+  "looping": true,
+  "frameDelay": 2
+}

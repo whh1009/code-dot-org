@@ -1,0 +1,17 @@
+{
+  "name": "sticker_62",
+  "aliases": [
+    "sticker",
+    "rose"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 296,
+    "y": 240
+  },
+  "looping": true,
+  "frameDelay": 2
+}

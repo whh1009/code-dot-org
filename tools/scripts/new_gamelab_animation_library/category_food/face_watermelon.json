@@ -1,0 +1,17 @@
+{
+  "name": "face_watermelon",
+  "aliases": [
+    "food",
+    "watermelon"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 199
+  },
+  "looping": true,
+  "frameDelay": 2
+}

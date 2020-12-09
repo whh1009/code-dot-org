@@ -1,0 +1,19 @@
+{
+  "name": "xmasemoji_12",
+  "aliases": [
+    "emoji",
+    "present",
+    "birthday",
+    "christmas"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 328,
+    "y": 362
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -2,15 +2,17 @@
   "name": "parrot",
   "aliases": [
     "animal",
-    "parrot"
+    "parrot",
+    "bird",
+    "tropical"
   ],
   "categories": [
     "animals"
   ],
   "frameCount": 1,
   "frameSize": {
-    "x": 256,
-    "y": 257
+    "x": 399,
+    "y": 227
   },
   "looping": true,
   "frameDelay": 2

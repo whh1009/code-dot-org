@@ -1,0 +1,19 @@
+{
+  "name": "rooster",
+  "aliases": [
+    "animal",
+    "bird",
+    "chicken",
+    "rooster"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 354
+  },
+  "looping": true,
+  "frameDelay": 2
+}

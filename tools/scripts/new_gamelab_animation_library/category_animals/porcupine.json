@@ -1,0 +1,17 @@
+{
+  "name": "porcupine",
+  "aliases": [
+    "animal",
+    "porcupine"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 395,
+    "y": 291
+  },
+  "looping": true,
+  "frameDelay": 2
+}

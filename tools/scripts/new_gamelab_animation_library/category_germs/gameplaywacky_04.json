@@ -1,0 +1,18 @@
+{
+  "name": "gameplaywacky_04",
+  "aliases": [
+    "virus",
+    "germ",
+    "bue"
+  ],
+  "categories": [
+    "germs"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 391,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,21 @@
+{
+  "name": "no_sound",
+  "aliases": [
+    "icons",
+    "buttons",
+    "sound",
+    "speaker",
+    "mute",
+    "volume"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 375,
+    "y": 342
+  },
+  "looping": true,
+  "frameDelay": 2
+}

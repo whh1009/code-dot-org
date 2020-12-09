@@ -1,0 +1,17 @@
+{
+  "name": "panther",
+  "aliases": [
+    "animal",
+    "panther"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 397,
+    "y": 226
+  },
+  "looping": true,
+  "frameDelay": 2
+}

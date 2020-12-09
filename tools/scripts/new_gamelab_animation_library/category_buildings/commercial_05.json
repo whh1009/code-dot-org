@@ -1,0 +1,17 @@
+{
+  "name": "commercial_05",
+  "aliases": [
+    "building",
+    "commercial"
+  ],
+  "categories": [
+    "buildings"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 218
+  },
+  "looping": true,
+  "frameDelay": 2
+}

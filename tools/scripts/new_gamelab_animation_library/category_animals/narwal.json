@@ -1,0 +1,18 @@
+{
+  "name": "narwal",
+  "aliases": [
+    "animal",
+    "fish",
+    "narwal"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 100
+  },
+  "looping": true,
+  "frameDelay": 2
+}

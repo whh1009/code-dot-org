@@ -1,0 +1,21 @@
+{
+  "name": "potion3",
+  "aliases": [
+    "RPG",
+    "gameplay",
+    "game",
+    "poison",
+    "beaker",
+    "vile"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 236,
+    "y": 391
+  },
+  "looping": true,
+  "frameDelay": 2
+}

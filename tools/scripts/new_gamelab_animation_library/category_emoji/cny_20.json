@@ -1,0 +1,17 @@
+{
+  "name": "cny_20",
+  "aliases": [
+    "emoji",
+    "bashful"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 298,
+    "y": 302
+  },
+  "looping": true,
+  "frameDelay": 2
+}

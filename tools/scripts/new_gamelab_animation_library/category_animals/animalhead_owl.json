@@ -1,0 +1,17 @@
+{
+  "name": "animalhead_owl",
+  "aliases": [
+    "animal",
+    "owl"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 388,
+    "y": 262
+  },
+  "looping": true,
+  "frameDelay": 2
+}

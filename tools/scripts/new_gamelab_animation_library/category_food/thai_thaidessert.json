@@ -1,0 +1,19 @@
+{
+  "name": "thai_thaidessert",
+  "aliases": [
+    "food",
+    "meal",
+    "Thai",
+    "ThaiDessert"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 392,
+    "y": 388
+  },
+  "looping": true,
+  "frameDelay": 2
+}

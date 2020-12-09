@@ -1,0 +1,19 @@
+{
+  "name": "animalhead_greybear",
+  "aliases": [
+    "animal",
+    "bear",
+    "greybear",
+    "teddybear"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 398,
+    "y": 292
+  },
+  "looping": true,
+  "frameDelay": 2
+}

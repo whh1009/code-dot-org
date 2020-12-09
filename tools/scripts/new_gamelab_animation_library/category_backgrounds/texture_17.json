@@ -1,0 +1,19 @@
+{
+  "name": "texture_17",
+  "aliases": [
+    "background",
+    "texture",
+    "yellow",
+    "bubble"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

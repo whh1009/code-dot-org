@@ -1,0 +1,17 @@
+{
+  "name": "sticker_28",
+  "aliases": [
+    "sticker",
+    "moon"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 292,
+    "y": 292
+  },
+  "looping": true,
+  "frameDelay": 2
+}

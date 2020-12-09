@@ -1,0 +1,16 @@
+{
+  "name": "face_jame",
+  "aliases": [
+    "food"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 341,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

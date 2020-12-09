@@ -1,0 +1,22 @@
+{
+  "name": "earth",
+  "aliases": [
+    "icons",
+    "planets",
+    "solarsystem",
+    "space",
+    "galaxy",
+    "earth",
+    "globe"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 393,
+    "y": 394
+  },
+  "looping": true,
+  "frameDelay": 2
+}

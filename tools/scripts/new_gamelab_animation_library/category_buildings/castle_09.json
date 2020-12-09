@@ -1,0 +1,17 @@
+{
+  "name": "castle_09",
+  "aliases": [
+    "building",
+    "mill"
+  ],
+  "categories": [
+    "buildings"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 308
+  },
+  "looping": true,
+  "frameDelay": 2
+}

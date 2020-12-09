@@ -1,0 +1,17 @@
+{
+  "name": "animalhead_coyote",
+  "aliases": [
+    "animal",
+    "coyote"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 370
+  },
+  "looping": true,
+  "frameDelay": 2
+}

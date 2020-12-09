@@ -1,0 +1,17 @@
+{
+  "name": "popsicle",
+  "aliases": [
+    "food",
+    "popsicle"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 169,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

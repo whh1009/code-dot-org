@@ -1,0 +1,20 @@
+{
+  "name": "retroaliens_14",
+  "aliases": [
+    "retro",
+    "creature",
+    "alien",
+    "blue",
+    "red"
+  ],
+  "categories": [
+    "retro"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 356
+  },
+  "looping": true,
+  "frameDelay": 2
+}

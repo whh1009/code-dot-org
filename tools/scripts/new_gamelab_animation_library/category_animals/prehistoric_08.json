@@ -1,0 +1,17 @@
+{
+  "name": "prehistoric_08",
+  "aliases": [
+    "jungle",
+    "elephant"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 238
+  },
+  "looping": true,
+  "frameDelay": 2
+}

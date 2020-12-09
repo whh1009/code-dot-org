@@ -1,0 +1,20 @@
+{
+  "name": "ship03",
+  "aliases": [
+    "vehicle",
+    "spaceship",
+    "rocketship",
+    "ship",
+    "red"
+  ],
+  "categories": [
+    "vehicles"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 248
+  },
+  "looping": true,
+  "frameDelay": 2
+}

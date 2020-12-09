@@ -1,0 +1,19 @@
+{
+  "name": "french_bouillabaisse",
+  "aliases": [
+    "food",
+    "meal",
+    "French",
+    "Bouillabaisse"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

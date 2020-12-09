@@ -1,0 +1,17 @@
+{
+  "name": "face_pineapple",
+  "aliases": [
+    "food",
+    "pineapple"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 214,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

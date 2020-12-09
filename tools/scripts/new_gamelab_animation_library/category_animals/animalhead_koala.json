@@ -1,0 +1,17 @@
+{
+  "name": "animalhead_koala",
+  "aliases": [
+    "animal",
+    "koala"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 384,
+    "y": 228
+  },
+  "looping": true,
+  "frameDelay": 2
+}

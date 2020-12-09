@@ -1,0 +1,21 @@
+{
+  "name": "background_landscape27",
+  "aliases": [
+    "background",
+    "landscape",
+    "mountains",
+    "snow",
+    "white",
+    "winter"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

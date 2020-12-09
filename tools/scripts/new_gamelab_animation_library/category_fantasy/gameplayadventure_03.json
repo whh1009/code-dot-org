@@ -1,0 +1,21 @@
+{
+  "name": "gameplayadventure_03",
+  "aliases": [
+    "RPG",
+    "gameplay",
+    "game",
+    "fire",
+    "orange",
+    "creature"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 232,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

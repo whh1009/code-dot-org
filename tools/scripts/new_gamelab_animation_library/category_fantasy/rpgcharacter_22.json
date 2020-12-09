@@ -1,0 +1,22 @@
+{
+  "name": "rpgcharacter_22",
+  "aliases": [
+    "rpg",
+    "character",
+    "hero",
+    "player",
+    "girl",
+    "elf",
+    "archer"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 236,
+    "y": 239
+  },
+  "looping": true,
+  "frameDelay": 2
+}

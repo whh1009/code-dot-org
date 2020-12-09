@@ -1,0 +1,17 @@
+{
+  "name": "face_ramen",
+  "aliases": [
+    "food",
+    "ramen"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 394
+  },
+  "looping": true,
+  "frameDelay": 2
+}

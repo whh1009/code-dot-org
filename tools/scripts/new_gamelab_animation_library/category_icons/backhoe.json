@@ -1,0 +1,19 @@
+{
+  "name": "backhoe",
+  "aliases": [
+    "icons",
+    "backhoe",
+    "excavator",
+    "construction"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

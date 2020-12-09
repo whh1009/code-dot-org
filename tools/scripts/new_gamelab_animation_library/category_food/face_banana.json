@@ -1,0 +1,17 @@
+{
+  "name": "face_banana",
+  "aliases": [
+    "food",
+    "banana"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 264,
+    "y": 397
+  },
+  "looping": true,
+  "frameDelay": 2
+}

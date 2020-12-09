@@ -1,0 +1,17 @@
+{
+  "name": "face_carrot",
+  "aliases": [
+    "food",
+    "carrot"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 123,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

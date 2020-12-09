@@ -1,0 +1,17 @@
+{
+  "name": "face_pumpkin",
+  "aliases": [
+    "food",
+    "pumpkin"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 323
+  },
+  "looping": true,
+  "frameDelay": 2
+}

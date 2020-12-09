@@ -1,0 +1,18 @@
+{
+  "name": "sticker_41",
+  "aliases": [
+    "sticker",
+    "flipflop",
+    "sandal"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 258,
+    "y": 382
+  },
+  "looping": true,
+  "frameDelay": 2
+}

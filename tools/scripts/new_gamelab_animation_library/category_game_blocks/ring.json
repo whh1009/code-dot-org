@@ -1,0 +1,19 @@
+{
+  "name": "ring",
+  "aliases": [
+    "RPG",
+    "gameplay",
+    "game",
+    "ring"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 234,
+    "y": 392
+  },
+  "looping": true,
+  "frameDelay": 2
+}

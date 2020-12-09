@@ -1,0 +1,17 @@
+{
+  "name": "camel",
+  "aliases": [
+    "animal",
+    "camel"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 395,
+    "y": 340
+  },
+  "looping": true,
+  "frameDelay": 2
+}

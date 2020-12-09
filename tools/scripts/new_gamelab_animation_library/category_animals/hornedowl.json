@@ -1,0 +1,19 @@
+{
+  "name": "hornedowl",
+  "aliases": [
+    "animal",
+    "brown",
+    "owl",
+    "bird"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 307,
+    "y": 397
+  },
+  "looping": true,
+  "frameDelay": 2
+}

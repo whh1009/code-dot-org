@@ -1,0 +1,17 @@
+{
+  "name": "face_nigiri2",
+  "aliases": [
+    "food",
+    "nigiri"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 392,
+    "y": 254
+  },
+  "looping": true,
+  "frameDelay": 2
+}

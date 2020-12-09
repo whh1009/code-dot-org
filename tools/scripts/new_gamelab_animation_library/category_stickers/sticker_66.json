@@ -1,0 +1,17 @@
+{
+  "name": "sticker_66",
+  "aliases": [
+    "sticker",
+    "watermelon"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 274,
+    "y": 204
+  },
+  "looping": true,
+  "frameDelay": 2
+}

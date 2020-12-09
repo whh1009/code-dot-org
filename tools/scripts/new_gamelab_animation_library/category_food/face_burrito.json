@@ -1,0 +1,17 @@
+{
+  "name": "face_burrito",
+  "aliases": [
+    "food",
+    "burrito"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 188,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "halloweenemoji_02",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "halloween",
+    "pumpkin"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 392,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

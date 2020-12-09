@@ -1,0 +1,19 @@
+{
+  "name": "planefront_01",
+  "aliases": [
+    "vehicle",
+    "airplane",
+    "plane",
+    "red"
+  ],
+  "categories": [
+    "vehicles"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 394,
+    "y": 154
+  },
+  "looping": true,
+  "frameDelay": 2
+}

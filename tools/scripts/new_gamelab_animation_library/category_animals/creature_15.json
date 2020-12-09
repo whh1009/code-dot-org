@@ -1,0 +1,23 @@
+{
+  "name": "creature_15",
+  "aliases": [
+    "jelly",
+    "creature",
+    "fish",
+    "sea",
+    "ocean",
+    "underwater",
+    "red",
+    "jellyfish"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 394,
+    "y": 291
+  },
+  "looping": true,
+  "frameDelay": 2
+}

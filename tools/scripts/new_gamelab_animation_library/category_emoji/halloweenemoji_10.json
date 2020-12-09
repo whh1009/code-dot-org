@@ -1,0 +1,19 @@
+{
+  "name": "halloweenemoji_10",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "halloween",
+    "vampire"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 310
+  },
+  "looping": true,
+  "frameDelay": 2
+}

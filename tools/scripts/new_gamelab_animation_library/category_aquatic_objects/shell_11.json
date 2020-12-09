@@ -1,0 +1,19 @@
+{
+  "name": "shell_11",
+  "aliases": [
+    "ocean",
+    "underwater",
+    "blue",
+    "shell"
+  ],
+  "categories": [
+    "aquatic_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 391
+  },
+  "looping": true,
+  "frameDelay": 2
+}

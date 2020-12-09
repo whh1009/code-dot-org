@@ -1,0 +1,17 @@
+{
+  "name": "prehistoric_04",
+  "aliases": [
+    "jungle",
+    "toucan"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 308,
+    "y": 350
+  },
+  "looping": true,
+  "frameDelay": 2
+}

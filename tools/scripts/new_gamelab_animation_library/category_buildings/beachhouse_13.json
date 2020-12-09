@@ -1,0 +1,19 @@
+{
+  "name": "beachhouse_13",
+  "aliases": [
+    "building",
+    "beachhouse",
+    "bungalow",
+    "cabin"
+  ],
+  "categories": [
+    "buildings"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 394,
+    "y": 231
+  },
+  "looping": true,
+  "frameDelay": 2
+}

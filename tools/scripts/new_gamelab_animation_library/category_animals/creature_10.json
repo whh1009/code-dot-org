@@ -1,0 +1,23 @@
+{
+  "name": "creature_10",
+  "aliases": [
+    "jelly",
+    "creature",
+    "fish",
+    "sea",
+    "ocean",
+    "underwater",
+    "green",
+    "squid"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 185,
+    "y": 393
+  },
+  "looping": true,
+  "frameDelay": 2
+}

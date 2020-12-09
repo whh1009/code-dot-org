@@ -1,0 +1,22 @@
+{
+  "name": "rpgcharacter_20",
+  "aliases": [
+    "rpg",
+    "character",
+    "hero",
+    "player",
+    "girl",
+    "knight",
+    "warrior"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 280,
+    "y": 219
+  },
+  "looping": true,
+  "frameDelay": 2
+}

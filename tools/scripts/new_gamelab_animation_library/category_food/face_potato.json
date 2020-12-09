@@ -1,0 +1,17 @@
+{
+  "name": "face_potato",
+  "aliases": [
+    "food",
+    "potato"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 298,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "sticker_50",
+  "aliases": [
+    "sticker",
+    "popsicle"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 198,
+    "y": 322
+  },
+  "looping": true,
+  "frameDelay": 2
+}

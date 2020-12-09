@@ -1,0 +1,18 @@
+{
+  "name": "shark",
+  "aliases": [
+    "animal",
+    "fish",
+    "shark"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 397,
+    "y": 185
+  },
+  "looping": true,
+  "frameDelay": 2
+}

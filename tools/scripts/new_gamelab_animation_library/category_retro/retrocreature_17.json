@@ -1,0 +1,20 @@
+{
+  "name": "retrocreature_17",
+  "aliases": [
+    "retro",
+    "creature",
+    "alien",
+    "red",
+    "pink"
+  ],
+  "categories": [
+    "retro"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 365,
+    "y": 365
+  },
+  "looping": true,
+  "frameDelay": 2
+}

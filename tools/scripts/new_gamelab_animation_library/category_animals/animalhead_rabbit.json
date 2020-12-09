@@ -1,0 +1,18 @@
+{
+  "name": "animalhead_rabbit",
+  "aliases": [
+    "animal",
+    "rabbit",
+    "bunny"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 302,
+    "y": 386
+  },
+  "looping": true,
+  "frameDelay": 2
+}

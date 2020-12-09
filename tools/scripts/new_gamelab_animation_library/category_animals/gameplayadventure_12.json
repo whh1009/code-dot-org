@@ -1,0 +1,23 @@
+{
+  "name": "gameplayadventure_12",
+  "aliases": [
+    "RPG",
+    "gameplay",
+    "game",
+    "purple",
+    "fish",
+    "aquatic",
+    "underwater",
+    "creature"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 315,
+    "y": 395
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "sticker_61",
+  "aliases": [
+    "sticker",
+    "lips"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 274,
+    "y": 156
+  },
+  "looping": true,
+  "frameDelay": 2
+}

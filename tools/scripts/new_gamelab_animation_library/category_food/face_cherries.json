@@ -1,0 +1,17 @@
+{
+  "name": "face_cherries",
+  "aliases": [
+    "food",
+    "cherry"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 338,
+    "y": 396
+  },
+  "looping": true,
+  "frameDelay": 2
+}

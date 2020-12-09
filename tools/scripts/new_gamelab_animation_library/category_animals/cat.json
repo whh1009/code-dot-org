@@ -1,0 +1,17 @@
+{
+  "name": "cat",
+  "aliases": [
+    "animal",
+    "cat"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 332,
+    "y": 398
+  },
+  "looping": true,
+  "frameDelay": 2
+}

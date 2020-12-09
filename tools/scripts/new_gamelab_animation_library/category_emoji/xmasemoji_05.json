@@ -1,0 +1,19 @@
+{
+  "name": "xmasemoji_05",
+  "aliases": [
+    "emoji",
+    "snow",
+    "laughing",
+    "christmas"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 288,
+    "y": 364
+  },
+  "looping": true,
+  "frameDelay": 2
+}

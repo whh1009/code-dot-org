@@ -1,0 +1,19 @@
+{
+  "name": "lightning",
+  "aliases": [
+    "icons",
+    "powerup",
+    "lightning",
+    "zap"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 294,
+    "y": 395
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "piano",
+  "aliases": [
+    "icons",
+    "music",
+    "instruments",
+    "piano"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 384,
+    "y": 385
+  },
+  "looping": true,
+  "frameDelay": 2
+}

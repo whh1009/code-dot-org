@@ -1,0 +1,17 @@
+{
+  "name": "face_burger",
+  "aliases": [
+    "food",
+    "burger"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 341
+  },
+  "looping": true,
+  "frameDelay": 2
+}

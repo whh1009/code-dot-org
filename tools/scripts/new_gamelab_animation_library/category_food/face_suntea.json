@@ -1,0 +1,17 @@
+{
+  "name": "face_suntea",
+  "aliases": [
+    "food",
+    "suntea"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 356,
+    "y": 391
+  },
+  "looping": true,
+  "frameDelay": 2
+}

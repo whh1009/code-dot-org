@@ -1,0 +1,18 @@
+{
+  "name": "peacock",
+  "aliases": [
+    "animal",
+    "bird",
+    "peacock"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 399,
+    "y": 289
+  },
+  "looping": true,
+  "frameDelay": 2
+}

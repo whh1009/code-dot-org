@@ -1,0 +1,17 @@
+{
+  "name": "donkey",
+  "aliases": [
+    "animal",
+    "donkey"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 370,
+    "y": 396
+  },
+  "looping": true,
+  "frameDelay": 2
+}

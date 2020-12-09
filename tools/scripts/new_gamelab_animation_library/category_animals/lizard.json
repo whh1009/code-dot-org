@@ -1,0 +1,17 @@
+{
+  "name": "lizard",
+  "aliases": [
+    "animal",
+    "lizard"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 386,
+    "y": 198
+  },
+  "looping": true,
+  "frameDelay": 2
+}

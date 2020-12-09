@@ -1,0 +1,18 @@
+{
+  "name": "building_23",
+  "aliases": [
+    "building",
+    "commercial",
+    "store"
+  ],
+  "categories": [
+    "buildings"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 267,
+    "y": 284
+  },
+  "looping": true,
+  "frameDelay": 2
+}

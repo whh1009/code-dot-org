@@ -1,0 +1,18 @@
+{
+  "name": "vdayemoji_10",
+  "aliases": [
+    "emoji",
+    "valentine",
+    "heart"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 320,
+    "y": 320
+  },
+  "looping": true,
+  "frameDelay": 2
+}

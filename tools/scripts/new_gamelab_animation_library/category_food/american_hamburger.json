@@ -1,0 +1,18 @@
+{
+  "name": "american_hamburger",
+  "aliases": [
+    "food",
+    "meal",
+    "AmericanHamburder"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 320,
+    "y": 254
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "underseadeco_01",
+  "aliases": [
+    "plants",
+    "underwater",
+    "undersea",
+    "green"
+  ],
+  "categories": [
+    "aquatic_objects"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 193,
+    "y": 396
+  },
+  "looping": true,
+  "frameDelay": 2
+}

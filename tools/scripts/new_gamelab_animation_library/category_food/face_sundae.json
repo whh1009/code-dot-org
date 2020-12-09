@@ -1,0 +1,17 @@
+{
+  "name": "face_sundae",
+  "aliases": [
+    "food",
+    "sundae"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 235,
+    "y": 392
+  },
+  "looping": true,
+  "frameDelay": 2
+}

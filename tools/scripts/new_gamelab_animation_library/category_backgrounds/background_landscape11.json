@@ -1,0 +1,22 @@
+{
+  "name": "background_landscape11",
+  "aliases": [
+    "landscape",
+    "background",
+    "brown",
+    "red",
+    "outerspace",
+    "moon",
+    "stars"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

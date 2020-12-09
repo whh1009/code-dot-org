@@ -1,0 +1,21 @@
+{
+  "name": "american_bbqribs",
+  "aliases": [
+    "food",
+    "meal",
+    "BBQ",
+    "barbeque",
+    "American",
+    "ribs"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 388,
+    "y": 388
+  },
+  "looping": true,
+  "frameDelay": 2
+}

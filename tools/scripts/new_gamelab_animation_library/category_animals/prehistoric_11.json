@@ -1,0 +1,19 @@
+{
+  "name": "prehistoric_11",
+  "aliases": [
+    "prehistoric",
+    "fish",
+    "shark",
+    "ocean"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 340,
+    "y": 134
+  },
+  "looping": true,
+  "frameDelay": 2
+}

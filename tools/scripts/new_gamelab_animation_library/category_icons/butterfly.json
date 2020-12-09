@@ -1,0 +1,19 @@
+{
+  "name": "butterfly",
+  "aliases": [
+    "icons",
+    "butterfly",
+    "insects",
+    "animals"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 398,
+    "y": 350
+  },
+  "looping": true,
+  "frameDelay": 2
+}

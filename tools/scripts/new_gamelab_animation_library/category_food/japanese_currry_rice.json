@@ -1,0 +1,19 @@
+{
+  "name": "japanese_currry_rice",
+  "aliases": [
+    "food",
+    "meals",
+    "Japanese",
+    "curryrice"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 394,
+    "y": 394
+  },
+  "looping": true,
+  "frameDelay": 2
+}

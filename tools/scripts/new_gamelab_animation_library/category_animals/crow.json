@@ -1,0 +1,18 @@
+{
+  "name": "crow",
+  "aliases": [
+    "animal",
+    "bird",
+    "crow"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 365
+  },
+  "looping": true,
+  "frameDelay": 2
+}

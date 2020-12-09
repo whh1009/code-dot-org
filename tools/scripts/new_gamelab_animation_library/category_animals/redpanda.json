@@ -1,0 +1,17 @@
+{
+  "name": "redpanda",
+  "aliases": [
+    "animal",
+    "redpanda"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 397,
+    "y": 189
+  },
+  "looping": true,
+  "frameDelay": 2
+}

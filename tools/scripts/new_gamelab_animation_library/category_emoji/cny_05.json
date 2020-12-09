@@ -1,0 +1,17 @@
+{
+  "name": "cny_05",
+  "aliases": [
+    "emoji",
+    "flower"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 256,
+    "y": 260
+  },
+  "looping": true,
+  "frameDelay": 2
+}

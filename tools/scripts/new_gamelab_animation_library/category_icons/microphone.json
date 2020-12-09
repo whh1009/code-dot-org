@@ -1,0 +1,19 @@
+{
+  "name": "microphone",
+  "aliases": [
+    "icons",
+    "microphone",
+    "sound",
+    "record"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 275,
+    "y": 389
+  },
+  "looping": true,
+  "frameDelay": 2
+}

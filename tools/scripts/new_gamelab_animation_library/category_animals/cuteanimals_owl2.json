@@ -1,0 +1,19 @@
+{
+  "name": "cuteanimals_owl2",
+  "aliases": [
+    "animal",
+    "cute",
+    "owl",
+    "red"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 373,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,24 @@
+{
+  "name": "rpgcharacter_12",
+  "aliases": [
+    "rpg",
+    "character",
+    "hero",
+    "player",
+    "girl",
+    "guard",
+    "troll",
+    "ogre",
+    "goblin"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 230,
+    "y": 285
+  },
+  "looping": true,
+  "frameDelay": 2
+}

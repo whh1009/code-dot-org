@@ -1,0 +1,19 @@
+{
+  "name": "football",
+  "aliases": [
+    "icons",
+    "sports",
+    "balls",
+    "football"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 387,
+    "y": 259
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "cny_09",
+  "aliases": [
+    "emoji",
+    "chinesenewyear"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 370,
+    "y": 334
+  },
+  "looping": true,
+  "frameDelay": 2
+}

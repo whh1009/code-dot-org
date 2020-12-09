@@ -1,0 +1,17 @@
+{
+  "name": "face_orange",
+  "aliases": [
+    "food",
+    "orange"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 377,
+    "y": 381
+  },
+  "looping": true,
+  "frameDelay": 2
+}

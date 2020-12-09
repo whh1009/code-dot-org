@@ -1,0 +1,17 @@
+{
+  "name": "cny_03",
+  "aliases": [
+    "emoji",
+    "rice"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 352,
+    "y": 240
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,20 @@
+{
+  "name": "xmasemoji_03",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "christmas",
+    "santa",
+    "winter"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 284,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

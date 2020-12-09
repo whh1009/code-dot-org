@@ -1,0 +1,18 @@
+{
+  "name": "gamefood07",
+  "aliases": [
+    "food",
+    "gamefood",
+    "tomato"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 382
+  },
+  "looping": true,
+  "frameDelay": 2
+}

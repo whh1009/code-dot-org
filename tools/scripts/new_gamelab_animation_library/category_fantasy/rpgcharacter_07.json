@@ -1,0 +1,21 @@
+{
+  "name": "rpgcharacter_07",
+  "aliases": [
+    "rpg",
+    "character",
+    "hero",
+    "player",
+    "skeleton",
+    "warrior"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 282,
+    "y": 209
+  },
+  "looping": true,
+  "frameDelay": 2
+}

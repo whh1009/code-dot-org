@@ -1,0 +1,17 @@
+{
+  "name": "sticker_67",
+  "aliases": [
+    "sticker",
+    "strawberry"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 208,
+    "y": 202
+  },
+  "looping": true,
+  "frameDelay": 2
+}

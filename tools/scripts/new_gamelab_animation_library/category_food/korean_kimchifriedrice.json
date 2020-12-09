@@ -1,0 +1,19 @@
+{
+  "name": "korean_kimchifriedrice",
+  "aliases": [
+    "food",
+    "rice",
+    "kimchifriedrice",
+    "Koreanfood"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 395,
+    "y": 395
+  },
+  "looping": true,
+  "frameDelay": 2
+}

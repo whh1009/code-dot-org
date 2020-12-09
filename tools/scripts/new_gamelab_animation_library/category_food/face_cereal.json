@@ -1,0 +1,17 @@
+{
+  "name": "face_cereal",
+  "aliases": [
+    "food",
+    "cereal"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 397,
+    "y": 364
+  },
+  "looping": true,
+  "frameDelay": 2
+}

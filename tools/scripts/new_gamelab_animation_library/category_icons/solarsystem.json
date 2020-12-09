@@ -1,0 +1,20 @@
+{
+  "name": "solarsystem",
+  "aliases": [
+    "icons",
+    "planets",
+    "solarsystem",
+    "space",
+    "galaxy"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 379,
+    "y": 380
+  },
+  "looping": true,
+  "frameDelay": 2
+}

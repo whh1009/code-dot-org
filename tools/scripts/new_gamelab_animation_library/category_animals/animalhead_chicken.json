@@ -1,0 +1,18 @@
+{
+  "name": "animalhead_chicken",
+  "aliases": [
+    "animal",
+    "chicken",
+    "bird"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 286,
+    "y": 394
+  },
+  "looping": true,
+  "frameDelay": 2
+}

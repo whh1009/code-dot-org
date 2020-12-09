@@ -2,18 +2,15 @@
   "name": "tomato",
   "aliases": [
     "food",
-    "tomato",
-    "fruit",
-    "vegetable",
-    "produce"
+    "tomato"
   ],
   "categories": [
     "food"
   ],
   "frameCount": 1,
   "frameSize": {
-    "x": 389,
-    "y": 399
+    "x": 393,
+    "y": 321
   },
   "looping": true,
   "frameDelay": 2

@@ -1,0 +1,21 @@
+{
+  "name": "halloweenemoji_03",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "halloween",
+    "oneeye",
+    "pirate",
+    "patch"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 314,
+    "y": 314
+  },
+  "looping": true,
+  "frameDelay": 2
+}

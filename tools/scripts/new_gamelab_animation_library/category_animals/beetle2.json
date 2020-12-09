@@ -1,0 +1,19 @@
+{
+  "name": "beetle2",
+  "aliases": [
+    "animal",
+    "insect",
+    "beetle",
+    "green"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 369,
+    "y": 323
+  },
+  "looping": true,
+  "frameDelay": 2
+}

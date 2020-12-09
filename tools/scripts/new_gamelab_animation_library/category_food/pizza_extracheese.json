@@ -1,0 +1,19 @@
+{
+  "name": "pizza_extracheese",
+  "aliases": [
+    "food",
+    "meal",
+    "PizzaExtraCheese",
+    "pizza"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 396
+  },
+  "looping": true,
+  "frameDelay": 2
+}

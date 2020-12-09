@@ -1,0 +1,19 @@
+{
+  "name": "ray",
+  "aliases": [
+    "animal",
+    "fish",
+    "stingray",
+    "ray"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 372,
+    "y": 368
+  },
+  "looping": true,
+  "frameDelay": 2
+}

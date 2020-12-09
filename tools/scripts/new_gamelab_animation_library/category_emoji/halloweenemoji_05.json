@@ -1,0 +1,19 @@
+{
+  "name": "halloweenemoji_05",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "halloween",
+    "cat"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 340,
+    "y": 310
+  },
+  "looping": true,
+  "frameDelay": 2
+}

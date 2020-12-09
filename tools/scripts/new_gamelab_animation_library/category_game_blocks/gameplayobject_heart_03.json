@@ -1,0 +1,19 @@
+{
+  "name": "gameplayobject_heart_03",
+  "aliases": [
+    "game",
+    "gameplay",
+    "heart",
+    "wings"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 202
+  },
+  "looping": true,
+  "frameDelay": 2
+}

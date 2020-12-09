@@ -1,0 +1,20 @@
+{
+  "name": "astronaut",
+  "aliases": [
+    "icons",
+    "space",
+    "astronaut",
+    "character",
+    "player"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 328,
+    "y": 394
+  },
+  "looping": true,
+  "frameDelay": 2
+}

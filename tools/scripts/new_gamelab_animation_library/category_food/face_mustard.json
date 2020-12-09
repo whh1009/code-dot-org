@@ -1,0 +1,17 @@
+{
+  "name": "face_mustard",
+  "aliases": [
+    "food",
+    "mustard"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 148,
+    "y": 396
+  },
+  "looping": true,
+  "frameDelay": 2
+}

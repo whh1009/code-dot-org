@@ -1,0 +1,19 @@
+{
+  "name": "dolphin",
+  "aliases": [
+    "animal",
+    "fish",
+    "ocean",
+    "dolphin"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 395,
+    "y": 315
+  },
+  "looping": true,
+  "frameDelay": 2
+}

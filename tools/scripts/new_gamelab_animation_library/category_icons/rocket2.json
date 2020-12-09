@@ -1,0 +1,20 @@
+{
+  "name": "rocket2",
+  "aliases": [
+    "icons",
+    "space",
+    "ship",
+    "rocket",
+    "vehicles"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

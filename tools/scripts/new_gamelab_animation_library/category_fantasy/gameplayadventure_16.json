@@ -1,0 +1,21 @@
+{
+  "name": "gameplayadventure_16",
+  "aliases": [
+    "RPG",
+    "gameplay",
+    "game",
+    "fire",
+    "blue",
+    "creature"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 397,
+    "y": 341
+  },
+  "looping": true,
+  "frameDelay": 2
+}

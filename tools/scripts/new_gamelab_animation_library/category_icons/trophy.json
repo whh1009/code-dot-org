@@ -1,0 +1,19 @@
+{
+  "name": "trophy",
+  "aliases": [
+    "icons",
+    "trophy",
+    "treasure",
+    "prize"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 381,
+    "y": 389
+  },
+  "looping": true,
+  "frameDelay": 2
+}

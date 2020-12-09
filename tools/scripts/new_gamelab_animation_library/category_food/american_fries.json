@@ -1,0 +1,19 @@
+{
+  "name": "american_fries",
+  "aliases": [
+    "food",
+    "meal",
+    "fries",
+    "fastfood"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 278,
+    "y": 362
+  },
+  "looping": true,
+  "frameDelay": 2
+}

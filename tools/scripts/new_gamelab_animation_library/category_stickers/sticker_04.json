@@ -1,0 +1,19 @@
+{
+  "name": "sticker_04",
+  "aliases": [
+    "sticker",
+    "mail",
+    "loveletter",
+    "valentin"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 215,
+    "y": 226
+  },
+  "looping": true,
+  "frameDelay": 2
+}

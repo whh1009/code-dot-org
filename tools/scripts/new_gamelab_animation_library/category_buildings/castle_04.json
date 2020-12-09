@@ -1,0 +1,17 @@
+{
+  "name": "castle_04",
+  "aliases": [
+    "building",
+    "windmill"
+  ],
+  "categories": [
+    "buildings"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 240,
+    "y": 372
+  },
+  "looping": true,
+  "frameDelay": 2
+}

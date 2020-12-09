@@ -1,0 +1,17 @@
+{
+  "name": "animalhead_rhino",
+  "aliases": [
+    "animal",
+    "rhino"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 314,
+    "y": 394
+  },
+  "looping": true,
+  "frameDelay": 2
+}

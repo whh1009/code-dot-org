@@ -2,7 +2,6 @@
   "name": "pear",
   "aliases": [
     "food",
-    "fruit",
     "pear"
   ],
   "categories": [
@@ -10,8 +9,8 @@
   ],
   "frameCount": 1,
   "frameSize": {
-    "x": 341,
-    "y": 393
+    "x": 236,
+    "y": 399
   },
   "looping": true,
   "frameDelay": 2

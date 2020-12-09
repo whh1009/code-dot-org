@@ -1,0 +1,19 @@
+{
+  "name": "animalhead_pheasant",
+  "aliases": [
+    "animal",
+    "bird",
+    "pheasant",
+    "peacock"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 312,
+    "y": 394
+  },
+  "looping": true,
+  "frameDelay": 2
+}

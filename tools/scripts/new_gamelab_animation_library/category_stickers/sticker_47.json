@@ -1,0 +1,17 @@
+{
+  "name": "sticker_47",
+  "aliases": [
+    "sticker",
+    "donut"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 268,
+    "y": 208
+  },
+  "looping": true,
+  "frameDelay": 2
+}

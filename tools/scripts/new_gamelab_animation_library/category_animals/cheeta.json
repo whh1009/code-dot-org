@@ -1,0 +1,17 @@
+{
+  "name": "cheeta",
+  "aliases": [
+    "animal",
+    "cheeta"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 311
+  },
+  "looping": true,
+  "frameDelay": 2
+}

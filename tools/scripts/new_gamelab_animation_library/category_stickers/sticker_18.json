@@ -1,0 +1,17 @@
+{
+  "name": "sticker_18",
+  "aliases": [
+    "sticker",
+    "crown"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 236,
+    "y": 196
+  },
+  "looping": true,
+  "frameDelay": 2
+}

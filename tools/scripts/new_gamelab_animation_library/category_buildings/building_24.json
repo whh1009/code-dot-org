@@ -1,0 +1,17 @@
+{
+  "name": "building_24",
+  "aliases": [
+    "building",
+    "kitchen"
+  ],
+  "categories": [
+    "buildings"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 346,
+    "y": 274
+  },
+  "looping": true,
+  "frameDelay": 2
+}

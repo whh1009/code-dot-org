@@ -1,0 +1,17 @@
+{
+  "name": "face_fish",
+  "aliases": [
+    "food",
+    "fish"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 394,
+    "y": 223
+  },
+  "looping": true,
+  "frameDelay": 2
+}

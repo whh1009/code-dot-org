@@ -1,0 +1,19 @@
+{
+  "name": "halloweenemoji_11",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "halloween",
+    "mummy"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 312,
+    "y": 312
+  },
+  "looping": true,
+  "frameDelay": 2
+}

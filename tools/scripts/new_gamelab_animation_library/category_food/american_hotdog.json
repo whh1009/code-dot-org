@@ -1,0 +1,19 @@
+{
+  "name": "american_hotdog",
+  "aliases": [
+    "food",
+    "meal",
+    "American",
+    "hotdog"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 284
+  },
+  "looping": true,
+  "frameDelay": 2
+}

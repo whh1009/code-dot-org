@@ -1,0 +1,17 @@
+{
+  "name": "tanuki",
+  "aliases": [
+    "animal",
+    "tanuki"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 271
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "face_egg",
+  "aliases": [
+    "food",
+    "egg"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 278,
+    "y": 385
+  },
+  "looping": true,
+  "frameDelay": 2
+}

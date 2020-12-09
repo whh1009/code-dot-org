@@ -1,0 +1,20 @@
+{
+  "name": "halloweenemoji_07",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "halloween",
+    "sick",
+    "zombie"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 312,
+    "y": 310
+  },
+  "looping": true,
+  "frameDelay": 2
+}

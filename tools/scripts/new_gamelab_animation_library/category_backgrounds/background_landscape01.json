@@ -1,0 +1,21 @@
+{
+  "name": "background_landscape01",
+  "aliases": [
+    "background",
+    "cave",
+    "brown",
+    "icicle",
+    "landscape",
+    "rock"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

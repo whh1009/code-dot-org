@@ -1,0 +1,17 @@
+{
+  "name": "face_donut",
+  "aliases": [
+    "food",
+    "donut"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 382,
+    "y": 211
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "vdayemoji_06",
+  "aliases": [
+    "emoji",
+    "wink",
+    "heart",
+    "valentine"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 320
+  },
+  "looping": true,
+  "frameDelay": 2
+}

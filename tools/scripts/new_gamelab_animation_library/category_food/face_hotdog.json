@@ -1,0 +1,17 @@
+{
+  "name": "face_hotdog",
+  "aliases": [
+    "food",
+    "hotdog"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

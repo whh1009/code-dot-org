@@ -1,0 +1,20 @@
+{
+  "name": "halloweenemoji_18",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "halloween",
+    "bones",
+    "skeleton"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 356
+  },
+  "looping": true,
+  "frameDelay": 2
+}

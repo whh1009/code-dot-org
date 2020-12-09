@@ -1,0 +1,22 @@
+{
+  "name": "rpgcharacter_03",
+  "aliases": [
+    "rpg",
+    "character",
+    "hero",
+    "player",
+    "priest",
+    "wizard",
+    "mage"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 206,
+    "y": 243
+  },
+  "looping": true,
+  "frameDelay": 2
+}

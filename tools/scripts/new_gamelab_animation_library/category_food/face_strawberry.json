@@ -1,0 +1,17 @@
+{
+  "name": "face_strawberry",
+  "aliases": [
+    "food",
+    "strawberry"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 310,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

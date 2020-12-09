@@ -1,0 +1,17 @@
+{
+  "name": "face_chococake",
+  "aliases": [
+    "food",
+    "chocolatecake"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 396
+  },
+  "looping": true,
+  "frameDelay": 2
+}

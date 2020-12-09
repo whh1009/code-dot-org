@@ -1,0 +1,21 @@
+{
+  "name": "rpgcharacter_24",
+  "aliases": [
+    "rpg",
+    "character",
+    "hero",
+    "player",
+    "girl",
+    "warrior"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 222
+  },
+  "looping": true,
+  "frameDelay": 2
+}

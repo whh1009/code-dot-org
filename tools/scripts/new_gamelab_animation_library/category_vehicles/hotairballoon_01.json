@@ -1,0 +1,17 @@
+{
+  "name": "hotairballoon_01",
+  "aliases": [
+    "vehicle",
+    "hotairballoon"
+  ],
+  "categories": [
+    "vehicles"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 272,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

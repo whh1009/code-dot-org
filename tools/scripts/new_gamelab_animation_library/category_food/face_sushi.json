@@ -1,0 +1,17 @@
+{
+  "name": "face_sushi",
+  "aliases": [
+    "food",
+    "sushi"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 393,
+    "y": 349
+  },
+  "looping": true,
+  "frameDelay": 2
+}

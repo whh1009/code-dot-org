@@ -1,0 +1,21 @@
+{
+  "name": "gameplayfaces_08",
+  "aliases": [
+    "game",
+    "gameplay",
+    "wackyfaces",
+    "sillyface",
+    "orange",
+    "confused"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 391,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

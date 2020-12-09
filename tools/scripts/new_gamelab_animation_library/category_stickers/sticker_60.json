@@ -1,0 +1,18 @@
+{
+  "name": "sticker_60",
+  "aliases": [
+    "sticker",
+    "OMG",
+    "wordbubble"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 270,
+    "y": 220
+  },
+  "looping": true,
+  "frameDelay": 2
+}

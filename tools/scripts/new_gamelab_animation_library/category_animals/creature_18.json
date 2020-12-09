@@ -1,0 +1,23 @@
+{
+  "name": "creature_18",
+  "aliases": [
+    "jelly",
+    "creature",
+    "fish",
+    "sea",
+    "ocean",
+    "underwater",
+    "cyclops",
+    "blue"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 392,
+    "y": 398
+  },
+  "looping": true,
+  "frameDelay": 2
+}

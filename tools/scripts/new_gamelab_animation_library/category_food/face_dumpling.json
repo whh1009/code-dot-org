@@ -1,0 +1,17 @@
+{
+  "name": "face_dumpling",
+  "aliases": [
+    "food",
+    "dumpling"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 386,
+    "y": 359
+  },
+  "looping": true,
+  "frameDelay": 2
+}

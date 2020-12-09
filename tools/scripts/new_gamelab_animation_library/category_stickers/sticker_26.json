@@ -1,0 +1,17 @@
+{
+  "name": "sticker_26",
+  "aliases": [
+    "sticker",
+    "shootingstar"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 286,
+    "y": 246
+  },
+  "looping": true,
+  "frameDelay": 2
+}

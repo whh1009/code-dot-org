@@ -1,0 +1,17 @@
+{
+  "name": "animalhead_leopard",
+  "aliases": [
+    "animal",
+    "leopard"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 348
+  },
+  "looping": true,
+  "frameDelay": 2
+}

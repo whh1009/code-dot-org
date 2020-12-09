@@ -1,0 +1,19 @@
+{
+  "name": "atom",
+  "aliases": [
+    "icons",
+    "science",
+    "atoms",
+    "molecules"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 385,
+    "y": 348
+  },
+  "looping": true,
+  "frameDelay": 2
+}

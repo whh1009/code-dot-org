@@ -1,0 +1,22 @@
+{
+  "name": "gameplayadventure_18",
+  "aliases": [
+    "RPG",
+    "gameplay",
+    "game",
+    "green",
+    "plant",
+    "leves",
+    "creature"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 391,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

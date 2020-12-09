@@ -1,0 +1,21 @@
+{
+  "name": "burst11",
+  "aliases": [
+    "game",
+    "gameplay",
+    "burst",
+    "explosion",
+    "yellow",
+    "smoke"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 348,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

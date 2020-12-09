@@ -1,0 +1,18 @@
+{
+  "name": "gameplayobject_item_02",
+  "aliases": [
+    "game",
+    "gameplay",
+    "poison"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 384,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,21 @@
+{
+  "name": "gameplayweird_08",
+  "aliases": [
+    "game",
+    "gameplay",
+    "wackyfaces",
+    "sillyface",
+    "pink",
+    "surprised"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 345,
+    "y": 398
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "gameplayobject_item_01",
+  "aliases": [
+    "game",
+    "gameplay",
+    "bomb",
+    "grenade"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 346,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

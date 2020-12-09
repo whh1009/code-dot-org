@@ -1,0 +1,19 @@
+{
+  "name": "mexican_molepoblano",
+  "aliases": [
+    "food",
+    "meal",
+    "Mexican",
+    "MolePoblano"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 390,
+    "y": 390
+  },
+  "looping": true,
+  "frameDelay": 2
+}

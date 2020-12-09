@@ -1,0 +1,17 @@
+{
+  "name": "lemur",
+  "aliases": [
+    "animal",
+    "lemur"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 267,
+    "y": 397
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,20 @@
+{
+  "name": "halloweenemoji_12",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "halloween",
+    "scream",
+    "purple"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 310,
+    "y": 342
+  },
+  "looping": true,
+  "frameDelay": 2
+}

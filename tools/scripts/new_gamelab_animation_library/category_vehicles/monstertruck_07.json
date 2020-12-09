@@ -1,0 +1,20 @@
+{
+  "name": "monstertruck_07",
+  "aliases": [
+    "vehicle",
+    "truck",
+    "monstertruck",
+    "yellow",
+    "gold"
+  ],
+  "categories": [
+    "vehicles"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 247
+  },
+  "looping": true,
+  "frameDelay": 2
+}

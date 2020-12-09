@@ -1,0 +1,24 @@
+{
+  "name": "creature_12",
+  "aliases": [
+    "jelly",
+    "creature",
+    "fish",
+    "sea",
+    "ocean",
+    "underwater",
+    "orange",
+    "crab",
+    "hermitcrab"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 265
+  },
+  "looping": true,
+  "frameDelay": 2
+}

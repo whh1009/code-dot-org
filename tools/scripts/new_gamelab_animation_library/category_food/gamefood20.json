@@ -1,0 +1,19 @@
+{
+  "name": "gamefood20",
+  "aliases": [
+    "food",
+    "gamefood",
+    "cheese",
+    "swisscheese"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

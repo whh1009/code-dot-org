@@ -1,0 +1,21 @@
+{
+  "name": "gameplayfaces_09",
+  "aliases": [
+    "game",
+    "gameplay",
+    "wackyfaces",
+    "sillyface",
+    "blue",
+    "wideeyed"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 391,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

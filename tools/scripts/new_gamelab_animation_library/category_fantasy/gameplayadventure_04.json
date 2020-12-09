@@ -1,0 +1,21 @@
+{
+  "name": "gameplayadventure_04",
+  "aliases": [
+    "RPG",
+    "gameplay",
+    "game",
+    "water",
+    "blue",
+    "creature"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 271,
+    "y": 396
+  },
+  "looping": true,
+  "frameDelay": 2
+}

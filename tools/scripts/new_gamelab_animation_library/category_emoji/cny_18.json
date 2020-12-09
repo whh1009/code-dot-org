@@ -1,0 +1,17 @@
+{
+  "name": "cny_18",
+  "aliases": [
+    "emoji",
+    "happy"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 306,
+    "y": 328
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "mud",
+  "aliases": [
+    "mud",
+    "game"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 391,
+    "y": 369
+  },
+  "looping": true,
+  "frameDelay": 2
+}

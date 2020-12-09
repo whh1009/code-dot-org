@@ -1,0 +1,22 @@
+{
+  "name": "skate",
+  "aliases": [
+    "fish",
+    "skate",
+    "ray",
+    "stingray",
+    "ocean",
+    "sea",
+    "underwater"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 361,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

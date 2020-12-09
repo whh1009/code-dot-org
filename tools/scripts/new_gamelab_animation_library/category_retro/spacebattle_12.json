@@ -1,0 +1,17 @@
+{
+  "name": "spacebattle_12",
+  "aliases": [
+    "retro",
+    "spacebattlespaceship"
+  ],
+  "categories": [
+    "retro"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 174,
+    "y": 122
+  },
+  "looping": true,
+  "frameDelay": 2
+}

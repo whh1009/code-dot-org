@@ -1,0 +1,24 @@
+{
+  "name": "background_underwater_05",
+  "aliases": [
+    "landscape",
+    "background",
+    "blue",
+    "sea",
+    "ocean",
+    "ship",
+    "treasure",
+    "anchor",
+    "underwater"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

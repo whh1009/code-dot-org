@@ -1,0 +1,20 @@
+{
+  "name": "gameplayobject_heart_01",
+  "aliases": [
+    "game",
+    "Medieval",
+    "MiddleAges",
+    "heart",
+    "gameplay"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 344
+  },
+  "looping": true,
+  "frameDelay": 2
+}

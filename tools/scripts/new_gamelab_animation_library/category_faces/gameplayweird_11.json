@@ -1,0 +1,22 @@
+{
+  "name": "gameplayweird_11",
+  "aliases": [
+    "game",
+    "gameplay",
+    "wackyfaces",
+    "sillyface",
+    "orange",
+    "sleepy",
+    "sleep"
+  ],
+  "categories": [
+    "faces"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 358,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

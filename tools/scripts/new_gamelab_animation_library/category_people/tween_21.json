@@ -1,0 +1,22 @@
+{
+  "name": "tween_21",
+  "aliases": [
+    "boy",
+    "student",
+    "books",
+    "teen",
+    "tween",
+    "blonde",
+    "glasses"
+  ],
+  "categories": [
+    "people"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 155,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

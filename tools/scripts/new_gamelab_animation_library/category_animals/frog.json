@@ -1,0 +1,17 @@
+{
+  "name": "frog",
+  "aliases": [
+    "animal",
+    "frog"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 391,
+    "y": 390
+  },
+  "looping": true,
+  "frameDelay": 2
+}

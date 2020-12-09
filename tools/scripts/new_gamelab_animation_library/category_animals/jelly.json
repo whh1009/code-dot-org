@@ -1,0 +1,21 @@
+{
+  "name": "jelly",
+  "aliases": [
+    "fish",
+    "jellyfish",
+    "red",
+    "ocean",
+    "sea",
+    "underwater"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 331,
+    "y": 398
+  },
+  "looping": true,
+  "frameDelay": 2
+}

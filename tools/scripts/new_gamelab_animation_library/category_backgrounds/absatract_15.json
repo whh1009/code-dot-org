@@ -1,0 +1,19 @@
+{
+  "name": "absatract_15",
+  "aliases": [
+    "background",
+    "abstract",
+    "green",
+    "pink"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

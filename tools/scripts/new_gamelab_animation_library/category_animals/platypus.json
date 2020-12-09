@@ -1,0 +1,17 @@
+{
+  "name": "platypus",
+  "aliases": [
+    "animal",
+    "platypus"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 397,
+    "y": 120
+  },
+  "looping": true,
+  "frameDelay": 2
+}

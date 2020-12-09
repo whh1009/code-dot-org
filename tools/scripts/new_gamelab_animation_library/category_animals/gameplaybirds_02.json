@@ -1,0 +1,19 @@
+{
+  "name": "gameplaybirds_02",
+  "aliases": [
+    "game",
+    "gameplay",
+    "bird",
+    "blue"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 306,
+    "y": 398
+  },
+  "looping": true,
+  "frameDelay": 2
+}

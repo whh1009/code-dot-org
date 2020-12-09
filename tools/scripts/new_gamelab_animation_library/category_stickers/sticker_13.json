@@ -1,0 +1,17 @@
+{
+  "name": "sticker_13",
+  "aliases": [
+    "sticker",
+    "cupcake"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 144,
+    "y": 194
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "truck",
+  "aliases": [
+    "icons",
+    "truck",
+    "construction",
+    "vehicles"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 364,
+    "y": 222
+  },
+  "looping": true,
+  "frameDelay": 2
+}

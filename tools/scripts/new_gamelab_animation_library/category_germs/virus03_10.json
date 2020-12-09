@@ -1,0 +1,18 @@
+{
+  "name": "virus03_10",
+  "aliases": [
+    "virus",
+    "germ",
+    "orange"
+  ],
+  "categories": [
+    "germs"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 390,
+    "y": 390
+  },
+  "looping": true,
+  "frameDelay": 2
+}

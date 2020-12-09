@@ -1,0 +1,18 @@
+{
+  "name": "rat",
+  "aliases": [
+    "animal",
+    "rodent",
+    "rat"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 393,
+    "y": 137
+  },
+  "looping": true,
+  "frameDelay": 2
+}

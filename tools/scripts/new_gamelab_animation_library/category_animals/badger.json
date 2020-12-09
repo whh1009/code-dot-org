@@ -1,0 +1,17 @@
+{
+  "name": "badger",
+  "aliases": [
+    "animal",
+    "badger"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 394,
+    "y": 194
+  },
+  "looping": true,
+  "frameDelay": 2
+}

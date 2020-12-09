@@ -1,0 +1,19 @@
+{
+  "name": "bow2",
+  "aliases": [
+    "RPG",
+    "gameplay",
+    "game",
+    "bow"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 390,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

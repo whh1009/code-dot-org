@@ -1,0 +1,17 @@
+{
+  "name": "orangutan",
+  "aliases": [
+    "animal",
+    "orangutan"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 381
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,18 @@
+{
+  "name": "cuteanimals_panther2",
+  "aliases": [
+    "animal",
+    "cute",
+    "panther"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 398,
+    "y": 360
+  },
+  "looping": true,
+  "frameDelay": 2
+}

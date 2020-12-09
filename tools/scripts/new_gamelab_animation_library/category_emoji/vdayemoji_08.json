@@ -1,0 +1,20 @@
+{
+  "name": "vdayemoji_08",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "valentine",
+    "valentinesday",
+    "hearteyes"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 310,
+    "y": 310
+  },
+  "looping": true,
+  "frameDelay": 2
+}

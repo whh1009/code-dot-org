@@ -1,0 +1,18 @@
+{
+  "name": "cuteanimals_dog3",
+  "aliases": [
+    "animal",
+    "cute",
+    "dog"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 321,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "sticker_36",
+  "aliases": [
+    "sticker",
+    "lollipop"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 172,
+    "y": 288
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,21 @@
+{
+  "name": "gameplayobject_arrow_02",
+  "aliases": [
+    "game",
+    "Medieval",
+    "MiddleAges",
+    "gameplay",
+    "arrow",
+    "blue"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 322,
+    "y": 396
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "monster_12",
+  "aliases": [
+    "creature",
+    "monster"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 195,
+    "y": 368
+  },
+  "looping": true,
+  "frameDelay": 2
+}

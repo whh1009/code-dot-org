@@ -2,6 +2,7 @@
   "name": "penguin",
   "aliases": [
     "animal",
+    "bird",
     "penguin"
   ],
   "categories": [
@@ -9,8 +10,8 @@
   ],
   "frameCount": 1,
   "frameSize": {
-    "x": 256,
-    "y": 257
+    "x": 244,
+    "y": 400
   },
   "looping": true,
   "frameDelay": 2

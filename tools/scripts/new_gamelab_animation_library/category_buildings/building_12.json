@@ -1,0 +1,17 @@
+{
+  "name": "building_12",
+  "aliases": [
+    "building",
+    "apartment"
+  ],
+  "categories": [
+    "buildings"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 284,
+    "y": 397
+  },
+  "looping": true,
+  "frameDelay": 2
+}

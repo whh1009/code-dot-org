@@ -1,0 +1,19 @@
+{
+  "name": "dumptruck",
+  "aliases": [
+    "icons",
+    "truck",
+    "dumptruck",
+    "vehicles"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 380,
+    "y": 252
+  },
+  "looping": true,
+  "frameDelay": 2
+}

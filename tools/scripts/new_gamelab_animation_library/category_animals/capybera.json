@@ -1,0 +1,17 @@
+{
+  "name": "capybera",
+  "aliases": [
+    "animal",
+    "capybera"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 223
+  },
+  "looping": true,
+  "frameDelay": 2
+}

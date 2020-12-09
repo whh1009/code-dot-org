@@ -1,0 +1,18 @@
+{
+  "name": "alien_01",
+  "aliases": [
+    "alien",
+    "creature",
+    "yellow"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 365,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

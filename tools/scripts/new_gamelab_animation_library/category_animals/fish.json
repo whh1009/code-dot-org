@@ -1,19 +1,19 @@
 {
   "name": "fish",
   "aliases": [
-    "animal",
     "fish",
+    "grey",
+    "animal",
     "aquatic",
-    "underwater",
-    "ocean"
+    "underwater"
   ],
   "categories": [
     "animals"
   ],
   "frameCount": 1,
   "frameSize": {
-    "x": 128,
-    "y": 128
+    "x": 386,
+    "y": 325
   },
   "looping": true,
   "frameDelay": 2

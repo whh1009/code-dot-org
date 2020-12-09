@@ -1,0 +1,17 @@
+{
+  "name": "face_pizza",
+  "aliases": [
+    "food",
+    "pizza"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 330,
+    "y": 395
+  },
+  "looping": true,
+  "frameDelay": 2
+}

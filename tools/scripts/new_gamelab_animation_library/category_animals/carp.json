@@ -1,0 +1,18 @@
+{
+  "name": "carp",
+  "aliases": [
+    "animal",
+    "fish",
+    "carp"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 287,
+    "y": 381
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "texture_05",
+  "aliases": [
+    "background",
+    "texture",
+    "rock",
+    "stone"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "ship_03",
+  "aliases": [
+    "vehicle",
+    "ship"
+  ],
+  "categories": [
+    "vehicles"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 376,
+    "y": 396
+  },
+  "looping": true,
+  "frameDelay": 2
+}

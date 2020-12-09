@@ -1,0 +1,18 @@
+{
+  "name": "gamefood08",
+  "aliases": [
+    "food",
+    "gamefood",
+    "broccoli"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 376,
+    "y": 398
+  },
+  "looping": true,
+  "frameDelay": 2
+}

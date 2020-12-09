@@ -1,0 +1,19 @@
+{
+  "name": "halloweenemoji_04",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "halloween",
+    "ghost"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 370,
+    "y": 318
+  },
+  "looping": true,
+  "frameDelay": 2
+}

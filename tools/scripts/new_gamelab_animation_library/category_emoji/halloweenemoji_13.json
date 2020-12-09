@@ -1,0 +1,21 @@
+{
+  "name": "halloweenemoji_13",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "halloween",
+    "deviil",
+    "angry",
+    "orange"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 352,
+    "y": 324
+  },
+  "looping": true,
+  "frameDelay": 2
+}

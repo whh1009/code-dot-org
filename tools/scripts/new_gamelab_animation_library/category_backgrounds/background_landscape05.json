@@ -1,0 +1,20 @@
+{
+  "name": "background_landscape05",
+  "aliases": [
+    "background",
+    "landscape",
+    "green",
+    "forrest",
+    "rainforest"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

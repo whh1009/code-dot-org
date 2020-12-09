@@ -1,0 +1,17 @@
+{
+  "name": "face_friedegg",
+  "aliases": [
+    "food",
+    "friedegg"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 376,
+    "y": 373
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "cuteanimals_redbird",
+  "aliases": [
+    "animal",
+    "cute",
+    "red",
+    "bird"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 364,
+    "y": 395
+  },
+  "looping": true,
+  "frameDelay": 2
+}

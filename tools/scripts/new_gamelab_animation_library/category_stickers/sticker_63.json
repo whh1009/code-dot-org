@@ -1,0 +1,17 @@
+{
+  "name": "sticker_63",
+  "aliases": [
+    "sticker",
+    "cherry"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 224,
+    "y": 224
+  },
+  "looping": true,
+  "frameDelay": 2
+}

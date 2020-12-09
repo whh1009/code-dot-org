@@ -1,0 +1,20 @@
+{
+  "name": "motorbike1",
+  "aliases": [
+    "icons",
+    "motorcycle",
+    "motorbike",
+    "bike",
+    "vehicles"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 378,
+    "y": 209
+  },
+  "looping": true,
+  "frameDelay": 2
+}

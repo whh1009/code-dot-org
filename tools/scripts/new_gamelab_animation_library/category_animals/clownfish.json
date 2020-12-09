@@ -1,0 +1,19 @@
+{
+  "name": "clownfish",
+  "aliases": [
+    "animal",
+    "clownfish",
+    "ocean",
+    "underwater"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 250
+  },
+  "looping": true,
+  "frameDelay": 2
+}

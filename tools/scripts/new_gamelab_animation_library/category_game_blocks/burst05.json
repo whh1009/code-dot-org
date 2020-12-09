@@ -1,0 +1,21 @@
+{
+  "name": "burst05",
+  "aliases": [
+    "game",
+    "gameplay",
+    "burst",
+    "explosion",
+    "orange",
+    "snoke"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 398,
+    "y": 306
+  },
+  "looping": true,
+  "frameDelay": 2
+}

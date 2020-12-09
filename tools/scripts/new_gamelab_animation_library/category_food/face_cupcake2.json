@@ -1,0 +1,17 @@
+{
+  "name": "face_cupcake2",
+  "aliases": [
+    "food",
+    "cupcake"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 366,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

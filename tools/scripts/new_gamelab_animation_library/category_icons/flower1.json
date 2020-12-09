@@ -1,0 +1,17 @@
+{
+  "name": "flower1",
+  "aliases": [
+    "icons",
+    "flower"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 288,
+    "y": 395
+  },
+  "looping": true,
+  "frameDelay": 2
+}

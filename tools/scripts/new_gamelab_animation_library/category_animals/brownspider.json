@@ -1,0 +1,19 @@
+{
+  "name": "brownspider",
+  "aliases": [
+    "animal",
+    "brown",
+    "spider",
+    "insect"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 263,
+    "y": 397
+  },
+  "looping": true,
+  "frameDelay": 2
+}

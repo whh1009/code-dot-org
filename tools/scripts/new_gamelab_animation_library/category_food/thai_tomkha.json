@@ -1,0 +1,19 @@
+{
+  "name": "thai_tomkha",
+  "aliases": [
+    "food",
+    "meal",
+    "Thai",
+    "TomKha"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 396
+  },
+  "looping": true,
+  "frameDelay": 2
+}

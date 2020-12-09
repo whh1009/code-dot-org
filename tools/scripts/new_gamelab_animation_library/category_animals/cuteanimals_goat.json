@@ -1,0 +1,18 @@
+{
+  "name": "cuteanimals_goat",
+  "aliases": [
+    "animal",
+    "cute",
+    "goat"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 338,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

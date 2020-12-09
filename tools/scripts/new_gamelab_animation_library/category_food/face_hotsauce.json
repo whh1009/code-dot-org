@@ -1,0 +1,17 @@
+{
+  "name": "face_hotsauce",
+  "aliases": [
+    "food",
+    "hotsauce"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 138,
+    "y": 395
+  },
+  "looping": true,
+  "frameDelay": 2
+}

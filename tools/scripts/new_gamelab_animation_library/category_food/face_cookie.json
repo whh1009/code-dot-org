@@ -1,0 +1,17 @@
+{
+  "name": "face_cookie",
+  "aliases": [
+    "food",
+    "cookie"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 372,
+    "y": 372
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "animalhead_racoon",
+  "aliases": [
+    "animal",
+    "raccoon"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 300
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,21 @@
+{
+  "name": "background_landscape26",
+  "aliases": [
+    "background",
+    "landscape",
+    "sea",
+    "mountains",
+    "clouds",
+    "blue"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 390
+  },
+  "looping": true,
+  "frameDelay": 2
+}

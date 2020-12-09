@@ -1,0 +1,19 @@
+{
+  "name": "neonheart_13",
+  "aliases": [
+    "sticker",
+    "heart",
+    "neon",
+    "Valentine"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 358,
+    "y": 360
+  },
+  "looping": true,
+  "frameDelay": 2
+}

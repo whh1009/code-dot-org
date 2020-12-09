@@ -1,0 +1,17 @@
+{
+  "name": "face_sandwich",
+  "aliases": [
+    "food",
+    "sandwich"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 177
+  },
+  "looping": true,
+  "frameDelay": 2
+}

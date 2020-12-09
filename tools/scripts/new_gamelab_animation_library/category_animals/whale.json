@@ -1,0 +1,19 @@
+{
+  "name": "whale",
+  "aliases": [
+    "animal",
+    "fish",
+    "ocean",
+    "whale"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 397,
+    "y": 109
+  },
+  "looping": true,
+  "frameDelay": 2
+}

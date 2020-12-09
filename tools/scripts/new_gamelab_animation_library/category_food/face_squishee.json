@@ -1,0 +1,17 @@
+{
+  "name": "face_squishee",
+  "aliases": [
+    "food",
+    "squishee"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 212,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

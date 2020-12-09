@@ -1,0 +1,17 @@
+{
+  "name": "prehistoric_02",
+  "aliases": [
+    "prehistoric",
+    "dinosaur"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 310,
+    "y": 338
+  },
+  "looping": true,
+  "frameDelay": 2
+}

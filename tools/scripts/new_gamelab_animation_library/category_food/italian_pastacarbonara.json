@@ -1,0 +1,19 @@
+{
+  "name": "italian_pastacarbonara",
+  "aliases": [
+    "food",
+    "Italian",
+    "PastaCarbonara",
+    "pasta"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 385,
+    "y": 386
+  },
+  "looping": true,
+  "frameDelay": 2
+}

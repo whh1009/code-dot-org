@@ -1,0 +1,19 @@
+{
+  "name": "gradient_13",
+  "aliases": [
+    "background",
+    "gradient",
+    "green",
+    "blue"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "face_cinnamonbun",
+  "aliases": [
+    "food",
+    "cinnamonbun"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 394,
+    "y": 257
+  },
+  "looping": true,
+  "frameDelay": 2
+}

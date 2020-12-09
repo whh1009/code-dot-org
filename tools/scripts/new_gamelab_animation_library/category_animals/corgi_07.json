@@ -1,0 +1,17 @@
+{
+  "name": "corgi_07",
+  "aliases": [
+    "dog",
+    "corgi"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 266,
+    "y": 397
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "gameplay_purplediamond",
+  "aliases": [
+    "game",
+    "gameplay",
+    "gem",
+    "diamond"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 383
+  },
+  "looping": true,
+  "frameDelay": 2
+}

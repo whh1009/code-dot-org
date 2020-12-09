@@ -1,0 +1,18 @@
+{
+  "name": "ostrich",
+  "aliases": [
+    "animal",
+    "bird",
+    "ostrich"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 297,
+    "y": 397
+  },
+  "looping": true,
+  "frameDelay": 2
+}

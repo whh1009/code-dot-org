@@ -1,0 +1,18 @@
+{
+  "name": "cuteanimals_monkey",
+  "aliases": [
+    "animal",
+    "cute",
+    "mokey"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 399,
+    "y": 393
+  },
+  "looping": true,
+  "frameDelay": 2
+}

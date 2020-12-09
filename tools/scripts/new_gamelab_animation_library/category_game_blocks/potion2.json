@@ -1,0 +1,20 @@
+{
+  "name": "potion2",
+  "aliases": [
+    "RPG",
+    "gameplay",
+    "game",
+    "potion",
+    "green"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 244,
+    "y": 392
+  },
+  "looping": true,
+  "frameDelay": 2
+}

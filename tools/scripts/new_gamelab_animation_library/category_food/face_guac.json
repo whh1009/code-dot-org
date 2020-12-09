@@ -1,0 +1,17 @@
+{
+  "name": "face_guac",
+  "aliases": [
+    "food",
+    "guacamole"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 395,
+    "y": 288
+  },
+  "looping": true,
+  "frameDelay": 2
+}

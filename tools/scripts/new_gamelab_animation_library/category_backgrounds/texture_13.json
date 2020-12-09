@@ -1,0 +1,20 @@
+{
+  "name": "texture_13",
+  "aliases": [
+    "background",
+    "texture",
+    "green",
+    "seagreen",
+    "abstract"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

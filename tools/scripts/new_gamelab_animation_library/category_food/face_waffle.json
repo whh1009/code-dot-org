@@ -1,0 +1,17 @@
+{
+  "name": "face_waffle",
+  "aliases": [
+    "food",
+    "waffle"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 396
+  },
+  "looping": true,
+  "frameDelay": 2
+}

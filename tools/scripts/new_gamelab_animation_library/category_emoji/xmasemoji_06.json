@@ -1,0 +1,19 @@
+{
+  "name": "xmasemoji_06",
+  "aliases": [
+    "emoji",
+    "snow",
+    "hat",
+    "christmas"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 252,
+    "y": 268
+  },
+  "looping": true,
+  "frameDelay": 2
+}

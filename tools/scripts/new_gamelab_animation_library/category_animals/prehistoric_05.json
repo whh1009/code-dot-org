@@ -1,0 +1,19 @@
+{
+  "name": "prehistoric_05",
+  "aliases": [
+    "prehistoric",
+    "dinosaur",
+    "Plesiosaur",
+    "swimming"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 322,
+    "y": 336
+  },
+  "looping": true,
+  "frameDelay": 2
+}

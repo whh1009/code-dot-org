@@ -1,0 +1,17 @@
+{
+  "name": "sticker_23",
+  "aliases": [
+    "sticker",
+    "comet"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 258,
+    "y": 256
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,21 @@
+{
+  "name": "saxaphone",
+  "aliases": [
+    "icons",
+    "music",
+    "instruments",
+    "saxophone",
+    "saxaphone",
+    "brass"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 351,
+    "y": 386
+  },
+  "looping": true,
+  "frameDelay": 2
+}

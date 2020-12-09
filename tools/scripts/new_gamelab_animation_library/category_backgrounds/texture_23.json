@@ -1,0 +1,19 @@
+{
+  "name": "texture_23",
+  "aliases": [
+    "background",
+    "stone",
+    "rock",
+    "texture"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

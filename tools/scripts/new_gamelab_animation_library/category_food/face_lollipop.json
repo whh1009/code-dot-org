@@ -1,0 +1,17 @@
+{
+  "name": "face_lollipop",
+  "aliases": [
+    "food",
+    "lollipop"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 238,
+    "y": 393
+  },
+  "looping": true,
+  "frameDelay": 2
+}

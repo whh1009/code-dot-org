@@ -1,0 +1,19 @@
+{
+  "name": "building_22",
+  "aliases": [
+    "building",
+    "store",
+    "storefront",
+    "cafe"
+  ],
+  "categories": [
+    "buildings"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 399,
+    "y": 266
+  },
+  "looping": true,
+  "frameDelay": 2
+}

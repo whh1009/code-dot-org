@@ -1,0 +1,20 @@
+{
+  "name": "hardcandy15",
+  "aliases": [
+    "game",
+    "gameplay",
+    "candy",
+    "treat",
+    "blue"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 386
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "jaguar",
+  "aliases": [
+    "animal",
+    "jaguar"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 399,
+    "y": 227
+  },
+  "looping": true,
+  "frameDelay": 2
+}

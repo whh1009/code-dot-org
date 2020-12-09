@@ -1,0 +1,17 @@
+{
+  "name": "cobra",
+  "aliases": [
+    "animal",
+    "cobra"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 397,
+    "y": 360
+  },
+  "looping": true,
+  "frameDelay": 2
+}

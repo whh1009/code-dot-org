@@ -1,0 +1,19 @@
+{
+  "name": "sticker_33",
+  "aliases": [
+    "sticker",
+    "rocketship",
+    "spaceship",
+    "rocket"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 332,
+    "y": 282
+  },
+  "looping": true,
+  "frameDelay": 2
+}

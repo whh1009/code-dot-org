@@ -1,0 +1,19 @@
+{
+  "name": "absatract_08",
+  "aliases": [
+    "background",
+    "green",
+    "leaves",
+    "abstract"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

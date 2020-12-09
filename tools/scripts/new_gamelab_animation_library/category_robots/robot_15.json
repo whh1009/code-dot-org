@@ -1,0 +1,17 @@
+{
+  "name": "robot_15",
+  "aliases": [
+    "robot",
+    "droid"
+  ],
+  "categories": [
+    "robots"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 332,
+    "y": 396
+  },
+  "looping": true,
+  "frameDelay": 2
+}

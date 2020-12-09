@@ -1,0 +1,18 @@
+{
+  "name": "opossum",
+  "aliases": [
+    "animal",
+    "opossum",
+    "rodent"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 186
+  },
+  "looping": true,
+  "frameDelay": 2
+}

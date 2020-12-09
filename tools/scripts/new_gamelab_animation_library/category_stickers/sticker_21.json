@@ -1,0 +1,17 @@
+{
+  "name": "sticker_21",
+  "aliases": [
+    "sticker",
+    "sun"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 250,
+    "y": 250
+  },
+  "looping": true,
+  "frameDelay": 2
+}

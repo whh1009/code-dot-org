@@ -1,0 +1,22 @@
+{
+  "name": "xmasemoji_10",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "christmas",
+    "winter",
+    "treat",
+    "snack",
+    "candycane"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 223,
+    "y": 369
+  },
+  "looping": true,
+  "frameDelay": 2
+}

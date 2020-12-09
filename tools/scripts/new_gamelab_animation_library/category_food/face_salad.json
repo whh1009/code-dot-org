@@ -1,0 +1,17 @@
+{
+  "name": "face_salad",
+  "aliases": [
+    "food",
+    "salad"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 398,
+    "y": 337
+  },
+  "looping": true,
+  "frameDelay": 2
+}

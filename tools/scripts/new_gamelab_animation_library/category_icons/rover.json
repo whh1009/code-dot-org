@@ -1,0 +1,20 @@
+{
+  "name": "rover",
+  "aliases": [
+    "icons",
+    "space",
+    "rovers",
+    "mars",
+    "robots"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 378,
+    "y": 325
+  },
+  "looping": true,
+  "frameDelay": 2
+}

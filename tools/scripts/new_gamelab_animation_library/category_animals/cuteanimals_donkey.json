@@ -1,0 +1,19 @@
+{
+  "name": "cuteanimals_donkey",
+  "aliases": [
+    "animal",
+    "cute",
+    "donkey",
+    "grey"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 398,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

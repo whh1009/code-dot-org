@@ -1,0 +1,17 @@
+{
+  "name": "face_toast",
+  "aliases": [
+    "food",
+    "toast"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 362,
+    "y": 384
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "hedgehog",
+  "aliases": [
+    "animal",
+    "hedgehog"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 398,
+    "y": 230
+  },
+  "looping": true,
+  "frameDelay": 2
+}

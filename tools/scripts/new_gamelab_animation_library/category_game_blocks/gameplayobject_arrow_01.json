@@ -1,0 +1,21 @@
+{
+  "name": "gameplayobject_arrow_01",
+  "aliases": [
+    "game",
+    "Medieval",
+    "MiddleAges",
+    "gameplay",
+    "arrow",
+    "flaming"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 284,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

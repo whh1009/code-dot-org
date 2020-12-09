@@ -1,0 +1,21 @@
+{
+  "name": "gameplay_candy14",
+  "aliases": [
+    "game",
+    "gameplay",
+    "candy",
+    "treat",
+    "green",
+    "star"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 394,
+    "y": 376
+  },
+  "looping": true,
+  "frameDelay": 2
+}

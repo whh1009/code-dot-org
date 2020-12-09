@@ -1,0 +1,18 @@
+{
+  "name": "italian_bruschetta",
+  "aliases": [
+    "food",
+    "meal",
+    "Italianbruschetta"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 385,
+    "y": 386
+  },
+  "looping": true,
+  "frameDelay": 2
+}

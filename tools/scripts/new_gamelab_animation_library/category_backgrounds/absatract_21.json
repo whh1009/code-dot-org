@@ -1,0 +1,22 @@
+{
+  "name": "absatract_21",
+  "aliases": [
+    "background",
+    "green",
+    "pink",
+    "orange",
+    "desert",
+    "leaves",
+    "abstract"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 379
+  },
+  "looping": true,
+  "frameDelay": 2
+}

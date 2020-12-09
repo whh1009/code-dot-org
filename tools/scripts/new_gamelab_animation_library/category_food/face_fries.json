@@ -1,0 +1,17 @@
+{
+  "name": "face_fries",
+  "aliases": [
+    "food",
+    "fries"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 307,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

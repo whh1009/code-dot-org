@@ -1,0 +1,20 @@
+{
+  "name": "halloweenemoji_09",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "halloween",
+    "brain",
+    "nervous"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 310,
+    "y": 314
+  },
+  "looping": true,
+  "frameDelay": 2
+}

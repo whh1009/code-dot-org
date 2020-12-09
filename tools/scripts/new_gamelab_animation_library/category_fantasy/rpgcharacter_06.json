@@ -1,0 +1,21 @@
+{
+  "name": "rpgcharacter_06",
+  "aliases": [
+    "rpg",
+    "character",
+    "player",
+    "warlock",
+    "necromancer",
+    "wizard"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 206,
+    "y": 237
+  },
+  "looping": true,
+  "frameDelay": 2
+}

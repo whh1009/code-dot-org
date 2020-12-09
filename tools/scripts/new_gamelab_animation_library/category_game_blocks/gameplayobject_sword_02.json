@@ -1,0 +1,20 @@
+{
+  "name": "gameplayobject_sword_02",
+  "aliases": [
+    "game",
+    "Medieval",
+    "MiddleAges",
+    "gameplay",
+    "flamingsword"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 278,
+    "y": 394
+  },
+  "looping": true,
+  "frameDelay": 2
+}

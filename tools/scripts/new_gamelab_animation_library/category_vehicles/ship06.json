@@ -1,0 +1,20 @@
+{
+  "name": "ship06",
+  "aliases": [
+    "vehicle",
+    "spaceship",
+    "rocketship",
+    "ship",
+    "green"
+  ],
+  "categories": [
+    "vehicles"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 372
+  },
+  "looping": true,
+  "frameDelay": 2
+}

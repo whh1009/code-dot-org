@@ -1,0 +1,19 @@
+{
+  "name": "gameplay_greendiamond2",
+  "aliases": [
+    "game",
+    "gameplay",
+    "gem",
+    "emerald"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 281,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

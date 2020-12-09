@@ -1,0 +1,19 @@
+{
+  "name": "cuteanimals_duckling",
+  "aliases": [
+    "animal",
+    "cute",
+    "duck",
+    "duckling"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 319,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

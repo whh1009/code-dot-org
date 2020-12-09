@@ -1,0 +1,18 @@
+{
+  "name": "cuteanimals_panda2",
+  "aliases": [
+    "animal",
+    "cute",
+    "panda"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 336,
+    "y": 397
+  },
+  "looping": true,
+  "frameDelay": 2
+}

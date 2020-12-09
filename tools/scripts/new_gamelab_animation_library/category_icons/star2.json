@@ -1,0 +1,19 @@
+{
+  "name": "star2",
+  "aliases": [
+    "icons",
+    "stars",
+    "space",
+    "powerups"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 393,
+    "y": 375
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "face_broc",
+  "aliases": [
+    "food",
+    "brocolli"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 340,
+    "y": 396
+  },
+  "looping": true,
+  "frameDelay": 2
+}

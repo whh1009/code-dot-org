@@ -1,0 +1,19 @@
+{
+  "name": "gamefood11",
+  "aliases": [
+    "food",
+    "gamefood",
+    "pepper",
+    "chilli"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 370
+  },
+  "looping": true,
+  "frameDelay": 2
+}

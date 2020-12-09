@@ -1,0 +1,20 @@
+{
+  "name": "retrocreature_19",
+  "aliases": [
+    "retro",
+    "creature",
+    "alien",
+    "spaceship",
+    "blue"
+  ],
+  "categories": [
+    "retro"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 299,
+    "y": 365
+  },
+  "looping": true,
+  "frameDelay": 2
+}

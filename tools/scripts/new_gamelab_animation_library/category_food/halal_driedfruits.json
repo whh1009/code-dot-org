@@ -1,0 +1,18 @@
+{
+  "name": "halal_driedfruits",
+  "aliases": [
+    "food",
+    "meal",
+    "Halaldriedfruit"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

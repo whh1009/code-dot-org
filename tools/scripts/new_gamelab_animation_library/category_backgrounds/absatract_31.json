@@ -1,0 +1,20 @@
+{
+  "name": "absatract_31",
+  "aliases": [
+    "background",
+    "pink",
+    "leaves",
+    "flowers",
+    "abstract"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

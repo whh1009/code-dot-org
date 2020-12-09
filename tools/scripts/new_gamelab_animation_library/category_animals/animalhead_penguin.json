@@ -1,0 +1,17 @@
+{
+  "name": "animalhead_penguin",
+  "aliases": [
+    "animal",
+    "penguin"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 388,
+    "y": 340
+  },
+  "looping": true,
+  "frameDelay": 2
+}

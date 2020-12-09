@@ -1,0 +1,17 @@
+{
+  "name": "walrus",
+  "aliases": [
+    "animal",
+    "walrus"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 397,
+    "y": 221
+  },
+  "looping": true,
+  "frameDelay": 2
+}

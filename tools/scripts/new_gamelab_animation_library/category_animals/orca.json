@@ -1,0 +1,19 @@
+{
+  "name": "orca",
+  "aliases": [
+    "animal",
+    "ocean",
+    "orca",
+    "whale"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 398,
+    "y": 243
+  },
+  "looping": true,
+  "frameDelay": 2
+}

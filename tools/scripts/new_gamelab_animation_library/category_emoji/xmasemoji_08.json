@@ -1,0 +1,20 @@
+{
+  "name": "xmasemoji_08",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "beard",
+    "cool",
+    "sunglasses"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 284,
+    "y": 312
+  },
+  "looping": true,
+  "frameDelay": 2
+}

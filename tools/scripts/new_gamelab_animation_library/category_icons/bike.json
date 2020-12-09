@@ -1,0 +1,19 @@
+{
+  "name": "bike",
+  "aliases": [
+    "icons",
+    "bikes",
+    "bicycles",
+    "vehicles"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 395,
+    "y": 252
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,18 @@
+{
+  "name": "tumbleweed",
+  "aliases": [
+    "tumbleweed",
+    "game",
+    "desert"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 393,
+    "y": 342
+  },
+  "looping": true,
+  "frameDelay": 2
+}

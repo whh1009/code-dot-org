@@ -1,0 +1,17 @@
+{
+  "name": "tasmaniandevil",
+  "aliases": [
+    "animal",
+    "TasmanianDevil"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 392,
+    "y": 262
+  },
+  "looping": true,
+  "frameDelay": 2
+}

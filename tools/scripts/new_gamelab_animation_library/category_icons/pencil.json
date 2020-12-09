@@ -1,0 +1,17 @@
+{
+  "name": "pencil",
+  "aliases": [
+    "icons",
+    "pencil"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 391,
+    "y": 391
+  },
+  "looping": true,
+  "frameDelay": 2
+}

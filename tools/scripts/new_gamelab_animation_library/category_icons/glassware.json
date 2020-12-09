@@ -1,0 +1,20 @@
+{
+  "name": "glassware",
+  "aliases": [
+    "icons",
+    "glassware",
+    "beaker",
+    "science",
+    "lab"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 346,
+    "y": 388
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "face_soda3",
+  "aliases": [
+    "food",
+    "soda"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 195,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

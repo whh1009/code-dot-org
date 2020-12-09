@@ -1,0 +1,18 @@
+{
+  "name": "gameplay_crown",
+  "aliases": [
+    "game",
+    "gameplay",
+    "goldcrown"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 354
+  },
+  "looping": true,
+  "frameDelay": 2
+}

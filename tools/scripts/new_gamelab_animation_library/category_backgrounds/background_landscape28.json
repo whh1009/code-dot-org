@@ -1,0 +1,22 @@
+{
+  "name": "background_landscape28",
+  "aliases": [
+    "landscape",
+    "background",
+    "snow",
+    "river",
+    "tree",
+    "evergreen",
+    "winter"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

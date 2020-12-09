@@ -1,0 +1,17 @@
+{
+  "name": "face_togocup",
+  "aliases": [
+    "food",
+    "togocup"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 244,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

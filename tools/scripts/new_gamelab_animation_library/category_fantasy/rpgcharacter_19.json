@@ -1,0 +1,21 @@
+{
+  "name": "rpgcharacter_19",
+  "aliases": [
+    "rpg",
+    "character",
+    "hero",
+    "player",
+    "wizard",
+    "mage"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 258,
+    "y": 326
+  },
+  "looping": true,
+  "frameDelay": 2
+}

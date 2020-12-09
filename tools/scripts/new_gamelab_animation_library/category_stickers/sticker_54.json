@@ -1,0 +1,17 @@
+{
+  "name": "sticker_54",
+  "aliases": [
+    "sticker",
+    "rainbow"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 334,
+    "y": 228
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "sticker_51",
+  "aliases": [
+    "sticker",
+    "lemon"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 240,
+    "y": 238
+  },
+  "looping": true,
+  "frameDelay": 2
+}

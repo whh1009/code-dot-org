@@ -1,0 +1,21 @@
+{
+  "name": "rpgcharacter_21",
+  "aliases": [
+    "rpg",
+    "character",
+    "hero",
+    "player",
+    "bard",
+    "musician"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 200,
+    "y": 258
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "virus02_07",
+  "aliases": [
+    "virus",
+    "germ",
+    "cells",
+    "green"
+  ],
+  "categories": [
+    "germs"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 340
+  },
+  "looping": true,
+  "frameDelay": 2
+}

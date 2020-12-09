@@ -1,0 +1,17 @@
+{
+  "name": "tiger",
+  "aliases": [
+    "animal",
+    "tiger"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 398,
+    "y": 223
+  },
+  "looping": true,
+  "frameDelay": 2
+}

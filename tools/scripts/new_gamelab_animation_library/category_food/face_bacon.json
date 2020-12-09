@@ -1,0 +1,17 @@
+{
+  "name": "face_bacon",
+  "aliases": [
+    "food",
+    "bacon"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 203,
+    "y": 393
+  },
+  "looping": true,
+  "frameDelay": 2
+}

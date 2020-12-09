@@ -1,0 +1,17 @@
+{
+  "name": "face_peper",
+  "aliases": [
+    "food",
+    "pepper"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 245,
+    "y": 397
+  },
+  "looping": true,
+  "frameDelay": 2
+}

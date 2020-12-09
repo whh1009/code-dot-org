@@ -1,0 +1,17 @@
+{
+  "name": "seal",
+  "aliases": [
+    "animal",
+    "seal"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 398,
+    "y": 219
+  },
+  "looping": true,
+  "frameDelay": 2
+}

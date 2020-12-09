@@ -1,0 +1,17 @@
+{
+  "name": "animalhead_antelope",
+  "aliases": [
+    "animal",
+    "antelope"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 302,
+    "y": 384
+  },
+  "looping": true,
+  "frameDelay": 2
+}

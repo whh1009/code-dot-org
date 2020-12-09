@@ -1,0 +1,21 @@
+{
+  "name": "crab2",
+  "aliases": [
+    "fish",
+    "crab",
+    "ocean",
+    "sea",
+    "underwater",
+    "red"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 393,
+    "y": 240
+  },
+  "looping": true,
+  "frameDelay": 2
+}

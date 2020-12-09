@@ -1,0 +1,21 @@
+{
+  "name": "halloweenemoji_15",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "halloween",
+    "devil",
+    "angry",
+    "purple"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 352,
+    "y": 324
+  },
+  "looping": true,
+  "frameDelay": 2
+}

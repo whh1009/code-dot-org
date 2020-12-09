@@ -1,0 +1,20 @@
+{
+  "name": "gameplayobject_heart_02",
+  "aliases": [
+    "game",
+    "Medieval",
+    "MiddleAges",
+    "shield",
+    "gameplay"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 376
+  },
+  "looping": true,
+  "frameDelay": 2
+}

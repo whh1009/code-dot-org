@@ -1,0 +1,18 @@
+{
+  "name": "cuteanimals_zebra2",
+  "aliases": [
+    "animal",
+    "cute",
+    "zebra"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 223,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

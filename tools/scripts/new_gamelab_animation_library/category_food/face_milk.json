@@ -1,0 +1,17 @@
+{
+  "name": "face_milk",
+  "aliases": [
+    "food",
+    "milk"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 167,
+    "y": 395
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "sticker_43",
+  "aliases": [
+    "sticker",
+    "sunglasses"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 316,
+    "y": 134
+  },
+  "looping": true,
+  "frameDelay": 2
+}

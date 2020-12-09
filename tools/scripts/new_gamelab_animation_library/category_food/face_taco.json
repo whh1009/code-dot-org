@@ -1,0 +1,17 @@
+{
+  "name": "face_taco",
+  "aliases": [
+    "food",
+    "taco"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 399,
+    "y": 235
+  },
+  "looping": true,
+  "frameDelay": 2
+}

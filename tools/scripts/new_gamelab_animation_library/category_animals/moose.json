@@ -1,0 +1,17 @@
+{
+  "name": "moose",
+  "aliases": [
+    "animal",
+    "moose"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 392,
+    "y": 363
+  },
+  "looping": true,
+  "frameDelay": 2
+}

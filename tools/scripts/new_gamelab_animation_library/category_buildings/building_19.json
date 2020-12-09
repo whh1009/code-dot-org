@@ -1,0 +1,17 @@
+{
+  "name": "building_19",
+  "aliases": [
+    "building",
+    "office"
+  ],
+  "categories": [
+    "buildings"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 344,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

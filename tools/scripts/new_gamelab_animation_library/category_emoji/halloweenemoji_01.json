@@ -1,0 +1,19 @@
+{
+  "name": "halloweenemoji_01",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "halloween",
+    "cauldron"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 340,
+    "y": 376
+  },
+  "looping": true,
+  "frameDelay": 2
+}

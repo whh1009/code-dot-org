@@ -1,0 +1,21 @@
+{
+  "name": "robot",
+  "aliases": [
+    "icons",
+    "space",
+    "robot",
+    "droid",
+    "character",
+    "player"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 273,
+    "y": 393
+  },
+  "looping": true,
+  "frameDelay": 2
+}

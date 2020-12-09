@@ -1,0 +1,17 @@
+{
+  "name": "face_corn",
+  "aliases": [
+    "food",
+    "corndog"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 235,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

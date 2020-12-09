@@ -1,0 +1,17 @@
+{
+  "name": "steer",
+  "aliases": [
+    "animal",
+    "steer"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 392,
+    "y": 299
+  },
+  "looping": true,
+  "frameDelay": 2
+}

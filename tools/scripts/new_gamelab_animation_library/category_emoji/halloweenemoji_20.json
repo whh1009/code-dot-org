@@ -1,0 +1,19 @@
+{
+  "name": "halloweenemoji_20",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "halloween",
+    "candy"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 160,
+    "y": 360
+  },
+  "looping": true,
+  "frameDelay": 2
+}

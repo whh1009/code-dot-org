@@ -1,0 +1,18 @@
+{
+  "name": "monster_05",
+  "aliases": [
+    "creature",
+    "monster",
+    "vampire"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 196,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "face_cheese",
+  "aliases": [
+    "food",
+    "cheese"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 265
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "fish_11",
+  "aliases": [
+    "underwater",
+    "fish",
+    "green",
+    "ocean"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 363
+  },
+  "looping": true,
+  "frameDelay": 2
+}

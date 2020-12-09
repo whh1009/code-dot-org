@@ -1,0 +1,20 @@
+{
+  "name": "gameplaybirds_05",
+  "aliases": [
+    "game",
+    "gameplay",
+    "bird",
+    "owl",
+    "orange"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 374,
+    "y": 398
+  },
+  "looping": true,
+  "frameDelay": 2
+}

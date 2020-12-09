@@ -1,0 +1,21 @@
+{
+  "name": "vdayemoji_14",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "valentines",
+    "valentine",
+    "cupid",
+    "arrow"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 378,
+    "y": 396
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,21 @@
+{
+  "name": "urchin",
+  "aliases": [
+    "fish",
+    "urchin",
+    "sea",
+    "ocean",
+    "underwater",
+    "purple"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 374,
+    "y": 397
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "sticker_34",
+  "aliases": [
+    "sticker",
+    "spaceman",
+    "spacewoman",
+    "astronaut"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 244,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

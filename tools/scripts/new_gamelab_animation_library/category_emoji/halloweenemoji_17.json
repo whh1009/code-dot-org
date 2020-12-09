@@ -1,0 +1,21 @@
+{
+  "name": "halloweenemoji_17",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "halloween",
+    "missingfinger",
+    "bone",
+    "green"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 302,
+    "y": 362
+  },
+  "looping": true,
+  "frameDelay": 2
+}

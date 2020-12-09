@@ -1,0 +1,19 @@
+{
+  "name": "guitar",
+  "aliases": [
+    "icons",
+    "music",
+    "instruments",
+    "guitar"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 386,
+    "y": 386
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "sticker_44",
+  "aliases": [
+    "sticker",
+    "icecream"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 214,
+    "y": 266
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,18 @@
+{
+  "name": "alien_18",
+  "aliases": [
+    "alien",
+    "creature",
+    "pink"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 261,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

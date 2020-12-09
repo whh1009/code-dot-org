@@ -1,0 +1,17 @@
+{
+  "name": "face_lemon",
+  "aliases": [
+    "food",
+    "lemon"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

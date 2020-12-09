@@ -1,0 +1,17 @@
+{
+  "name": "sticker_49",
+  "aliases": [
+    "sticker",
+    "lighteningbolt"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 138,
+    "y": 216
+  },
+  "looping": true,
+  "frameDelay": 2
+}

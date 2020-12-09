@@ -1,0 +1,17 @@
+{
+  "name": "moth01",
+  "aliases": [
+    "moth",
+    "insect"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 392,
+    "y": 252
+  },
+  "looping": true,
+  "frameDelay": 2
+}

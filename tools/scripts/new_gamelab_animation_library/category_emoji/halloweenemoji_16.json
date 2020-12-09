@@ -1,0 +1,20 @@
+{
+  "name": "halloweenemoji_16",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "halloween",
+    "poop",
+    "green"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 368,
+    "y": 352
+  },
+  "looping": true,
+  "frameDelay": 2
+}

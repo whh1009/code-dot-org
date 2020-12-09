@@ -1,0 +1,17 @@
+{
+  "name": "animalhead_fox",
+  "aliases": [
+    "animal",
+    "fox"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 306,
+    "y": 316
+  },
+  "looping": true,
+  "frameDelay": 2
+}

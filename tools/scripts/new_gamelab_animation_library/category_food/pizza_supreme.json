@@ -1,0 +1,18 @@
+{
+  "name": "pizza_supreme",
+  "aliases": [
+    "food",
+    "meal",
+    "pizzasupreme"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 392,
+    "y": 396
+  },
+  "looping": true,
+  "frameDelay": 2
+}

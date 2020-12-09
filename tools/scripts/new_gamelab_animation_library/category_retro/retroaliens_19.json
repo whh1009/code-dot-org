@@ -1,0 +1,19 @@
+{
+  "name": "retroaliens_19",
+  "aliases": [
+    "retro",
+    "creature",
+    "alien",
+    "turquoise"
+  ],
+  "categories": [
+    "retro"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

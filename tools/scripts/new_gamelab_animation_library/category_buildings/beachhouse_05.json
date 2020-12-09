@@ -1,0 +1,17 @@
+{
+  "name": "beachhouse_05",
+  "aliases": [
+    "building",
+    "beachhouse"
+  ],
+  "categories": [
+    "buildings"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 266,
+    "y": 352
+  },
+  "looping": true,
+  "frameDelay": 2
+}

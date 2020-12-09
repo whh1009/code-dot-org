@@ -1,0 +1,17 @@
+{
+  "name": "heyena",
+  "aliases": [
+    "animal",
+    "heyena"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 397,
+    "y": 290
+  },
+  "looping": true,
+  "frameDelay": 2
+}

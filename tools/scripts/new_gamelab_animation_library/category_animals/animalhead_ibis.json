@@ -1,0 +1,18 @@
+{
+  "name": "animalhead_ibis",
+  "aliases": [
+    "animal",
+    "ibis",
+    "bird"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 238,
+    "y": 398
+  },
+  "looping": true,
+  "frameDelay": 2
+}

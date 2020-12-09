@@ -1,13 +1,11 @@
 {
   "name": "retroaliens_22",
   "aliases": [
-    "spaceship",
-    "starfighter",
-    "starship",
-    "spacecraft",
+    "retro",
+    "creature",
     "alien",
-    "aliens",
-    "space"
+    "blue",
+    "green"
   ],
   "categories": [
     "retro"

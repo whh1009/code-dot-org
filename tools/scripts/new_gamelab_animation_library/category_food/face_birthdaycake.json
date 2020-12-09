@@ -1,0 +1,17 @@
+{
+  "name": "face_birthdaycake",
+  "aliases": [
+    "food",
+    "cake"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 370,
+    "y": 397
+  },
+  "looping": true,
+  "frameDelay": 2
+}

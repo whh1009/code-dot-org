@@ -1,0 +1,17 @@
+{
+  "name": "squid",
+  "aliases": [
+    "animal",
+    "squid"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 398,
+    "y": 354
+  },
+  "looping": true,
+  "frameDelay": 2
+}

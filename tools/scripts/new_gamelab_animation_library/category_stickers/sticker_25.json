@@ -1,0 +1,17 @@
+{
+  "name": "sticker_25",
+  "aliases": [
+    "sticker",
+    "UFO"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 278,
+    "y": 136
+  },
+  "looping": true,
+  "frameDelay": 2
+}

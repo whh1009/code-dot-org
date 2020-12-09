@@ -1,0 +1,17 @@
+{
+  "name": "animalhead_woodchuck",
+  "aliases": [
+    "animal",
+    "woodchuck"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 392,
+    "y": 346
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,18 @@
+{
+  "name": "car1",
+  "aliases": [
+    "icons",
+    "vehicles",
+    "cars"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 368,
+    "y": 174
+  },
+  "looping": true,
+  "frameDelay": 2
+}

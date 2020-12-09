@@ -1,0 +1,17 @@
+{
+  "name": "face_pear",
+  "aliases": [
+    "food",
+    "pear"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 236,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

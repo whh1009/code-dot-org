@@ -1,0 +1,17 @@
+{
+  "name": "face_peach",
+  "aliases": [
+    "food",
+    "peach"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 367,
+    "y": 395
+  },
+  "looping": true,
+  "frameDelay": 2
+}

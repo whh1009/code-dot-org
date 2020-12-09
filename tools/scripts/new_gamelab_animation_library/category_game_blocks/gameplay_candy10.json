@@ -1,0 +1,20 @@
+{
+  "name": "gameplay_candy10",
+  "aliases": [
+    "game",
+    "gameplay",
+    "candy",
+    "treat",
+    "brown"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 398,
+    "y": 356
+  },
+  "looping": true,
+  "frameDelay": 2
+}

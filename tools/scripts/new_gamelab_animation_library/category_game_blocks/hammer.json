@@ -1,0 +1,19 @@
+{
+  "name": "hammer",
+  "aliases": [
+    "RPG",
+    "gameplay",
+    "game",
+    "hammer"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 340,
+    "y": 390
+  },
+  "looping": true,
+  "frameDelay": 2
+}

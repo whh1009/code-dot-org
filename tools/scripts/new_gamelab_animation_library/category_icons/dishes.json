@@ -1,0 +1,20 @@
+{
+  "name": "dishes",
+  "aliases": [
+    "icons",
+    "dishes",
+    "plate",
+    "fork",
+    "knife"
+  ],
+  "categories": [
+    "icons"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 387,
+    "y": 249
+  },
+  "looping": true,
+  "frameDelay": 2
+}

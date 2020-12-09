@@ -1,0 +1,20 @@
+{
+  "name": "vdayemoji_09",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "valentinesday",
+    "valentine",
+    "kiss"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 338,
+    "y": 338
+  },
+  "looping": true,
+  "frameDelay": 2
+}

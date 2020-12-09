@@ -1,0 +1,17 @@
+{
+  "name": "beaver",
+  "aliases": [
+    "animal",
+    "beaver"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 156
+  },
+  "looping": true,
+  "frameDelay": 2
+}

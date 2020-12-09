@@ -1,0 +1,18 @@
+{
+  "name": "alien_08",
+  "aliases": [
+    "alien",
+    "creature",
+    "red"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 259,
+    "y": 396
+  },
+  "looping": true,
+  "frameDelay": 2
+}

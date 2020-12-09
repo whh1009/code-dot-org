@@ -1,0 +1,18 @@
+{
+  "name": "mexican_elote",
+  "aliases": [
+    "food",
+    "meal",
+    "Mexicanelote"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 390
+  },
+  "looping": true,
+  "frameDelay": 2
+}

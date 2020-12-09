@@ -1,0 +1,19 @@
+{
+  "name": "halloweenemoji_06",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "halloween",
+    "witch"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 356,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}

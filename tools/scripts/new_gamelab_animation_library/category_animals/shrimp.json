@@ -1,0 +1,21 @@
+{
+  "name": "shrimp",
+  "aliases": [
+    "fish",
+    "shrimp",
+    "ocean",
+    "sea",
+    "underwater",
+    "red"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 367,
+    "y": 390
+  },
+  "looping": true,
+  "frameDelay": 2
+}

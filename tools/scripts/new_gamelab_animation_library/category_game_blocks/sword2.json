@@ -1,0 +1,19 @@
+{
+  "name": "sword2",
+  "aliases": [
+    "RPG",
+    "gameplay",
+    "game",
+    "sword"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 390,
+    "y": 394
+  },
+  "looping": true,
+  "frameDelay": 2
+}

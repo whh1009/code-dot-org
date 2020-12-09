@@ -1,0 +1,21 @@
+{
+  "name": "seasnail",
+  "aliases": [
+    "underwater",
+    "fish",
+    "snail",
+    "seasnail",
+    "sea",
+    "ocean"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 387,
+    "y": 378
+  },
+  "looping": true,
+  "frameDelay": 2
+}

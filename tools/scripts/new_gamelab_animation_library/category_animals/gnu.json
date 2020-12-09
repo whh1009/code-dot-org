@@ -1,0 +1,17 @@
+{
+  "name": "gnu",
+  "aliases": [
+    "animal",
+    "gnu"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 397,
+    "y": 351
+  },
+  "looping": true,
+  "frameDelay": 2
+}

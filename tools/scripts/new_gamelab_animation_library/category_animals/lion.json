@@ -1,0 +1,17 @@
+{
+  "name": "lion",
+  "aliases": [
+    "animal",
+    "lion"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 396,
+    "y": 294
+  },
+  "looping": true,
+  "frameDelay": 2
+}

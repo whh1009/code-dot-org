@@ -1,0 +1,17 @@
+{
+  "name": "face_turkey",
+  "aliases": [
+    "food",
+    "turkey"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 268,
+    "y": 393
+  },
+  "looping": true,
+  "frameDelay": 2
+}

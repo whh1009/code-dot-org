@@ -1,0 +1,18 @@
+{
+  "name": "horse",
+  "aliases": [
+    "animal",
+    "horse",
+    "farm"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 395,
+    "y": 386
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,17 @@
+{
+  "name": "sticker_37",
+  "aliases": [
+    "sticker",
+    "candy"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 264,
+    "y": 260
+  },
+  "looping": true,
+  "frameDelay": 2
+}

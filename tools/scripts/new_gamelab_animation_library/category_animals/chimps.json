@@ -1,0 +1,18 @@
+{
+  "name": "chimps",
+  "aliases": [
+    "animal",
+    "chimp",
+    "monkey"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 387,
+    "y": 397
+  },
+  "looping": true,
+  "frameDelay": 2
+}

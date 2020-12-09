@@ -1,0 +1,19 @@
+{
+  "name": "hare",
+  "aliases": [
+    "animal",
+    "hare",
+    "bunny",
+    "rabbit"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 282,
+    "y": 397
+  },
+  "looping": true,
+  "frameDelay": 2
+}

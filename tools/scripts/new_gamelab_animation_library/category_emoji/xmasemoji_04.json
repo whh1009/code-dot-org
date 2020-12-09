@@ -1,0 +1,19 @@
+{
+  "name": "xmasemoji_04",
+  "aliases": [
+    "emoji",
+    "holiday",
+    "christmas",
+    "elf"
+  ],
+  "categories": [
+    "emoji"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 326,
+    "y": 352
+  },
+  "looping": true,
+  "frameDelay": 2
+}

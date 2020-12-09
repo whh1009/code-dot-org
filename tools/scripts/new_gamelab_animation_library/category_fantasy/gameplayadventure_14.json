@@ -1,0 +1,21 @@
+{
+  "name": "gameplayadventure_14",
+  "aliases": [
+    "RPG",
+    "gameplay",
+    "game",
+    "yellow",
+    "spkies",
+    "creature"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 393,
+    "y": 348
+  },
+  "looping": true,
+  "frameDelay": 2
+}

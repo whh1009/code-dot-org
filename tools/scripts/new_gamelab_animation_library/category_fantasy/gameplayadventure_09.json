@@ -1,0 +1,21 @@
+{
+  "name": "gameplayadventure_09",
+  "aliases": [
+    "RPG",
+    "gameplay",
+    "game",
+    "green",
+    "horns",
+    "creature"
+  ],
+  "categories": [
+    "fantasy"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 387,
+    "y": 344
+  },
+  "looping": true,
+  "frameDelay": 2
+}

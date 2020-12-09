@@ -2,15 +2,16 @@
   "name": "rabbit",
   "aliases": [
     "animal",
-    "rabbit"
+    "rabbit",
+    "bunny"
   ],
   "categories": [
     "animals"
   ],
   "frameCount": 1,
   "frameSize": {
-    "x": 256,
-    "y": 341
+    "x": 396,
+    "y": 360
   },
   "looping": true,
   "frameDelay": 2

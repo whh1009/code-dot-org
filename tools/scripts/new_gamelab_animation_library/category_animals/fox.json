@@ -1,0 +1,17 @@
+{
+  "name": "fox",
+  "aliases": [
+    "animal",
+    "fox"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 394,
+    "y": 260
+  },
+  "looping": true,
+  "frameDelay": 2
+}

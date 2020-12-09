@@ -1,0 +1,18 @@
+{
+  "name": "japanese_ramen",
+  "aliases": [
+    "food",
+    "meal",
+    "Japaneseramen"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 394,
+    "y": 394
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,18 @@
+{
+  "name": "mexican_chilesennogada",
+  "aliases": [
+    "food",
+    "Mexicanfood",
+    "ChilesenNogada"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 390,
+    "y": 390
+  },
+  "looping": true,
+  "frameDelay": 2
+}

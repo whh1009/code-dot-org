@@ -1,0 +1,18 @@
+{
+  "name": "animalhead_walrus",
+  "aliases": [
+    "animal",
+    "walrus",
+    "seal"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 398,
+    "y": 350
+  },
+  "looping": true,
+  "frameDelay": 2
+}

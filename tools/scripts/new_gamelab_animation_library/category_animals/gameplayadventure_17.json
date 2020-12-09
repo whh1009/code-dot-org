@@ -1,0 +1,21 @@
+{
+  "name": "gameplayadventure_17",
+  "aliases": [
+    "RPG",
+    "gameplay",
+    "game",
+    "fox",
+    "orange",
+    "creature"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 399,
+    "y": 339
+  },
+  "looping": true,
+  "frameDelay": 2
+}

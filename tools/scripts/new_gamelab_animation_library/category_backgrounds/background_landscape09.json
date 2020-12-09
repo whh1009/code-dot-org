@@ -1,0 +1,21 @@
+{
+  "name": "background_landscape09",
+  "aliases": [
+    "landscape",
+    "background",
+    "saturn",
+    "outerspace",
+    "purple",
+    "space"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 399
+  },
+  "looping": true,
+  "frameDelay": 2
+}

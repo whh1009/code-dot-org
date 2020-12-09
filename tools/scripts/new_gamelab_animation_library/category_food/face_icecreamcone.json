@@ -1,0 +1,17 @@
+{
+  "name": "face_icecreamcone",
+  "aliases": [
+    "food",
+    "icecream"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 224,
+    "y": 394
+  },
+  "looping": true,
+  "frameDelay": 2
+}

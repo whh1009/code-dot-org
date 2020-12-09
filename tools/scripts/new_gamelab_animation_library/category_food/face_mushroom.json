@@ -1,0 +1,17 @@
+{
+  "name": "face_mushroom",
+  "aliases": [
+    "food",
+    "mushroom"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 397,
+    "y": 358
+  },
+  "looping": true,
+  "frameDelay": 2
+}

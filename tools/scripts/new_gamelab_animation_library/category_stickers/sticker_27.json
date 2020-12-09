@@ -1,0 +1,19 @@
+{
+  "name": "sticker_27",
+  "aliases": [
+    "sticker",
+    "spaceship",
+    "alien",
+    "flyingsaucer"
+  ],
+  "categories": [
+    "stickers"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 242
+  },
+  "looping": true,
+  "frameDelay": 2
+}

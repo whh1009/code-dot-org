@@ -1,0 +1,17 @@
+{
+  "name": "face_lemonade",
+  "aliases": [
+    "food",
+    "lemonade"
+  ],
+  "categories": [
+    "food"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 192,
+    "y": 391
+  },
+  "looping": true,
+  "frameDelay": 2
+}

@@ -1,0 +1,19 @@
+{
+  "name": "gameplayobject_ray_03",
+  "aliases": [
+    "game",
+    "gameplay",
+    "blaster",
+    "raygun"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 352
+  },
+  "looping": true,
+  "frameDelay": 2
+}

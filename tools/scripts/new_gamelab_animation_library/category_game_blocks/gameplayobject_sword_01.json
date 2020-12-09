@@ -1,0 +1,21 @@
+{
+  "name": "gameplayobject_sword_01",
+  "aliases": [
+    "game",
+    "Medieval",
+    "MiddleAges",
+    "gameplay",
+    "sword",
+    "blue"
+  ],
+  "categories": [
+    "game_blocks"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 306,
+    "y": 398
+  },
+  "looping": true,
+  "frameDelay": 2
+}

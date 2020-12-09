@@ -1,0 +1,20 @@
+{
+  "name": "texture_14",
+  "aliases": [
+    "background",
+    "texture",
+    "orange",
+    "stripes",
+    "wood"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 398
+  },
+  "looping": true,
+  "frameDelay": 2
+}

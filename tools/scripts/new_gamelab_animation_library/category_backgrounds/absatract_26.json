@@ -1,0 +1,19 @@
+{
+  "name": "absatract_26",
+  "aliases": [
+    "background",
+    "pink",
+    "peach",
+    "abstract"
+  ],
+  "categories": [
+    "backgrounds"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 400
+  },
+  "looping": true,
+  "frameDelay": 2
+}
