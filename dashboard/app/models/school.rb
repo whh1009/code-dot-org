@@ -99,6 +99,10 @@ class School < ApplicationRecord
   #   via http://stackoverflow.com/questions/8073920/importing-csv-quoting-error-is-driving-me-nuts
   CSV_IMPORT_OPTIONS = {col_sep: "\t", headers: true, quote_char: "\x00"}.freeze
 
+  # School statuses representing currently open schools in 2018-2019 import.
+  # Non-open statuses are 'Closed', 'Future', 'Inactive'
+  OPEN_SCHOOL_STATUSES = ['Open', 'New', 'Reopened', 'Changed Boundary/Agency', 'Added']
+
   # Gets the seeding file name.
   # @param stub_school_data [Boolean] True for stub file.
   def self.get_seed_filename(stub_school_data)
@@ -287,7 +291,7 @@ class School < ApplicationRecord
       CDO.log.info "Seeding 2018-2019 public and charter school data."
       # Download link found here: https://nces.ed.gov/ccd/files.asp#Fiscal:2,LevelId:7,SchoolYearId:33,Page:1
       # Actual download link: https://nces.ed.gov/ccd/data/zip/ccd_sch_029_1819_w_1a_091019.zip
-      AWS::S3.seed_from_file('cdo-nces', "2018-2019/ccd/xyz.csv") do |filename|
+      AWS::S3.seed_from_file('cdo-nces', "2018-2019/ccd/ccd_sch_029_1819_w_1a_091019.csv") do |filename|
         # should this quote char thing be removed? I think supposed to allow importing
         # double quotes in columns, but I think double quotes are used correctly to
         # surround a column containing a comma (at least in the geographic data file below)
@@ -295,7 +299,8 @@ class School < ApplicationRecord
           {
             id:                           row['NCESSCH'].to_i.to_s,
             name:                         row['SCH_NAME'].upcase,
-            address_line1:                row['LSTREET1'].to_s.upcase.presence,
+            # Four schools with addresses longer than 50 characters (DB column limit)
+            address_line1:                row['LSTREET1'].to_s.upcase.truncate(50).presence,
             address_line2:                row['LSTREET2'].to_s.upcase.presence,
             address_line3:                row['LSTREET3'].to_s.upcase.presence,
             city:                         row['LCITY'].to_s.upcase.presence,
@@ -307,7 +312,7 @@ class School < ApplicationRecord
             # New addition for this iteration -- a "school category",
             # which is Regular, Special Education, Alternative, or Career and Technical
             school_category:              row['SCH_TYPE_TEXT'],
-            last_known_school_year_open:  '2018-2019'
+            last_known_school_year_open:  OPEN_SCHOOL_STATUSES.include?(row['UPDATED_STATUS_TEXT']) ? '2018-2019' : nil
           }
         end
       end
