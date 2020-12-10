@@ -115,18 +115,18 @@ class SchoolDistrict < ApplicationRecord
     end
   end
 
-  def self.dry_seed_s3_object(bucket, filepath, import_options, new_attributes: [], &parse_row)
+  def self.seed_s3_object(bucket, filepath, import_options, is_dry_run: false, new_attributes: [], &parse_row)
     AWS::S3.seed_from_file(bucket, filepath, true) do |filename|
       merge_from_csv(
         filename,
         import_options,
         true,
-        is_dry_run: true,
+        is_dry_run: is_dry_run,
         new_attributes: new_attributes,
         &parse_row
       )
     end
-    CDO.log.info "This is a dry run. No data written to the database."
+    CDO.log.info "This is a dry run. No data written to the database." if is_dry_run
   end
 
   # Loads/merges the data from a CSV into the school districts table.
@@ -150,11 +150,11 @@ class SchoolDistrict < ApplicationRecord
         elsif write_updates
           loaded.assign_attributes(parsed)
           if loaded.changed?
-            loaded.update!(parsed) unless is_dry_run
-
             loaded.changed.sort == new_attributes.sort ?
               unchanged_districts += 1 :
               updated_districts += 1
+
+            loaded.update!(parsed) unless is_dry_run
           else
             unchanged_districts += 1
           end
