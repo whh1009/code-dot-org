@@ -356,21 +356,40 @@ class School < ApplicationRecord
             duplicate_schools << parsed
           end
         elsif write_updates
+          has_state_cs_offerings = !loaded.state_cs_offering.empty?
+
           loaded.assign_attributes(parsed)
           if loaded.changed?
-            loaded.update!(parsed) unless is_dry_run
+            # Not counting schools as "updated" if the only change
+            # is adding a new column. Otherwise, all found rows will be updated.
+            loaded.changed.sort == new_attributes.sort ?
+              unchanged_schools += 1 :
+              updated_schools += 1
+
+            # We need to delete and reload state_cs_offerings
+            # if we're going to update the state_school_id for a given school.
+            state_cs_offerings_hashes = []
+            if loaded.changed.include?('state_school_id') && !loaded.state_school_id_was.nil? && has_state_cs_offerings
+              state_cs_offerings = Census::StateCsOffering.where(state_school_id: loaded.state_school_id_was)
+              state_cs_offerings_hashes = state_cs_offerings.map {|offering| offering.attributes.symbolize_keys}
+              state_cs_offerings.delete_all
+            end
+
+            unless is_dry_run
+              loaded.update!(parsed)
+
+              state_cs_offerings_hashes.each do |state_cs_offering|
+                reconstituted_state_cs_offering = Census::StateCsOffering.new(state_cs_offering.slice(:course, :school_year))
+                reconstituted_state_cs_offering.state_school_id = loaded.state_school_id
+                reconstituted_state_cs_offering.save!
+              end
+            end
 
             loaded.changed.each do |attribute|
               updated_schools_attribute_frequency.key?(attribute) ?
                 updated_schools_attribute_frequency[attribute] += 1 :
                 updated_schools_attribute_frequency[attribute] = 1
             end
-
-            # Not counting schools as "updated" if the only change
-            # is adding a new column. Otherwise, all found rows will be updated.
-            loaded.changed.sort == new_attributes.sort ?
-              unchanged_schools += 1 :
-              updated_schools += 1
           else
             unchanged_schools += 1
           end
