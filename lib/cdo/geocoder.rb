@@ -97,7 +97,7 @@ module Geocoder
     return nil if first_number_to_end.length < MIN_ADDRESS_LENGTH # too short to be an address
     return nil if first_number_to_end.count(' ') < 2 # too few words to be an address
 
-    results = Geocoder.search(first_number_to_end)
+    results = Geocoder.search(first_number_to_end, params: {types: "address"})
     return nil if results.empty?
 
     # Return nil if none of the results returned from Geocoder matched on a
