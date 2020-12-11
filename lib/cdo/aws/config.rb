@@ -12,6 +12,7 @@ begin
     profile: 'cdo',
     port: CDO.dashboard_port
   }.compact
+  ENV['AWS_PROFILE'] ||= 'cdo'
 rescue LoadError
   # ignore
 end
