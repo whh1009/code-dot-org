@@ -1,19 +1,12 @@
 #!/usr/bin/env ruby
 
 require_relative '../deployment'
-require 'aws-sdk-sts'
 
-module Aws
-  class CredentialProviderChain
-    def current_provider
-      providers.find do |method_name, options|
-        send(method_name, options.merge(config: @config))&.set?
-      end&.first
-    end
-  end
+unless (provider = Aws::STS::Client.new.config.credentials)
+  abort 'AWS credentials not found. Check your AWS config and try again.'
 end
 
-unless (provider = Aws::STS::Client.new.config.credentials).class == Aws::Google
+unless provider.class == Aws::Google
   puts "WARNING: AWS is currently using #{provider}, not Google credentials."
 end
 
