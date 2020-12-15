@@ -36,7 +36,7 @@ class SchoolDistrict < ApplicationRecord
   # Seeds all the data from the source file.
   # @param options [Hash] Optional map of options.
   def self.seed_all(options = {})
-    options[:stub_school_data] ||= CDO.stub_school_data
+    options[:stub_school_data] = CDO.stub_school_data unless options.key?(:stub_school_data)
 
     if options[:stub_school_data]
       # use a much smaller dataset in environments that reseed data frequently.
@@ -53,7 +53,7 @@ class SchoolDistrict < ApplicationRecord
     SchoolDistrict.transaction do
       CDO.log.info "Seeding 2013-2014 school district data"
       AWS::S3.seed_from_file('cdo-nces', "2013-2014/ccd/ag131a_supp.txt") do |filename|
-        SchoolDistrict.merge_from_csv(filename, CSV_IMPORT_OPTIONS, false) do |row|
+        SchoolDistrict.merge_from_csv(filename) do |row|
           {
             id:    row['LEAID'].to_i,
             name:  row['NAME'].upcase,
@@ -66,7 +66,7 @@ class SchoolDistrict < ApplicationRecord
 
       CDO.log.info "Seeding 2014-2015 school district data"
       AWS::S3.seed_from_file('cdo-nces', "2014-2015/ccd/ccd_lea_029_1415_w_0216161ar.txt") do |filename|
-        SchoolDistrict.merge_from_csv(filename, CSV_IMPORT_OPTIONS, false) do |row|
+        SchoolDistrict.merge_from_csv(filename) do |row|
           {
             id:    row['LEAID'].to_i,
             name:  row['LEA_NAME'].upcase,
@@ -101,7 +101,7 @@ class SchoolDistrict < ApplicationRecord
       # Used table generator here to get columns of interest:
       # https://nces.ed.gov/ccd/elsi/tableGenerator.aspx
       AWS::S3.seed_from_file('cdo-nces', "2018-2019/ccd/ELSI_csv_export_637423414304008909966.csv") do |filename|
-        SchoolDistrict.merge_from_csv(filename, import_options_1819) do |row|
+        SchoolDistrict.merge_from_csv(filename, import_options_1819, true, new_attributes: ['last_known_school_year_open']) do |row|
           {
             id:                           row['Agency ID - NCES Assigned [District] Latest available year'].tr('"=', '').to_i,
             name:                         row['Agency Name'].upcase,
