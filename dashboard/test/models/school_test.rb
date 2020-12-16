@@ -55,6 +55,34 @@ class SchoolTest < ActiveSupport::TestCase
     School.merge_from_csv(School.get_seed_filename(true), is_dry_run: true, &parse_row)
   end
 
+  test 'delete_state_cs_offerings removes state CS offerings' do
+    school = create :school
+    state_cs_offering = create :state_cs_offering, school: school
+
+    assert_equal school.state_cs_offering.pluck(:id), [state_cs_offering.id]
+
+    school.delete_state_cs_offerings(school.state_school_id)
+    assert_empty school.state_cs_offering
+  end
+
+  test 'delete_state_cs_offerings returns hash with keys needed to reconstitute' do
+    school = create :school
+    state_cs_offering = create :state_cs_offering, school: school
+
+    assert_equal school.state_cs_offering.pluck(:id), [state_cs_offering.id]
+
+    deleted_offerings = school.delete_state_cs_offerings(school.state_school_id)
+
+    expected = {
+      course: state_cs_offering.course,
+      school_year: state_cs_offering.school_year
+    }
+
+    assert_equal 1, deleted_offerings.length
+    assert_equal expected,
+      deleted_offerings.first.slice(:course, :school_year)
+  end
+
   test 'null state_school_id is valid' do
     school = build :school, :without_state_school_id
     assert school.valid?, school.errors.full_messages

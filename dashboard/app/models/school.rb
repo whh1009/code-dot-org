@@ -332,12 +332,15 @@ class School < ApplicationRecord
     end
   end
 
-  def delete_state_cs_offerings
-    puts "Found #{state_cs_offering.count} state CS offerings for previous state school ID: #{state_school_id_was}, new state school ID: #{state_school_id}, school ID: #{id}"
-    state_cs_offerings_hashes = state_cs_offering.map {|offering| offering.attributes.symbolize_keys}
+  def delete_state_cs_offerings(state_school_id)
+    # take any given state school ID and delete existing rows with that ID
+    state_cs_offerings = Census::StateCsOffering.where(state_school_id: state_school_id)
+
+    puts "Found #{state_cs_offerings.count} state CS offerings for #{state_school_id}, school ID: #{id}"
+    state_cs_offerings_hashes = state_cs_offerings.map {|offering| offering.attributes.symbolize_keys}
     state_cs_offerings.delete_all
-    puts "Deleted state CS offerings for #{state_school_id_was}"
-    puts "After deleting, #{state_cs_offerings.count} state CS offerings for previous state school ID: #{state_school_id_was}, new state school ID: #{state_school_id}, school ID: #{id}"
+    puts "Deleted state CS offerings for #{state_school_id}"
+    puts "After deleting, #{state_cs_offering.count} state CS offerings for state school ID: #{state_school_id}, school ID: #{id}"
 
     return state_cs_offerings_hashes
   end
@@ -395,7 +398,7 @@ class School < ApplicationRecord
             state_cs_offerings_hashes = []
             must_reload_state_cs_offerings = loaded.changed.include?('state_school_id') && has_state_cs_offerings
             if must_reload_state_cs_offerings && !is_dry_run
-              state_cs_offerings_hashes = loaded.delete_state_cs_offerings
+              state_cs_offerings_hashes = loaded.delete_state_cs_offerings(loaded.state_school_id_was)
             end
 
             # store before update
