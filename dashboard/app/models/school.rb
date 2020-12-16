@@ -116,7 +116,7 @@ class School < ApplicationRecord
   # Seeds all the data from the source file.
   # @param options [Hash] Optional map of options.
   def self.seed_all(options = {})
-    options[:stub_school_data] ||= CDO.stub_school_data
+    options[:stub_school_data] = CDO.stub_school_data unless options.key?(:stub_school_data)
 
     if options[:stub_school_data]
       # use a much smaller dataset in environments that reseed data frequently.
@@ -143,7 +143,7 @@ class School < ApplicationRecord
       CDO.log.info "Seeding 2014-2015 PRELIMINARY public and charter school data."
       # Originally from https://nces.ed.gov/ccd/Data/zip/Sch14pre_txt.zip
       AWS::S3.seed_from_file('cdo-nces', "2014-2015/ccd/Sch14pre.txt") do |filename|
-        merge_from_csv(filename, {col_sep: "\t", headers: true, quote_char: "\x00", encoding: 'ISO-8859-1:UTF-8'}) do |row|
+        merge_from_csv(filename, {col_sep: "\t", headers: true, quote_char: "\x00", encoding: 'ISO-8859-1:UTF-8'}, true) do |row|
           {
             id:                 row['NCESSCH'].to_i.to_s,
             name:               row['SCHNAM'].upcase,
@@ -185,7 +185,7 @@ class School < ApplicationRecord
       CDO.log.info "Seeding 2013-2014 private school data."
       # Originally from https://nces.ed.gov/surveys/pss/zip/pss1314_pu_csv.zip
       AWS::S3.seed_from_file('cdo-nces', "2013-2014/pss/pss1314_pu.csv") do |filename|
-        merge_from_csv(filename, {headers: true, encoding: 'ISO-8859-1:UTF-8'}) do |row|
+        merge_from_csv(filename, {headers: true, encoding: 'ISO-8859-1:UTF-8'}, true) do |row|
           {
             id:                 row['PPIN'],
             name:               row['PINST'].upcase,
@@ -229,7 +229,7 @@ class School < ApplicationRecord
       CDO.log.info "Seeding 2014-2015 public school geographic data."
       # Originally from https://nces.ed.gov/ccd/Data/zip/EDGE_GEOIDS_201415_PUBLIC_SCHOOL_csv.zip
       AWS::S3.seed_from_file('cdo-nces', "2014-2015/ccd/EDGE_GEOIDS_201415_PUBLIC_SCHOOL.csv") do |filename|
-        merge_from_csv(filename, {headers: true, encoding: 'ISO-8859-1:UTF-8'}) do |row|
+        merge_from_csv(filename, {headers: true, encoding: 'ISO-8859-1:UTF-8'}, true) do |row|
           {
             id:                 row['NCESSCH'].to_i.to_s,
             latitude:           row['LATCODE'].to_f,
@@ -241,7 +241,7 @@ class School < ApplicationRecord
       CDO.log.info "Seeding 2015-2016 private school data."
       # Originally from https://nces.ed.gov/surveys/pss/zip/pss1516_pu_csv.zip
       AWS::S3.seed_from_file('cdo-nces', "2015-2016/pss/pss1516_pu.csv") do |filename|
-        merge_from_csv(filename, {headers: true, encoding: 'ISO-8859-1:UTF-8'}) do |row|
+        merge_from_csv(filename, {headers: true, encoding: 'ISO-8859-1:UTF-8'}, true) do |row|
           {
             id:                 row['ppin'],
             name:               row['pinst'].upcase,
@@ -332,6 +332,16 @@ class School < ApplicationRecord
     end
   end
 
+  def delete_state_cs_offerings
+    puts "Found #{state_cs_offering.count} state CS offerings for previous state school ID: #{state_school_id_was}, new state school ID: #{state_school_id}, school ID: #{id}"
+    state_cs_offerings_hashes = state_cs_offering.map {|offering| offering.attributes.symbolize_keys}
+    state_cs_offerings.delete_all
+    puts "Deleted state CS offerings for #{state_school_id_was}"
+    puts "After deleting, #{state_cs_offerings.count} state CS offerings for previous state school ID: #{state_school_id_was}, new state school ID: #{state_school_id}, school ID: #{id}"
+
+    return state_cs_offerings_hashes
+  end
+
   # Loads/merges the data from a CSV into the schools table.
   # Requires a block to parse the row.
   # @param filename [String] The CSV file name.
@@ -349,6 +359,7 @@ class School < ApplicationRecord
       schools = CSV.read(filename, options).each do |row|
         parsed = block_given? ? yield(row) : row.to_hash.symbolize_keys
         loaded = find_by_id(parsed[:id])
+
         if loaded.nil?
           begin
             School.new(parsed).save! unless is_dry_run
@@ -361,9 +372,8 @@ class School < ApplicationRecord
             duplicate_schools << parsed
           end
         elsif write_updates
-          has_state_cs_offerings = !loaded.state_cs_offering.empty?
-
           loaded.assign_attributes(parsed)
+
           if loaded.changed?
             # Not counting schools as "updated" if the only change
             # is adding a new column. Otherwise, all found rows will be updated.
@@ -371,29 +381,43 @@ class School < ApplicationRecord
               unchanged_schools += 1 :
               updated_schools += 1
 
-            # We need to delete and reload state_cs_offerings
-            # if we're going to update the state_school_id for a given school.
-            state_cs_offerings_hashes = []
-            if loaded.changed.include?('state_school_id') && !loaded.state_school_id_was.nil? && has_state_cs_offerings
-              state_cs_offerings = Census::StateCsOffering.where(state_school_id: loaded.state_school_id_was)
-              state_cs_offerings_hashes = state_cs_offerings.map {|offering| offering.attributes.symbolize_keys}
-              state_cs_offerings.delete_all
-            end
-
-            unless is_dry_run
-              loaded.update!(parsed)
-
-              state_cs_offerings_hashes.each do |state_cs_offering|
-                reconstituted_state_cs_offering = Census::StateCsOffering.new(state_cs_offering.slice(:course, :school_year))
-                reconstituted_state_cs_offering.state_school_id = loaded.state_school_id
-                reconstituted_state_cs_offering.save!
-              end
-            end
-
             loaded.changed.each do |attribute|
               updated_schools_attribute_frequency.key?(attribute) ?
                 updated_schools_attribute_frequency[attribute] += 1 :
                 updated_schools_attribute_frequency[attribute] = 1
+            end
+
+            # We need to delete and reload state_cs_offerings
+            # if we're going to update the state_school_id for a given school.
+            has_state_cs_offerings = loaded.state_school_id_was.nil? ?
+              false :
+              loaded.state_cs_offering.any?
+            state_cs_offerings_hashes = []
+            must_reload_state_cs_offerings = loaded.changed.include?('state_school_id') && has_state_cs_offerings
+            if must_reload_state_cs_offerings && !is_dry_run
+              state_cs_offerings_hashes = loaded.delete_state_cs_offerings
+            end
+
+            # store before update
+            previous_state_school_id = loaded.state_school_id_was
+
+            loaded.update!(parsed) unless is_dry_run
+
+            if must_reload_state_cs_offerings && !is_dry_run
+              state_cs_offerings_hashes.each do |state_cs_offering|
+                new_offering = state_cs_offering.slice(:course, :school_year)
+                new_offering[:state_school_id] = loaded.state_school_id
+                Census::StateCsOffering.new(new_offering).save!
+              end
+
+              loaded.reload
+
+              reconstituted = loaded.state_cs_offering.pluck(:course, :school_year)
+              original = state_cs_offerings_hashes.map {|state_cs_offering| state_cs_offering.slice(:course, :school_year)}
+              failure = ((reconstituted - original) + (original - reconstituted)).any?
+              raise ActiveRecord::Rollback, "Mismatch between state CS offerings deleted and recreated for NCES ID #{loaded.id}, originally #{original.length} records, now #{reconstituted.length} records" if failure
+
+              puts "After reconstitution: Found #{loaded.state_cs_offering.count} state CS offerings for previous state school ID: #{previous_state_school_id}, new state school ID: #{loaded.state_school_id}, school ID: #{loaded.id}"
             end
           else
             unchanged_schools += 1
@@ -409,7 +433,7 @@ class School < ApplicationRecord
       "#{unchanged_schools} schools unchanged (school considered changed if only update was adding new columns included in this import).\n"\
       "#{duplicate_schools.length} duplicate schools skipped.\n"
 
-    unless updated_schools_attribute_frequency.empty?
+    if updated_schools_attribute_frequency.any?
       summary_message <<
         "Among updated schools, these attributes were updated:\n"\
         "#{updated_schools_attribute_frequency.sort_by {|_, v| v}.
@@ -418,17 +442,18 @@ class School < ApplicationRecord
     end
 
     # More verbose logging in dry run
-    if !new_schools.empty? && is_dry_run
-      summary_message <<
-        "Schools added:\n"\
-        "#{new_schools.map {|school| school[:name] + ' ' + school[:id].to_s}.join("\n")}\n"
-    end
+    if is_dry_run
+      if new_schools.any?
+        summary_message <<
+          "Schools added:\n"\
+          "#{new_schools.map {|school| school[:name] + ' ' + school[:id].to_s}.join("\n")}\n"
+      end
 
-    # More verbose logging in dry run
-    if !duplicate_schools.empty? && is_dry_run
-      summary_message <<
-        "Duplicate schools skipped:\n"\
-        "#{duplicate_schools.map {|school| school[:name] + ' ' + school[:id]}.join("\n")}"
+      if duplicate_schools.any?
+        summary_message <<
+          "Duplicate schools skipped:\n"\
+          "#{duplicate_schools.map {|school| school[:name] + ' ' + school[:id]}.join("\n")}"
+      end
     end
 
     CDO.log.info summary_message
@@ -437,7 +462,7 @@ class School < ApplicationRecord
   end
 
   def self.seed_s3_object(bucket, filepath, import_options, is_dry_run: false, new_attributes: [], &parse_row)
-    AWS::S3.seed_from_file(bucket, filepath, true) do |filename|
+    AWS::S3.seed_from_file(bucket, filepath) do |filename|
       merge_from_csv(
         filename,
         import_options,
