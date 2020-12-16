@@ -18437,8 +18437,15 @@ en:
           description_short: short desc
           description: long desc
         tessscript:
-          lessons: {}
+          lessons:
+            lesson-1:
+              name: Test
           lesson_groups: {}
+          name: tessscript
+          title: ''
+          description_audience: ''
+          description_short: ''
+          description: ''
         csd2-2020-bethany:
           lessons:
             Exploring Web Pages:
@@ -18879,3 +18886,28 @@ en:
           title: Planning script for CI and CSF 2021
           description_audience: Internal
           description_short: Internal
+        csd-experiments:
+          lessons: {}
+          lesson_groups: {}
+        plbugbash:
+          lessons:
+            lesson-1:
+              name: Sariah - Deeper Learning
+            lesson-2:
+              name: Kaitie - agenda
+            lesson-3:
+              name: Jess - agenda
+            lesson-4:
+              name: Sarah - agenda
+            lesson-5:
+              name: Andrea
+            lesson-6:
+              name: Clare
+            lesson-7:
+              name: Molly
+          lesson_groups: {}
+          name: plbugbash
+          title: ''
+          description_audience: ''
+          description_short: ''
+          description: ''
