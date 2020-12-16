@@ -36,6 +36,7 @@ class Lesson < ApplicationRecord
   has_many :script_levels, -> {order(:chapter)}, foreign_key: 'stage_id', dependent: :destroy
   has_many :levels, through: :script_levels
   has_and_belongs_to_many :resources, join_table: :lessons_resources
+  has_many :lessons_resources # join table. we need this association for seeding logic
   has_many :objectives, dependent: :destroy
 
   has_one :plc_learning_module, class_name: 'Plc::LearningModule', inverse_of: :lesson, foreign_key: 'stage_id', dependent: :destroy
@@ -359,6 +360,21 @@ class Lesson < ApplicationRecord
 
         level_json
       end
+    }
+  end
+
+  # Returns a hash representing i18n strings in scripts.en.yml which may need
+  # to be updated after this object was updated. Currently, this only updates
+  # the lesson name.
+  def i18n_hash
+    {
+      script.name => {
+        'lessons' => {
+          key => {
+            'name' => name
+          }
+        }
+      }
     }
   end
 
