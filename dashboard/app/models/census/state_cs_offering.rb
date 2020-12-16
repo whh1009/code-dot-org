@@ -1456,6 +1456,19 @@ class Census::StateCsOffering < ApplicationRecord
     end
   end
 
+  def self.delete_state_cs_offerings(state_school_id)
+    # take any given state school ID and delete existing rows with that ID
+    state_cs_offerings = Census::StateCsOffering.where(state_school_id: state_school_id)
+
+    puts "Found #{state_cs_offerings.count} state CS offerings for #{state_school_id}, school ID: #{id}"
+    state_cs_offerings_hashes = state_cs_offerings.map {|offering| offering.attributes.symbolize_keys}
+    state_cs_offerings.delete_all
+    puts "Deleted state CS offerings for #{state_school_id}"
+    puts "After deleting, #{state_cs_offerings.count} state CS offerings for state school ID: #{state_school_id}"
+
+    return state_cs_offerings_hashes
+  end
+
   def self.seed_from_csv(state_code, school_year, update, filename, dry_run = false)
     ActiveRecord::Base.transaction do
       succeeded = 0
