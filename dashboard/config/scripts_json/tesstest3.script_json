@@ -1,0 +1,152 @@
+{
+  "script": {
+    "name": "tesstest3",
+    "wrapup_video_id": null,
+    "hidden": true,
+    "login_required": true,
+    "properties": {
+      "peer_reviews_to_complete": 0,
+      "student_detail_progress_view": "on",
+      "announcements": [
+        {
+          "notice": "Test",
+          "details": "test",
+          "link": "",
+          "type": "information",
+          "visibility": "Teacher-only"
+        }
+      ],
+      "version_year": "2021",
+      "curriculum_umbrella": "CSD",
+      "project_sharing": true,
+      "tts": true
+    },
+    "new_name": null,
+    "family_name": null,
+    "seeding_key": {
+      "script.name": "tesstest3"
+    }
+  },
+  "lesson_groups": [
+    {
+      "key": "lessonGroup-2",
+      "user_facing": true,
+      "position": 1,
+      "properties": {
+        "display_name": "Lesson Group 1",
+        "description": "Here is lesson group 1",
+        "big_questions": "Big question"
+      },
+      "seeding_key": {
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "tesstest3"
+      }
+    },
+    {
+      "key": "lessonGroup-3",
+      "user_facing": true,
+      "position": 2,
+      "properties": {
+        "display_name": "Lesson Group2",
+        "description": "Lesson Group 2",
+        "big_questions": "Big Question"
+      },
+      "seeding_key": {
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "tesstest3"
+      }
+    }
+  ],
+  "lessons": [
+    {
+      "key": "Lesson 1",
+      "name": "Lesson 1",
+      "absolute_position": 1,
+      "lockable": false,
+      "relative_position": 1,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Lesson 1",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "tesstest3"
+      }
+    },
+    {
+      "key": "Lesson 2",
+      "name": "Lesson 2",
+      "absolute_position": 2,
+      "lockable": false,
+      "relative_position": 2,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Lesson 2",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "tesstest3"
+      }
+    },
+    {
+      "key": "Lesson 3",
+      "name": "Lesson 3",
+      "absolute_position": 3,
+      "lockable": false,
+      "relative_position": 3,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Lesson 3",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "tesstest3"
+      }
+    },
+    {
+      "key": "Lesson Group 4",
+      "name": "Lesson Group 4",
+      "absolute_position": 4,
+      "lockable": false,
+      "relative_position": 4,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Lesson Group 4",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "tesstest3"
+      }
+    },
+    {
+      "key": "Lesson Group 5",
+      "name": "Lesson Group 5",
+      "absolute_position": 5,
+      "lockable": false,
+      "relative_position": 5,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Lesson Group 5",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "tesstest3"
+      }
+    },
+    {
+      "key": "Lesson Group 6",
+      "name": "Lesson Group 6",
+      "absolute_position": 6,
+      "lockable": false,
+      "relative_position": 6,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Lesson Group 6",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "tesstest3"
+      }
+    }
+  ],
+  "script_levels": [
+
+  ],
+  "levels_script_levels": [
+
+  ]
+}

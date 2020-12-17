@@ -1,0 +1,80 @@
+{
+  "script": {
+    "name": "ken",
+    "wrapup_video_id": null,
+    "hidden": true,
+    "login_required": false,
+    "properties": {
+      "peer_reviews_to_complete": 0
+    },
+    "new_name": null,
+    "family_name": null,
+    "seeding_key": {
+      "script.name": "ken"
+    }
+  },
+  "lesson_groups": [
+    {
+      "key": "lessonGroup-2",
+      "user_facing": true,
+      "position": 1,
+      "properties": {
+        "display_name": "Ramp Up"
+      },
+      "seeding_key": {
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "ken"
+      }
+    }
+  ],
+  "lessons": [
+    {
+      "key": "lesson-1",
+      "name": "Black and White Images",
+      "absolute_position": 1,
+      "lockable": false,
+      "relative_position": 1,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-1",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "ken"
+      }
+    },
+    {
+      "key": "lesson-2",
+      "name": "Lossless Compression",
+      "absolute_position": 2,
+      "lockable": false,
+      "relative_position": 2,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-2",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "ken"
+      }
+    },
+    {
+      "key": "lesson-3",
+      "name": "Lossy Compression",
+      "absolute_position": 3,
+      "lockable": false,
+      "relative_position": 3,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-3",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "ken"
+      }
+    }
+  ],
+  "script_levels": [
+
+  ],
+  "levels_script_levels": [
+
+  ]
+}

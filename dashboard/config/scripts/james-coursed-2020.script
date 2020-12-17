@@ -1,0 +1,18 @@
+lesson_group 'lessonGroup-2', display_name: 'Loops'
+lesson 'lesson-1', display_name: 'Loops in Ice Age'
+
+lesson 'lesson-2', display_name: 'Drawing Shapes with Loops'
+
+lesson 'lesson-3', display_name: 'Nested Loops in Maze'
+
+lesson_group 'lessonGroup-3', display_name: 'Conditionals'
+lesson 'lesson-4', display_name: 'Conditional with Cards'
+
+lesson 'lesson-5', display_name: 'If/Else with Bee'
+
+lesson 'lesson-6', display_name: 'While Loops in Farmer'
+
+lesson 'lesson-7', display_name: 'Unti Loops in Maze'
+
+lesson 'lesson-8', display_name: 'Harvesting with Conditionals'
+

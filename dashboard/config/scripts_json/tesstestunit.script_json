@@ -1,0 +1,28 @@
+{
+  "script": {
+    "name": "tesstestunit",
+    "wrapup_video_id": null,
+    "hidden": true,
+    "login_required": false,
+    "properties": {
+      "peer_reviews_to_complete": 0
+    },
+    "new_name": null,
+    "family_name": null,
+    "seeding_key": {
+      "script.name": "tesstestunit"
+    }
+  },
+  "lesson_groups": [
+
+  ],
+  "lessons": [
+
+  ],
+  "script_levels": [
+
+  ],
+  "levels_script_levels": [
+
+  ]
+}

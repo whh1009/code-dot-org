@@ -1,0 +1,135 @@
+{
+  "script": {
+    "name": "plbugbash",
+    "wrapup_video_id": null,
+    "hidden": true,
+    "login_required": false,
+    "properties": {
+      "peer_reviews_to_complete": 0
+    },
+    "new_name": null,
+    "family_name": null,
+    "seeding_key": {
+      "script.name": "plbugbash"
+    }
+  },
+  "lesson_groups": [
+    {
+      "key": "",
+      "user_facing": false,
+      "position": 1,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson_group.key": "",
+        "script.name": "plbugbash"
+      }
+    }
+  ],
+  "lessons": [
+    {
+      "key": "lesson-1",
+      "name": "Sariah - Deeper Learning",
+      "absolute_position": 1,
+      "lockable": false,
+      "relative_position": 1,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-1",
+        "lesson_group.key": "",
+        "script.name": "plbugbash"
+      }
+    },
+    {
+      "key": "lesson-2",
+      "name": "Kaitie - agenda",
+      "absolute_position": 2,
+      "lockable": false,
+      "relative_position": 2,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-2",
+        "lesson_group.key": "",
+        "script.name": "plbugbash"
+      }
+    },
+    {
+      "key": "lesson-3",
+      "name": "Jess - agenda",
+      "absolute_position": 3,
+      "lockable": false,
+      "relative_position": 3,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-3",
+        "lesson_group.key": "",
+        "script.name": "plbugbash"
+      }
+    },
+    {
+      "key": "lesson-4",
+      "name": "Sarah - agenda",
+      "absolute_position": 4,
+      "lockable": false,
+      "relative_position": 4,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-4",
+        "lesson_group.key": "",
+        "script.name": "plbugbash"
+      }
+    },
+    {
+      "key": "lesson-5",
+      "name": "Andrea",
+      "absolute_position": 5,
+      "lockable": false,
+      "relative_position": 5,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-5",
+        "lesson_group.key": "",
+        "script.name": "plbugbash"
+      }
+    },
+    {
+      "key": "lesson-6",
+      "name": "Clare",
+      "absolute_position": 6,
+      "lockable": false,
+      "relative_position": 6,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-6",
+        "lesson_group.key": "",
+        "script.name": "plbugbash"
+      }
+    },
+    {
+      "key": "lesson-7",
+      "name": "Molly",
+      "absolute_position": 7,
+      "lockable": false,
+      "relative_position": 7,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-7",
+        "lesson_group.key": "",
+        "script.name": "plbugbash"
+      }
+    }
+  ],
+  "script_levels": [
+
+  ],
+  "levels_script_levels": [
+
+  ]
+}

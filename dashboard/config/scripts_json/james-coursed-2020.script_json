@@ -1,0 +1,162 @@
+{
+  "script": {
+    "name": "james-coursed-2020",
+    "wrapup_video_id": null,
+    "hidden": true,
+    "login_required": false,
+    "properties": {
+      "peer_reviews_to_complete": 0
+    },
+    "new_name": null,
+    "family_name": null,
+    "seeding_key": {
+      "script.name": "james-coursed-2020"
+    }
+  },
+  "lesson_groups": [
+    {
+      "key": "lessonGroup-2",
+      "user_facing": true,
+      "position": 1,
+      "properties": {
+        "display_name": "Loops"
+      },
+      "seeding_key": {
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "james-coursed-2020"
+      }
+    },
+    {
+      "key": "lessonGroup-3",
+      "user_facing": true,
+      "position": 2,
+      "properties": {
+        "display_name": "Conditionals"
+      },
+      "seeding_key": {
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "james-coursed-2020"
+      }
+    }
+  ],
+  "lessons": [
+    {
+      "key": "lesson-1",
+      "name": "Loops in Ice Age",
+      "absolute_position": 1,
+      "lockable": false,
+      "relative_position": 1,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-1",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "james-coursed-2020"
+      }
+    },
+    {
+      "key": "lesson-2",
+      "name": "Drawing Shapes with Loops",
+      "absolute_position": 2,
+      "lockable": false,
+      "relative_position": 2,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-2",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "james-coursed-2020"
+      }
+    },
+    {
+      "key": "lesson-3",
+      "name": "Nested Loops in Maze",
+      "absolute_position": 3,
+      "lockable": false,
+      "relative_position": 3,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-3",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "james-coursed-2020"
+      }
+    },
+    {
+      "key": "lesson-4",
+      "name": "Conditional with Cards",
+      "absolute_position": 4,
+      "lockable": false,
+      "relative_position": 4,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-4",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "james-coursed-2020"
+      }
+    },
+    {
+      "key": "lesson-5",
+      "name": "If/Else with Bee",
+      "absolute_position": 5,
+      "lockable": false,
+      "relative_position": 5,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-5",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "james-coursed-2020"
+      }
+    },
+    {
+      "key": "lesson-6",
+      "name": "While Loops in Farmer",
+      "absolute_position": 6,
+      "lockable": false,
+      "relative_position": 6,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-6",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "james-coursed-2020"
+      }
+    },
+    {
+      "key": "lesson-7",
+      "name": "Unti Loops in Maze",
+      "absolute_position": 7,
+      "lockable": false,
+      "relative_position": 7,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-7",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "james-coursed-2020"
+      }
+    },
+    {
+      "key": "lesson-8",
+      "name": "Harvesting with Conditionals",
+      "absolute_position": 8,
+      "lockable": false,
+      "relative_position": 8,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-8",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "james-coursed-2020"
+      }
+    }
+  ],
+  "script_levels": [
+
+  ],
+  "levels_script_levels": [
+
+  ]
+}

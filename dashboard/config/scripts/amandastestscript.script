@@ -1,0 +1,10 @@
+version_year '2020'
+project_sharing true
+
+lesson_group 'lessonGroup-2', display_name: 'Amanda\'s lesson group'
+lesson_group_description 'test description of a lesson group'
+lesson_group_big_questions 'BIG QUESTION'
+lesson 'lesson-1', display_name: 'Amanda\'s first lesson'
+
+lesson 'lesson-2', display_name: 'Amanda\'s second lesson'
+

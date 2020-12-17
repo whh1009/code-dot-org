@@ -1,0 +1,67 @@
+{
+  "script": {
+    "name": "testtess",
+    "wrapup_video_id": null,
+    "hidden": true,
+    "login_required": true,
+    "properties": {
+      "peer_reviews_to_complete": 0,
+      "student_detail_progress_view": "on",
+      "version_year": "2021",
+      "has_lesson_plan": true
+    },
+    "new_name": null,
+    "family_name": null,
+    "seeding_key": {
+      "script.name": "testtess"
+    }
+  },
+  "lesson_groups": [
+    {
+      "key": "",
+      "user_facing": false,
+      "position": 1,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson_group.key": "",
+        "script.name": "testtess"
+      }
+    }
+  ],
+  "lessons": [
+    {
+      "key": "lesson-1",
+      "name": "Dance Party",
+      "absolute_position": 1,
+      "lockable": false,
+      "relative_position": 1,
+      "properties": {
+        "overview": "In this lesson, learners of all ages get an introductory experience with coding and computer science in a safe, supportive environment. This lesson has been designed for learners of all ages but does require reading. This activity requires sound as the tool was built to respond to music.",
+        "creative_commons_license": "Creative Commons BY-NC-SA",
+        "purpose": "This lesson introduces the core CS concepts of coding and event programming (using blocks).",
+        "preparation": "### One Week Before Your Hour of Code\r\n\r\n- Review the [Hour of Code Educator Guide](http://hourofcode.com/resources/how-to/) and [Best Practices from Successful Educators](http://www.slideshare.net/TeachCode/hour-of-code-best-practices-for-successful-educators-51273466) in order to begin to plan your Hour of Code event. \r\n- [Register your Hour of Code event](http://hourofcode.com) if you’d like to get classroom support, discounted posters, or participate in the robotics give-away (US only).\r\n- Review and complete the online tutorial yourself: [Dance Party](https://studio.code.org/s/dance-2019) \r\n- Be sure to test it first before asking your students to complete it. Check your technology and decide if you need to troubleshoot anything in advance of your Hour of Code.\r\n- Review the supplementary lesson plan, [\"The Big Dance Party\"](https://curriculum.code.org/hoc/unplugged/4/) to determine whether or not you'd like to lead this lesson in advance of your Hour of Code.\r\n\r\n### One Day Before Your Hour of Code\r\n\r\n- Each student who completes the activity should receive a certificate. [Print one](http://code.org/certificates) for everyone in advance to make this easier at the end of your Hour of Code.\r\n- (optional) Encourage students to bring in headphones to use during the activity.",
+        "announcements": [
+          {
+            "notice": "Are you teaching in a virtual setting or in a socially-distanced classroom?",
+            "details": "Check out this document for ideas and resources to help you tailor common practices like *Think Pair Share* or *Peer Feedback* to your learning environment. ",
+            "link": "(https://docs.google.com/document/d/1g8loG0Lj1LLg3yAiKPIn82vXyaMTznRkIjQsIzt_LoM/edit?usp=sharing)",
+            "type": "information",
+            "visibility": "Teacher-only"
+          }
+        ]
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-1",
+        "lesson_group.key": "",
+        "script.name": "testtess"
+      }
+    }
+  ],
+  "script_levels": [
+
+  ],
+  "levels_script_levels": [
+
+  ]
+}

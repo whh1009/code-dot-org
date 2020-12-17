@@ -1,0 +1,34 @@
+lesson_group 'lessonGroup-2', display_name: 'Variables'
+lesson 'Variables Explore', display_name: 'Variables Explore'
+
+lesson 'Variables Investigate', display_name: 'Variables Investigate'
+
+lesson 'Variables Practice', display_name: 'Variables Practice'
+
+lesson 'Variables Make', display_name: 'Variables Make'
+
+lesson_group 'lessonGroup-3', display_name: 'Conditionals'
+lesson 'Conditionals Explore', display_name: 'Conditionals Explore'
+
+lesson 'Conditionals Investigate', display_name: 'Conditionals Investigate'
+
+lesson 'Conditionals Practice', display_name: 'Conditionals Practice'
+
+lesson 'Conditionals Make', display_name: 'Conditionals Make'
+
+lesson_group 'lessonGroup-4', display_name: 'Functions'
+lesson 'Functions Explore / Investigate', display_name: 'Functions Explore / Investigate'
+
+lesson 'Functions Practice', display_name: 'Functions Practice'
+
+lesson 'Functions Make', display_name: 'Functions Make'
+
+lesson_group 'lessonGroup-5', display_name: 'Project'
+lesson 'Project - Part 1', display_name: 'Project - Part 1'
+
+lesson 'Project - Part 2', display_name: 'Project - Part 2'
+
+lesson 'Project - Part 3', display_name: 'Project - Part 3'
+
+lesson 'Assessment Day', display_name: 'Assessment Day'
+

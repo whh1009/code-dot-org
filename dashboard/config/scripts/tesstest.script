@@ -1,0 +1,22 @@
+hidden false
+teacher_resources [["teacherForum", "https://forum.code.org/"], ["allHandouts", "/link/to/all/handouts"], ["videos", "/link/to/videos"], ["lessonPlans", "/link/to/lesson/plans"]]
+
+lesson_group 'lessonGroup-2', display_name: 'Content'
+lesson 'Lesson 5', display_name: 'translation missing: en-US.data.script.name.tesstest.lessons.Lesson 5.name'
+
+lesson 'Lesson 3', display_name: 'translation missing: en-US.data.script.name.tesstest.lessons.Lesson 3.name'
+
+lesson_group 'lessonGroup-3', display_name: 'Content'
+lesson 'Lesson 1', display_name: 'translation missing: en-US.data.script.name.tesstest.lessons.Lesson 1.name'
+
+lesson 'Lesson 2', display_name: 'translation missing: en-US.data.script.name.tesstest.lessons.Lesson 2.name'
+
+lesson 'Lesson 4', display_name: 'translation missing: en-US.data.script.name.tesstest.lessons.Lesson 4.name'
+
+lesson_group 'lessonGroup-4', display_name: 'Content'
+lesson 'Lesson 7', display_name: 'translation missing: en-US.data.script.name.tesstest.lessons.Lesson 7.name'
+
+lesson 'Lesson 8', display_name: 'translation missing: en-US.data.script.name.tesstest.lessons.Lesson 8.name'
+
+lesson 'Lesson 9', display_name: 'translation missing: en-US.data.script.name.tesstest.lessons.Lesson 9.name'
+

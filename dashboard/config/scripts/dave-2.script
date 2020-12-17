@@ -1,0 +1,12 @@
+lesson_group 'lessonGroup-2', display_name: 'Group One'
+lesson_group_description 'Description One'
+lesson_group_big_questions 'Question One'
+lesson 'lesson-1', display_name: 'Lesson A'
+
+lesson 'lesson-2', display_name: 'Lesson B'
+
+lesson_group 'lessonGroup-3', display_name: 'Group Two'
+lesson_group_description 'Description Two'
+lesson_group_big_questions 'Question Two'
+lesson 'lesson-3', display_name: 'Lesson C'
+

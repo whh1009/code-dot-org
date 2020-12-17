@@ -1,0 +1,456 @@
+{
+  "script": {
+    "name": "testcsd",
+    "wrapup_video_id": null,
+    "hidden": true,
+    "login_required": true,
+    "properties": {
+      "peer_reviews_to_complete": 0,
+      "student_detail_progress_view": "on",
+      "curriculum_umbrella": "CSD",
+      "project_sharing": true,
+      "tts": true,
+      "teacher_resources": [
+        [
+          "lessonPlans",
+          "/link/to/lesson/plans"
+        ],
+        [
+          "teacherForum",
+          "https://forum.code.org/c/csd"
+        ]
+      ]
+    },
+    "new_name": null,
+    "family_name": null,
+    "seeding_key": {
+      "script.name": "testcsd"
+    }
+  },
+  "lesson_groups": [
+    {
+      "key": "lessonGroup-2",
+      "user_facing": true,
+      "position": 1,
+      "properties": {
+        "display_name": "Images and Animations"
+      },
+      "seeding_key": {
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lessonGroup-3",
+      "user_facing": true,
+      "position": 2,
+      "properties": {
+        "display_name": "Building Games"
+      },
+      "seeding_key": {
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "testcsd"
+      }
+    }
+  ],
+  "lessons": [
+    {
+      "key": "lesson-1",
+      "name": "Programming for Entertainment",
+      "absolute_position": 1,
+      "lockable": false,
+      "relative_position": 1,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-1",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-2",
+      "name": "Plotting Shapes",
+      "absolute_position": 2,
+      "lockable": false,
+      "relative_position": 2,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-2",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-3",
+      "name": "Drawing in Game Lab",
+      "absolute_position": 3,
+      "lockable": false,
+      "relative_position": 3,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-3",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-4",
+      "name": "Shapes and Parameters",
+      "absolute_position": 4,
+      "lockable": false,
+      "relative_position": 4,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-4",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-5",
+      "name": "Variables",
+      "absolute_position": 5,
+      "lockable": false,
+      "relative_position": 5,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-5",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-6",
+      "name": "Random Numbers",
+      "absolute_position": 6,
+      "lockable": false,
+      "relative_position": 6,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-6",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-7",
+      "name": "Sprites",
+      "absolute_position": 7,
+      "lockable": false,
+      "relative_position": 7,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-7",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-8",
+      "name": "Sprite Properties",
+      "absolute_position": 8,
+      "lockable": false,
+      "relative_position": 8,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-8",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-9",
+      "name": "Text",
+      "absolute_position": 9,
+      "lockable": false,
+      "relative_position": 9,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-9",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-10",
+      "name": "Mini-Project: Captioned Scenes",
+      "absolute_position": 10,
+      "lockable": false,
+      "relative_position": 10,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-10",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-11",
+      "name": "The Draw Loop",
+      "absolute_position": 11,
+      "lockable": false,
+      "relative_position": 11,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-11",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-12",
+      "name": "Sprite Movement",
+      "absolute_position": 12,
+      "lockable": false,
+      "relative_position": 12,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-12",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-13",
+      "name": "Mini-Project: Animation",
+      "absolute_position": 13,
+      "lockable": false,
+      "relative_position": 13,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-13",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-14",
+      "name": "Conditionals",
+      "absolute_position": 14,
+      "lockable": false,
+      "relative_position": 14,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-14",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-15",
+      "name": "Keyboard Input",
+      "absolute_position": 15,
+      "lockable": false,
+      "relative_position": 15,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-15",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-16",
+      "name": "Mouse Input",
+      "absolute_position": 16,
+      "lockable": false,
+      "relative_position": 16,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-16",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-17",
+      "name": "Project - Interactive Card",
+      "absolute_position": 17,
+      "lockable": false,
+      "relative_position": 17,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-17",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-18",
+      "name": "Velocity",
+      "absolute_position": 18,
+      "lockable": false,
+      "relative_position": 18,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-18",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-19",
+      "name": "Collision Detection",
+      "absolute_position": 19,
+      "lockable": false,
+      "relative_position": 19,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-19",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-20",
+      "name": "Mini-Project: Side Scroller",
+      "absolute_position": 20,
+      "lockable": false,
+      "relative_position": 20,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-20",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-21",
+      "name": "Complex Sprite Movement",
+      "absolute_position": 21,
+      "lockable": false,
+      "relative_position": 21,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-21",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-22",
+      "name": "Collisions",
+      "absolute_position": 22,
+      "lockable": false,
+      "relative_position": 22,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-22",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-23",
+      "name": "Mini-Project: Flyer Game",
+      "absolute_position": 23,
+      "lockable": false,
+      "relative_position": 23,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-23",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-24",
+      "name": "Functions",
+      "absolute_position": 24,
+      "lockable": false,
+      "relative_position": 24,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-24",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-25",
+      "name": "Game Design Process",
+      "absolute_position": 25,
+      "lockable": false,
+      "relative_position": 25,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-25",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-26",
+      "name": "Using the Game Design Process",
+      "absolute_position": 26,
+      "lockable": false,
+      "relative_position": 26,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-26",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-27",
+      "name": "Project - Design a Game",
+      "absolute_position": 27,
+      "lockable": false,
+      "relative_position": 27,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-27",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "testcsd"
+      }
+    },
+    {
+      "key": "lesson-28",
+      "name": "Post-Project Test",
+      "absolute_position": 28,
+      "lockable": false,
+      "relative_position": 28,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-28",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "testcsd"
+      }
+    }
+  ],
+  "script_levels": [
+
+  ],
+  "levels_script_levels": [
+
+  ]
+}

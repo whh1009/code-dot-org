@@ -1,0 +1,38 @@
+{
+  "script": {
+    "name": "testcsf2021-2022",
+    "wrapup_video_id": null,
+    "hidden": false,
+    "login_required": false,
+    "properties": {
+      "peer_reviews_to_complete": 0,
+      "teacher_resources": [
+        [
+          "lessonPlans",
+          "/link/to/lesson/plans"
+        ],
+        [
+          "teacherForum",
+          "https://forum.code.org/"
+        ]
+      ]
+    },
+    "new_name": null,
+    "family_name": "coursed",
+    "seeding_key": {
+      "script.name": "testcsf2021-2022"
+    }
+  },
+  "lesson_groups": [
+
+  ],
+  "lessons": [
+
+  ],
+  "script_levels": [
+
+  ],
+  "levels_script_levels": [
+
+  ]
+}

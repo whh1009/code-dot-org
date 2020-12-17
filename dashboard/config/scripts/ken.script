@@ -1,0 +1,7 @@
+lesson_group 'lessonGroup-2', display_name: 'Ramp Up'
+lesson 'lesson-1', display_name: 'Black and White Images'
+
+lesson 'lesson-2', display_name: 'Lossless Compression'
+
+lesson 'lesson-3', display_name: 'Lossy Compression'
+

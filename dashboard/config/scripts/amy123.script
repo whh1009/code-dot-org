@@ -1,0 +1,30 @@
+lesson_group 'lessonGroup-2', display_name: 'Ramp up'
+lesson 'lesson-1', display_name: 'Sequencing in the Maze'
+level 'Dance Party 1-validated_2020', progression: 'Prediction'
+level 'CDEF_video_SpritesInAction_2020'
+
+lesson 'lesson-2', display_name: 'Drawing with Loops'
+
+lesson 'lesson-3', display_name: 'Conditionals with Minecraft'
+
+lesson 'lesson-5', display_name: 'Conditionals with the Farmer'
+
+lesson_group 'lessonGroup-3', display_name: 'Sprites'
+lesson 'lesson-6', display_name: 'Simon Says'
+
+lesson 'lesson-7', display_name: 'Swimming Fish with Sprite Lab'
+
+lesson 'lesson-4', display_name: 'Alien Dance Party with Sprite Lab'
+
+lesson_group 'lessonGroup-4', display_name: 'Digital Citizenship'
+lesson 'lesson-8', display_name: 'Private and Personal Information'
+
+lesson 'lesson-9', display_name: 'About Me with Sprite Lab'
+
+lesson 'lesson-10', display_name: 'Lesson 10: Digital Sharing'
+
+lesson_group 'lessonGroup-5', display_name: 'Nested Loops '
+lesson 'lesson-11', display_name: 'Nested Loops in Maze'
+
+lesson 'lesson-12', display_name: 'Fancy Shapes using Nested Loops'
+

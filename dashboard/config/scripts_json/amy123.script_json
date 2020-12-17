@@ -1,0 +1,305 @@
+{
+  "script": {
+    "name": "amy123",
+    "wrapup_video_id": null,
+    "hidden": true,
+    "login_required": false,
+    "properties": {
+      "peer_reviews_to_complete": 0
+    },
+    "new_name": null,
+    "family_name": null,
+    "seeding_key": {
+      "script.name": "amy123"
+    }
+  },
+  "lesson_groups": [
+    {
+      "key": "lessonGroup-2",
+      "user_facing": true,
+      "position": 1,
+      "properties": {
+        "display_name": "Ramp up"
+      },
+      "seeding_key": {
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "amy123"
+      }
+    },
+    {
+      "key": "lessonGroup-3",
+      "user_facing": true,
+      "position": 2,
+      "properties": {
+        "display_name": "Sprites"
+      },
+      "seeding_key": {
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "amy123"
+      }
+    },
+    {
+      "key": "lessonGroup-4",
+      "user_facing": true,
+      "position": 3,
+      "properties": {
+        "display_name": "Digital Citizenship"
+      },
+      "seeding_key": {
+        "lesson_group.key": "lessonGroup-4",
+        "script.name": "amy123"
+      }
+    },
+    {
+      "key": "lessonGroup-5",
+      "user_facing": true,
+      "position": 4,
+      "properties": {
+        "display_name": "Nested Loops "
+      },
+      "seeding_key": {
+        "lesson_group.key": "lessonGroup-5",
+        "script.name": "amy123"
+      }
+    }
+  ],
+  "lessons": [
+    {
+      "key": "lesson-1",
+      "name": "Sequencing in the Maze",
+      "absolute_position": 1,
+      "lockable": false,
+      "relative_position": 1,
+      "properties": {
+        "overview": "This lesson features Sprite Lab, a platform where students can create their own interactive animations and games. In addition to behaviors, today students will incorporate user input as events to create an \"alien dance party\".",
+        "creative_commons_license": "Creative Commons BY-NC-SA"
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-1",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "amy123"
+      }
+    },
+    {
+      "key": "lesson-2",
+      "name": "Drawing with Loops",
+      "absolute_position": 2,
+      "lockable": false,
+      "relative_position": 2,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-2",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "amy123"
+      }
+    },
+    {
+      "key": "lesson-3",
+      "name": "Conditionals with Minecraft",
+      "absolute_position": 3,
+      "lockable": false,
+      "relative_position": 3,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-3",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "amy123"
+      }
+    },
+    {
+      "key": "lesson-5",
+      "name": "Conditionals with the Farmer",
+      "absolute_position": 4,
+      "lockable": false,
+      "relative_position": 4,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-5",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "amy123"
+      }
+    },
+    {
+      "key": "lesson-6",
+      "name": "Simon Says",
+      "absolute_position": 5,
+      "lockable": false,
+      "relative_position": 5,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-6",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "amy123"
+      }
+    },
+    {
+      "key": "lesson-7",
+      "name": "Swimming Fish with Sprite Lab",
+      "absolute_position": 6,
+      "lockable": false,
+      "relative_position": 6,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-7",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "amy123"
+      }
+    },
+    {
+      "key": "lesson-4",
+      "name": "Alien Dance Party with Sprite Lab",
+      "absolute_position": 7,
+      "lockable": false,
+      "relative_position": 7,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-4",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "amy123"
+      }
+    },
+    {
+      "key": "lesson-8",
+      "name": "Private and Personal Information",
+      "absolute_position": 8,
+      "lockable": false,
+      "relative_position": 8,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-8",
+        "lesson_group.key": "lessonGroup-4",
+        "script.name": "amy123"
+      }
+    },
+    {
+      "key": "lesson-9",
+      "name": "About Me with Sprite Lab",
+      "absolute_position": 9,
+      "lockable": false,
+      "relative_position": 9,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-9",
+        "lesson_group.key": "lessonGroup-4",
+        "script.name": "amy123"
+      }
+    },
+    {
+      "key": "lesson-10",
+      "name": "Lesson 10: Digital Sharing",
+      "absolute_position": 10,
+      "lockable": false,
+      "relative_position": 10,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-10",
+        "lesson_group.key": "lessonGroup-4",
+        "script.name": "amy123"
+      }
+    },
+    {
+      "key": "lesson-11",
+      "name": "Nested Loops in Maze",
+      "absolute_position": 11,
+      "lockable": false,
+      "relative_position": 11,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-11",
+        "lesson_group.key": "lessonGroup-5",
+        "script.name": "amy123"
+      }
+    },
+    {
+      "key": "lesson-12",
+      "name": "Fancy Shapes using Nested Loops",
+      "absolute_position": 12,
+      "lockable": false,
+      "relative_position": 12,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-12",
+        "lesson_group.key": "lessonGroup-5",
+        "script.name": "amy123"
+      }
+    }
+  ],
+  "script_levels": [
+    {
+      "chapter": 1,
+      "position": 1,
+      "assessment": null,
+      "properties": {
+        "progression": "Prediction"
+      },
+      "named_level": null,
+      "bonus": null,
+      "seeding_key": {
+        "script_level.level_keys": [
+          "Dance Party 1-validated_2020"
+        ],
+        "lesson.key": "lesson-1",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "amy123"
+      },
+      "level_keys": [
+        "Dance Party 1-validated_2020"
+      ]
+    },
+    {
+      "chapter": 2,
+      "position": 2,
+      "assessment": null,
+      "properties": {
+      },
+      "named_level": null,
+      "bonus": null,
+      "seeding_key": {
+        "script_level.level_keys": [
+          "CDEF_video_SpritesInAction_2020"
+        ],
+        "lesson.key": "lesson-1",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "amy123"
+      },
+      "level_keys": [
+        "CDEF_video_SpritesInAction_2020"
+      ]
+    }
+  ],
+  "levels_script_levels": [
+    {
+      "seeding_key": {
+        "level.key": "Dance Party 1-validated_2020",
+        "script_level.level_keys": [
+          "Dance Party 1-validated_2020"
+        ],
+        "lesson.key": "lesson-1",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "amy123"
+      }
+    },
+    {
+      "seeding_key": {
+        "level.key": "CDEF_video_SpritesInAction_2020",
+        "script_level.level_keys": [
+          "CDEF_video_SpritesInAction_2020"
+        ],
+        "lesson.key": "lesson-1",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "amy123"
+      }
+    }
+  ]
+}

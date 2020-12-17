@@ -1,0 +1,7 @@
+login_required true
+student_detail_progress_view true
+has_lesson_plan true
+version_year '2021'
+
+lesson 'lesson-1', display_name: 'Dance Party'
+

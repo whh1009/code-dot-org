@@ -1,0 +1,78 @@
+{
+  "script": {
+    "name": "csd-testing-dan",
+    "wrapup_video_id": null,
+    "hidden": true,
+    "login_required": false,
+    "properties": {
+      "peer_reviews_to_complete": 0
+    },
+    "new_name": null,
+    "family_name": null,
+    "seeding_key": {
+      "script.name": "csd-testing-dan"
+    }
+  },
+  "lesson_groups": [
+    {
+      "key": "",
+      "user_facing": false,
+      "position": 1,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson_group.key": "",
+        "script.name": "csd-testing-dan"
+      }
+    }
+  ],
+  "lessons": [
+    {
+      "key": "lesson-1",
+      "name": "Lesson 1: Adventures in CSD!",
+      "absolute_position": 1,
+      "lockable": false,
+      "relative_position": 1,
+      "properties": {
+        "overview": "**Question of the Day: how can we make it easier for computers to process data?**\r\n\r\nIn this lesson, students go further into the collection and interpretation of data, including cleaning and visualizing data. Students first look at how presenting data in different ways can help people to understand it better, and they then create visualizations of their own data. Using the results of a preferred pizza topping survey, students must decide what to do with data that does not easily fit into the visualization scheme that they have chosen. Finally, students discuss which parts of this process can be automated \r\n",
+        "student_overview": "# Student Overview!\r\n\r\nHey students! Check this out!",
+        "creative_commons_license": "Creative Commons BY-NC-SA",
+        "purpose": "This lesson demonstrates that raw data must be interpreted in some way to help people use it to make decisions. Students engage in both visualization and cleaning of data, and they see how data can be misinterpreted if it is not cleaned properly. Students also see how data must be structured in particular ways to be used by a computer.",
+        "announcements": [
+          {
+            "notice": "Attention! This course is AMAZING! Tell your friends!",
+            "details": "Here are more details",
+            "link": "www.code.org",
+            "type": "information",
+            "visibility": "Teacher-only"
+          }
+        ]
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-1",
+        "lesson_group.key": "",
+        "script.name": "csd-testing-dan"
+      }
+    },
+    {
+      "key": "lesson-2",
+      "name": "Lesson 2: The Plot Thickens!",
+      "absolute_position": 2,
+      "lockable": false,
+      "relative_position": 2,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "lesson-2",
+        "lesson_group.key": "",
+        "script.name": "csd-testing-dan"
+      }
+    }
+  ],
+  "script_levels": [
+
+  ],
+  "levels_script_levels": [
+
+  ]
+}

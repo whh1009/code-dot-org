@@ -1,0 +1,65 @@
+login_required true
+student_detail_progress_view true
+teacher_resources [["lessonPlans", "/link/to/lesson/plans"], ["teacherForum", "https://forum.code.org/c/csd"]]
+project_sharing true
+curriculum_umbrella 'CSD'
+tts true
+
+lesson_group 'lessonGroup-2', display_name: 'Images and Animations'
+lesson 'lesson-1', display_name: 'Programming for Entertainment'
+
+lesson 'lesson-2', display_name: 'Plotting Shapes'
+
+lesson 'lesson-3', display_name: 'Drawing in Game Lab'
+
+lesson 'lesson-4', display_name: 'Shapes and Parameters'
+
+lesson 'lesson-5', display_name: 'Variables'
+
+lesson 'lesson-6', display_name: 'Random Numbers'
+
+lesson 'lesson-7', display_name: 'Sprites'
+
+lesson 'lesson-8', display_name: 'Sprite Properties'
+
+lesson 'lesson-9', display_name: 'Text'
+
+lesson 'lesson-10', display_name: 'Mini-Project: Captioned Scenes'
+
+lesson 'lesson-11', display_name: 'The Draw Loop'
+
+lesson 'lesson-12', display_name: 'Sprite Movement'
+
+lesson 'lesson-13', display_name: 'Mini-Project: Animation'
+
+lesson 'lesson-14', display_name: 'Conditionals'
+
+lesson 'lesson-15', display_name: 'Keyboard Input'
+
+lesson 'lesson-16', display_name: 'Mouse Input'
+
+lesson 'lesson-17', display_name: 'Project - Interactive Card'
+
+lesson_group 'lessonGroup-3', display_name: 'Building Games'
+lesson 'lesson-18', display_name: 'Velocity'
+
+lesson 'lesson-19', display_name: 'Collision Detection'
+
+lesson 'lesson-20', display_name: 'Mini-Project: Side Scroller'
+
+lesson 'lesson-21', display_name: 'Complex Sprite Movement'
+
+lesson 'lesson-22', display_name: 'Collisions'
+
+lesson 'lesson-23', display_name: 'Mini-Project: Flyer Game'
+
+lesson 'lesson-24', display_name: 'Functions'
+
+lesson 'lesson-25', display_name: 'Game Design Process'
+
+lesson 'lesson-26', display_name: 'Using the Game Design Process'
+
+lesson 'lesson-27', display_name: 'Project - Design a Game'
+
+lesson 'lesson-28', display_name: 'Post-Project Test'
+

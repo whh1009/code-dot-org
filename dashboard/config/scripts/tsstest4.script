@@ -1,0 +1,5 @@
+login_required true
+student_detail_progress_view true
+
+lesson 'lesson-1', display_name: 'Lesson'
+

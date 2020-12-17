@@ -1,0 +1,5 @@
+hidden false
+has_lesson_plan true
+
+lesson 'lesson-1', display_name: 'AI for Oceans'
+

@@ -1,0 +1,113 @@
+{
+  "script": {
+    "name": "csd2-2020-bethany",
+    "wrapup_video_id": null,
+    "hidden": true,
+    "login_required": true,
+    "properties": {
+      "peer_reviews_to_complete": 0,
+      "student_detail_progress_view": "on",
+      "curriculum_umbrella": "CSD",
+      "project_sharing": true,
+      "tts": true
+    },
+    "new_name": null,
+    "family_name": null,
+    "seeding_key": {
+      "script.name": "csd2-2020-bethany"
+    }
+  },
+  "lesson_groups": [
+    {
+      "key": "lessonGroup-2",
+      "user_facing": true,
+      "position": 1,
+      "properties": {
+        "display_name": "Content"
+      },
+      "seeding_key": {
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "csd2-2020-bethany"
+      }
+    }
+  ],
+  "lessons": [
+    {
+      "key": "translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Exploring Web Pages.name",
+      "name": "Exploring Web Pages",
+      "absolute_position": 1,
+      "lockable": false,
+      "relative_position": 1,
+      "properties": {
+        "overview": "**Question of the Day: Why do people create web pages?**\r\n\r\nEvery website has a purpose, a reason someone created it and others use it. In this lesson, students will start to consider the purposes a website might serve, both for the users and the creators. Students will explore some sample websites and discuss the purpose they serve for their creators. They are then asked to reflect on reasons that someone might want to create websites.",
+        "creative_commons_license": "Creative Commons BY-NC-SA",
+        "purpose": "This unit is all about the World Wide Web, with a focus on creating websites for self expression. To start students thinking about why they might want to create a website, they must begin to consider how websites are useful tools for both users and creators. The lesson opens with popular websites because students are familiar with them, but students are asked to narrow their vision to simpler sites that are within the scope of what they will be able to make in this course.",
+        "preparation": "- Print a copy of the activity guide for each student.\r\n",
+        "announcements": [
+          {
+            "notice": "Accessing locked lessons and answer keys",
+            "details": "This course provides extra resources which are only available to verified teachers.",
+            "link": "https://support.code.org/hc/en-us/articles/115001550131",
+            "type": "information",
+            "visibility": "Teacher-only"
+          }
+        ]
+      },
+      "seeding_key": {
+        "lesson.key": "translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Exploring Web Pages.name",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "csd2-2020-bethany"
+      }
+    },
+    {
+      "key": "translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Intro to HTML.name",
+      "name": "Intro to HTML",
+      "absolute_position": 2,
+      "lockable": false,
+      "relative_position": 2,
+      "properties": {
+        "creative_commons_license": "Creative Commons BY-NC-SA"
+      },
+      "seeding_key": {
+        "lesson.key": "translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Intro to HTML.name",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "csd2-2020-bethany"
+      }
+    }
+  ],
+  "script_levels": [
+    {
+      "chapter": 1,
+      "position": 1,
+      "assessment": null,
+      "properties": {
+      },
+      "named_level": null,
+      "bonus": null,
+      "seeding_key": {
+        "script_level.level_keys": [
+          "CSD Web Sample Pages_2020"
+        ],
+        "lesson.key": "translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Exploring Web Pages.name",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "csd2-2020-bethany"
+      },
+      "level_keys": [
+        "CSD Web Sample Pages_2020"
+      ]
+    }
+  ],
+  "levels_script_levels": [
+    {
+      "seeding_key": {
+        "level.key": "CSD Web Sample Pages_2020",
+        "script_level.level_keys": [
+          "CSD Web Sample Pages_2020"
+        ],
+        "lesson.key": "translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Exploring Web Pages.name",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "csd2-2020-bethany"
+      }
+    }
+  ]
+}

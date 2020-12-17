@@ -1,0 +1,193 @@
+{
+  "script": {
+    "name": "tesstest",
+    "wrapup_video_id": null,
+    "hidden": false,
+    "login_required": false,
+    "properties": {
+      "peer_reviews_to_complete": 0,
+      "teacher_resources": [
+        [
+          "teacherForum",
+          "https://forum.code.org/"
+        ],
+        [
+          "allHandouts",
+          "/link/to/all/handouts"
+        ],
+        [
+          "videos",
+          "/link/to/videos"
+        ],
+        [
+          "lessonPlans",
+          "/link/to/lesson/plans"
+        ]
+      ]
+    },
+    "new_name": null,
+    "family_name": null,
+    "seeding_key": {
+      "script.name": "tesstest"
+    }
+  },
+  "lesson_groups": [
+    {
+      "key": "lessonGroup-2",
+      "user_facing": true,
+      "position": 1,
+      "properties": {
+        "display_name": "Content"
+      },
+      "seeding_key": {
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "tesstest"
+      }
+    },
+    {
+      "key": "lessonGroup-3",
+      "user_facing": true,
+      "position": 2,
+      "properties": {
+        "display_name": "Content"
+      },
+      "seeding_key": {
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "tesstest"
+      }
+    },
+    {
+      "key": "lessonGroup-4",
+      "user_facing": true,
+      "position": 3,
+      "properties": {
+        "display_name": "Content"
+      },
+      "seeding_key": {
+        "lesson_group.key": "lessonGroup-4",
+        "script.name": "tesstest"
+      }
+    }
+  ],
+  "lessons": [
+    {
+      "key": "Lesson 5",
+      "name": "translation missing: en-US.data.script.name.tesstest.lessons.Lesson 5.name",
+      "absolute_position": 1,
+      "lockable": false,
+      "relative_position": 1,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Lesson 5",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "tesstest"
+      }
+    },
+    {
+      "key": "Lesson 3",
+      "name": "translation missing: en-US.data.script.name.tesstest.lessons.Lesson 3.name",
+      "absolute_position": 2,
+      "lockable": false,
+      "relative_position": 2,
+      "properties": {
+        "creative_commons_license": "Creative Commons BY-NC-SA"
+      },
+      "seeding_key": {
+        "lesson.key": "Lesson 3",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "tesstest"
+      }
+    },
+    {
+      "key": "Lesson 1",
+      "name": "translation missing: en-US.data.script.name.tesstest.lessons.Lesson 1.name",
+      "absolute_position": 3,
+      "lockable": false,
+      "relative_position": 3,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Lesson 1",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "tesstest"
+      }
+    },
+    {
+      "key": "Lesson 2",
+      "name": "translation missing: en-US.data.script.name.tesstest.lessons.Lesson 2.name",
+      "absolute_position": 4,
+      "lockable": false,
+      "relative_position": 4,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Lesson 2",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "tesstest"
+      }
+    },
+    {
+      "key": "Lesson 4",
+      "name": "translation missing: en-US.data.script.name.tesstest.lessons.Lesson 4.name",
+      "absolute_position": 5,
+      "lockable": false,
+      "relative_position": 5,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Lesson 4",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "tesstest"
+      }
+    },
+    {
+      "key": "Lesson 7",
+      "name": "translation missing: en-US.data.script.name.tesstest.lessons.Lesson 7.name",
+      "absolute_position": 6,
+      "lockable": false,
+      "relative_position": 6,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Lesson 7",
+        "lesson_group.key": "lessonGroup-4",
+        "script.name": "tesstest"
+      }
+    },
+    {
+      "key": "Lesson 8",
+      "name": "translation missing: en-US.data.script.name.tesstest.lessons.Lesson 8.name",
+      "absolute_position": 7,
+      "lockable": false,
+      "relative_position": 7,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Lesson 8",
+        "lesson_group.key": "lessonGroup-4",
+        "script.name": "tesstest"
+      }
+    },
+    {
+      "key": "Lesson 9",
+      "name": "translation missing: en-US.data.script.name.tesstest.lessons.Lesson 9.name",
+      "absolute_position": 8,
+      "lockable": false,
+      "relative_position": 8,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Lesson 9",
+        "lesson_group.key": "lessonGroup-4",
+        "script.name": "tesstest"
+      }
+    }
+  ],
+  "script_levels": [
+
+  ],
+  "levels_script_levels": [
+
+  ]
+}

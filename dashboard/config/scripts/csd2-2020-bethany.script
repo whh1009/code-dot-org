@@ -1,0 +1,12 @@
+login_required true
+student_detail_progress_view true
+project_sharing true
+curriculum_umbrella 'CSD'
+tts true
+
+lesson_group 'lessonGroup-2', display_name: 'Content'
+lesson 'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Exploring Web Pages.name', display_name: 'Exploring Web Pages'
+level 'CSD Web Sample Pages_2020'
+
+lesson 'translation missing: en-US.data.script.name.csd2-2020-bethany.lessons.Intro to HTML.name', display_name: 'Intro to HTML'
+

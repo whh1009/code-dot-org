@@ -1,0 +1,284 @@
+{
+  "script": {
+    "name": "dani-csp4-20",
+    "wrapup_video_id": null,
+    "hidden": true,
+    "login_required": false,
+    "properties": {
+      "peer_reviews_to_complete": 0
+    },
+    "new_name": null,
+    "family_name": null,
+    "seeding_key": {
+      "script.name": "dani-csp4-20"
+    }
+  },
+  "lesson_groups": [
+    {
+      "key": "lessonGroup-2",
+      "user_facing": true,
+      "position": 1,
+      "properties": {
+        "display_name": "Variables"
+      },
+      "seeding_key": {
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "dani-csp4-20"
+      }
+    },
+    {
+      "key": "lessonGroup-3",
+      "user_facing": true,
+      "position": 2,
+      "properties": {
+        "display_name": "Conditionals"
+      },
+      "seeding_key": {
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "dani-csp4-20"
+      }
+    },
+    {
+      "key": "lessonGroup-4",
+      "user_facing": true,
+      "position": 3,
+      "properties": {
+        "display_name": "Functions"
+      },
+      "seeding_key": {
+        "lesson_group.key": "lessonGroup-4",
+        "script.name": "dani-csp4-20"
+      }
+    },
+    {
+      "key": "lessonGroup-5",
+      "user_facing": true,
+      "position": 4,
+      "properties": {
+        "display_name": "Project"
+      },
+      "seeding_key": {
+        "lesson_group.key": "lessonGroup-5",
+        "script.name": "dani-csp4-20"
+      }
+    }
+  ],
+  "lessons": [
+    {
+      "key": "Variables Explore",
+      "name": "Variables Explore",
+      "absolute_position": 1,
+      "lockable": false,
+      "relative_position": 1,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Variables Explore",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "dani-csp4-20"
+      }
+    },
+    {
+      "key": "Variables Investigate",
+      "name": "Variables Investigate",
+      "absolute_position": 2,
+      "lockable": false,
+      "relative_position": 2,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Variables Investigate",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "dani-csp4-20"
+      }
+    },
+    {
+      "key": "Variables Practice",
+      "name": "Variables Practice",
+      "absolute_position": 3,
+      "lockable": false,
+      "relative_position": 3,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Variables Practice",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "dani-csp4-20"
+      }
+    },
+    {
+      "key": "Variables Make",
+      "name": "Variables Make",
+      "absolute_position": 4,
+      "lockable": false,
+      "relative_position": 4,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Variables Make",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "dani-csp4-20"
+      }
+    },
+    {
+      "key": "Conditionals Explore",
+      "name": "Conditionals Explore",
+      "absolute_position": 5,
+      "lockable": false,
+      "relative_position": 5,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Conditionals Explore",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "dani-csp4-20"
+      }
+    },
+    {
+      "key": "Conditionals Investigate",
+      "name": "Conditionals Investigate",
+      "absolute_position": 6,
+      "lockable": false,
+      "relative_position": 6,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Conditionals Investigate",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "dani-csp4-20"
+      }
+    },
+    {
+      "key": "Conditionals Practice",
+      "name": "Conditionals Practice",
+      "absolute_position": 7,
+      "lockable": false,
+      "relative_position": 7,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Conditionals Practice",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "dani-csp4-20"
+      }
+    },
+    {
+      "key": "Conditionals Make",
+      "name": "Conditionals Make",
+      "absolute_position": 8,
+      "lockable": false,
+      "relative_position": 8,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Conditionals Make",
+        "lesson_group.key": "lessonGroup-3",
+        "script.name": "dani-csp4-20"
+      }
+    },
+    {
+      "key": "Functions Explore / Investigate",
+      "name": "Functions Explore / Investigate",
+      "absolute_position": 9,
+      "lockable": false,
+      "relative_position": 9,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Functions Explore / Investigate",
+        "lesson_group.key": "lessonGroup-4",
+        "script.name": "dani-csp4-20"
+      }
+    },
+    {
+      "key": "Functions Practice",
+      "name": "Functions Practice",
+      "absolute_position": 10,
+      "lockable": false,
+      "relative_position": 10,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Functions Practice",
+        "lesson_group.key": "lessonGroup-4",
+        "script.name": "dani-csp4-20"
+      }
+    },
+    {
+      "key": "Functions Make",
+      "name": "Functions Make",
+      "absolute_position": 11,
+      "lockable": false,
+      "relative_position": 11,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Functions Make",
+        "lesson_group.key": "lessonGroup-4",
+        "script.name": "dani-csp4-20"
+      }
+    },
+    {
+      "key": "Project - Part 1",
+      "name": "Project - Part 1",
+      "absolute_position": 12,
+      "lockable": false,
+      "relative_position": 12,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Project - Part 1",
+        "lesson_group.key": "lessonGroup-5",
+        "script.name": "dani-csp4-20"
+      }
+    },
+    {
+      "key": "Project - Part 2",
+      "name": "Project - Part 2",
+      "absolute_position": 13,
+      "lockable": false,
+      "relative_position": 13,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Project - Part 2",
+        "lesson_group.key": "lessonGroup-5",
+        "script.name": "dani-csp4-20"
+      }
+    },
+    {
+      "key": "Project - Part 3",
+      "name": "Project - Part 3",
+      "absolute_position": 14,
+      "lockable": false,
+      "relative_position": 14,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Project - Part 3",
+        "lesson_group.key": "lessonGroup-5",
+        "script.name": "dani-csp4-20"
+      }
+    },
+    {
+      "key": "Assessment Day",
+      "name": "Assessment Day",
+      "absolute_position": 15,
+      "lockable": false,
+      "relative_position": 15,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "Assessment Day",
+        "lesson_group.key": "lessonGroup-5",
+        "script.name": "dani-csp4-20"
+      }
+    }
+  ],
+  "script_levels": [
+
+  ],
+  "levels_script_levels": [
+
+  ]
+}

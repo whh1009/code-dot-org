@@ -1,0 +1,26 @@
+login_required true
+student_detail_progress_view true
+announcements [{"notice"=>"Test", "details"=>"test", "link"=>"", "type"=>"information", "visibility"=>"Teacher-only"}]
+version_year '2021'
+project_sharing true
+curriculum_umbrella 'CSD'
+tts true
+
+lesson_group 'lessonGroup-2', display_name: 'Lesson Group 1'
+lesson_group_description 'Here is lesson group 1'
+lesson_group_big_questions 'Big question'
+lesson 'Lesson 1', display_name: 'Lesson 1'
+
+lesson 'Lesson 2', display_name: 'Lesson 2'
+
+lesson 'Lesson 3', display_name: 'Lesson 3'
+
+lesson_group 'lessonGroup-3', display_name: 'Lesson Group2'
+lesson_group_description 'Lesson Group 2'
+lesson_group_big_questions 'Big Question'
+lesson 'Lesson Group 4', display_name: 'Lesson Group 4'
+
+lesson 'Lesson Group 5', display_name: 'Lesson Group 5'
+
+lesson 'Lesson Group 6', display_name: 'Lesson Group 6'
+

@@ -1,0 +1,52 @@
+{
+  "script": {
+    "name": "coursea-2020-new",
+    "wrapup_video_id": null,
+    "hidden": true,
+    "login_required": false,
+    "properties": {
+      "peer_reviews_to_complete": 0
+    },
+    "new_name": null,
+    "family_name": null,
+    "seeding_key": {
+      "script.name": "coursea-2020-new"
+    }
+  },
+  "lesson_groups": [
+    {
+      "key": "lessonGroup-2",
+      "user_facing": true,
+      "position": 1,
+      "properties": {
+        "display_name": "Content"
+      },
+      "seeding_key": {
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "coursea-2020-new"
+      }
+    }
+  ],
+  "lessons": [
+    {
+      "key": "translation missing: en-US.data.script.name.coursea-2020-new.lessons.translation missing: en-US.data.script.name.coursea-2020-new.lessons.Safety in My Online Neighborhood.name.name",
+      "name": "translation missing: en-US.data.script.name.coursea-2020-new.lessons.translation missing: en-US.data.script.name.coursea-2020-new.lessons.Safety in My Online Neighborhood.name.name",
+      "absolute_position": 1,
+      "lockable": false,
+      "relative_position": 1,
+      "properties": {
+      },
+      "seeding_key": {
+        "lesson.key": "translation missing: en-US.data.script.name.coursea-2020-new.lessons.translation missing: en-US.data.script.name.coursea-2020-new.lessons.Safety in My Online Neighborhood.name.name",
+        "lesson_group.key": "lessonGroup-2",
+        "script.name": "coursea-2020-new"
+      }
+    }
+  ],
+  "script_levels": [
+
+  ],
+  "levels_script_levels": [
+
+  ]
+}

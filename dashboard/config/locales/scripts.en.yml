@@ -19555,7 +19555,7 @@ en:
               name: Conditionals Practice
             Conditional Make:
               key: Conditional Make
-              name: Conditional Make
+              name: Conditionals Make
             Functions Explore / Investigate:
               key: Functions Explore / Investigate
               name: Functions Explore / Investigate
@@ -19567,16 +19567,16 @@ en:
               name: Functions Make
             Project - Decision Maker App Part 1:
               key: Project - Decision Maker App Part 1
-              name: Project - Decision Maker App Part 1
+              name: Project   Decision Maker App Part 1
             Project - Decision Maker App Part 2:
               key: Project - Decision Maker App Part 2
-              name: Project - Decision Maker App Part 2
+              name: Project   Decision Maker App Part 2
             Project - Decision Maker App Part 3:
               key: Project - Decision Maker App Part 3
-              name: Project - Decision Maker App Part 3
+              name: Project   Decision Maker App Part 3
             'Lesson 15: Assessment Day':
               key: 'Lesson 15: Assessment Day'
-              name: 'Lesson 15: Assessment Day'
+              name: Assessment Day
           lesson_groups:
             csp_variables:
               display_name: Variables
@@ -20162,7 +20162,7 @@ en:
               name: End of Course Project
           lesson_groups:
             ramp_up:
-              display_name: Ramp-Up
+              display_name: Ramp Up
             csf_sprites:
               display_name: Sprites
             csf_digcit:
@@ -20217,7 +20217,7 @@ en:
               name: Simulating Experiments
             AI for Oceans:
               key: AI for Oceans
-              name: AI for Oceans
+              name: AI For Oceans
             Internet:
               key: Internet
               name: The Internet
@@ -20241,7 +20241,7 @@ en:
               name: End of Course Project
           lesson_groups:
             ramp_up:
-              display_name: Ramp-Up
+              display_name: Ramp Up
             csf_digcit:
               display_name: Digital Citizenship
             csf_variables:
@@ -20290,7 +20290,7 @@ en:
               name: Snowflakes with Anna and Elsa
             'Looking Ahead with Minecraft ':
               key: 'Looking Ahead with Minecraft '
-              name: 'Looking Ahead with Minecraft '
+              name: Looking Ahead with Minecraft
             If/Else with Bee:
               key: If/Else with Bee
               name: If/Else with Bee
@@ -20347,7 +20347,7 @@ en:
               name: End of Course Project
           lesson_groups:
             csf_warmup:
-              display_name: Warm-Up
+              display_name: Warm Up
             csf_sequencing:
               display_name: Sequencing
             csf_loops:
@@ -20379,13 +20379,13 @@ en:
               name: Sequencing with Scrat
             Programming in with Angry Birds:
               key: Programming in with Angry Birds
-              name: Programming in with Angry Birds
+              name: Programming with Angry Birds
             Programming with Rey and BB-8:
               key: Programming with Rey and BB-8
               name: Programming with Rey and BB-8
             Programming in Harvester:
               key: Programming in Harvester
-              name: Programming in Harvester
+              name: Programming with Harvester
             Loops with Scrat:
               key: Loops with Scrat
               name: Loops with Scrat
