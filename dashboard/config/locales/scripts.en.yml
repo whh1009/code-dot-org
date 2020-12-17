@@ -17166,6 +17166,7 @@ en:
               name: Project - Designing an App Part 5
             'Lesson 11: Assessment Day':
               name: 'Lesson 11: Assessment Day'
+          name: csp3-2020
         csp6-2020:
           title: CSP Unit 6 - Algorithms ('20-'21)
           description_audience: ''
@@ -19227,7 +19228,7 @@ en:
               name: Market Research
             Paper Prototypes:
               key: Paper Prototypes
-              name: Paper Prototypes
+              name: Build a Paper Prototype
             Prototype Testing:
               key: Prototype Testing
               name: Prototype Testing
