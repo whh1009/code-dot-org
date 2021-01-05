@@ -1,0 +1,19 @@
+{
+  "name": "grasshopper",
+  "aliases": [
+    "animal",
+    "bug",
+    "insect",
+    "grasshopper"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 290,
+    "y": 397
+  },
+  "looping": true,
+  "frameDelay": 2
+}

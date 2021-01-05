@@ -1,0 +1,19 @@
+{
+  "name": "dragonfly",
+  "aliases": [
+    "animal",
+    "bug",
+    "insect",
+    "dragonfly"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 399,
+    "y": 209
+  },
+  "looping": true,
+  "frameDelay": 2
+}

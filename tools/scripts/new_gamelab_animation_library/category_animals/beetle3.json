@@ -1,0 +1,20 @@
+{
+  "name": "beetle3",
+  "aliases": [
+    "animal",
+    "bug",
+    "insect",
+    "beetle",
+    "purple"
+  ],
+  "categories": [
+    "animals"
+  ],
+  "frameCount": 1,
+  "frameSize": {
+    "x": 400,
+    "y": 203
+  },
+  "looping": true,
+  "frameDelay": 2
+}
