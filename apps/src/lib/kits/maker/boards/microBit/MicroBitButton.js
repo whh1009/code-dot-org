@@ -11,6 +11,8 @@ export default function MicroBitButton(board) {
   this.holdTimer = null;
   this.board.mb.addFirmataEventListener((sourceID, eventID) => {
     if (this.board.pin === sourceID) {
+      console.log('eventID');
+      console.log(eventID);
       this.buttonEvents[eventID]++;
       if (eventID === 1) {
         this.emit('down');
