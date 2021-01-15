@@ -57,6 +57,14 @@ class Foorm::LibraryQuestion < ApplicationRecord
     end
   end
 
+  def self.formatted_library_questions(library_name, library_version)
+    library_questions = Foorm::LibraryQuestion.where(library_name: library_name, library_version: library_version)
+
+    {}.tap do |fl|
+      fl['pages'] = library_questions.map {|lq| JSON.parse(lq.question)}
+    end
+  end
+
   def validate_library_question
     Foorm::Form.validate_element(JSON.parse(question).deep_symbolize_keys, Set.new)
   rescue StandardError => e

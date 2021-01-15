@@ -503,6 +503,8 @@ Dashboard::Application.routes.draw do
       end
 
       post 'foorm/form_with_library_items', action: :fill_in_library_items, controller: 'foorm'
+      get 'foorm/library_questions', action: :get_library_questions, controller: 'foorm'
+      # Make this more specific so it only matches IDs (caught library question route until moved above)
       get 'foorm/form/:id', action: :get_form_data, controller: 'foorm'
       get 'foorm/submissions_csv', action: :get_submissions_as_csv, controller: 'foorm'
       get 'foorm/form_names', action: :get_form_names_and_versions, controller: 'foorm'
@@ -750,6 +752,7 @@ Dashboard::Application.routes.draw do
   get 'foorm/preview', to: 'foorm_preview#index'
 
   get 'foorm/editor', to: 'foorm_editor#index', constraints: {name: /.*/}
+  get 'foorm/library_editor', to: 'foorm_library_editor#index'
 
   post '/safe_browsing', to: 'safe_browsing#safe_to_open', defaults: {format: 'json'}
 

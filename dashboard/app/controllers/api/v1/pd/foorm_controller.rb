@@ -29,6 +29,24 @@ class Api::V1::Pd::FoormController < ApplicationController
     end
   end
 
+  # GET api/v1/pd/foorm/library_questions
+  def get_library_questions
+    puts params
+    library_questions = Foorm::LibraryQuestion.formatted_library_questions(params[:library_name], params[:library_version])
+    if library_questions
+      data_to_return = {
+        question: library_questions,
+        published: true,
+        name: 'test',
+        version: 0,
+        id: 1
+      }
+      render json: data_to_return
+    else
+      render json: {}
+    end
+  end
+
   # GET api/v1/pd/foorm/form_names
   def get_form_names_and_versions
     forms = Foorm::Form.all.map do |form|
