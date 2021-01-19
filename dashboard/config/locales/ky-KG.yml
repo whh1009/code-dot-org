@@ -168,6 +168,7 @@ ky:
     form_labels:
       email: Эмейл
       school_city: Мектеп жайгашкан шаар
+      colombian_school_city: Мектеп жайгашкан шаар
     form_entries:
       subjects:
         cs: Информатика
@@ -182,6 +183,4 @@ ky:
       email_opt_in:
         opt_in_yes: Ооба
         opt_in_no: Жок
-  gdpr_dialog:
-    true: Ооба
   copy: Көчүрүү
