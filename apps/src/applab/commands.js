@@ -158,13 +158,10 @@ function reportUnsafeHtml(removed, unsafe, safe, warnings) {
 }
 
 applabCommands.check = function(opts) {
-  if (!!opts.predicate) {
-    // check passes
-    console.log('success!');
-  } else {
-    // check fails
-    outputWarning(opts.msg);
+  if (!Applab.checkResults) {
+    Applab.checkResults = [];
   }
+  Applab.checkResults.push({description: opts.msg, pass: !!opts.predicate});
 };
 
 applabCommands.container = function(opts) {

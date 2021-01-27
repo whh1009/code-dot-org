@@ -1270,7 +1270,10 @@ Applab.execute = function() {
   }
   codeWhenRun += studioApp().getCode();
   codeWhenRun +=
-    '\n check(myFavoriteNumber != 11, "myFavoriteNumber didnt change")\n';
+    '\n check(myFavoriteNumber != 11, "myFavoriteNumber is not 11")\n';
+  codeWhenRun +=
+    '\n check(myFavoriteFood != "pizza", "myFavoriteFood is not pizza")\n';
+  Applab.checkResults = [];
   Applab.currentExecutionLog = [];
 
   if (typeof codeWhenRun === 'string') {
@@ -1522,6 +1525,7 @@ Applab.onPuzzleFinish = function() {
 };
 
 Applab.onPuzzleComplete = function(submit) {
+  console.log(Applab.checkResults);
   const sourcesUnchanged = !studioApp().validateCodeChanged();
   if (Applab.executionError) {
     Applab.result = ResultType.ERROR;
