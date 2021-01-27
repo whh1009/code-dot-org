@@ -157,6 +157,16 @@ function reportUnsafeHtml(removed, unsafe, safe, warnings) {
   outputWarning(msg);
 }
 
+applabCommands.check = function(opts) {
+  if (!!opts.predicate) {
+    // check passes
+    console.log('success!');
+  } else {
+    // check fails
+    outputWarning(opts.msg);
+  }
+};
+
 applabCommands.container = function(opts) {
   if (opts.elementId) {
     apiValidateDomIdExistence(opts, 'container', 'id', opts.elementId, false);

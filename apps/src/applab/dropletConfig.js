@@ -78,6 +78,11 @@ var ID_DROPDOWN_PARAM_0 = {
 
 export var blocks = [
   {
+    func: 'check',
+    parent: api,
+    category: 'Variables'
+  },
+  {
     func: 'onEvent',
     parent: api,
     category: 'UI controls',

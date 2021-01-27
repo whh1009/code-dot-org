@@ -1,5 +1,9 @@
 // APIs needed for droplet (keep in sync with apiBlockly.js):
 
+export function check(predicate, msg) {
+  return Applab.executeCmd(null, 'check', {predicate: predicate, msg: msg});
+}
+
 export function container(elementId, html) {
   return Applab.executeCmd(null, 'container', {
     elementId: elementId,

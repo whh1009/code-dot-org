@@ -1269,6 +1269,8 @@ Applab.execute = function() {
       '\n';
   }
   codeWhenRun += studioApp().getCode();
+  codeWhenRun +=
+    '\n check(myFavoriteNumber != 11, "myFavoriteNumber didnt change")\n';
   Applab.currentExecutionLog = [];
 
   if (typeof codeWhenRun === 'string') {
