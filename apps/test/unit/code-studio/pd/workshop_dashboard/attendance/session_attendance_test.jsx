@@ -6,6 +6,7 @@ import {SessionAttendance} from '@cdo/apps/code-studio/pd/workshop_dashboard/att
 import Spinner from '@cdo/apps/code-studio/pd/components/spinner';
 import {COURSE_CSF} from '@cdo/apps/code-studio/pd/workshop_dashboard/workshopConstants';
 import Permission from '@cdo/apps/code-studio/pd/workshop_dashboard/permission';
+import {allowConsoleWarnings} from '../../../../../util/testUtils';
 
 const FAKE_WORKSHOP_ID = 11;
 const FAKE_SESSION_ID = 22;
@@ -69,6 +70,7 @@ const FAKE_API_RESPONSE = {
 };
 
 describe('SessionAttendance', () => {
+  allowConsoleWarnings();
   let server;
 
   beforeEach(() => {

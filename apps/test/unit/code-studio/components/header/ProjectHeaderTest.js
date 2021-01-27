@@ -8,13 +8,18 @@ import headerReducer, {
 } from '@cdo/apps/code-studio/headerRedux';
 
 import {expect} from '../../../../util/reconfiguredChai';
-import {replaceOnWindow, restoreOnWindow} from '../../../../util/testUtils';
+import {
+  replaceOnWindow,
+  restoreOnWindow,
+  allowConsoleWarnings
+} from '../../../../util/testUtils';
 
 import ProjectImport from '@cdo/apps/code-studio/components/header/ProjectImport';
 import ProjectExport from '@cdo/apps/code-studio/components/header/ProjectExport';
 import ProjectHeader from '@cdo/apps/code-studio/components/header/ProjectHeader';
 
 describe('ProjectHeader', () => {
+  allowConsoleWarnings();
   let store;
   beforeEach(() => {
     replaceOnWindow('appOptions', {

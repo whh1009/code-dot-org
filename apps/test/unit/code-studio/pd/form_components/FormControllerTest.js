@@ -4,6 +4,7 @@ import React from 'react';
 import {expect} from 'chai';
 import {mount} from 'enzyme';
 import sinon from 'sinon';
+import {allowConsoleWarnings} from '../../../../util/testUtils';
 
 class DummyPage1 extends FormComponent {
   static associatedFields = [];
@@ -51,6 +52,7 @@ describe('FormController', () => {
   });
 
   describe('Standard usage', () => {
+    allowConsoleWarnings();
     let form;
     beforeEach(() => {
       form = mount(

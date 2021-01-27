@@ -4,6 +4,7 @@ import {mount} from 'enzyme';
 import {expect} from '../../../../util/reconfiguredChai';
 
 import Pairing from '@cdo/apps/code-studio/components/pairing/Pairing.jsx';
+import {allowConsoleWarnings} from '../../../../util/testUtils';
 
 describe('Pairing component', function() {
   function createDomElement() {
@@ -34,6 +35,7 @@ describe('Pairing component', function() {
   }
 
   describe('handles http errors', () => {
+    allowConsoleWarnings();
     let server, component;
     afterEach(function() {
       teardownFakeAjax(server);

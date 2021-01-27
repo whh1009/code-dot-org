@@ -5,7 +5,11 @@ import {createStore, combineReducers} from 'redux';
 import {mount} from 'enzyme';
 
 import {expect} from '../../../../util/reconfiguredChai';
-import {replaceOnWindow, restoreOnWindow} from '../../../../util/testUtils';
+import {
+  replaceOnWindow,
+  restoreOnWindow,
+  allowConsoleWarnings
+} from '../../../../util/testUtils';
 
 import headerReducer, {
   refreshProjectName
@@ -13,6 +17,7 @@ import headerReducer, {
 import EditableProjectName from '@cdo/apps/code-studio/components/header/EditableProjectName';
 
 describe('EditableProjectName', () => {
+  allowConsoleWarnings();
   let currentName;
   beforeEach(() => {
     currentName = 'Brand New Project';

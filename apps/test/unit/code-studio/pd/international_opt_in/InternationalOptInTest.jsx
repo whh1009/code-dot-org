@@ -2,6 +2,7 @@ import React from 'react';
 import {mount} from 'enzyme';
 import {expect} from '../../../../util/reconfiguredChai';
 import InternationalOptIn from '@cdo/apps/code-studio/pd/international_opt_in/InternationalOptIn';
+import {allowConsoleWarnings} from '../../../../util/testUtils';
 
 describe('InternationalOptInTest', () => {
   const defaultProps = {
@@ -56,6 +57,7 @@ describe('InternationalOptInTest', () => {
   };
 
   describe('Colombian school interface', () => {
+    allowConsoleWarnings();
     it('requires you to select a country before enabling school name and city inputs', () => {
       const wrapper = mount(<InternationalOptIn {...defaultProps} />);
       const inputIds = ['schoolName', 'schoolCity'];

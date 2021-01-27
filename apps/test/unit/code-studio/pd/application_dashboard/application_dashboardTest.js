@@ -6,6 +6,7 @@ import {
   UNMATCHED_PARTNER_LABEL,
   ALL_PARTNERS_LABEL
 } from '@cdo/apps/code-studio/pd/components/regional_partner_dropdown';
+import {allowConsoleWarnings} from '../../../../util/testUtils';
 
 describe('ApplicationDashboard', () => {
   const getReduxStateFor = ({regionalPartners, isWorkshopAdmin}) => {
@@ -23,6 +24,7 @@ describe('ApplicationDashboard', () => {
   };
 
   describe('heading/title initially', () => {
+    allowConsoleWarnings();
     afterEach(() => {
       sessionStorage.removeItem('regionalPartnerFilter');
     });

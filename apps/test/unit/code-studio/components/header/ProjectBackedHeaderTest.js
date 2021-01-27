@@ -11,8 +11,10 @@ import {expect} from '../../../../util/reconfiguredChai';
 
 import ProjectExport from '@cdo/apps/code-studio/components/header/ProjectExport';
 import ProjectBackedHeader from '@cdo/apps/code-studio/components/header/ProjectBackedHeader';
+import {allowConsoleWarnings} from '../../../../util/testUtils';
 
 describe('ProjectHeader', () => {
+  allowConsoleWarnings();
   let store;
   beforeEach(() => {
     store = createStore(combineReducers({header: headerReducer}));

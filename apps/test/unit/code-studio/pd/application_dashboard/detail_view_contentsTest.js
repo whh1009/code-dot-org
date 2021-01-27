@@ -9,8 +9,13 @@ import _ from 'lodash';
 import sinon from 'sinon';
 import {expect} from '../../../../util/reconfiguredChai';
 import {mount} from 'enzyme';
+import {
+  allowConsoleErrors,
+  allowConsoleWarnings
+} from '../../../../util/testUtils';
 
 describe('DetailViewContents', () => {
+  allowConsoleWarnings();
   // We aren't testing any of the responses of the workshop selector control, so just
   // have a fake server to handle calls and suppress warnings
   sinon.fakeServer.create();
@@ -88,6 +93,8 @@ describe('DetailViewContents', () => {
   };
 
   describe('Notes', () => {
+    allowConsoleErrors();
+    allowConsoleWarnings();
     it('Uses default value for facilitator applications with no notes', () => {
       const facilitatorDetailView = mountDetailView('Facilitator', {
         applicationData: {notes: ''}
@@ -115,6 +122,7 @@ describe('DetailViewContents', () => {
   const applicationType = 'Facilitator';
 
   describe('Edit controls in Facilitator', () => {
+    allowConsoleWarnings();
     it(`allows for a subset of statuses to be locked`, () => {
       const detailView = mountDetailView(applicationType);
 
@@ -196,6 +204,7 @@ describe('DetailViewContents', () => {
 
   for (const applicationType of expectedTestData) {
     describe('Admin edit dropdown', () => {
+      allowConsoleWarnings();
       it('Is not visible to regional partners', () => {
         const detailView = mountDetailView(applicationType, {
           isWorkshopAdmin: false

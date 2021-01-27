@@ -3,8 +3,10 @@ import React from 'react';
 import {mount} from 'enzyme';
 import SoundLibrary from '@cdo/apps/code-studio/components/SoundLibrary';
 import sinon from 'sinon';
+import {allowConsoleWarnings} from '../../../util/testUtils';
 
 describe('SoundListEntry', () => {
+  allowConsoleWarnings();
   it('stops playing sound when user chooses a sound', () => {
     const wrapper = mount(<SoundLibrary assetChosen={() => true} />);
     wrapper.setState({

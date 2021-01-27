@@ -3,8 +3,10 @@ import {mount} from 'enzyme';
 import {assert} from 'chai';
 import sinon from 'sinon';
 import EndWorkshopPanel from '@cdo/apps/code-studio/pd/workshop_dashboard/EndWorkshopPanel';
+import {allowConsoleWarnings} from '../../../../util/testUtils';
 
 describe('EndWorkshopPanel', () => {
+  allowConsoleWarnings();
   let server, loadWorkshop;
 
   beforeEach(() => {
