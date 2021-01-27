@@ -170,6 +170,16 @@ function validateReport(report) {
           validateType('feedback', value, 'string');
         }
         break;
+      case 'passingChecks':
+        if (value) {
+          validateType('passingChecks', value, 'string');
+        }
+        break;
+      case 'failingChecks':
+        if (value) {
+          validateType('failingChecks', value, 'string');
+        }
+        break;
       default:
         // Eventually we'd probably prefer to throw here, but I don't have enough
         // confidence that this validation is 100% correct to start breaking things
@@ -238,7 +248,9 @@ reporting.sendReport = function(report) {
     'timeSinceLastMilestone',
     'lines',
     'attempt',
-    'image'
+    'image',
+    'passingChecks',
+    'failingChecks'
   ];
 
   validateReport(report);

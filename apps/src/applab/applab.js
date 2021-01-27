@@ -1613,6 +1613,14 @@ Applab.onPuzzleComplete = function(submit) {
         level: level.id,
         result: levelComplete,
         testResult: Applab.testResults,
+        passingChecks: Applab.checkResults
+          .filter(x => x.pass)
+          .map(x => x.description)
+          .join(','),
+        failingChecks: Applab.checkResults
+          .filter(x => !x.pass)
+          .map(x => x.description)
+          .join(','),
         submitted: submit,
         program: encodeURIComponent(program),
         image: Applab.encodedFeedbackImage,
