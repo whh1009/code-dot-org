@@ -14,6 +14,13 @@
     levelbuilder.initializeCodeMirror('level_log_conditions', 'javascript');
 
 .field
+  = f.label 'Unit Tests'
+  Unit tests are executed in the context of the student code when Run is clicked right after student code is run. Results are sent to the server and displayed only to teachers.
+  = f.text_area 'unit_tests', placeholder: 'Put tests here', rows: 4, value: @level.unit_tests ? @level.unit_tests : ''
+  :javascript
+    levelbuilder.initializeCodeMirror('level_unit_tests', 'javascript');
+
+.field
   = render partial: 'levels/editors/fields/checkboxes', locals: {f: f, field_name: 'fail_on_lint_errors', description: "Fail on lint errors"}
   %p
     Lint warnings and errors (in the editor's gutter area) will prevent the student from continuing when the Finish button is pressed.

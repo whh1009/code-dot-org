@@ -40,6 +40,7 @@ class Applab < Blockly
     start_html
     submittable
     log_conditions
+    unit_tests
     data_tables
     data_properties
     data_library_tables
