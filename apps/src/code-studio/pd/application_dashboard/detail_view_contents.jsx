@@ -248,7 +248,7 @@ export class DetailViewContents extends React.Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if (
       this.props.applicationData.application_type ===
         ApplicationTypes.facilitator &&

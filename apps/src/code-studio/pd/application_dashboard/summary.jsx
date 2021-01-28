@@ -31,13 +31,13 @@ export class Summary extends React.Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.regionalPartnerFilter !== nextProps.regionalPartnerFilter) {
-      this.load(nextProps.regionalPartnerFilter);
+  componentDidUpdate(prevProps) {
+    if (this.props.regionalPartnerFilter !== prevProps.regionalPartnerFilter) {
+      this.load(this.props.regionalPartnerFilter);
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.load(this.props.regionalPartnerFilter);
   }
 

@@ -21,7 +21,7 @@ export default class ApplicationLoader extends React.Component {
     loading: true
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.load();
   }
 

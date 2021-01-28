@@ -40,13 +40,13 @@ class CohortView extends React.Component {
     applications: null
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.load(this.props.regionalPartnerFilter);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.regionalPartnerFilter !== nextProps.regionalPartnerFilter) {
-      this.load(nextProps.regionalPartnerFilter);
+  componentDidUpdate(prevProps) {
+    if (this.props.regionalPartnerFilter !== prevProps.regionalPartnerFilter) {
+      this.load(this.props.regionalPartnerFilter);
     }
   }
 
