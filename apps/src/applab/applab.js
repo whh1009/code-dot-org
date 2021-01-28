@@ -1269,11 +1269,12 @@ Applab.execute = function() {
       '\n';
   }
   codeWhenRun += studioApp().getCode();
-  codeWhenRun +=
-    '\n check(myFavoriteNumber != 11, "myFavoriteNumber is not 11")\n';
-  codeWhenRun +=
-    '\n check(myFavoriteFood != "pizza", "myFavoriteFood is not pizza")\n';
-  Applab.checkResults = [];
+
+  if (level.unitTests) {
+    codeWhenRun += '\n' + level.unitTests;
+    Applab.checkResults = [];
+  }
+
   Applab.currentExecutionLog = [];
 
   if (typeof codeWhenRun === 'string') {
@@ -1526,7 +1527,8 @@ Applab.onPuzzleFinish = function() {
 
 Applab.onPuzzleComplete = function(submit) {
   const sourcesUnchanged = !studioApp().validateCodeChanged();
-  const checkFail = Applab.checkResults.some(i => i.pass === false);
+  const checkFail =
+    Applab.checkResults && Applab.checkResults.some(i => i.pass === false);
   if (Applab.executionError) {
     Applab.result = ResultType.ERROR;
   } else if (sourcesUnchanged) {
@@ -1614,14 +1616,6 @@ Applab.onPuzzleComplete = function(submit) {
         result: levelComplete,
         testResult: Applab.testResults,
         checkResults: JSON.stringify(Applab.checkResults),
-        passingChecks: Applab.checkResults
-          .filter(x => x.pass)
-          .map(x => x.description)
-          .join(','),
-        failingChecks: Applab.checkResults
-          .filter(x => !x.pass)
-          .map(x => x.description)
-          .join(','),
         submitted: submit,
         program: encodeURIComponent(program),
         image: Applab.encodedFeedbackImage,
