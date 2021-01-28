@@ -53,7 +53,20 @@ const styles = {
   },
   studentResults: {
     backgroundColor: '#ffffff',
-    marginBottom: '10px'
+    margin: '10px',
+    maxHeight: '200px',
+    overflow: 'auto'
+  },
+  studentResultsHeader: {
+    marginBottom: '8px',
+    fontWeight: 'bold',
+    textDecoration: 'underline'
+  },
+  studentResultIcons: {
+    padding: '0 5px',
+    fontSize: '16px',
+    marginTop: '2px',
+    marginRight: '5px'
   }
 };
 
@@ -80,7 +93,8 @@ class TeacherPanel extends React.Component {
     }),
     scriptHasLockableStages: PropTypes.bool.isRequired,
     unlockedStageNames: PropTypes.arrayOf(PropTypes.string).isRequired,
-    students: PropTypes.arrayOf(studentShape)
+    students: PropTypes.arrayOf(studentShape),
+    currentResults: PropTypes.array
   };
 
   logToFirehose = (eventName, overrideData = {}) => {
@@ -146,11 +160,6 @@ class TeacherPanel extends React.Component {
 
     const sectionId = selectedSection && selectedSection.id;
 
-    const studentResults = [
-      {description: 'favorite number is not 11', pass: false},
-      {description: 'my favorite food is not pizza', pass: true}
-    ];
-
     return (
       <TeacherPanelContainer logToFirehose={this.logToFirehose}>
         <h3>{i18n.teacherPanel()}</h3>
@@ -208,21 +217,24 @@ class TeacherPanel extends React.Component {
               )}
             </div>
           )}
-          {viewAs === ViewType.Teacher && (
+          {viewAs === ViewType.Teacher && this.props.currentResults && (
             <div style={{...styles.sectionInfo, ...styles.studentResults}}>
-              Student results...
-              {studentResults.map(result => {
+              <div style={styles.studentResultsHeader}>Auto-validation</div>
+              {this.props.currentResults.map(result => {
                 return (
-                  <div style={{display: 'flex'}}>
+                  <div
+                    style={{display: 'flex', textAlign: 'left'}}
+                    key={result.description}
+                  >
                     {result.pass ? (
                       <FontAwesome
                         icon="check-circle"
-                        style={{padding: '0 1px'}}
+                        style={{...styles.studentResultIcons, color: 'green'}}
                       />
                     ) : (
                       <FontAwesome
                         icon="minus-circle"
-                        style={{padding: '0 1px'}}
+                        style={{...styles.studentResultIcons, color: 'red'}}
                       />
                     )}
                     <div>{result.description}</div>
@@ -301,6 +313,10 @@ export default connect(state => {
   const scriptHasLockableStages =
     lockableAuthorized && hasLockableStages(state.progress);
 
+  const currentResults =
+    state.progress.checkResults &&
+    state.progress.checkResults[state.progress.currentLevelId];
+
   return {
     viewAs: state.viewAs,
     hasSections: sectionIds.length > 0,
@@ -308,6 +324,7 @@ export default connect(state => {
     scriptHasLockableStages,
     selectedSection: state.teacherSections.sections[selectedSectionId],
     unlockedStageNames: unlockedStageIds.map(id => stageNames[id]),
-    students: state.teacherSections.selectedStudents
+    students: state.teacherSections.selectedStudents,
+    currentResults: currentResults
   };
 })(TeacherPanel);

@@ -147,7 +147,6 @@ module UsersHelper
         paired_user_levels: paired_user_levels
       )
     end
-
     user_data
   end
 
@@ -228,7 +227,8 @@ module UsersHelper
           paired: (paired_user_levels.include? ul.try(:id)) ? true : nil,
           locked: locked ? true : nil,
           last_progress_at: include_timestamp ? ul&.updated_at&.to_i : nil,
-          time_spent: ul&.time_spent&.to_i
+          time_spent: ul&.time_spent&.to_i,
+          check_results: ul&.check_results ? JSON.parse(ul.check_results) : nil
         }.compact
 
         # Just in case this level has multiple pages, in which case we add an additional

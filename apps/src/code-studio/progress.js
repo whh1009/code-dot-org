@@ -17,6 +17,7 @@ import {TestResults} from '@cdo/apps/constants';
 import {
   initProgress,
   mergeProgress,
+  mergeCheckResults,
   disablePostMilestone,
   setIsHocScript,
   setIsAge13Required,
@@ -125,6 +126,12 @@ progress.generateStageProgress = function(
       _.mapValues(progressData.levels, level =>
         level.submitted ? TestResults.SUBMITTED_RESULT : level.result
       )
+    )
+  );
+
+  store.dispatch(
+    mergeCheckResults(
+      _.mapValues(progressData.levels, level => level.check_results)
     )
   );
 
@@ -330,6 +337,7 @@ function initializeStoreWithProgress(
 
   // We should use client state XOR database state to track user progress
   if (!store.getState().progress.usingDbProgress) {
+    console.log(clientState.allLevelsProgress()[scriptData.name]);
     store.dispatch(
       mergeProgress(clientState.allLevelsProgress()[scriptData.name] || {})
     );

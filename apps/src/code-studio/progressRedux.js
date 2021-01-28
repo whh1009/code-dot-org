@@ -16,6 +16,7 @@ import {authorizeLockable} from './stageLockRedux';
 export const INIT_PROGRESS = 'progress/INIT_PROGRESS';
 const CLEAR_PROGRESS = 'progress/CLEAR_PROGRESS';
 const MERGE_PROGRESS = 'progress/MERGE_PROGRESS';
+const MERGE_CHECK_RESULTS = 'progress/MERGE_CHECK_RESULTS';
 const MERGE_PEER_REVIEW_PROGRESS = 'progress/MERGE_PEER_REVIEW_PROGRESS';
 const UPDATE_FOCUS_AREAS = 'progress/UPDATE_FOCUS_AREAS';
 const SHOW_TEACHER_INFO = 'progress/SHOW_TEACHER_INFO';
@@ -51,6 +52,7 @@ const initialState = {
   // The remaining fields do change after initialization
   // a mapping of level id to result
   levelProgress: {},
+  checkResults: {},
   focusAreaStageIds: [],
   peerReviewLessonInfo: null,
   peerReviewsPerformed: [],
@@ -140,6 +142,14 @@ export default function reducer(state = initialState, action) {
     return {
       ...state,
       levelProgress: newLevelProgress
+    };
+  }
+
+  // this is an overwrite not merge so this is wrong
+  if (action.type === MERGE_CHECK_RESULTS) {
+    return {
+      ...state,
+      checkResults: action.checkResults
     };
   }
 
@@ -437,6 +447,11 @@ export const useDbProgress = () => ({
 export const mergeProgress = levelProgress => ({
   type: MERGE_PROGRESS,
   levelProgress
+});
+
+export const mergeCheckResults = checkResults => ({
+  type: MERGE_CHECK_RESULTS,
+  checkResults
 });
 
 export const overwriteProgress = levelProgress => ({
