@@ -17,6 +17,10 @@
   = f.label 'Unit Tests'
   Unit tests are executed in the context of the student code when Run is clicked right after student code is run. Results are sent to the server and displayed only to teachers.
   = f.text_area 'unit_tests', placeholder: 'Put tests here', rows: 4, value: @level.unit_tests ? @level.unit_tests : ''
+  - if @level.unit_tests_gist_id
+    %a{href: "https://gist.github.com/#{@level.unit_tests_gist_id}/revisions", target: '_blank', rel:'noopener noreferrer'}
+      Version History
+
   :javascript
     levelbuilder.initializeCodeMirror('level_unit_tests', 'javascript');
 

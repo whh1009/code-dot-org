@@ -26,7 +26,7 @@
 require 'cdo/shared_constants'
 
 class Applab < Blockly
-  before_save :update_json_fields, :validate_maker_if_needed
+  before_save :update_json_fields, :validate_maker_if_needed, :write_unit_tests_to_github
 
   serialized_attrs %w(
     free_play
@@ -40,7 +40,7 @@ class Applab < Blockly
     start_html
     submittable
     log_conditions
-    unit_tests
+    unit_tests_gist_id
     data_tables
     data_properties
     data_library_tables
@@ -58,6 +58,47 @@ class Applab < Blockly
     libraries_enabled
     validation_enabled
   )
+
+  # rubocop:disable all
+  def unit_tests
+    return nil if unit_tests_gist_id.nil?
+
+    client = Octokit::Client.new(access_token: CDO.github_access_token)
+    response = client.gist(unit_tests_gist_id)
+    response.files['unit_tests.js'].content
+  end
+
+  def unit_tests=(value)
+    @unit_tests = value
+  end
+
+  def write_unit_tests_to_github
+    # TODO: Can't delete unit tests
+    return if @unit_tests.nil_or_empty?
+
+    # Only post to github if something changed
+    # (Normalize newlines b/c newlines get mangled in the round-trip somehow)
+    current_value = unit_tests
+    return if current_value && normalize_newlines(@unit_tests) == (normalize_newlines(current_value))
+
+    client = Octokit::Client.new(access_token: CDO.github_access_token)
+    request_params = {
+      :description => "#{name} (id=#{id})",
+      :files => {'unit_tests.js' => {:content => @unit_tests}}
+    }
+    if unit_tests_gist_id.nil?
+      response = client.create_gist(request_params)
+      properties['unit_tests_gist_id'] = response.id
+    else
+      response = client.edit_gist(unit_tests_gist_id, request_params)
+      # TODO: Anything we need to check in the response?
+    end
+  end
+
+  def normalize_newlines(s)
+    s.encode(s.encoding, universal_newline: true)
+  end
+  #rubocop: enable all
 
   # List of possible skins, the first is used as a default.
   def self.skins

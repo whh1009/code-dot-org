@@ -246,6 +246,7 @@ class LevelsController < ApplicationController
     end
 
     @level.assign_attributes(level_params)
+    @level.unit_tests = level_params[:unit_tests]
     @level.log_changes(current_user)
 
     if @level.save
@@ -407,6 +408,7 @@ class LevelsController < ApplicationController
       :published,
       :title,
       :description,
+      :unit_tests,
       {poems: []},
       {concept_ids: []},
       {level_concept_difficulty_attributes: [:id] + LevelConceptDifficulty::CONCEPTS},
