@@ -187,7 +187,8 @@ class ActivitiesController < ApplicationController
         submitted: params[:submitted] == 'true',
         level_source_id: @level_source.try(:id),
         pairing_user_ids: pairing_user_ids,
-        time_spent: time_since_last_milestone
+        time_spent: time_since_last_milestone,
+        check_results: params[:checkResults]
       )
 
       is_sublevel = !@script_level.levels.include?(@level)
