@@ -170,14 +170,9 @@ function validateReport(report) {
           validateType('feedback', value, 'string');
         }
         break;
-      case 'passingChecks':
+      case 'checkResults':
         if (value) {
           validateType('passingChecks', value, 'string');
-        }
-        break;
-      case 'failingChecks':
-        if (value) {
-          validateType('failingChecks', value, 'string');
         }
         break;
       default:
@@ -249,8 +244,7 @@ reporting.sendReport = function(report) {
     'lines',
     'attempt',
     'image',
-    'passingChecks',
-    'failingChecks'
+    'checkResults'
   ];
 
   validateReport(report);
