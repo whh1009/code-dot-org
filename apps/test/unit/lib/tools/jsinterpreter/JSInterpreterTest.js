@@ -315,7 +315,7 @@ setCallback(function(message) {
             enableEvents: false,
             ...config(allDone)
           });
-          expect(() => jsInterpreter.executeInterpreter(true)).to.throwError;
+          expect(() => jsInterpreter.executeInterpreter(true)).to.throw();
           expect(lastCallback).to.be.null;
           expect(allDone).not.to.have.been.called;
         });
