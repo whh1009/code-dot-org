@@ -1126,6 +1126,7 @@ Applab.reset = function() {
   if (jsInterpreterLogger) {
     jsInterpreterLogger.detach();
   }
+  consoleApi.clearLogHistory();
 
   Applab.storage.resetRecordListener();
 

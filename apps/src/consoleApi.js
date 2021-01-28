@@ -3,8 +3,11 @@ var vsprintf = require('sprintf-js').vsprintf;
 var consoleApi = module.exports;
 var logMethod = function() {};
 
+var logHistory = [];
+
 consoleApi.setLogMethod = function(newLogMethod) {
   logMethod = newLogMethod;
+  logHistory = [];
 };
 
 consoleApi.log = function() {
@@ -23,5 +26,14 @@ consoleApi.log = function() {
       }
     }
   }
+  logHistory.push(output);
   logMethod(output);
+};
+
+consoleApi.getLogHistory = function() {
+  return logHistory;
+};
+
+consoleApi.clearLogHistory = function() {
+  logHistory = [];
 };

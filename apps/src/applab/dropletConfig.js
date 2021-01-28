@@ -83,6 +83,11 @@ export var blocks = [
     category: 'Variables'
   },
   {
+    func: 'checkLog',
+    parent: api,
+    category: 'Variables'
+  },
+  {
     func: 'onEvent',
     parent: api,
     category: 'UI controls',

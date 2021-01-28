@@ -4,6 +4,10 @@ export function check(predicate, msg) {
   return Applab.executeCmd(null, 'check', {predicate: predicate, msg: msg});
 }
 
+export function checkLog(value, msg) {
+  return Applab.executeCmd(null, 'checkLog', {value: value, msg: msg});
+}
+
 export function container(elementId, html) {
   return Applab.executeCmd(null, 'container', {
     elementId: elementId,
