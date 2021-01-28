@@ -50,6 +50,10 @@ const styles = {
   },
   teacherDashboardLink: {
     fontSize: 11
+  },
+  studentResults: {
+    backgroundColor: '#ffffff',
+    marginBottom: '10px'
   }
 };
 
@@ -142,6 +146,11 @@ class TeacherPanel extends React.Component {
 
     const sectionId = selectedSection && selectedSection.id;
 
+    const studentResults = [
+      {description: 'favorite number is not 11', pass: false},
+      {description: 'my favorite food is not pizza', pass: true}
+    ];
+
     return (
       <TeacherPanelContainer logToFirehose={this.logToFirehose}>
         <h3>{i18n.teacherPanel()}</h3>
@@ -197,6 +206,29 @@ class TeacherPanel extends React.Component {
                   {i18n.teacherDashboard()}
                 </a>
               )}
+            </div>
+          )}
+          {viewAs === ViewType.Teacher && (
+            <div style={{...styles.sectionInfo, ...styles.studentResults}}>
+              Student results...
+              {studentResults.map(result => {
+                return (
+                  <div style={{display: 'flex'}}>
+                    {result.pass ? (
+                      <FontAwesome
+                        icon="check-circle"
+                        style={{padding: '0 1px'}}
+                      />
+                    ) : (
+                      <FontAwesome
+                        icon="minus-circle"
+                        style={{padding: '0 1px'}}
+                      />
+                    )}
+                    <div>{result.description}</div>
+                  </div>
+                );
+              })}
             </div>
           )}
           {hasSections &&

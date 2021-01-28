@@ -170,6 +170,11 @@ function validateReport(report) {
           validateType('feedback', value, 'string');
         }
         break;
+      case 'checkResults':
+        if (value) {
+          validateType('passingChecks', value, 'string');
+        }
+        break;
       case 'passingChecks':
         if (value) {
           validateType('passingChecks', value, 'string');
@@ -249,6 +254,7 @@ reporting.sendReport = function(report) {
     'lines',
     'attempt',
     'image',
+    'checkResults',
     'passingChecks',
     'failingChecks'
   ];

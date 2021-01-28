@@ -1734,7 +1734,7 @@ class User < ApplicationRecord
 
   # The synchronous handler for the track_level_progress helper.
   # @return [UserLevel]
-  def self.track_level_progress(user_id:, level_id:, script_id:, new_result:, submitted:, level_source_id:, pairing_user_ids: nil, is_navigator: false, time_spent: nil)
+  def self.track_level_progress(user_id:, level_id:, script_id:, new_result:, submitted:, level_source_id:, pairing_user_ids: nil, is_navigator: false, time_spent: nil, check_results: nil)
     new_level_completed = false
     new_csf_level_perfected = false
 
@@ -1771,6 +1771,7 @@ class User < ApplicationRecord
 
       total_time_spent = user_level.calculate_total_time_spent(time_spent)
       user_level.time_spent = total_time_spent if total_time_spent
+      user_level.check_results = check_results if check_results
 
       user_level.atomic_save!
     end

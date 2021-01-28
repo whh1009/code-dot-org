@@ -1613,6 +1613,7 @@ Applab.onPuzzleComplete = function(submit) {
         level: level.id,
         result: levelComplete,
         testResult: Applab.testResults,
+        checkResults: JSON.stringify(Applab.checkResults),
         passingChecks: Applab.checkResults
           .filter(x => x.pass)
           .map(x => x.description)

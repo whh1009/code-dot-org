@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_26_021131) do
+ActiveRecord::Schema.define(version: 2021_01_28_000250) do
 
   create_table "activities", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.integer "user_id"
@@ -466,7 +466,7 @@ ActiveRecord::Schema.define(version: 2021_01_26_021131) do
     t.index ["name", "version"], name: "index_foorm_forms_on_name_and_version", unique: true
   end
 
-  create_table "foorm_libraries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+  create_table "foorm_libraries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name", null: false
     t.integer "version", null: false
     t.boolean "published", null: false
@@ -572,7 +572,7 @@ ActiveRecord::Schema.define(version: 2021_01_26_021131) do
     t.index ["resource_id", "lesson_id"], name: "index_lessons_resources_on_resource_id_and_lesson_id"
   end
 
-  create_table "lessons_vocabularies", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+  create_table "lessons_vocabularies", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.bigint "lesson_id", null: false
     t.bigint "vocabulary_id", null: false
     t.index ["lesson_id", "vocabulary_id"], name: "index_lessons_vocabularies_on_lesson_id_and_vocabulary_id", unique: true
@@ -1687,6 +1687,7 @@ ActiveRecord::Schema.define(version: 2021_01_26_021131) do
     t.boolean "readonly_answers"
     t.datetime "unlocked_at"
     t.integer "time_spent"
+    t.string "check_results"
     t.index ["user_id", "level_id", "script_id"], name: "index_user_levels_on_user_id_and_level_id_and_script_id", unique: true
   end
 
@@ -1876,7 +1877,7 @@ ActiveRecord::Schema.define(version: 2021_01_26_021131) do
     t.index ["key", "locale"], name: "index_videos_on_key_and_locale", unique: true
   end
 
-  create_table "vocabularies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+  create_table "vocabularies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "key", null: false
     t.string "word", null: false
     t.text "definition", null: false
