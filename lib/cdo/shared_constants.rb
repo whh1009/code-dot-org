@@ -274,6 +274,7 @@ module SharedConstants
       "removeItem": null,
       "join": null,
       "check": null,
+      "checkLog": null,
 
       // Functions
       "functionParams_none": null,

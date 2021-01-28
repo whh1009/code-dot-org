@@ -26,6 +26,7 @@ import {actions, REDIRECT_RESPONSE} from './redux/applab';
 import {getStore} from '../redux';
 import $ from 'jquery';
 import i18n from '@cdo/applab/locale';
+import consoleApi from '../consoleApi';
 
 // For proxying non-https xhr requests
 var XHR_PROXY_PATH = '//' + location.host + '/xhr';
@@ -158,10 +159,15 @@ function reportUnsafeHtml(removed, unsafe, safe, warnings) {
 }
 
 applabCommands.check = function(opts) {
-  if (!Applab.checkResults) {
-    Applab.checkResults = [];
-  }
   Applab.checkResults.push({description: opts.msg, pass: !!opts.predicate});
+};
+
+applabCommands.checkLog = function(opts) {
+  const logHistory = consoleApi.getLogHistory() || [];
+  Applab.checkResults.push({
+    description: opts.msg,
+    pass: logHistory.includes(opts.value)
+  });
 };
 
 applabCommands.container = function(opts) {

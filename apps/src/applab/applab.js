@@ -1126,6 +1126,7 @@ Applab.reset = function() {
   if (jsInterpreterLogger) {
     jsInterpreterLogger.detach();
   }
+  consoleApi.clearLogHistory();
 
   Applab.storage.resetRecordListener();
 
@@ -1527,13 +1528,9 @@ Applab.onPuzzleFinish = function() {
 
 Applab.onPuzzleComplete = function(submit) {
   const sourcesUnchanged = !studioApp().validateCodeChanged();
-  const checkFail =
-    Applab.checkResults && Applab.checkResults.some(i => i.pass === false);
   if (Applab.executionError) {
     Applab.result = ResultType.ERROR;
   } else if (sourcesUnchanged) {
-    Applab.result = ResultType.FAILURE;
-  } else if (checkFail) {
     Applab.result = ResultType.FAILURE;
   } else {
     // In most cases, submit all results as success
@@ -1556,8 +1553,6 @@ Applab.onPuzzleComplete = function(submit) {
     Applab.message = results.message;
   } else if (sourcesUnchanged) {
     Applab.testResults = TestResults.FREE_PLAY_UNCHANGED_FAIL;
-  } else if (checkFail) {
-    Applab.testResults = TestResults.LOG_CONDITION_FAIL;
   } else if (!submit) {
     Applab.testResults = TestResults.FREE_PLAY;
   } else {
