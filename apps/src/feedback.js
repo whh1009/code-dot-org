@@ -797,11 +797,6 @@ FeedbackUtils.prototype.getFeedbackMessage = function(options) {
       case TestResults.LOG_CONDITION_FAIL:
         message =
           options.level.levelIncompleteError || msg.levelIncompleteError();
-        if (Applab.checkResults.find(x => !x.pass)) {
-          message = Applab.checkResults
-            .map(x => `${x.description}: ${x.pass ? '\u2714' : '\u2718'}`)
-            .join('\n');
-        }
         break;
       case TestResults.EXTRA_TOP_BLOCKS_FAIL:
         var hasWhenRun = Blockly.mainBlockSpace
