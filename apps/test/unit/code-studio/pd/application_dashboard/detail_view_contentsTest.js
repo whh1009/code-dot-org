@@ -9,10 +9,7 @@ import _ from 'lodash';
 import sinon from 'sinon';
 import {expect} from '../../../../util/reconfiguredChai';
 import {mount} from 'enzyme';
-import {
-  allowConsoleErrors,
-  allowConsoleWarnings
-} from '../../../../util/testUtils';
+import {allowConsoleWarnings} from '../../../../util/testUtils';
 
 describe('DetailViewContents', () => {
   allowConsoleWarnings();
@@ -93,7 +90,6 @@ describe('DetailViewContents', () => {
   };
 
   describe('Notes', () => {
-    allowConsoleErrors();
     allowConsoleWarnings();
     it('Uses default value for facilitator applications with no notes', () => {
       const facilitatorDetailView = mountDetailView('Facilitator', {
