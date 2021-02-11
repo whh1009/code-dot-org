@@ -375,12 +375,20 @@ function getSingleton() {
 }
 
 function putRecord(data, options) {
+  if (IN_UNIT_TEST) {
+    // The only valid use of this in units tests is through a stub
+    return;
+  }
   getSingleton().then(firehoseClient =>
     firehoseClient.putRecord(data, options)
   );
 }
 
 function putRecordBatch(data, options) {
+  if (IN_UNIT_TEST) {
+    // The only valid use of this in units tests is through a stub
+    return;
+  }
   getSingleton().then(firehoseClient =>
     firehoseClient.putRecordBatch(data, options)
   );
